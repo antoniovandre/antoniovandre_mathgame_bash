@@ -337,8 +337,7 @@ done
 
   fi
 
-  if [ "${AVLOG}" == "1" ] && [ "${AVSTATS}" == "1" ] && ls "${ARQUIVOLOG}" 1>> /dev/null 2>> /dev/null; then bash antoniovandre_echo_android "Construindo arquivo de estatísticas... " n
-; echo "Arquivo de estatísticas do jogo." > "${ARQUIVOSTATS}"; echo "_____" >> "${ARQUIVOSTATS}"; echo "Total de respostas: ${TOTALRESPOSTAS}." >> "${ARQUIVOSTATS}"; echo "Total de acertos: ${NUMEROACERTOS}." >> "${ARQUIVOSTATS}"; echo "Total de erros: ${NUMEROERROS}." >> "${ARQUIVOSTATS}"; echo "Percentual de acerto: ${PERCENTUALACERTO} %." >> "${ARQUIVOSTATS}"; echo "Percentual de erro: ${PERCENTUALERRO} %." >> "${ARQUIVOSTATS}"; echo -ne "${AV_VERDE}"; bash antoniovandre_echo_android "Concluído" n; echo -ne "${AV_SEMCOR}"; echo "."; fi
+  if [ "${AVLOG}" == "1" ] && [ "${AVSTATS}" == "1" ] && ls "${ARQUIVOLOG}" 1>> /dev/null 2>> /dev/null; then bash antoniovandre_echo_android "Construindo arquivo de estatísticas... " n; echo "Arquivo de estatísticas do jogo." > "${ARQUIVOSTATS}"; echo "_____" >> "${ARQUIVOSTATS}"; echo "Total de respostas: ${TOTALRESPOSTAS}." >> "${ARQUIVOSTATS}"; echo "Total de acertos: ${NUMEROACERTOS}." >> "${ARQUIVOSTATS}"; echo "Total de erros: ${NUMEROERROS}." >> "${ARQUIVOSTATS}"; echo "Percentual de acerto: ${PERCENTUALACERTO} %." >> "${ARQUIVOSTATS}"; echo "Percentual de erro: ${PERCENTUALERRO} %." >> "${ARQUIVOSTATS}"; echo -ne "${AV_VERDE}"; bash antoniovandre_echo_android "Concluído" n; echo -ne "${AV_SEMCOR}"; echo "."; fi
 
   if [ "${AVLOG}" == "1" ] && ls "${ARQUIVOLOG}" 1>> /dev/null 2>> /dev/null; then bash antoniovandre_echo_android "Convertendo arquivo log para o formato DOS... " n; unix2dos "${ARQUIVOLOG}" 1>> /dev/null 2>> /dev/null; echo -ne "${AV_VERDE}"; bash antoniovandre_echo_android "Concluído" n; echo -ne "${AV_SEMCOR}"; echo "."; fi
 
