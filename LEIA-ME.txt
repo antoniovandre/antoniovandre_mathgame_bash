@@ -1,0 +1,12 @@
+Projeto Mathematical Ramblings.
+
+mathematicalramblings.blogspot.com
+____________________
+
+Execute o software com o comando "bash antoniovandre_mathgame".
+
+Se o seu ambiente não é capaz de produzir sons, execute com "bash antoniovandre_mathgame_nosound".
+
+Se você não é usuário Linux, você pode instalar no seu sistema operacional um shell BASH.
+
+Licença de uso e compartilhamento: Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA).

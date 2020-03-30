@@ -1,0 +1,354 @@
+# Projeto Mathematical Ramblings (mathematicalramblings.blogspot.com).
+
+# Script de um simples jogo de Matemática, para Android.
+
+# Licença: Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA).
+
+# Última atualização: 30-03-2020.
+
+# while [ "${LINGUA}" != "p" ] &&  [ "${LINGUA}" != "e" ]; do echo "Entre com \"p\" para português."; echo "Enter with \"e\" for english."; read LINGUA; done
+
+LINGUA="e"
+
+case "${LINGUA}" in
+  "p")
+    NOTFOUND="não encontrado"
+
+    ERRORLOADCOLOR="Ocorreu um erro ao carregar o arquivo de cores"
+
+    MATHGAME="Jogo de Matemática"
+
+    VERSION="Versão"
+
+    INSTRUCOES="Digite \"SAIR\" para sair, \"+A\" para incrementar o número de argumentos, \"-A\" para diminuir o número de argumentos, \"+D\" para incrementar o número de casas decimais, \"-D\" para diminuir o número de casas decimais, \"+N\" para aumentar o limite superior dos números, \"-N\" para reduzir o limite superior dos números, \"T\" para ativar tempo, \"t\" para desativar tempo, \"+T\" para aumentar o tempo, ou \"-T\" para reduzir o tempo."
+
+    ROUNDWITH="arredondado com"
+
+    DECIMALPLACES="casas decimais"
+
+    DECIMALPLACE="casa decimal"
+
+    HOWMUCH="Quanto é"
+
+    AOVERFLOW="O número de argumentos já está no limite máximo."
+
+    ABOTTOM="O número de argumentos já está no limite mínimo."
+
+    ANOW="Agora o número de argumentos é"
+
+    DOVERFLOW="O número de casas decimais já está no limite máximo."
+
+    DBOTTOM="O número de casas decimais já está no limite mínimo."
+
+    DNOW="Agora o número de casas decimais é"
+
+    NOVERFLOW="A magnitude dos números já está no limite máximo."
+
+    NBOTTOM="A magnitude dos números já está no limite mínimo."
+
+    NNOW="Agora o valor máximo é"
+
+    TOVERFLOW="O tempo já está no valor máximo."
+
+    TBOTTOM="O tempo já está no valor mínimo."
+
+    TNOW="Agora o tempo está setado em"
+
+    TVNOW="Agora o limite de tempo é"
+
+    CORRECT="Acertou"
+
+    WRONG="Errou"
+
+    TIMELIMITOF="Tempo limite de"
+
+    SECONDSREACHED="segundos atingido"
+
+    TIMEALREADYACTIVATED="O tempo já está ativado."
+
+    TIMEALREADYDEACTIVATED="O tempo já está desativado."
+
+    THANKS="Muito obrigado por apreciar este game."
+  ;;
+  "e")
+    NOTFOUND="not found"
+
+    ERRORLOADCOLOR="There was an error loading the color file"
+
+    MATHGAME="Game of Mathematics"
+
+    VERSION="Version"
+
+    INSTRUCOES="Type \"SAIR\" to exit, \"+A\" to increase the number of arguments, \"-A\" to decrease the number of arguments, \"+D\" to increase the number of decimal places, \"-D\" to decrease the number of decimal places, \"+N\" to increase the upper limit of the numbers, \"-N\" to reduce the upper limit of the numbers, \"T\" to activated time, \"t\" to deactivate time, \"+T\" to increase time, or \"-T\" to reduce time."
+
+    ROUNDWITH="rounding with"
+
+    DECIMALPLACES="decimal places"
+
+    DECIMALPLACE="decimal place"
+
+    HOWMUCH="How much is"
+
+    AOVERFLOW="The number of arguments is already in the ceiling. "
+
+    ABOTTOM="The number of arguments is already in the minimum."
+
+    ANOW="Now the number of arguments is"
+
+    DOVERFLOW="The number of decimal places is already in the ceiling."
+
+    DBOTTOM="The number of decimal places is already in the minimum."
+
+    DNOW="Now the number of decimal places is"
+
+    NOVERFLOW="The magnitude of the numbers is already in the ceiling."
+
+    NBOTTOM="The magnitude of the numbers is already in the minimum."
+
+    NNOW="Now the maximum value is"
+
+    TOVERFLOW="Time already in max value."
+
+    TBOTTOM="Time already in minimun value."
+
+    TNOW="Now the time is set to"
+
+    TVNOW="Now the time limit is"
+
+    CORRECT="Correct answer"
+
+    WRONG="Wrong answer"
+
+    TIMELIMITOF="Time limit of"
+
+    SECONDSREACHED="seconds reached"
+
+    TIMEALREADYACTIVATED="Time already activated."
+
+    TIMEALREADYDEACTIVATED="Time already deactivated."
+
+    THANKS="Very thank You for appreciate this game."
+  ;;
+  *) ;;
+esac
+
+if ! hash bash 1>> /dev/null 2>> /dev/null; then echo "BASH ${NOTFOUND}."; exit 1; fi
+
+if ! hash bc 1>> /dev/null 2>> /dev/null; then echo "\"bc\" ${NOTFOUND}."; exit 1; fi
+
+# if ! hash play 1>> /dev/null 2>> /dev/null; then echo "\"play\" ${NOTFOUND}."; exit 1; fi
+
+if ! hash unix2dos 1>> /dev/null 2>> /dev/null; then echo "\"unix2dos\" ${NOTFOUND}."; exit 1; fi
+
+if ! hash gnuplot 1>> /dev/null 2>> /dev/null; then echo "Gnuplot ${NOTFOUND}."; exit 1; fi
+
+if ! ls "antoniovandre_echo_android_nosound" 1>> /dev/null 2>> /dev/null; then echo "\"antoniovandre_echo_android_nosound\" ${NOTFOUND}."; exit 1; fi
+
+if ! [ -n "$AVCORES" ]; then if ! source "antoniovandre_cores_android"; then echo "${ERRORLOADCOLOR}."; fi; fi
+
+NUMEROMAXIMOARGUMENTOS="10"
+MAXIMOCASASDECIMAIS="5"
+MAXMAXVALUE="1024"
+MINMAXVALUE="8"
+MAXTIME="60"
+MINTIME="10"
+AVSOUND="0"
+ARQUIVOSOMACERTO="antoniovandre_mathgame_correct.mp3"
+ARQUIVOSOMERRO="antoniovandre_mathgame_error.mp3"
+AVLOG="1"
+ARQUIVOLOG="antoniovandre_mathgame_log.txt"
+AVGRAFICOS="1"
+ARQUIVOGNUPLOTDATA="antoniovandre_mathgame_log_gnuplot.dat"
+ARQUIVOGNUPLOTDATA2="antoniovandre_mathgame_log_gnuplot_2.dat"
+ARQUIVOGNUPLOTDATA3="antoniovandre_mathgame_log_gnuplot_3.dat"
+ARQUIVOGRAFICO="antoniovandre_mathgame_log.png"
+ARQUIVOGRAFICOPIZZA="antoniovandre_mathgame_log_pizza.png"
+ARQUIVOGRAFICOTEMPO="antoniovandre_mathgame_log_tempo.png"
+ARQUIVOGRAFICOTEMPOANUAL="antoniovandre_mathgame_log_tempo_anual.png"
+AVSTATS="1"
+ARQUIVOSTATS="antoniovandre_mathgame_log_stats.txt"
+
+AVTEMPO="0"
+LIMITETEMPO="20"
+MAXVALUE="32"
+CASASDECIMAIS="1"
+NUMEROARGUMENTOS="2"
+
+RESPOSTAUSUARIO=""
+
+cat "Mathematical Ramblings - ascii art - 40.txt"
+
+bash antoniovandre_echo_android_nosound "Projeto Mathematical Ramblings."
+
+echo ""
+
+bash antoniovandre_echo_android_nosound "mathematicalramblings.blogspot.com"
+
+echo ""
+
+bash antoniovandre_echo_android_nosound "${MATHGAME}."
+
+echo ""
+
+bash antoniovandre_echo_android_nosound "${VERSION} 30-03-2020."
+
+echo ""
+
+echo "${INSTRUCOES}"
+
+echo ""
+
+while ! [  "${RESPOSTAUSUARIO}" == "SAIR" ]; do
+
+  SEED=$(date +%s)
+  SEED=$(echo "${SEED} % 1000" | bc)
+
+  MAXVALUERED=$(echo "${MAXVALUE} / 4" | bc)
+
+  FATOR=$(echo "10 ^ ${CASASDECIMAIS}" | bc)
+
+  OPS=$(for I in $(seq 1 $(echo "${NUMEROARGUMENTOS} - 1" | bc)); do case $(echo "(${SEED} * $I) % 4" | bc) in 0) echo -n "+";; 1) echo -n "-";; 2) echo -n "x";; 3) echo -n "/";; *) ;; esac; if [ "${I}" -lt $(echo "${NUMEROARGUMENTOS} - 1" | bc) ]; then echo -n ","; fi; done)
+
+  if [ "${OPS}" != "$(echo -n ${OPS} | tr 'x' ' ')" ] || [ "${OPS}" != "$(echo -n ${OPS} | tr '/' ' ')" ]; then VARVALUE=$MAXVALUERED; else VARVALUE=$MAXVALUE; fi
+
+  PARENTESES=$(if [ "${NUMEROARGUMENTOS}" -gt "2" ]; then TEMP="0"; TEMP2="0"; for I in $(seq 1 "${NUMEROARGUMENTOS}"); do if [ "$TEMP" -lt $(echo  "${NUMEROARGUMENTOS} - ${I}" | bc) ]; then case $(echo "(${SEED} * $I) % 3" | bc) in 0) echo -n "("; TEMP=$(echo "${TEMP} + 1" | bc);; 1) if [ "$TEMP" -gt "0" ]; then echo -n ")"; TEMP=$(echo "${TEMP} - 1" | bc); fi;; 2) ;; *) ;; esac; else if [ "$TEMP" -gt "0" ]; then if [ $(echo "($SEED+ $TEMP2) % 2" | bc) == "0" ]; then echo -n ")"; TEMP=$(echo "${TEMP} - 1" | bc); else TEMP2="1"; fi; fi; fi; if [ "${I}" -lt "${NUMEROARGUMENTOS}" ]; then echo -n ","; fi; done; fi)
+
+  ARGS=$(for I in $(seq 1 "${NUMEROARGUMENTOS}"); do TEMP2=$(awk "BEGIN{print ${SEED} * (${I} + ${SEED}) / ${FATOR}}"); if [ "$(echo -n '${OPS}' | cut -d ',' -f $I)" == "/" ] && [ $(awk "BEGIN{print ${TEMP2} % ${VARVALUE}}") == "0" ]; then TEMP=$(echo "${TEMP2} + 1" | bc); else TEMP=$TEMP2; fi; awk "BEGIN{print ${TEMP2} % ${VARVALUE}}" | tr "\n" ","; done)
+
+  QUESTAO="$(for I in $(seq 1 "${NUMEROARGUMENTOS}"); do TEMP=$(echo -n "${PARENTESES}" | cut -d "," -f "${I}"); if [ "${TEMP}" == "(" ]; then echo -n "${TEMP}"; fi; if [ "${TEMP}" == ")" ]; then echo -n "${ARGS}" | cut -d "," -f "${I}" | tr -d "\n"; else echo -n "${ARGS}" | cut -d "," -f "${I}"; fi; if [ "${TEMP}" == ")" ]; then echo -n "${TEMP}"; fi; if [ "${I}" -lt "${NUMEROARGUMENTOS}" ]; then if [ "${TEMP}" == ")" ]; then echo -n " "; fi; echo -n "${OPS}" | cut -d "," -f "${I}"; fi; done)"
+
+  RESPOSTABRUTA=$(echo $QUESTAO | tr "x" "*" | bc -l)
+
+  TEMP=$(LC_NUMERIC="en_US.UTF-8" printf "%.${CASASDECIMAIS}f" "${RESPOSTABRUTA}")
+
+  TEMP2=$(echo "${TEMP} * ${FATOR}" | bc)
+
+  RESPOSTATEMP1=${TEMP2%.*}
+
+  RESPOSTATEMP2=$(awk "BEGIN{print ${RESPOSTABRUTA} * ${FATOR}}")
+
+  if ! [ "${RESPOSTATEMP1}" == "${RESPOSTATEMP2}" ]; then if ! [ "${CASASDECIMAIS}" == "1" ]; then QUESTAODECIMAL=", ${ROUNDWITH} ${CASASDECIMAIS} ${DECIMALPLACES}"; else QUESTAODECIMAL=", ${ROUNDWITH} 1 ${DECIMALPLACE}"; fi; else QUESTAODECIMAL=""; fi
+
+  RESPOSTA=$(awk "BEGIN{print ${RESPOSTATEMP1} / ${FATOR}}")
+
+  PERGUNTA=$(echo "${HOWMUCH} ${QUESTAO}${QUESTAODECIMAL}?" | tr "\n" " ")
+
+  bash antoniovandre_echo_android_nosound "${PERGUNTA}"
+
+  if [ "${AVTEMPO}" == "1" ]; then if ! read -t  $LIMITETEMPO RESPOSTAUSUARIO 1>> /dev/null 2>> /dev/null; then echo "${TIMELIMITOF} ${LIMITETEMPO} ${SECONDSREACHED}."; continue; fi; else read RESPOSTAUSUARIO; fi
+
+  case "${RESPOSTAUSUARIO}" in
+    "+A") if [ "${NUMEROARGUMENTOS}" -lt "${NUMEROMAXIMOARGUMENTOS}" ]; then NUMEROARGUMENTOS=$(echo "${NUMEROARGUMENTOS} + 1" | bc); bash antoniovandre_echo_android_nosound "${ANOW} ${NUMEROARGUMENTOS}."; else bash antoniovandre_echo_android_nosound "${AOVERFLOW}"; fi; continue;;
+    "-A") if ! [ "${NUMEROARGUMENTOS}" == "2" ]; then NUMEROARGUMENTOS=$(echo "${NUMEROARGUMENTOS} - 1" | bc); bash antoniovandre_echo_android_nosound "${ANOW} ${NUMEROARGUMENTOS}."; else bash antoniovandre_echo_android_nosound "${ABOTTOM}"; fi; continue;;
+    "+D") if [ "${CASASDECIMAIS}" -lt "${MAXIMOCASASDECIMAIS}" ]; then CASASDECIMAIS=$(echo "${CASASDECIMAIS} + 1" | bc); bash antoniovandre_echo_android_nosound "${DNOW} ${CASASDECIMAIS}."; else bash antoniovandre_echo_android_nosound "${DOVERFLOW}"; fi; continue;;
+    "-D") if ! [ "${CASASDECIMAIS}" == "0" ]; then CASASDECIMAIS=$(echo "${CASASDECIMAIS} - 1" | bc); bash antoniovandre_echo_android_nosound "${DNOW} ${CASASDECIMAIS}."; else bash antoniovandre_echo_android_nosound "${DBOTTOM}"; fi; continue;;
+    "+N") if [ $(echo "${MAXVALUE} * 2" | bc) -lt $MAXMAXVALUE ]; then MAXVALUE=$(echo "${MAXVALUE} * 5" | bc); bash antoniovandre_echo_android_nosound "${NNOW} ${MAXVALUE}."; else bash antoniovandre_echo_android_nosound "${NOVERFLOW}"; fi; continue;;
+    "-N") if [ "${MAXVALUE}" -gt "${MINMAXVALUE}" ]; then MAXVALUE=$(echo "${MAXVALUE} / 2" | bc); bash antoniovandre_echo_android_nosound "${NNOW} ${MAXVALUE}."; else bash antoniovandre_echo_android_nosound "${NBOTTOM}"; fi; continue;;
+    "T") if [ "${AVTEMPO}" == "0" ]; then AVTEMPO="1"; bash antoniovandre_echo_android_nosound "${TNOW} ${AVTEMPO}."; else bash antoniovandre_echo_android_nosound "${TIMEALREADYACTIVATED}"; fi;;
+    "t") if [ "${AVTEMPO}" == "1" ]; then AVTEMPO="0"; bash antoniovandre_echo_android_nosound "${TNOW} ${AVTEMPO}."; else bash antoniovandre_echo_android_nosound "${TIMEALREADYDEACTIVATED}"; fi; continue;;
+    "+T") if [ "${LIMITETEMPO}" -lt "${MAXTIME}" ]; then LIMITETEMPO=$(echo "${LIMITETEMPO} + 10" | bc); bash antoniovandre_echo_android_nosound "${TVNOW} ${LIMITETEMPO}."; else bash antoniovandre_echo_android_nosound "${TOVERFLOW}"; fi; continue;;
+    "-T") if [ "${LIMITETEMPO}" -gt "${MINTIME}" ]; then LIMITETEMPO=$(echo "${LIMITETEMPO} - 10" | bc); bash antoniovandre_echo_android_nosound "${TVNOW} ${LIMITETEMPO}."; else bash antoniovandre_echo_android_nosound "${TBOTTOM}"; fi; continue;;
+    "SAIR") break;;
+    "${RESPOSTA}") if [ "${AVLOG}" == "1" ]; then echo "_____" >> "${ARQUIVOLOG}"; LANG=en_us_88591 date >> "${ARQUIVOLOG}"; echo "Pergunta: ${PERGUNTA}" >> "${ARQUIVOLOG}"; echo "Resposta: ${RESPOSTAUSUARIO}" >> "${ARQUIVOLOG}"; echo "Eval: acertou." >> "${ARQUIVOLOG}"; fi; echo -e "${AV_VERDE}${CORRECT}${AV_SEMCOR}."; if [ "${AVSOUND}" == "1" ]; then play "${ARQUIVOSOMACERTO}" 1>> /dev/null 2>> /dev/null; fi;;
+    *) if [ "${AVLOG}" == "1" ]; then echo "_____" >> "${ARQUIVOLOG}"; LANG=en_us_88591 date >> "${ARQUIVOLOG}"; echo "Pergunta: ${PERGUNTA}" >> "${ARQUIVOLOG}"; echo "Resposta: ${RESPOSTAUSUARIO}" >> "${ARQUIVOLOG}"; echo "Eval: errou." >> "${ARQUIVOLOG}"; fi; echo -e "${AV_VERMELHO}${WRONG}${AV_SEMCOR}."; if [ "${AVSOUND}" == "1" ]; then play "${ARQUIVOSOMERRO}" 1>> /dev/null 2>> /dev/null; fi;;
+  esac
+
+done
+
+  if [ "${AVLOG}" == "1" ] && [ "${AVGRAFICOS}" == "1" ]; then
+
+    bash antoniovandre_echo_android_nosound "Construindo os gráficos. Isto pode demorar um pouco... " n
+
+    CHARPROGRESS=""
+
+    NUMEROACERTOS=$(cat "${ARQUIVOLOG}" | grep "Eval: acertou." | wc -l)
+
+    case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
+
+     NUMEROERROS=$(cat "${ARQUIVOLOG}" | grep "Eval: errou." | wc -l)
+
+    echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
+
+    TOTALRESPOSTAS=$(echo "${NUMEROACERTOS} + ${NUMEROERROS}" | bc)
+
+    echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
+
+    PERCENTUALACERTO=$(echo "100 * ${NUMEROACERTOS} / ${TOTALRESPOSTAS}" | bc -l)
+
+    echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
+
+    PERCENTUALERRO=$(echo "100 * ${NUMEROERROS} / ${TOTALRESPOSTAS}" | bc -l)
+
+    echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
+
+    echo "1 Acertos ${NUMEROACERTOS} 2" > "${ARQUIVOGNUPLOTDATA}"
+
+    echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
+
+    echo "2 Erros ${NUMEROERROS} 7" >> "${ARQUIVOGNUPLOTDATA}"
+
+    echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
+
+    rm "${ARQUIVOGNUPLOTDATA2}" 1>> /dev/null 2>> /dev/null
+
+    echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
+
+    FLAG="0"
+
+    while read -r LINHA; do echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"; if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ "${FLAG}" == "0" ]; then DATA=$LINHA; CONTADOR="0"; FLAG="1"; fi; if [ $(echo "${DATA}" | cut -d " " -f 2) ==  $(echo "${LINHA}" | cut -d " " -f 2) ] && [ $(echo "${DATA}" | cut -d " " -f 3) ==  $(echo "${LINHA}" | cut -d " " -f 3) ] && [ $(echo "${DATA}" | cut -d " " -f 6) ==  $(echo "${LINHA}" | cut -d " " -f 6) ]; then CONTADOR=$(echo "${CONTADOR} + 1" | bc); else FLAG="0"; DATA2=$LINHA; echo -n "$(echo ${DATA} | cut -d ' ' -f 3)$(echo ${DATA} | cut -d ' ' -f 2)$(echo ${DATA} | cut -d ' ' -f 6)" | tr -d " " | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA2}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA2}"; fi; fi; done < "${ARQUIVOLOG}"; if [ "${FLAG}" == "0" ]; then echo -n "$(echo ${DATA2} | cut -d ' ' -f 3)$(echo ${DATA2} | cut -d ' ' -f 2)$(echo ${DATA2} | cut -d ' ' -f 6)" | tr -d " " | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA2}"; echo " 1" >> "${ARQUIVOGNUPLOTDATA2}"; else if ! [ "${DATA2}" == "${DATA}" ]; then echo -n "$(echo ${DATA} | cut -d ' ' -f 3)$(echo ${DATA} | cut -d ' ' -f 2)$(echo ${DATA} | cut -d ' ' -f 6)" | tr -d " " | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA2}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA2}"; fi; fi
+
+    echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
+
+    rm "${ARQUIVOGNUPLOTDATA3}" 1>> /dev/null 2>> /dev/null
+
+    echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
+
+    FLAG="0"
+
+    while read -r LINHA; do echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"; if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ "${FLAG}" == "0" ]; then DATA=$LINHA; CONTADOR="0"; FLAG="1"; fi; if [ $(echo "${DATA}" | cut -d " " -f 6) ==  $(echo "${LINHA}" | cut -d " " -f 6) ]; then CONTADOR=$(echo "${CONTADOR} + 1" | bc); else FLAG="0"; DATA2=$LINHA; echo -n "$(echo ${DATA} | cut -d ' ' -f 6)" | tr -d " " | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA3}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA3}"; fi; fi; done < "${ARQUIVOLOG}"; if [ "${FLAG}" == "0" ]; then echo -n "$(echo ${DATA2} | cut -d ' ' -f 6)" | tr -d " " | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA3}"; echo " 1" >> "${ARQUIVOGNUPLOTDATA3}"; else if ! [ "${DATA2}" == "${DATA}" ]; then echo -n "$(echo ${DATA} | cut -d ' ' -f 6)" | tr -d " " | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA3}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA3}"; fi fi
+
+    echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
+
+    gnuplot -p -e "set xtics font 'Verdana,10'; set yrange [0:]; set boxwidth 0.3; set style fill solid; set xtics 1; set ytics 1; set terminal png size 800,600; set title 'Comparativo de acertos e erros.'; show title; set output '${ARQUIVOGRAFICO}'; plot '${ARQUIVOGNUPLOTDATA}' using 1:3:4:xtic(2) notitle with boxes linecolor variable" 1>> /dev/null 2>> /dev/null
+
+    echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
+
+    gnuplot -p -e "Ai=0.0; yi=0.0; yi2=0.0; ang(x)=x*360.0/${TOTALRESPOSTAS}; set size square; set xrange [-1:1.5]; set yrange [-1.25:1.25]; set boxwidth 0.3; set style fill solid 1; unset border; unset tics; unset key; set terminal png size 800,600; set title 'Comparativo de acertos e erros.'; show title; set output '${ARQUIVOGRAFICOPIZZA}'; plot '${ARQUIVOGNUPLOTDATA}' u (0):(0):(1):(Ai):(Ai=Ai+ang(\$3)):(\$4) with circle linecolor var, '${ARQUIVOGNUPLOTDATA}' u (1.5):(yi=yi+0.5/\$3):(\$2) w labels, '${ARQUIVOGNUPLOTDATA}' u (1.3):(yi2=yi2+0.5/\$3):(\$4) w p pt 5 ps 2 linecolor var" 1>> /dev/null 2>> /dev/null
+
+    echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
+
+    gnuplot -p -e "set xtics font 'Verdana,10'; set yrange [0:]; set boxwidth 0.3; set style fill solid; set xtics 1; set ytics 1; set terminal png size 800,600; set xtics rotate by 90 right; set title 'Frequência diária de uso do game.'; show title; set output '${ARQUIVOGRAFICOTEMPO}'; plot '${ARQUIVOGNUPLOTDATA2}' using 2:xticlabels(1) notitle with lines lc -1" 1>> /dev/null 2>> /dev/null
+
+    echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
+
+    gnuplot -p -e "set xtics font 'Verdana,10'; set yrange [0:]; set boxwidth 0.3; set style fill solid; set xtics 1; set ytics 1; set terminal png size 800,600; set xtics rotate by 90 right; set title 'Frequência anual de uso do game.'; show title; set output '${ARQUIVOGRAFICOTEMPOANUAL}'; plot '${ARQUIVOGNUPLOTDATA3}' using 2:xticlabels(1) notitle with lines lc -1" 1>> /dev/null 2>> /dev/null
+
+    echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
+
+    rm "${ARQUIVOGNUPLOTDATA}" 1>> /dev/null 2>> /dev/null
+
+    echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
+
+    rm "${ARQUIVOGNUPLOTDATA2}" 1>> /dev/null 2>> /dev/null
+
+    echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
+
+    rm "${ARQUIVOGNUPLOTDATA3}" 1>> /dev/null 2>> /dev/null
+
+    echo -ne "\b"; echo -ne "${AV_VERDE}"; bash antoniovandre_echo_android_nosound "Concluído" n; echo -ne "${AV_SEMCOR}"; echo "."
+
+  fi
+
+  bash antoniovandre_echo_android_nosound "Construindo arquivo de estatísticas... " n
+
+  if [ "${AVLOG}" == "1" ] && [ "${AVSTATS}" == "1" ]; then echo "Arquivo de estatísticas do jogo." > "${ARQUIVOSTATS}"; echo "_____" >> "${ARQUIVOSTATS}"; echo "Total de respostas: ${TOTALRESPOSTAS}." >> "${ARQUIVOSTATS}"; echo "Total de acertos: ${NUMEROACERTOS}." >> "${ARQUIVOSTATS}"; echo "Total de erros: ${NUMEROERROS}." >> "${ARQUIVOSTATS}"; echo "Percentual de acerto: ${PERCENTUALACERTO} %." >> "${ARQUIVOSTATS}"; echo "Percentual de erro: ${PERCENTUALERRO} %." >> "${ARQUIVOSTATS}"; fi
+
+  echo -ne "${AV_VERDE}"; bash antoniovandre_echo_android_nosound "Concluído" n; echo -ne "${AV_SEMCOR}"; echo "."
+
+  bash antoniovandre_echo_android_nosound "Convertendo arquivo log para o formato DOS... " n
+
+  if [ "${AVLOG}" == "1" ]; then unix2dos "${ARQUIVOLOG}" 1>> /dev/null 2>> /dev/null; fi
+
+  echo -ne "${AV_VERDE}"; bash antoniovandre_echo_android_nosound "Concluído" n; echo -ne "${AV_SEMCOR}"; echo "."
+
+bash antoniovandre_echo_android_nosound "${THANKS}"

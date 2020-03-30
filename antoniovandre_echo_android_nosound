@@ -1,0 +1,16 @@
+# Proprietário: Antonio Vandré Pedrosa Furtunato Gomes (bit.ly/antoniovandre_legadoontologico).
+
+# Script de escrita com delay, para Android.
+
+# Última atualização: 27-03-2020.
+
+DELAY="0"
+
+VAR=$1
+TAMANHO=${#VAR}
+CONTADOR="0"
+
+while [ $CONTADOR -lt $TAMANHO ]; do CHAR=${VAR:$CONTADOR:1}; if [ -z $CHAR ]; then echo -n " "; else GLOBIGNORE="*" echo -n "${CHAR}"; fi; sleep ${DELAY}s; CONTADOR=$(expr $CONTADOR + 1); done
+
+if [ -z $2 ]; then echo ""; else if ! [ $2 == "n" ]; then echo ""; fi; fi
+
