@@ -253,7 +253,7 @@ while ! [  "${RESPOSTAUSUARIO}" == "SAIR" ]; do
 
 done
 
-  if [ "${AVLOG}" == "1" ] && [ "${AVGRAFICOS}" == "1" ]; then
+  if [ "${AVLOG}" == "1" ] && [ "${AVGRAFICOS}" == "1" ] && ls "${ARQUIVOLOG}" 1>> /dev/null 2>> /dev/null; then
 
     bash antoniovandre_echo_android_nosound "Construindo os gráficos. Isto pode demorar um pouco... " n
 
@@ -337,16 +337,10 @@ done
 
   fi
 
-  bash antoniovandre_echo_android_nosound "Construindo arquivo de estatísticas... " n
+  if [ "${AVLOG}" == "1" ] && [ "${AVSTATS}" == "1" ] && ls "${ARQUIVOLOG}" 1>> /dev/null 2>> /dev/null; then bash antoniovandre_echo_android_nosound "Construindo arquivo de estatísticas... " n
+; echo "Arquivo de estatísticas do jogo." > "${ARQUIVOSTATS}"; echo "_____" >> "${ARQUIVOSTATS}"; echo "Total de respostas: ${TOTALRESPOSTAS}." >> "${ARQUIVOSTATS}"; echo "Total de acertos: ${NUMEROACERTOS}." >> "${ARQUIVOSTATS}"; echo "Total de erros: ${NUMEROERROS}." >> "${ARQUIVOSTATS}"; echo "Percentual de acerto: ${PERCENTUALACERTO} %." >> "${ARQUIVOSTATS}"; echo "Percentual de erro: ${PERCENTUALERRO} %." >> "${ARQUIVOSTATS}"; echo -ne "${AV_VERDE}"; bash antoniovandre_echo_android_nosound "Concluído" n; echo -ne "${AV_SEMCOR}"; echo "."; fi
 
-  if [ "${AVLOG}" == "1" ] && [ "${AVSTATS}" == "1" ]; then echo "Arquivo de estatísticas do jogo." > "${ARQUIVOSTATS}"; echo "_____" >> "${ARQUIVOSTATS}"; echo "Total de respostas: ${TOTALRESPOSTAS}." >> "${ARQUIVOSTATS}"; echo "Total de acertos: ${NUMEROACERTOS}." >> "${ARQUIVOSTATS}"; echo "Total de erros: ${NUMEROERROS}." >> "${ARQUIVOSTATS}"; echo "Percentual de acerto: ${PERCENTUALACERTO} %." >> "${ARQUIVOSTATS}"; echo "Percentual de erro: ${PERCENTUALERRO} %." >> "${ARQUIVOSTATS}"; fi
-
-  echo -ne "${AV_VERDE}"; bash antoniovandre_echo_android_nosound "Concluído" n; echo -ne "${AV_SEMCOR}"; echo "."
-
-  bash antoniovandre_echo_android_nosound "Convertendo arquivo log para o formato DOS... " n
-
-  if [ "${AVLOG}" == "1" ]; then unix2dos "${ARQUIVOLOG}" 1>> /dev/null 2>> /dev/null; fi
-
-  echo -ne "${AV_VERDE}"; bash antoniovandre_echo_android_nosound "Concluído" n; echo -ne "${AV_SEMCOR}"; echo "."
+  if [ "${AVLOG}" == "1" ] && ls "${ARQUIVOLOG}" 1>> /dev/null 2>> /dev/null; then bash antoniovandre_echo_android_nosound "Convertendo arquivo log para o formato DOS... " n; unix2dos "${ARQUIVOLOG}" 1>> /dev/null 2>> /dev/null; echo -ne "${AV_VERDE}"; bash antoniovandre_echo_android_nosound "Concluído" n; echo -ne "${AV_SEMCOR}"; echo "."; fi
 
 bash antoniovandre_echo_android_nosound "${THANKS}"
+
