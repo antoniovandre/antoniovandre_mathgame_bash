@@ -199,6 +199,8 @@ echo ""
 
 if [ "${1}" != "oe" ]; then echo "${INSTRUCOES}"; echo ""; fi
 
+if [ "${1}" != "ne" ] && ls "${ARQUIVOLOGTEMP}" 1>> /dev/null 2>> /dev/null && ls "${ARQUIVOLOG}" 1>> /dev/null 2>> /dev/null; then if [ $(cat "${ARQUIVOLOG}" | wc -l) -gt $(cat "${ARQUIVOLOGTEMP}" | wc -l) ]; then cp "${ARQUIVOLOG}" "${ARQUIVOLOGTEMP}"; fi; fi
+
 while [  "${RESPOSTAUSUARIO}" != "SAIR" ] && [ "${1}" != "oe" ]; do
 
   SEED=$(date +%s)
@@ -212,7 +214,7 @@ while [  "${RESPOSTAUSUARIO}" != "SAIR" ] && [ "${1}" != "oe" ]; do
 
   if [ "${OPS}" != "$(echo -n ${OPS} | tr 'x' ' ')" ] || [ "${OPS}" != "$(echo -n ${OPS} | tr '/' ' ')" ]; then VARVALUE=$MAXVALUERED; else VARVALUE=$MAXVALUE; fi
 
-  PARENTESES=$(if [ "${NUMEROARGUMENTOS}" -gt "2" ]; then TEMP="0"; TEMP2="0"; for I in $(seq 1 "${NUMEROARGUMENTOS}"); do if [ "$TEMP" -lt $(echo  "${NUMEROARGUMENTOS} - ${I}" | bc) ]; then case $(echo "(${SEED} * $I) % 3" | bc) in 0) echo -n "("; TEMP=$(echo "${TEMP} + 1" | bc);; 1) if [ "$TEMP" -gt "0" ]; then echo -n ")"; TEMP=$(echo "${TEMP} - 1" | bc); fi;; 2) ;; *) ;; esac; else if [ "$TEMP" -gt "0" ]; then if [ $(echo "($SEED+ $TEMP2) % 2" | bc) == "0" ]; then echo -n ")"; TEMP=$(echo "${TEMP} - 1" | bc); else TEMP2="1"; fi; fi; fi; if [ "${I}" -lt "${NUMEROARGUMENTOS}" ]; then echo -n ","; fi; done; fi)
+  PARENTESES=$(if [ "${NUMEROARGUMENTOS}" -gt "2" ]; then TEMP="0"; TEMP2="0"; for I in $(seq 1 "${NUMEROARGUMENTOS}"); do if [ "$TEMP" -lt $(echo  "${NUMEROARGUMENTOS} - ${I}" | bc) ]; then TEMP3=$(echo "(${SEED} * $I) % 3" | bc); case $TEMP3 in 0) echo -n "("; TEMP=$(echo "${TEMP} + 1" | bc);; 1) if [ "$TEMP" -gt "0" ]; then echo -n ")"; TEMP=$(echo "${TEMP} - 1" | bc); fi;; 2) ;; *) ;; esac; else if [ "$TEMP" -gt "0" ]; then if [ $(echo "($SEED+ $TEMP2) % 2" | bc) == "0" ]; then echo -n ")"; TEMP=$(echo "${TEMP} - 1" | bc); else TEMP2="1"; fi; fi; fi; if [ "${I}" -lt "${NUMEROARGUMENTOS}" ]; then echo -n ","; fi; done; fi)
 
   ARGS=$(for I in $(seq 1 "${NUMEROARGUMENTOS}"); do TEMP2=$(awk "BEGIN{print ${SEED} * (${I} + ${SEED}) / ${FATOR}}"); if [ "$(echo -n '${OPS}' | cut -d ',' -f $I)" == "/" ] && [ $(awk "BEGIN{print ${TEMP2} % ${VARVALUE}}") == "0" ]; then TEMP=$(echo "${TEMP2} + 1" | bc); else TEMP=$TEMP2; fi; awk "BEGIN{print ${TEMP2} % ${VARVALUE}}" | tr "\n" ","; done)
 
@@ -308,9 +310,7 @@ done
     CONTADOR="0"
     MAXANO="1"
 
-    while read -r LINHA; do echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"; if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ "${CONTADOR}" == "0" ]; then DATA=$LINHA; fi; if [ $(echo "${DATA}" | cut -d " " -f 6) ==  $(echo "${LINHA}" | cut -d " " -f 6) ]; then CONTADOR=$(echo "${CONTADOR} + 1" | bc); else DATA2=$LINHA; echo -n "$(echo ${DATA} | cut -d ' ' -f 6)" | tr -d " " | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA3}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA3}"; CONTADOR="0"; fi; fi; if [ "${MAXANO}" -lt "${CONTADOR}" ]; then MAXANO=$CONTADOR; fi; done < "${ARQUIVOLOGTEMP}"; if ! [ "${DATA2}" == "${DATA}" ]; then echo -n "$(echo ${DATA} | cut -d ' ' -f 6)" | tr -d " " | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA3}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA3}"; fi
-
-    while read -r LINHA; do echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"; if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ "${FLAG}" == "0" ]; then DATA=$LINHA; CONTADOR="0"; FLAG="1"; fi; if [ $(echo "${DATA}" | cut -d " " -f 6) ==  $(echo "${LINHA}" | cut -d " " -f 6) ]; then CONTADOR=$(echo "${CONTADOR} + 1" | bc); else FLAG="0"; DATA2=$LINHA; echo -n "$(echo ${DATA} | cut -d ' ' -f 6)" | tr -d " " | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA3}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA3}"; fi; fi; if [ "${MAXANO}" -lt "${CONTADOR}" ]; then MAXANO=$CONTADOR; fi; done < "${ARQUIVOLOGTEMP}"; if [ "${FLAG}" == "0" ]; then echo -n "$(echo ${DATA2} | cut -d ' ' -f 6)" | tr -d " " | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA3}"; echo " 1" >> "${ARQUIVOGNUPLOTDATA3}"; else if ! [ "${DATA2}" == "${DATA}" ]; then echo -n "$(echo ${DATA} | cut -d ' ' -f 6)" | tr -d " " | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA3}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA3}"; fi fi
+    while read -r LINHA; do echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"; if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ "${CONTADOR}" == "0" ]; then DATA=$LINHA; fi; if [ $(echo "${DATA}" | cut -d " " -f 6) ==  $(echo "${LINHA}" | cut -d " " -f 6) ]; then CONTADOR=$(echo "${CONTADOR} + 1" | bc); else DATA2=$LINHA; echo -n "$(echo ${DATA} | cut -d ' ' -f 6)" | tr -d " " | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA3}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA3}"; CONTADOR="0"; fi; fi; if [ "${MAXANO}" -lt "${CONTADOR}" ]; then MAXANO=$CONTADOR; fi; done < "${ARQUIVOLOGTEMP}"; echo -n "$(echo ${DATA2} | cut -d ' ' -f 6)" | tr -d " " | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA3}"; echo " 1" >> "${ARQUIVOGNUPLOTDATA3}"; if ! [ "${DATA2}" == "${DATA}" ]; then echo -n "$(echo ${DATA} | cut -d ' ' -f 6)" | tr -d " " | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA3}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA3}"; fi
 
     echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
@@ -350,7 +350,7 @@ if [ "${1}" != "ne" ] && [ "${AVLOG}" == "1" ] && [ "${AVSTATS}" == "1" ] && ls 
 
 if [ "${AVLOG}" == "1" ] && ls "${ARQUIVOLOGTEMP}" 1>> /dev/null 2>> /dev/null; then bash antoniovandre_echo_android_nosound "Convertendo arquivo log para o formato DOS... " n; unix2dos "${ARQUIVOLOGTEMP}" 1>> /dev/null 2>> /dev/null; echo -ne "${AV_VERDE}"; bash antoniovandre_echo_android_nosound "Concluído" n; echo -ne "${AV_SEMCOR}"; echo "."; fi
 
-if [ "${1}" != "ne" ]; then cp "$ARQUIVOLOGTEMP" "$ARQUIVOLOG"; fi
+if [ "${1}" != "ne" ]; then cp "${ARQUIVOLOGTEMP}" "${ARQUIVOLOG}"; fi
 
 bash antoniovandre_echo_android_nosound "${THANKS}"
 
