@@ -9,4 +9,6 @@ Se o seu ambiente não é capaz de produzir sons, execute com "bash antoniovandr
 
 Se você não é usuário Linux, você pode instalar no seu sistema operacional um shell BASH.
 
+O processamento das estatísticas pode ser demorado, então você pode jogar com o comando "bash antoniovandre_mathgame ne", onde apenas o arquivo de log será salvo, e, quando não for utilizar o dispositivo, executar "bash antoniovandre_mathgame oe" para unicamente processar as estatísticas.
+
 Licença de uso e compartilhamento: Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA).

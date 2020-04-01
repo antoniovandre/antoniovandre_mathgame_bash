@@ -4,7 +4,7 @@
 
 # Licença: Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA).
 
-# Última atualização: 31-03-2020.
+# Última atualização: 01-04-2020.
 
 # Argumento: "ne" para não processar estatísticas, ou "oe" para apenas processar estatísticas.
 
@@ -69,6 +69,14 @@ case "${LINGUA}" in
     TIMEALREADYDEACTIVATED="O tempo já está desativado."
 
     THANKS="Muito obrigado por apreciar este game."
+
+    BUILDINGSTATSFILE="Construindo arquivo de estatísticas... "
+
+    CONVLOGDOS="Convertendo arquivo log para o formato DOS... "
+
+    CONCLUDED="Concluído"
+
+    BUILDINGGRAPHS="Construindo os gráficos. Isto pode demorar um pouco... "
   ;;
   "e")
     NOTFOUND="not found"
@@ -128,6 +136,14 @@ case "${LINGUA}" in
     TIMEALREADYDEACTIVATED="Time already deactivated."
 
     THANKS="Very thank You for appreciate this game."
+
+    BUILDINGSTATSFILE="Building stats file... "
+
+    CONVLOGDOS="Converting log file to DOS format... "
+
+    CONCLUDED="Concluded"
+
+    BUILDINGGRAPHS="Building graphs. This may take a while... "
   ;;
   *) ;;
 esac
@@ -162,10 +178,19 @@ AVGRAFICOS="1"
 ARQUIVOGNUPLOTDATA="antoniovandre_mathgame_log_gnuplot.dat"
 ARQUIVOGNUPLOTDATA2="antoniovandre_mathgame_log_gnuplot_2.dat"
 ARQUIVOGNUPLOTDATA3="antoniovandre_mathgame_log_gnuplot_3.dat"
+ARQUIVOGNUPLOTDATA4="antoniovandre_mathgame_log_gnuplot_4.dat"
+ARQUIVOGNUPLOTDATA5="antoniovandre_mathgame_log_gnuplot_5.dat"
+ARQUIVOGNUPLOTDATA6="antoniovandre_mathgame_log_gnuplot_6.dat"
+ARQUIVOGNUPLOTDATA7="antoniovandre_mathgame_log_gnuplot_7.dat"
 ARQUIVOGRAFICO="antoniovandre_mathgame_log.png"
 ARQUIVOGRAFICOPIZZA="antoniovandre_mathgame_log_pizza.png"
 ARQUIVOGRAFICOTEMPO="antoniovandre_mathgame_log_tempo.png"
 ARQUIVOGRAFICOTEMPOANUAL="antoniovandre_mathgame_log_tempo_anual.png"
+ARQUIVOGRAFICOTEMPOMENSAL="antoniovandre_mathgame_log_tempo_mensal.png"
+ARQUIVOGRAFICOTEMPODISTSEM="antoniovandre_mathgame_log_tempo_distribuicao_semanal.png"
+ARQUIVOGRAFICOTEMPODISTMES="antoniovandre_mathgame_log_tempo_distribuicao_mensal.png"
+ARQUIVOGRAFICOTEMPODISTHOR="antoniovandre_mathgame_log_tempo_distribuicao_horaria.png"
+IMAGEGRAPH0="antoniovandre_mathgame_emptygraph.png"
 AVSTATS="1"
 ARQUIVOSTATS="antoniovandre_mathgame_log_stats.txt"
 
@@ -191,13 +216,15 @@ bash antoniovandre_echo_android "${MATHGAME}."
 
 echo ""
 
-bash antoniovandre_echo_android "${VERSION} 31-03-2020."
+bash antoniovandre_echo_android "${VERSION} 01-04-2020."
 
 echo ""
 
 if [ "${1}" != "oe" ]; then echo "${INSTRUCOES}"; echo ""; fi
 
-if [ "${1}" != "ne" ] && ls "${ARQUIVOLOGTEMP}" 1>> /dev/null 2>> /dev/null && ls "${ARQUIVOLOG}" 1>> /dev/null 2>> /dev/null; then if [ $(cat "${ARQUIVOLOG}" | wc -l) -gt $(cat "${ARQUIVOLOGTEMP}" | wc -l) ]; then cp "${ARQUIVOLOG}" "${ARQUIVOLOGTEMP}"; fi; fi
+if (! ls "${ARQUIVOLOGTEMP}" 1>> /dev/null 2>> /dev/null) && ls "${ARQUIVOLOG}" 1>> /dev/null 2>> /dev/null; then cp "${ARQUIVOLOG}" "${ARQUIVOLOGTEMP}"; fi
+
+if ls "${ARQUIVOLOGTEMP}" 1>> /dev/null 2>> /dev/null && ls "${ARQUIVOLOG}" 1>> /dev/null 2>> /dev/null; then if [ $(cat "${ARQUIVOLOG}" | wc -l) -gt $(cat "${ARQUIVOLOGTEMP}" | wc -l) ]; then cp "${ARQUIVOLOG}" "${ARQUIVOLOGTEMP}"; fi; fi
 
 while [  "${RESPOSTAUSUARIO}" != "SAIR" ] && [ "${1}" != "oe" ]; do
 
@@ -258,9 +285,12 @@ done
 
   if [ "${1}" != "ne" ] && [ "${AVLOG}" == "1" ] && [ "${AVGRAFICOS}" == "1" ] && ls "${ARQUIVOLOGTEMP}" 1>> /dev/null 2>> /dev/null; then
 
-    bash antoniovandre_echo_android "Construindo os gráficos. Isto pode demorar um pouco... " n
+    bash antoniovandre_echo_android "${BUILDINGGRAPHS}" n
 
     CHARPROGRESS=""
+    MAXACERTOSERROS="0"
+    NUMEROACERTOS="0"
+    NUMEROERROS="0"
 
     NUMEROACERTOS=$(cat "${ARQUIVOLOGTEMP}" | grep "Eval: acertou." | wc -l)
 
@@ -290,13 +320,27 @@ done
 
     echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
+    if [ "${NUMEROACERTOS}" -gt "${NUMEROERROS}" ]; then MAXACERTOSERROS=$NUMEROACERTOS; else MAXACERTOSERROS=$NUMEROERROS; fi
+
+if [ "${MAXACERTOSERROS}" -gt "0" ]; then gnuplot -p -e "set xtics font 'Verdana,10'; set yrange [0:]; set boxwidth 0.3; set style fill solid; set xtics 1; set ytics 0,${MAXACERTOSERROS}; set terminal png size 800,600; set title 'Comparativo de acertos e erros.'; show title; set output '${ARQUIVOGRAFICO}'; plot '${ARQUIVOGNUPLOTDATA}' using 1:3:4:xtic(2) notitle with boxes linecolor variable" 1>> /dev/null 2>> /dev/null; else cp "${IMAGEGRAPH0}" "${ARQUIVOGRAFICO}" 1>> /dev/null 2>> /dev/null; fi
+
+    echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
+
+if [ "${MAXACERTOSERROS}" -gt "0" ]; then gnuplot -p -e "Ai=0.0; yi=0.0; yi2=0.0; ang(x)=x*360.0/${TOTALRESPOSTAS}; set size square; set xrange [-1:1.5]; set yrange [-1.25:1.25]; set boxwidth 0.3; set style fill solid 1; unset border; unset tics; unset key; set terminal png size 800,600; set title 'Comparativo de acertos e erros.'; show title; set output '${ARQUIVOGRAFICOPIZZA}'; plot '${ARQUIVOGNUPLOTDATA}' u (0):(0):(1):(Ai):(Ai=Ai+ang(\$3)):(\$4) with circle linecolor var, '${ARQUIVOGNUPLOTDATA}' u (1.5):(yi=yi+0.5/\$3):(\$2) w labels, '${ARQUIVOGNUPLOTDATA}' u (1.3):(yi2=yi2+0.5/\$3):(\$4) w p pt 5 ps 2 linecolor var" 1>> /dev/null 2>> /dev/null; else cp "${IMAGEGRAPH0}" "${ARQUIVOGRAFICOPIZZA}" 1>> /dev/null 2>> /dev/null; fi
+
+    echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
+
+    rm "${ARQUIVOGNUPLOTDATA}" 1>> /dev/null 2>> /dev/null
+
+    echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
+
     rm "${ARQUIVOGNUPLOTDATA2}" 1>> /dev/null 2>> /dev/null
 
     echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
     DATA=""
     CONTADOR="0"
-    MAXDIA="1"
+    MAXDIA="0"
 
     while read -r LINHA; do echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"; if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ "${DATA}" == "" ]; then DATA=$LINHA; fi; DATAP=$DATA; DATA=$LINHA; if [ $(echo "${DATA}" | cut -d " " -f 2) ==  $(echo "${DATAP}" | cut -d " " -f 2) ] && [ $(echo "${DATA}" | cut -d " " -f 3) ==  $(echo "${DATAP}" | cut -d " " -f 3) ] && [ $(echo "${DATA}" | cut -d " " -f 6) ==  $(echo "${DATAP}" | cut -d " " -f 6) ]; then CONTADOR=$(echo "${CONTADOR} + 1" | bc); else if [ "${CONTADOR}" == "0" ]; then CONTADOR="1"; fi; echo -n "$(echo ${DATAP} | cut -d ' ' -f 3)$(echo ${DATAP} | cut -d ' ' -f 2)$(echo ${DATAP} | cut -d ' ' -f 6)" | tr -d " " | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA2}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA2}"; if [ "${MAXDIA}" -lt "${CONTADOR}" ]; then MAXDIA=$CONTADOR; fi; CONTADOR="0"; fi; fi; done < "${ARQUIVOLOGTEMP}"; echo -n "$(echo ${DATA} | cut -d ' ' -f 3)$(echo ${DATA} | cut -d ' ' -f 2)$(echo ${DATA} | cut -d ' ' -f 6)" | tr -d " " | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA2}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA2}"; if [ "${MAXDIA}" -lt "${CONTADOR}" ]; then MAXDIA=$CONTADOR; fi
 
@@ -308,27 +352,158 @@ done
 
     DATA=""
     CONTADOR="0"
-    MAXANO="1"
+    MAXANO="0"
 
     while read -r LINHA; do echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"; if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ "${DATA}" == "" ]; then DATA=$LINHA; fi; DATAP=$DATA; DATA=$LINHA; if [ $(echo "${DATA}" | cut -d " " -f 6) ==  $(echo "${DATAP}" | cut -d " " -f 6) ]; then CONTADOR=$(echo "${CONTADOR} + 1" | bc); else if [ "${CONTADOR}" == "0" ]; then CONTADOR="1"; fi; echo -n "$(echo ${DATAP} | cut -d ' ' -f 6)" | tr -d " " | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA3}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA3}"; if [ "${MAXANO}" -lt "${CONTADOR}" ]; then MAXANO=$CONTADOR; fi; CONTADOR="0"; fi; fi; done < "${ARQUIVOLOGTEMP}"; echo -n "$(echo ${DATA} | cut -d ' ' -f 6)" | tr -d " " | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA3}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA3}"; if [ "${MAXANO}" -lt "${CONTADOR}" ]; then MAXANO=$CONTADOR; fi
 
     echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
-    if [ "${NUMEROACERTOS}" -gt "${NUMEROERROS}" ]; then MAXACERTOSERROS=$NUMEROACERTOS; else MAXACERTOSERROS=$NUMEROERROS; fi
-
-    gnuplot -p -e "set xtics font 'Verdana,10'; set yrange [0:]; set boxwidth 0.3; set style fill solid; set xtics 1; set ytics 0,${MAXACERTOSERROS}; set terminal png size 800,600; set title 'Comparativo de acertos e erros.'; show title; set output '${ARQUIVOGRAFICO}'; plot '${ARQUIVOGNUPLOTDATA}' using 1:3:4:xtic(2) notitle with boxes linecolor variable" 1>> /dev/null 2>> /dev/null
+    rm "${ARQUIVOGNUPLOTDATA4}" 1>> /dev/null 2>> /dev/null
 
     echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
-    gnuplot -p -e "Ai=0.0; yi=0.0; yi2=0.0; ang(x)=x*360.0/${TOTALRESPOSTAS}; set size square; set xrange [-1:1.5]; set yrange [-1.25:1.25]; set boxwidth 0.3; set style fill solid 1; unset border; unset tics; unset key; set terminal png size 800,600; set title 'Comparativo de acertos e erros.'; show title; set output '${ARQUIVOGRAFICOPIZZA}'; plot '${ARQUIVOGNUPLOTDATA}' u (0):(0):(1):(Ai):(Ai=Ai+ang(\$3)):(\$4) with circle linecolor var, '${ARQUIVOGNUPLOTDATA}' u (1.5):(yi=yi+0.5/\$3):(\$2) w labels, '${ARQUIVOGNUPLOTDATA}' u (1.3):(yi2=yi2+0.5/\$3):(\$4) w p pt 5 ps 2 linecolor var" 1>> /dev/null 2>> /dev/null
+    DATA=""
+    CONTADOR="0"
+    MAXMES="0"
+
+    while read -r LINHA; do echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"; if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ "${DATA}" == "" ]; then DATA=$LINHA; fi; DATAP=$DATA; DATA=$LINHA; if [ $(echo "${DATA}" | cut -d " " -f 2) ==  $(echo "${DATAP}" | cut -d " " -f 2) ] && [ $(echo "${DATA}" | cut -d " " -f 6) ==  $(echo "${DATAP}" | cut -d " " -f 6) ]; then CONTADOR=$(echo "${CONTADOR} + 1" | bc); else if [ "${CONTADOR}" == "0" ]; then CONTADOR="1"; fi; echo -n "$(echo ${DATAP} | cut -d ' ' -f 2)$(echo ${DATAP} | cut -d ' ' -f 6)" | tr -d " " | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA4}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA4}"; if [ "${MAXDIA}" -lt "${CONTADOR}" ]; then MAXDIA=$CONTADOR; fi; CONTADOR="0"; fi; fi; done < "${ARQUIVOLOGTEMP}"; echo -n "$(echo ${DATA} | cut -d ' ' -f 2)$(echo ${DATA} | cut -d ' ' -f 6)" | tr -d " " | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA4}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA4}"; if [ "${MAXMES}" -lt "${CONTADOR}" ]; then MAXMES=$CONTADOR; fi
 
     echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
-    gnuplot -p -e "set xtics font 'Verdana,10'; set yrange [0:]; set boxwidth 0.3; set style fill solid; set xtics 1; set ytics 0,${MAXDIA}; set terminal png size 800,600; set xtics rotate by 90 right; set title 'Frequência diária de uso do game.'; show title; set output '${ARQUIVOGRAFICOTEMPO}'; plot '${ARQUIVOGNUPLOTDATA2}' using 2:xticlabels(1) notitle with lines lc -1" 1>> /dev/null 2>> /dev/null
+    rm "${ARQUIVOGNUPLOTDATA5}" 1>> /dev/null 2>> /dev/null
 
     echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
-    gnuplot -p -e "set xtics font 'Verdana,10'; set yrange [0:]; set boxwidth 0.3; set style fill solid; set xtics 1; set ytics 0,${MAXANO}; set terminal png size 800,600; set xtics rotate by 90 right; set title 'Frequência anual de uso do game.'; show title; set output '${ARQUIVOGRAFICOTEMPOANUAL}'; plot '${ARQUIVOGNUPLOTDATA3}' using 2:xticlabels(1) notitle with lines lc -1" 1>> /dev/null 2>> /dev/null
+    CONTADOR="0"
+    MAXDIASEMANA="0"
+
+    while read -r LINHA; do echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"; if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ]; then CONTADOR=$(echo "${CONTADOR} + 1" | bc); fi; done < "${ARQUIVOLOGTEMP}"; echo -n "Seg" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA5}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA5}"; if [ "${MAXDIASEMANA}" -lt "${CONTADOR}" ]; then MAXDIASEMANA=$CONTADOR; fi; CONTADOR="0"
+
+    while read -r LINHA; do echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"; if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ]; then CONTADOR=$(echo "${CONTADOR} + 1" | bc); fi; done < "${ARQUIVOLOGTEMP}"; echo -n "Ter" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA5}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA5}"; if [ "${MAXDIASEMANA}" -lt "${CONTADOR}" ]; then MAXDIASEMANA=$CONTADOR; fi; CONTADOR="0"
+
+    while read -r LINHA; do echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"; if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ]; then CONTADOR=$(echo "${CONTADOR} + 1" | bc); fi; done < "${ARQUIVOLOGTEMP}"; echo -n "Qua" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA5}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA5}"; if [ "${MAXDIASEMANA}" -lt "${CONTADOR}" ]; then MAXDIASEMANA=$CONTADOR; fi; CONTADOR="0"
+
+    while read -r LINHA; do echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"; if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ]; then CONTADOR=$(echo "${CONTADOR} + 1" | bc); fi; done < "${ARQUIVOLOGTEMP}"; echo -n "Qui" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA5}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA5}"; if [ "${MAXDIASEMANA}" -lt "${CONTADOR}" ]; then MAXDIASEMANA=$CONTADOR; fi; CONTADOR="0"
+
+    while read -r LINHA; do echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"; if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ]; then CONTADOR=$(echo "${CONTADOR} + 1" | bc); fi; done < "${ARQUIVOLOGTEMP}"; echo -n "Sex" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA5}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA5}"; if [ "${MAXDIASEMANA}" -lt "${CONTADOR}" ]; then MAXDIASEMANA=$CONTADOR; fi; CONTADOR="0"
+
+    while read -r LINHA; do echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"; if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ]; then CONTADOR=$(echo "${CONTADOR} + 1" | bc); fi; done < "${ARQUIVOLOGTEMP}"; echo -n "Sab" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA5}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA5}"; if [ "${MAXDIASEMANA}" -lt "${CONTADOR}" ]; then MAXDIASEMANA=$CONTADOR; fi; CONTADOR="0"
+
+    while read -r LINHA; do echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"; if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then CONTADOR=$(echo "${CONTADOR} + 1" | bc); fi; done < "${ARQUIVOLOGTEMP}"; echo -n "Dom" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA5}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA5}"; if [ "${MAXDIASEMANA}" -lt "${CONTADOR}" ]; then MAXDIASEMANA=$CONTADOR; fi; CONTADOR="0"
+
+    echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
+
+    rm "${ARQUIVOGNUPLOTDATA6}" 1>> /dev/null 2>> /dev/null
+
+    echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
+
+    CONTADOR="0"
+    MAXMESANO="0"
+
+    while read -r LINHA; do echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"; if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | cut -d " " -f 2) == "Jan" ]; then CONTADOR=$(echo "${CONTADOR} + 1" | bc); fi; fi; done < "${ARQUIVOLOGTEMP}"; echo -n "Jan" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA6}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA6}"; if [ "${MAXMESANO}" -lt "${CONTADOR}" ]; then MAXMESANO=$CONTADOR; fi; CONTADOR="0"
+
+    while read -r LINHA; do echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"; if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | cut -d " " -f 2) == "Feb" ]; then CONTADOR=$(echo "${CONTADOR} + 1" | bc); fi; fi; done < "${ARQUIVOLOGTEMP}"; echo -n "Fev" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA6}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA6}"; if [ "${MAXMESANO}" -lt "${CONTADOR}" ]; then MAXMESANO=$CONTADOR; fi; CONTADOR="0"
+
+    while read -r LINHA; do echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"; if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | cut -d " " -f 2) == "Mar" ]; then CONTADOR=$(echo "${CONTADOR} + 1" | bc); fi; fi; done < "${ARQUIVOLOGTEMP}"; echo -n "Mar" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA6}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA6}"; if [ "${MAXMESANO}" -lt "${CONTADOR}" ]; then MAXMESANO=$CONTADOR; fi; CONTADOR="0"
+
+    while read -r LINHA; do echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"; if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | cut -d " " -f 2) == "Apr" ]; then CONTADOR=$(echo "${CONTADOR} + 1" | bc); fi; fi; done < "${ARQUIVOLOGTEMP}"; echo -n "Abr" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA6}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA6}"; if [ "${MAXMESANO}" -lt "${CONTADOR}" ]; then MAXMESANO=$CONTADOR; fi; CONTADOR="0"
+
+    while read -r LINHA; do echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"; if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | cut -d " " -f 2) == "May" ]; then CONTADOR=$(echo "${CONTADOR} + 1" | bc); fi; fi; done < "${ARQUIVOLOGTEMP}"; echo -n "Mai" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA6}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA6}"; if [ "${MAXMESANO}" -lt "${CONTADOR}" ]; then MAXMESANO=$CONTADOR; fi; CONTADOR="0"
+
+    while read -r LINHA; do echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"; if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | cut -d " " -f 2) == "Jun" ]; then CONTADOR=$(echo "${CONTADOR} + 1" | bc); fi; fi; done < "${ARQUIVOLOGTEMP}"; echo -n "Jun" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA6}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA6}"; if [ "${MAXMESANO}" -lt "${CONTADOR}" ]; then MAXMESANO=$CONTADOR; fi; CONTADOR="0"
+
+    while read -r LINHA; do echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"; if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | cut -d " " -f 2) == "Jul" ]; then CONTADOR=$(echo "${CONTADOR} + 1" | bc); fi; fi; done < "${ARQUIVOLOGTEMP}"; echo -n "Jul" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA6}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA6}"; if [ "${MAXMESANO}" -lt "${CONTADOR}" ]; then MAXMESANO=$CONTADOR; fi; CONTADOR="0"
+
+    while read -r LINHA; do echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"; if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | cut -d " " -f 2) == "Aug" ]; then CONTADOR=$(echo "${CONTADOR} + 1" | bc); fi; fi; done < "${ARQUIVOLOGTEMP}"; echo -n "Ago" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA6}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA6}"; if [ "${MAXMESANO}" -lt "${CONTADOR}" ]; then MAXMESANO=$CONTADOR; fi; CONTADOR="0"
+
+    while read -r LINHA; do echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"; if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | cut -d " " -f 2) == "Sep" ]; then CONTADOR=$(echo "${CONTADOR} + 1" | bc); fi; fi; done < "${ARQUIVOLOGTEMP}"; echo -n "Set" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA6}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA6}"; if [ "${MAXMESANO}" -lt "${CONTADOR}" ]; then MAXMESANO=$CONTADOR; fi; CONTADOR="0"
+
+    while read -r LINHA; do echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"; if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | cut -d " " -f 2) == "Oct" ]; then CONTADOR=$(echo "${CONTADOR} + 1" | bc); fi; fi; done < "${ARQUIVOLOGTEMP}"; echo -n "Out" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA6}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA6}"; if [ "${MAXMESANO}" -lt "${CONTADOR}" ]; then MAXMESANO=$CONTADOR; fi; CONTADOR="0"
+
+    while read -r LINHA; do echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"; if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | cut -d " " -f 2) == "Nov" ]; then CONTADOR=$(echo "${CONTADOR} + 1" | bc); fi; fi; done < "${ARQUIVOLOGTEMP}"; echo -n "Nov" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA6}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA6}"; if [ "${MAXMESANO}" -lt "${CONTADOR}" ]; then MAXMESANO=$CONTADOR; fi; CONTADOR="0"
+
+    while read -r LINHA; do echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"; if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | cut -d " " -f 2) == "Dec" ]; then CONTADOR=$(echo "${CONTADOR} + 1" | bc); fi; fi; done < "${ARQUIVOLOGTEMP}"; echo -n "Dec" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA6}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA6}"; if [ "${MAXMESANO}" -lt "${CONTADOR}" ]; then MAXMESANO=$CONTADOR; fi; CONTADOR="0"
+
+    echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
+
+    rm "${ARQUIVOGNUPLOTDATA7}" 1>> /dev/null 2>> /dev/null
+
+    echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
+
+    CONTADOR="0"
+    MAXHORADIA="0"
+
+    while read -r LINHA; do echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"; if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | cut -d " " -f 4 | cut -d ":" -f 1) == "00" ]; then CONTADOR=$(echo "${CONTADOR} + 1" | bc); fi; fi; done < "${ARQUIVOLOGTEMP}"; echo -n "00h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA7}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA7}"; if [ "${MAXHORADIA}" -lt "${CONTADOR}" ]; then MAXHORADIA=$CONTADOR; fi; CONTADOR="0"
+
+    while read -r LINHA; do echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"; if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | cut -d " " -f 4 | cut -d ":" -f 1) == "01" ]; then CONTADOR=$(echo "${CONTADOR} + 1" | bc); fi; fi; done < "${ARQUIVOLOGTEMP}"; echo -n "01h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA7}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA7}"; if [ "${MAXHORADIA}" -lt "${CONTADOR}" ]; then MAXHORADIA=$CONTADOR; fi; CONTADOR="0"
+
+    while read -r LINHA; do echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"; if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | cut -d " " -f 4 | cut -d ":" -f 1) == "02" ]; then CONTADOR=$(echo "${CONTADOR} + 1" | bc); fi; fi; done < "${ARQUIVOLOGTEMP}"; echo -n "02h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA7}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA7}"; if [ "${MAXHORADIA}" -lt "${CONTADOR}" ]; then MAXHORADIA=$CONTADOR; fi; CONTADOR="0"
+
+    while read -r LINHA; do echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"; if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | cut -d " " -f 4 | cut -d ":" -f 1) == "03" ]; then CONTADOR=$(echo "${CONTADOR} + 1" | bc); fi; fi; done < "${ARQUIVOLOGTEMP}"; echo -n "03h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA7}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA7}"; if [ "${MAXHORADIA}" -lt "${CONTADOR}" ]; then MAXHORADIA=$CONTADOR; fi; CONTADOR="0"
+
+    while read -r LINHA; do echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"; if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | cut -d " " -f 4 | cut -d ":" -f 1) == "04" ]; then CONTADOR=$(echo "${CONTADOR} + 1" | bc); fi; fi; done < "${ARQUIVOLOGTEMP}"; echo -n "04h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA7}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA7}"; if [ "${MAXHORADIA}" -lt "${CONTADOR}" ]; then MAXHORADIA=$CONTADOR; fi; CONTADOR="0"
+
+    while read -r LINHA; do echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"; if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | cut -d " " -f 4 | cut -d ":" -f 1) == "05" ]; then CONTADOR=$(echo "${CONTADOR} + 1" | bc); fi; fi; done < "${ARQUIVOLOGTEMP}"; echo -n "05h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA7}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA7}"; if [ "${MAXHORADIA}" -lt "${CONTADOR}" ]; then MAXHORADIA=$CONTADOR; fi; CONTADOR="0"
+
+    while read -r LINHA; do echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"; if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | cut -d " " -f 4 | cut -d ":" -f 1) == "06" ]; then CONTADOR=$(echo "${CONTADOR} + 1" | bc); fi; fi; done < "${ARQUIVOLOGTEMP}"; echo -n "06h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA7}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA7}"; if [ "${MAXHORADIA}" -lt "${CONTADOR}" ]; then MAXHORADIA=$CONTADOR; fi; CONTADOR="0"
+
+    while read -r LINHA; do echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"; if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | cut -d " " -f 4 | cut -d ":" -f 1) == "07" ]; then CONTADOR=$(echo "${CONTADOR} + 1" | bc); fi; fi; done < "${ARQUIVOLOGTEMP}"; echo -n "07h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA7}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA7}"; if [ "${MAXHORADIA}" -lt "${CONTADOR}" ]; then MAXHORADIA=$CONTADOR; fi; CONTADOR="0"
+
+    while read -r LINHA; do echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"; if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | cut -d " " -f 4 | cut -d ":" -f 1) == "08" ]; then CONTADOR=$(echo "${CONTADOR} + 1" | bc); fi; fi; done < "${ARQUIVOLOGTEMP}"; echo -n "08h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA7}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA7}"; if [ "${MAXHORADIA}" -lt "${CONTADOR}" ]; then MAXHORADIA=$CONTADOR; fi; CONTADOR="0"
+
+    while read -r LINHA; do echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"; if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | cut -d " " -f 4 | cut -d ":" -f 1) == "09" ]; then CONTADOR=$(echo "${CONTADOR} + 1" | bc); fi; fi; done < "${ARQUIVOLOGTEMP}"; echo -n "09h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA7}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA7}"; if [ "${MAXHORADIA}" -lt "${CONTADOR}" ]; then MAXHORADIA=$CONTADOR; fi; CONTADOR="0"
+
+    while read -r LINHA; do echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"; if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | cut -d " " -f 4 | cut -d ":" -f 1) == "10" ]; then CONTADOR=$(echo "${CONTADOR} + 1" | bc); fi; fi; done < "${ARQUIVOLOGTEMP}"; echo -n "10h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA7}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA7}"; if [ "${MAXHORADIA}" -lt "${CONTADOR}" ]; then MAXHORADIA=$CONTADOR; fi; CONTADOR="0"
+
+    while read -r LINHA; do echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"; if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | cut -d " " -f 4 | cut -d ":" -f 1) == "11" ]; then CONTADOR=$(echo "${CONTADOR} + 1" | bc); fi; fi; done < "${ARQUIVOLOGTEMP}"; echo -n "11h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA7}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA7}"; if [ "${MAXHORADIA}" -lt "${CONTADOR}" ]; then MAXHORADIA=$CONTADOR; fi; CONTADOR="0"
+
+    while read -r LINHA; do echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"; if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | cut -d " " -f 4 | cut -d ":" -f 1) == "12" ]; then CONTADOR=$(echo "${CONTADOR} + 1" | bc); fi; fi; done < "${ARQUIVOLOGTEMP}"; echo -n "12h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA7}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA7}"; if [ "${MAXHORADIA}" -lt "${CONTADOR}" ]; then MAXHORADIA=$CONTADOR; fi; CONTADOR="0"
+
+    while read -r LINHA; do echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"; if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | cut -d " " -f 4 | cut -d ":" -f 1) == "13" ]; then CONTADOR=$(echo "${CONTADOR} + 1" | bc); fi; fi; done < "${ARQUIVOLOGTEMP}"; echo -n "13h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA7}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA7}"; if [ "${MAXHORADIA}" -lt "${CONTADOR}" ]; then MAXHORADIA=$CONTADOR; fi; CONTADOR="0"
+
+    while read -r LINHA; do echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"; if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | cut -d " " -f 4 | cut -d ":" -f 1) == "14" ]; then CONTADOR=$(echo "${CONTADOR} + 1" | bc); fi; fi; done < "${ARQUIVOLOGTEMP}"; echo -n "14h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA7}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA7}"; if [ "${MAXHORADIA}" -lt "${CONTADOR}" ]; then MAXHORADIA=$CONTADOR; fi; CONTADOR="0"
+
+    while read -r LINHA; do echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"; if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | cut -d " " -f 4 | cut -d ":" -f 1) == "15" ]; then CONTADOR=$(echo "${CONTADOR} + 1" | bc); fi; fi; done < "${ARQUIVOLOGTEMP}"; echo -n "15h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA7}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA7}"; if [ "${MAXHORADIA}" -lt "${CONTADOR}" ]; then MAXHORADIA=$CONTADOR; fi; CONTADOR="0"
+
+    while read -r LINHA; do echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"; if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | cut -d " " -f 4 | cut -d ":" -f 1) == "16" ]; then CONTADOR=$(echo "${CONTADOR} + 1" | bc); fi; fi; done < "${ARQUIVOLOGTEMP}"; echo -n "16h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA7}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA7}"; if [ "${MAXHORADIA}" -lt "${CONTADOR}" ]; then MAXHORADIA=$CONTADOR; fi; CONTADOR="0"
+
+    while read -r LINHA; do echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"; if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | cut -d " " -f 4 | cut -d ":" -f 1) == "17" ]; then CONTADOR=$(echo "${CONTADOR} + 1" | bc); fi; fi; done < "${ARQUIVOLOGTEMP}"; echo -n "17h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA7}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA7}"; if [ "${MAXHORADIA}" -lt "${CONTADOR}" ]; then MAXHORADIA=$CONTADOR; fi; CONTADOR="0"
+
+    while read -r LINHA; do echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"; if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | cut -d " " -f 4 | cut -d ":" -f 1) == "18" ]; then CONTADOR=$(echo "${CONTADOR} + 1" | bc); fi; fi; done < "${ARQUIVOLOGTEMP}"; echo -n "18h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA7}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA7}"; if [ "${MAXHORADIA}" -lt "${CONTADOR}" ]; then MAXHORADIA=$CONTADOR; fi; CONTADOR="0"
+
+    while read -r LINHA; do echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"; if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | cut -d " " -f 4 | cut -d ":" -f 1) == "19" ]; then CONTADOR=$(echo "${CONTADOR} + 1" | bc); fi; fi; done < "${ARQUIVOLOGTEMP}"; echo -n "19h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA7}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA7}"; if [ "${MAXHORADIA}" -lt "${CONTADOR}" ]; then MAXHORADIA=$CONTADOR; fi; CONTADOR="0"
+
+    while read -r LINHA; do echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"; if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | cut -d " " -f 4 | cut -d ":" -f 1) == "20" ]; then CONTADOR=$(echo "${CONTADOR} + 1" | bc); fi; fi; done < "${ARQUIVOLOGTEMP}"; echo -n "20h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA7}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA7}"; if [ "${MAXHORADIA}" -lt "${CONTADOR}" ]; then MAXHORADIA=$CONTADOR; fi; CONTADOR="0"
+
+    while read -r LINHA; do echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"; if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | cut -d " " -f 4 | cut -d ":" -f 1) == "21" ]; then CONTADOR=$(echo "${CONTADOR} + 1" | bc); fi; fi; done < "${ARQUIVOLOGTEMP}"; echo -n "21h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA7}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA7}"; if [ "${MAXHORADIA}" -lt "${CONTADOR}" ]; then MAXHORADIA=$CONTADOR; fi; CONTADOR="0"
+
+    while read -r LINHA; do echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"; if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | cut -d " " -f 4 | cut -d ":" -f 1) == "22" ]; then CONTADOR=$(echo "${CONTADOR} + 1" | bc); fi; fi; done < "${ARQUIVOLOGTEMP}"; echo -n "22h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA7}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA7}"; if [ "${MAXHORADIA}" -lt "${CONTADOR}" ]; then MAXHORADIA=$CONTADOR; fi; CONTADOR="0"
+
+    while read -r LINHA; do echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"; if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | cut -d " " -f 4 | cut -d ":" -f 1) == "23" ]; then CONTADOR=$(echo "${CONTADOR} + 1" | bc); fi; fi; done < "${ARQUIVOLOGTEMP}"; echo -n "23h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA7}"; echo " ${CONTADOR}" >> "${ARQUIVOGNUPLOTDATA7}"; if [ "${MAXHORADIA}" -lt "${CONTADOR}" ]; then MAXHORADIA=$CONTADOR; fi; CONTADOR="0"
+
+    echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
+
+if [ "${MAXDIA}" -gt "0" ]; then gnuplot -p -e "set xtics font 'Verdana,10'; set yrange [0:]; set boxwidth 0.3; set style fill solid; set xtics 1; set ytics 0,${MAXDIA}; set terminal png size 800,600; set xtics rotate by 90 right; set title 'Frequência diária de uso do game.'; show title; set output '${ARQUIVOGRAFICOTEMPO}'; plot '${ARQUIVOGNUPLOTDATA2}' using 2:xticlabels(1) notitle with lines lc -1" 1>> /dev/null 2>> /dev/null; else cp "${IMAGEGRAPH0}" "${ARQUIVOGRAFICOTEMPO}" 1>> /dev/null 2>> /dev/null; fi
+
+    echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
+
+if [ "${MAXANO}" -gt "0" ]; then gnuplot -p -e "set xtics font 'Verdana,10'; set yrange [0:]; set boxwidth 0.3; set style fill solid; set xtics 1; set ytics 0,${MAXANO}; set terminal png size 800,600; set xtics rotate by 90 right; set title 'Frequência anual de uso do game.'; show title; set output '${ARQUIVOGRAFICOTEMPOANUAL}'; plot '${ARQUIVOGNUPLOTDATA3}' using 2:xticlabels(1) notitle with lines lc -1" 1>> /dev/null 2>> /dev/null; else cp "${IMAGEGRAPH0}" "${ARQUIVOGRAFICOTEMPOANUAL}" 1>> /dev/null 2>> /dev/null; fi
+
+    echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
+
+if [ "${MAXMES}" -gt "0" ]; then gnuplot -p -e "set xtics font 'Verdana,10'; set yrange [0:]; set boxwidth 0.3; set style fill solid; set xtics 1; set ytics 0,${MAXMES}; set terminal png size 800,600; set xtics rotate by 90 right; set title 'Frequência mensal de uso do game.'; show title; set output '${ARQUIVOGRAFICOTEMPOMENSAL}'; plot '${ARQUIVOGNUPLOTDATA4}' using 2:xticlabels(1) notitle with lines lc -1" 1>> /dev/null 2>> /dev/null; else cp "${IMAGEGRAPH0}" "${ARQUIVOGRAFICOTEMPOMENSAL}" 1>> /dev/null 2>> /dev/null; fi
+
+    echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
+
+if [ "${MAXDIASEMANA}" -gt "0" ]; then gnuplot -p -e "set xtics font 'Verdana,10'; set yrange [0:]; set boxwidth 0.3; set style fill solid; set xtics 1; set ytics 0,${MAXDIASEMANA}; set terminal png size 800,600; set xtics rotate by 90 right; set title 'Distribuição semanal de uso do game.'; show title; set output '${ARQUIVOGRAFICOTEMPODISTSEM}'; plot '${ARQUIVOGNUPLOTDATA5}' using 2:xticlabels(1) notitle with lines lc -1" 1>> /dev/null 2>> /dev/null; else cp "${IMAGEGRAPH0}" "${ARQUIVOGRAFICOTEMPODISTSEM}" 1>> /dev/null 2>> /dev/null; fi
+
+    echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
+
+if [ "${MAXMESANO}" -gt "0" ]; then gnuplot -p -e "set xtics font 'Verdana,10'; set yrange [0:]; set boxwidth 0.3; set style fill solid; set xtics 1; set ytics 0,${MAXMESANO}; set terminal png size 800,600; set xtics rotate by 90 right; set title 'Distribuição mensal de uso do game.'; show title; set output '${ARQUIVOGRAFICOTEMPODISTMES}'; plot '${ARQUIVOGNUPLOTDATA6}' using 2:xticlabels(1) notitle with lines lc -1" 1>> /dev/null 2>> /dev/null; else cp "${IMAGEGRAPH0}" "${ARQUIVOGRAFICOTEMPODISTMES}" 1>> /dev/null 2>> /dev/null; fi
+
+    echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
+
+if [ "${MAXHORADIA}" -gt "0" ]; then gnuplot -p -e "set xtics font 'Verdana,10'; set yrange [0:]; set boxwidth 0.3; set style fill solid; set xtics 1; set ytics 0,${MAXHORADIA}; set terminal png size 800,600; set xtics rotate by 90 right; set title 'Distribuição horária de uso do game.'; show title; set output '${ARQUIVOGRAFICOTEMPODISTHOR}'; plot '${ARQUIVOGNUPLOTDATA7}' using 2:xticlabels(1) notitle with lines lc -1" 1>> /dev/null 2>> /dev/null; else cp "${IMAGEGRAPH0}" "${ARQUIVOGRAFICOTEMPODISTHOR}" 1>> /dev/null 2>> /dev/null; fi
 
     echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
@@ -342,15 +517,31 @@ done
 
     rm "${ARQUIVOGNUPLOTDATA3}" 1>> /dev/null 2>> /dev/null
 
-    echo -ne "\b"; echo -ne "${AV_VERDE}"; bash antoniovandre_echo_android "Concluído" n; echo -ne "${AV_SEMCOR}"; echo "."
+    echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
+
+    rm "${ARQUIVOGNUPLOTDATA4}" 1>> /dev/null 2>> /dev/null
+
+    echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
+
+    rm "${ARQUIVOGNUPLOTDATA5}" 1>> /dev/null 2>> /dev/null
+
+    echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
+
+    rm "${ARQUIVOGNUPLOTDATA6}" 1>> /dev/null 2>> /dev/null
+
+    echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
+
+    rm "${ARQUIVOGNUPLOTDATA7}" 1>> /dev/null 2>> /dev/null
+
+    echo -ne "\b"; echo -ne "${AV_VERDE}"; bash antoniovandre_echo_android "${CONCLUDED}" n; echo -ne "${AV_SEMCOR}"; echo "."
 
   fi
 
-if [ "${1}" != "ne" ] && [ "${AVLOG}" == "1" ] && [ "${AVSTATS}" == "1" ] && ls "${ARQUIVOLOGTEMP}" 1>> /dev/null 2>> /dev/null; then bash antoniovandre_echo_android "Construindo arquivo de estatísticas... " n; echo "Arquivo de estatísticas do jogo." > "${ARQUIVOSTATS}"; echo "_____" >> "${ARQUIVOSTATS}"; echo "Total de respostas: ${TOTALRESPOSTAS}." >> "${ARQUIVOSTATS}"; echo "Total de acertos: ${NUMEROACERTOS}." >> "${ARQUIVOSTATS}"; echo "Total de erros: ${NUMEROERROS}." >> "${ARQUIVOSTATS}"; echo "Percentual de acerto: ${PERCENTUALACERTO} %." >> "${ARQUIVOSTATS}"; echo "Percentual de erro: ${PERCENTUALERRO} %." >> "${ARQUIVOSTATS}"; echo -ne "${AV_VERDE}"; bash antoniovandre_echo_android "Concluído" n; echo -ne "${AV_SEMCOR}"; echo "."; fi
+if [ "${1}" != "ne" ] && [ "${AVLOG}" == "1" ] && [ "${AVSTATS}" == "1" ] && ls "${ARQUIVOLOGTEMP}" 1>> /dev/null 2>> /dev/null; then MAXACERTOSERROS="0"; NUMEROACERTOS="0"; NUMEROERROS="0"; NUMEROACERTOS=$(cat "${ARQUIVOLOGTEMP}" | grep "Eval: acertou." | wc -l); NUMEROERROS=$(cat "${ARQUIVOLOGTEMP}" | grep "Eval: errou." | wc -l); TOTALRESPOSTAS=$(echo "${NUMEROACERTOS} + ${NUMEROERROS}" | bc); PERCENTUALACERTO=$(echo "100 * ${NUMEROACERTOS} / ${TOTALRESPOSTAS}" | bc -l); PERCENTUALERRO=$(echo "100 * ${NUMEROERROS} / ${TOTALRESPOSTAS}" | bc -l); bash antoniovandre_echo_android "${BUILDINGSTATSFILE}" n; echo "Arquivo de estatísticas do jogo." > "${ARQUIVOSTATS}"; echo "_____" >> "${ARQUIVOSTATS}"; echo "Total de respostas: ${TOTALRESPOSTAS}." >> "${ARQUIVOSTATS}"; echo "Total de acertos: ${NUMEROACERTOS}." >> "${ARQUIVOSTATS}"; echo "Total de erros: ${NUMEROERROS}." >> "${ARQUIVOSTATS}"; echo "Percentual de acerto: ${PERCENTUALACERTO} %." >> "${ARQUIVOSTATS}"; echo "Percentual de erro: ${PERCENTUALERRO} %." >> "${ARQUIVOSTATS}"; echo -ne "${AV_VERDE}"; bash antoniovandre_echo_android "${CONCLUDED}" n; echo -ne "${AV_SEMCOR}"; echo "."; fi
 
-if [ "${AVLOG}" == "1" ] && ls "${ARQUIVOLOGTEMP}" 1>> /dev/null 2>> /dev/null; then bash antoniovandre_echo_android "Convertendo arquivo log para o formato DOS... " n; unix2dos "${ARQUIVOLOGTEMP}" 1>> /dev/null 2>> /dev/null; echo -ne "${AV_VERDE}"; bash antoniovandre_echo_android "Concluído" n; echo -ne "${AV_SEMCOR}"; echo "."; fi
+if [ "${AVLOG}" == "1" ] && ls "${ARQUIVOLOGTEMP}" 1>> /dev/null 2>> /dev/null; then bash antoniovandre_echo_android "${CONVLOGDOS}" n; unix2dos "${ARQUIVOLOGTEMP}" 1>> /dev/null 2>> /dev/null; echo -ne "${AV_VERDE}"; bash antoniovandre_echo_android "${CONCLUDED}" n; echo -ne "${AV_SEMCOR}"; echo "."; fi
 
-if [ "${1}" != "ne" ]; then cp "${ARQUIVOLOGTEMP}" "${ARQUIVOLOG}"; fi
+cp "${ARQUIVOLOGTEMP}" "${ARQUIVOLOG}" 1>> /dev/null 2>> /dev/null
 
 bash antoniovandre_echo_android "${THANKS}"
 
