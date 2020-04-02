@@ -4,7 +4,7 @@
 
 # Licença: Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA).
 
-# Última atualização: 01-04-2020.
+# Última atualização: 02-04-2020.
 
 # Argumento: "ne" para não processar estatísticas, ou "oe" para apenas processar estatísticas.
 
@@ -216,7 +216,7 @@ bash antoniovandre_echo_android_nosound "${MATHGAME}."
 
 echo ""
 
-bash antoniovandre_echo_android_nosound "${VERSION} 01-04-2020."
+bash antoniovandre_echo_android_nosound "${VERSION} 02-04-2020."
 
 echo ""
 
@@ -541,7 +541,7 @@ if [ "${1}" != "ne" ] && [ "${AVLOG}" == "1" ] && [ "${AVSTATS}" == "1" ] && ls 
 
 if [ "${AVLOG}" == "1" ] && ls "${ARQUIVOLOGTEMP}" 1>> /dev/null 2>> /dev/null; then bash antoniovandre_echo_android_nosound "${CONVLOGDOS}" n; unix2dos "${ARQUIVOLOGTEMP}" 1>> /dev/null 2>> /dev/null; echo -ne "${AV_VERDE}"; bash antoniovandre_echo_android_nosound "${CONCLUDED}" n; echo -ne "${AV_SEMCOR}"; echo "."; fi
 
-cp "${ARQUIVOLOGTEMP}" "${ARQUIVOLOG}" 1>> /dev/null 2>> /dev/null
+if [ "${1}" != "ne" ]; then if [ "${AVLOG}" == "1" ]; then cp "${ARQUIVOLOGTEMP}" "${ARQUIVOLOG}" 1>> /dev/null 2>> /dev/null; fi; fi
 
 bash antoniovandre_echo_android_nosound "${THANKS}"
 
