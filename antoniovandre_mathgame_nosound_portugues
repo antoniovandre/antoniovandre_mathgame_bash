@@ -1,10 +1,10 @@
 # Projeto Mathematical Ramblings (mathematicalramblings.blogspot.com).
 
-# Script de um simples jogo de Matemática, para Android.
+# Script de um simples jogo de Matemática, sem som, em Português, para Android.
 
 # Licença: Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA).
 
-# Última atualização: 02-04-2020.
+# Última atualização: 03-04-2020.
 
 # Argumento: "ne" para não processar estatísticas, ou "oe" para apenas processar estatísticas.
 
@@ -22,7 +22,7 @@ case "${LINGUA}" in
 
     VERSION="Versão"
 
-    INSTRUCOES="Digite \"SAIR\" para sair, \"+A\" para incrementar o número de argumentos, \"-A\" para diminuir o número de argumentos, \"+D\" para incrementar o número de casas decimais, \"-D\" para diminuir o número de casas decimais, \"+N\" para aumentar o limite superior dos números, \"-N\" para reduzir o limite superior dos números, \"T\" para ativar tempo, \"t\" para desativar tempo, \"+T\" para aumentar o tempo, ou \"-T\" para reduzir o tempo."
+    INSTRUCOES="Digite \"SAIR\", \"EXIT\", \"sair\", ou \"exit\" para sair, \"PULAR\", \"JUMP\", \"pular\" ou \"jump\" para pular, \"+A\" para incrementar o número de argumentos, \"-A\" para diminuir o número de argumentos, \"+D\" para incrementar o número de casas decimais, \"-D\" para diminuir o número de casas decimais, \"+N\" para aumentar o limite superior dos números, \"-N\" para reduzir o limite superior dos números, \"T\" para ativar tempo, \"t\" para desativar tempo, \"+T\" para aumentar o tempo, ou \"-T\" para reduzir o tempo."
 
     ROUNDWITH="arredondado com"
 
@@ -89,7 +89,7 @@ case "${LINGUA}" in
 
     VERSION="Version"
 
-    INSTRUCOES="Type \"SAIR\" to exit, \"+A\" to increase the number of arguments, \"-A\" to decrease the number of arguments, \"+D\" to increase the number of decimal places, \"-D\" to decrease the number of decimal places, \"+N\" to increase the upper limit of the numbers, \"-N\" to reduce the upper limit of the numbers, \"T\" to activated time, \"t\" to deactivate time, \"+T\" to increase time, or \"-T\" to reduce time."
+    INSTRUCOES="Type \"SAIR\", \"EXIT\", \"sair\", or \"exit\" to exit, \"PULAR\", \"JUMP\", \"pular\" or \"jump\" to jump, \"+A\" to increase the number of arguments, \"-A\" to decrease the number of arguments, \"+D\" to increase the number of decimal places, \"-D\" to decrease the number of decimal places, \"+N\" to increase the upper limit of the numbers, \"-N\" to reduce the upper limit of the numbers, \"T\" to activated time, \"t\" to deactivate time, \"+T\" to increase time, or \"-T\" to reduce time."
 
     ROUNDWITH="rounding with"
 
@@ -224,7 +224,7 @@ bash antoniovandre_echo_android_nosound "${MATHGAME}."
 
 echo ""
 
-bash antoniovandre_echo_android_nosound "${VERSION} 02-04-2020."
+bash antoniovandre_echo_android_nosound "${VERSION} 03-04-2020."
 
 echo ""
 
@@ -234,7 +234,7 @@ if (! ls "${ARQUIVOLOGTEMP}" 1>> /dev/null 2>> /dev/null) && ls "${ARQUIVOLOG}" 
 
 if ls "${ARQUIVOLOGTEMP}" 1>> /dev/null 2>> /dev/null && ls "${ARQUIVOLOG}" 1>> /dev/null 2>> /dev/null; then if [ $(cat "${ARQUIVOLOG}" | wc -l) -gt $(cat "${ARQUIVOLOGTEMP}" | wc -l) ]; then cp "${ARQUIVOLOG}" "${ARQUIVOLOGTEMP}"; fi; fi
 
-while [  "${RESPOSTAUSUARIO}" != "SAIR" ] && [ "${1}" != "oe" ]; do
+while [  "${RESPOSTAUSUARIO}" != "SAIR" ] && [  "${RESPOSTAUSUARIO}" != "EXIT" ] && [  "${RESPOSTAUSUARIO}" != "sair" ] && [  "${RESPOSTAUSUARIO}" != "exit" ] && [ "${1}" != "oe" ]; do
 
   SEED=$(date +%s)
   SEED=$(echo "${SEED} % 1000" | bc)
@@ -285,6 +285,13 @@ while [  "${RESPOSTAUSUARIO}" != "SAIR" ] && [ "${1}" != "oe" ]; do
     "+T") if [ "${LIMITETEMPO}" -lt "${MAXTIME}" ]; then LIMITETEMPO=$(echo "${LIMITETEMPO} + 10" | bc); bash antoniovandre_echo_android_nosound "${TVNOW} ${LIMITETEMPO}."; else bash antoniovandre_echo_android_nosound "${TOVERFLOW}"; fi; continue;;
     "-T") if [ "${LIMITETEMPO}" -gt "${MINTIME}" ]; then LIMITETEMPO=$(echo "${LIMITETEMPO} - 10" | bc); bash antoniovandre_echo_android_nosound "${TVNOW} ${LIMITETEMPO}."; else bash antoniovandre_echo_android_nosound "${TBOTTOM}"; fi; continue;;
     "SAIR") break;;
+    "EXIT") break;;
+    "sair") break;;
+    "exit") break;;
+    "PULAR") continue;;
+    "JUMP") continue;;
+    "pular") continue;;
+    "jump") continue;;
     "${RESPOSTA}") if [ "${AVLOG}" == "1" ]; then echo "_____" >> "${ARQUIVOLOGTEMP}"; LANG=en_us_88591 date >> "${ARQUIVOLOGTEMP}"; echo "Pergunta: ${PERGUNTA}" >> "${ARQUIVOLOGTEMP}"; echo "Resposta: ${RESPOSTAUSUARIO}" >> "${ARQUIVOLOGTEMP}"; echo "Eval: acertou." >> "${ARQUIVOLOGTEMP}"; fi; echo -e "${AV_VERDE}${CORRECT}${AV_SEMCOR}."; if [ "${AVSOUND}" == "1" ]; then play "${ARQUIVOSOMACERTO}" 1>> /dev/null 2>> /dev/null; fi;;
     *) if [ "${AVLOG}" == "1" ]; then echo "_____" >> "${ARQUIVOLOGTEMP}"; LANG=en_us_88591 date >> "${ARQUIVOLOGTEMP}"; echo "Pergunta: ${PERGUNTA}" >> "${ARQUIVOLOGTEMP}"; echo "Resposta: ${RESPOSTAUSUARIO}" >> "${ARQUIVOLOGTEMP}"; echo "Eval: errou." >> "${ARQUIVOLOGTEMP}"; fi; echo -e "${AV_VERMELHO}${WRONG}${AV_SEMCOR}."; if [ "${AVSOUND}" == "1" ]; then play "${ARQUIVOSOMERRO}" 1>> /dev/null 2>> /dev/null; fi;;
   esac
