@@ -289,6 +289,8 @@ while [  "${RESPOSTAUSUARIO}" != "SAIR" ] && [  "${RESPOSTAUSUARIO}" != "EXIT" ]
 
   if [ "${AVTEMPO}" == "1" ]; then if ! read -t  $LIMITETEMPO RESPOSTAUSUARIO 1>> /dev/null 2>> /dev/null; then echo "${TIMELIMITOF} ${LIMITETEMPO} ${SECONDSREACHED}."; continue; fi; else read RESPOSTAUSUARIO; fi
 
+  RESPOSTAUSUARIOP=$RESPOSTAUSUARIO
+
   if ! ([ "${RESPOSTAUSUARIO}" == "+A" ] || [ "${RESPOSTAUSUARIO}" == "-A" ] || [ "${RESPOSTAUSUARIO}" == "+D" ] || [ "${RESPOSTAUSUARIO}" == "-D" ] || [ "${RESPOSTAUSUARIO}" == "+N" ] || [ "${RESPOSTAUSUARIO}" == "-N" ] || [ "${RESPOSTAUSUARIO}" == "T" ] || [ "${RESPOSTAUSUARIO}" == "t" ] || [ "${RESPOSTAUSUARIO}" == "+T" ] || [ "${RESPOSTAUSUARIO}" == "-T" ] || [ "${RESPOSTAUSUARIO}" == "SAIR" ] || [ "${RESPOSTAUSUARIO}" == "EXIT" ] || [ "${RESPOSTAUSUARIO}" == "sair" ] || [ "${RESPOSTAUSUARIO}" == "exit" ] || [ "${RESPOSTAUSUARIO}" == "PULAR" ] || [ "${RESPOSTAUSUARIO}" == "JUMP" ] || [ "${RESPOSTAUSUARIO}" == "pular" ] || [ "${RESPOSTAUSUARIO}" == "jump" ]); then RESPOSTAUSUARIO=$(awk "BEGIN{print ${RESPOSTAUSUARIO}}"); fi
 
   case "${RESPOSTAUSUARIO}" in
@@ -311,7 +313,7 @@ while [  "${RESPOSTAUSUARIO}" != "SAIR" ] && [  "${RESPOSTAUSUARIO}" != "EXIT" ]
     "pular") continue;;
     "jump") continue;;
     "${RESPOSTA}") if [ "${AVLOG}" == "1" ]; then echo "_____" >> "${ARQUIVOLOGTEMP}"; LANG=en_us_88591 date >> "${ARQUIVOLOGTEMP}"; echo "Pergunta: ${PERGUNTA}" >> "${ARQUIVOLOGTEMP}"; echo "Resposta: ${RESPOSTAUSUARIO}" >> "${ARQUIVOLOGTEMP}"; echo "Eval: acertou." >> "${ARQUIVOLOGTEMP}"; fi; echo -e "${AV_VERDE}${CORRECT}${AV_SEMCOR}."; if [ "${AVSOUND}" == "1" ]; then play "${ARQUIVOSOMACERTO}" 1>> /dev/null 2>> /dev/null; fi;;
-    *) if [ "${AVLOG}" == "1" ]; then echo "_____" >> "${ARQUIVOLOGTEMP}"; LANG=en_us_88591 date >> "${ARQUIVOLOGTEMP}"; echo "Pergunta: ${PERGUNTA}" >> "${ARQUIVOLOGTEMP}"; echo "Resposta: ${RESPOSTAUSUARIO}" >> "${ARQUIVOLOGTEMP}"; echo "Eval: errou." >> "${ARQUIVOLOGTEMP}"; fi; echo -e "${AV_VERMELHO}${WRONG}${AV_SEMCOR}."; if [ "${AVSOUND}" == "1" ]; then play "${ARQUIVOSOMERRO}" 1>> /dev/null 2>> /dev/null; fi;;
+    *) if [ "${AVLOG}" == "1" ]; then echo "_____" >> "${ARQUIVOLOGTEMP}"; LANG=en_us_88591 date >> "${ARQUIVOLOGTEMP}"; echo "Pergunta: ${PERGUNTA}" >> "${ARQUIVOLOGTEMP}"; echo "Resposta: ${RESPOSTAUSUARIOP}" >> "${ARQUIVOLOGTEMP}"; echo "Eval: errou." >> "${ARQUIVOLOGTEMP}"; fi; echo -e "${AV_VERMELHO}${WRONG}${AV_SEMCOR}."; if [ "${AVSOUND}" == "1" ]; then play "${ARQUIVOSOMERRO}" 1>> /dev/null 2>> /dev/null; fi;;
   esac
 
 done

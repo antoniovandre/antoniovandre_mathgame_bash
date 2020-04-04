@@ -1,0 +1,29 @@
+# antoniovandre_mathgame_bash
+![antoniovandre_mathgame_bash logo](https://antoniovandre.github.io/antoniovandre_mathgame_bash/antoniovandre_mathgame_logo_200p.png)
+
+Projeto Mathematical Ramblings.
+
+[https://mathematicalramblings.blogspot.com/](https://mathematicalramblings.blogspot.com/)
+____________________
+
+Execute o software com o comando "bash antoniovandre_mathgame".
+
+Se o seu ambiente não é capaz de produzir sons, execute com "bash antoniovandre_mathgame_nosound".
+
+Se você não é usuário Linux, você pode instalar no seu sistema operacional um shell BASH.
+
+O processamento das estatísticas pode ser demorado, então você pode jogar com o comando "bash antoniovandre_mathgame ne", onde apenas o arquivo de log será salvo, e, quando não for utilizar o dispositivo, executar "bash antoniovandre_mathgame oe" para unicamente processar as estatísticas.
+
+Licença de uso e compartilhamento: Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA).
+____________________
+
+Run the software with the command "bash antoniovandre_mathgame".
+
+If your environment is not capable of producing sounds, run with "bash antoniovandre_mathgame_nosound".
+
+If you are not a Linux user, you can install a BASH shell on your operating system.
+
+The processing of the statistics can be time consuming, so you can play with the command "bash antoniovandre_mathgame ne", where only the log file will be saved, and, when not using the device, execute "bash antoniovandre_mathgame oe" to only process the statistics.
+
+Use and sharing license: Attribution-Non-Commercial-Share-Equal (CC BY-NC-SA).
+
