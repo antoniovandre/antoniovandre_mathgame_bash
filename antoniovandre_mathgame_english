@@ -4,7 +4,7 @@
 
 # Licença: Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA).
 
-# Última atualização: 03-04-2020.
+# Última atualização: 04-04-2020.
 
 # Argumento: "ne" para não processar estatísticas, ou "oe" para apenas processar estatísticas.
 
@@ -72,7 +72,13 @@ case "${LINGUA}" in
 
     THANKS="Muito obrigado por apreciar este game."
 
+    SUCCESS="Sucesso"
+
+    FAIL="Falhou"
+
     BUILDINGSTATSFILE="Construindo arquivo de estatísticas... "
+
+    CONVLOGUNIX="Convertendo arquivo log para o formato UNIX... "
 
     CONVLOGDOS="Convertendo arquivo log para o formato DOS... "
 
@@ -139,7 +145,13 @@ case "${LINGUA}" in
 
     THANKS="Very thank You for appreciate this game."
 
+    SUCCESS="Success"
+
+    FAIL="Fail"
+
     BUILDINGSTATSFILE="Building stats file... "
+
+    CONVLOGUNIX="Converting log file to UNIX format... "
 
     CONVLOGDOS="Converting log file to DOS format... "
 
@@ -158,6 +170,8 @@ if ! hash play 1>> /dev/null 2>> /dev/null; then echo "\"play\" ${NOTFOUND}."; e
 
 if ! hash unix2dos 1>> /dev/null 2>> /dev/null; then echo "\"unix2dos\" ${NOTFOUND}."; exit 1; fi
 
+if ! hash dos2unix 1>> /dev/null 2>> /dev/null; then echo "\"dos2unix\" ${NOTFOUND}."; exit 1; fi
+
 if ! hash gnuplot 1>> /dev/null 2>> /dev/null; then echo "Gnuplot ${NOTFOUND}."; exit 1; fi
 
 if ! ls "antoniovandre_echo_android" 1>> /dev/null 2>> /dev/null; then echo "\"antoniovandre_echo_android\" ${NOTFOUND}."; exit 1; fi
@@ -175,7 +189,7 @@ ARQUIVOSOMACERTO="antoniovandre_mathgame_correct.mp3"
 ARQUIVOSOMERRO="antoniovandre_mathgame_error.mp3"
 AVLOG="1"
 ARQUIVOLOG="antoniovandre_mathgame_log.txt"
-ARQUIVOLOGTEMP="antoniovandre_mathgame_log_temp.txt"
+ARQUIVOLOGTEMP="antoniovandre_mathgame_log.txt"
 AVGRAFICOS="1"
 ARQUIVOGNUPLOTDATA="antoniovandre_mathgame_log_gnuplot.dat"
 ARQUIVOGNUPLOTDATA2="antoniovandre_mathgame_log_gnuplot_2.dat"
@@ -224,7 +238,7 @@ bash antoniovandre_echo_android "${MATHGAME}."
 
 echo ""
 
-bash antoniovandre_echo_android "${VERSION} 03-04-2020."
+bash antoniovandre_echo_android "${VERSION} 04-04-2020."
 
 echo ""
 
@@ -271,7 +285,7 @@ while [  "${RESPOSTAUSUARIO}" != "SAIR" ] && [  "${RESPOSTAUSUARIO}" != "EXIT" ]
 
   PERGUNTA=$(echo "${HOWMUCH} ${QUESTAO}${QUESTAODECIMAL}?" | tr "\n" " ")
 
-  antoniovandre_echo_android "${PERGUNTA}"
+  bash antoniovandre_echo_android "${PERGUNTA}"
 
   if [ "${AVTEMPO}" == "1" ]; then if ! read -t  $LIMITETEMPO RESPOSTAUSUARIO 1>> /dev/null 2>> /dev/null; then echo "${TIMELIMITOF} ${LIMITETEMPO} ${SECONDSREACHED}."; continue; fi; else read RESPOSTAUSUARIO; fi
 
@@ -303,6 +317,8 @@ while [  "${RESPOSTAUSUARIO}" != "SAIR" ] && [  "${RESPOSTAUSUARIO}" != "EXIT" ]
 done
 
   if [ "${1}" != "ne" ] && [ "${AVLOG}" == "1" ] && [ "${AVGRAFICOS}" == "1" ] && ls "${ARQUIVOLOGTEMP}" 1>> /dev/null 2>> /dev/null; then
+
+    bash antoniovandre_echo_android "${CONVLOGUNIX}" n; if dos2unix "${ARQUIVOLOGTEMP}" 1>> /dev/null 2>> /dev/null; then echo -ne "${AV_VERDE}"; bash antoniovandre_echo_android "${SUCCESS}" n; echo -ne "${AV_SEMCOR}"; echo "."; else echo -ne "${AV_VERMELHO}"; bash antoniovandre_echo_android "${FAIL}" n; echo -ne "${AV_SEMCOR}"; echo "."; exit 1; fi
 
     bash antoniovandre_echo_android "${BUILDINGGRAPHS}" n
 
