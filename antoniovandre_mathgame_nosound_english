@@ -253,15 +253,29 @@ while [  "${RESPOSTAUSUARIO}" != "SAIR" ] && [  "${RESPOSTAUSUARIO}" != "EXIT" ]
 
   QUESTAO="$(for I in $(seq 1 "${NUMEROARGUMENTOS}"); do TEMP=$(echo -n "${PARENTESES}" | cut -d "," -f "${I}"); if [ "${TEMP}" == "(" ]; then echo -n "${TEMP}"; fi; if [ "${TEMP}" == ")" ]; then echo -n "${ARGS}" | cut -d "," -f "${I}" | tr -d "\n"; else echo -n "${ARGS}" | cut -d "," -f "${I}"; fi; if [ "${TEMP}" == ")" ]; then echo -n "${TEMP}"; fi; if [ "${I}" -lt "${NUMEROARGUMENTOS}" ]; then if [ "${TEMP}" == ")" ]; then echo -n " "; fi; echo -n "${OPS}" | cut -d "," -f "${I}"; fi; done)"
 
-  if ! [ "${CASASDECIMAIS}" == "1" ]; then QUESTAODECIMAL=", ${ROUNDWITH} ${CASASDECIMAIS} ${DECIMALPLACES}"; else QUESTAODECIMAL=", ${ROUNDWITH} 1 ${DECIMALPLACE}"; fi
+  RESPOSTABRUTA=$(echo $QUESTAO | tr "x" "*" | bc -l)
+
+  TEMP=$(LC_NUMERIC="en_US.UTF-8" printf "%.${CASASDECIMAIS}f" "${RESPOSTABRUTA}")
+
+  TEMP2=$(echo "${TEMP} * ${FATOR}" | bc)
+
+  RESPOSTATEMP1=${TEMP2%.*}
+
+  RESPOSTATEMP2=$(awk "BEGIN{print ${RESPOSTABRUTA} * ${FATOR}}")
+
+  if ! [ "${RESPOSTATEMP1}" == "${RESPOSTATEMP2}" ]; then if ! [ "${CASASDECIMAIS}" == "1" ]; then QUESTAODECIMAL=", ${ROUNDWITH} ${CASASDECIMAIS} ${DECIMALPLACES}"; else QUESTAODECIMAL=", ${ROUNDWITH} 1 ${DECIMALPLACE}"; fi; else QUESTAODECIMAL=""; fi
 
   RESPOSTA=$(LC_NUMERIC="en_US.UTF-8" printf "%.${CASASDECIMAIS}f" "$(echo ${QUESTAO} | tr 'x' '*' | bc -l)")
 
+  RESPOSTA=$(awk "BEGIN{print ${RESPOSTA}}")
+
   PERGUNTA=$(echo "${HOWMUCH} ${QUESTAO}${QUESTAODECIMAL}?" | tr "\n" " ")
 
-  bash antoniovandre_echo_android_nosound "${PERGUNTA}"
+  antoniovandre_echo_android_nosound "${PERGUNTA}"
 
   if [ "${AVTEMPO}" == "1" ]; then if ! read -t  $LIMITETEMPO RESPOSTAUSUARIO 1>> /dev/null 2>> /dev/null; then echo "${TIMELIMITOF} ${LIMITETEMPO} ${SECONDSREACHED}."; continue; fi; else read RESPOSTAUSUARIO; fi
+
+  if ! ([ "${RESPOSTAUSUARIO}" == "+A" ] || [ "${RESPOSTAUSUARIO}" == "-A" ] || [ "${RESPOSTAUSUARIO}" == "+D" ] || [ "${RESPOSTAUSUARIO}" == "-D" ] || [ "${RESPOSTAUSUARIO}" == "+N" ] || [ "${RESPOSTAUSUARIO}" == "-N" ] || [ "${RESPOSTAUSUARIO}" == "T" ] || [ "${RESPOSTAUSUARIO}" == "t" ] || [ "${RESPOSTAUSUARIO}" == "+T" ] || [ "${RESPOSTAUSUARIO}" == "-T" ] || [ "${RESPOSTAUSUARIO}" == "SAIR" ] || [ "${RESPOSTAUSUARIO}" == "EXIT" ] || [ "${RESPOSTAUSUARIO}" == "sair" ] || [ "${RESPOSTAUSUARIO}" == "exit" ] || [ "${RESPOSTAUSUARIO}" == "PULAR" ] || [ "${RESPOSTAUSUARIO}" == "JUMP" ] || [ "${RESPOSTAUSUARIO}" == "pular" ] || [ "${RESPOSTAUSUARIO}" == "jump" ]); then RESPOSTAUSUARIO=$(awk "BEGIN{print ${RESPOSTAUSUARIO}}"); fi
 
   case "${RESPOSTAUSUARIO}" in
     "+A") if [ "${NUMEROARGUMENTOS}" -lt "${NUMEROMAXIMOARGUMENTOS}" ]; then NUMEROARGUMENTOS=$(echo "${NUMEROARGUMENTOS} + 1" | bc); bash antoniovandre_echo_android_nosound "${ANOW} ${NUMEROARGUMENTOS}."; else bash antoniovandre_echo_android_nosound "${AOVERFLOW}"; fi; continue;;
