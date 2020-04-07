@@ -16,7 +16,7 @@ O processamento das estatísticas pode ser demorado, então você pode jogar com
 
 Há muitas outras opções disponíveis ao se editar os fontes.
 
-Ferramentas utilizadas: "https://sites.google.com/site/mathematicalramblings/home" na sessão "Ferramentas utilizadas".
+Ferramentas utilizadas: "[https://sites.google.com/site/mathematicalramblings/home](https://sites.google.com/site/mathematicalramblings/home)" na sessão "Ferramentas utilizadas".
 
 Licença de uso e compartilhamento: Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA).
 ___
@@ -31,7 +31,7 @@ The processing of the statistics can be time consuming, so you can play with the
 
 There are many other options avaliable when editing fonts.
 
-Tools used: "https://sites.google.com/site/mathematicalramblings/home" in session "Ferramentas utilizadas".
+Tools used: "[https://sites.google.com/site/mathematicalramblings/home](https://sites.google.com/site/mathematicalramblings/home)" in session "Ferramentas utilizadas".
 
 Use and sharing license: Attribution-Non-Commercial-Share-Equal (CC BY-NC-SA).
 
