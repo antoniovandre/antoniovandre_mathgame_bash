@@ -11,4 +11,8 @@ If you are not a Linux user, you can install a BASH shell on your operating syst
 
 The processing of the statistics can be time consuming, so you can play with the command "bash antoniovandre_mathgame ne", where only the log file will be saved, and, when not using the device, execute "bash antoniovandre_mathgame oe" to only process the statistics.
 
+There are many other options avaliable when editing fonts.
+
+Tools used: "https://sites.google.com/site/mathematicalramblings/home" in session "Ferramentas utilizadas".
+
 Use and sharing license: Attribution-Non-Commercial-Share-Equal (CC BY-NC-SA).

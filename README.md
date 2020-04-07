@@ -4,7 +4,7 @@
 Projeto Mathematical Ramblings.
 
 [https://mathematicalramblings.blogspot.com/](https://mathematicalramblings.blogspot.com/)
-____________________
+___
 
 Execute o software com o comando "bash antoniovandre_mathgame".
 
@@ -14,8 +14,12 @@ Se você não é usuário Linux, você pode instalar no seu sistema operacional 
 
 O processamento das estatísticas pode ser demorado, então você pode jogar com o comando "bash antoniovandre_mathgame ne", onde apenas o arquivo de log será salvo, e, quando não for utilizar o dispositivo, executar "bash antoniovandre_mathgame oe" para unicamente processar as estatísticas.
 
+Há muitas outras opções disponíveis ao se editar os fontes.
+
+Ferramentas utilizadas: "https://sites.google.com/site/mathematicalramblings/home" na sessão "Ferramentas utilizadas".
+
 Licença de uso e compartilhamento: Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA).
-____________________
+___
 
 Run the software with the command "bash antoniovandre_mathgame".
 
@@ -24,6 +28,10 @@ If your environment is not capable of producing sounds, run with "bash antoniova
 If you are not a Linux user, you can install a BASH shell on your operating system.
 
 The processing of the statistics can be time consuming, so you can play with the command "bash antoniovandre_mathgame ne", where only the log file will be saved, and, when not using the device, execute "bash antoniovandre_mathgame oe" to only process the statistics.
+
+There are many other options avaliable when editing fonts.
+
+Tools used: "https://sites.google.com/site/mathematicalramblings/home" in session "Ferramentas utilizadas".
 
 Use and sharing license: Attribution-Non-Commercial-Share-Equal (CC BY-NC-SA).
 
