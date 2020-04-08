@@ -2,7 +2,7 @@
 
 # Script de códigos de escape para cores no terminal, versão para Android.
 
-# Última atualização: 24-03-2020.
+# Última atualização: 07-04-2020.
 
 export AVCORES="1"
 
@@ -17,6 +17,10 @@ export AV_CINZACLARO="\033[0;37m"
 export AV_CINZA="\033[1;30m"
 export AV_VERMELHOCLARO="\033[1;31m"
 export AV_VERDECLARO="\033[1;32m"
+export AV_AMARELO="\033[1;33m"
+export AV_ROXOCLARO="\033[1;35m"
+export AV_CIANOCLARO="\033[1;36m"
+export AV_BRANCO="\033[1;37m"
 
 export AV_SEMCOR="\033[0m"
 
