@@ -274,7 +274,7 @@ if [ "${1}" != "oe" ]; then echo "${INSTRUCOES}"; echo ""; fi
 while [  "${RESPOSTAUSUARIO}" != "SAIR" ] && [  "${RESPOSTAUSUARIO}" != "EXIT" ] && [  "${RESPOSTAUSUARIO}" != "sair" ] && [  "${RESPOSTAUSUARIO}" != "exit" ] && [ "${1}" != "oe" ]; do
 
   SEED=$(date +%s)
-  SEED2=$(expr "${SEED}" \* $(expr "${SEED}" + "${SEED}"))
+  SEED2=$(expr "${SEED}" / 2)
   SEED=$(echo "${SEED} % 1000" | bc)
   SEED2=$(echo "${SEED2} % 1000" | bc)
 
@@ -282,7 +282,7 @@ while [  "${RESPOSTAUSUARIO}" != "SAIR" ] && [  "${RESPOSTAUSUARIO}" != "EXIT" ]
 
   FATOR=$(echo "10 ^ ${CASASDECIMAIS}" | bc)
 
-  OPS=$(for I in $(seq 1 $(echo "${NUMEROARGUMENTOS} - 1" | bc)); do case $(echo "(${SEED} * $I) % 4" | bc) in 0) echo -n "+";; 1) echo -n "-";; 2) echo -n "x";; 3) echo -n "/";; *) ;; esac; if [ "${I}" -lt $(echo "${NUMEROARGUMENTOS} - 1" | bc) ]; then echo -n ","; fi; done)
+  OPS=$(for I in $(seq 1 $(echo "${NUMEROARGUMENTOS} - 1" | bc)); do case $(echo "(${SEED} + $I) % 4" | bc) in 0) echo -n "+";; 1) echo -n "-";; 2) echo -n "x";; 3) echo -n "/";; *) ;; esac; if [ "${I}" -lt $(echo "${NUMEROARGUMENTOS} - 1" | bc) ]; then echo -n ","; fi; done)
 
   if [ "${OPS}" != "$(echo -n ${OPS} | tr 'x' ' ')" ] || [ "${OPS}" != "$(echo -n ${OPS} | tr '/' ' ')" ]; then VARVALUE=$MAXVALUERED; else VARVALUE=$MAXVALUE; fi
 

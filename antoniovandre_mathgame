@@ -251,7 +251,7 @@ if ls "${ARQUIVOLOGTEMP}" &>> /dev/null && ls "${ARQUIVOLOG}" &>> /dev/null; the
 while [  "${RESPOSTAUSUARIO}" != "SAIR" ] && [  "${RESPOSTAUSUARIO}" != "EXIT" ] && [  "${RESPOSTAUSUARIO}" != "sair" ] && [  "${RESPOSTAUSUARIO}" != "exit" ] && [ "${1}" != "oe" ]; do
 
   SEED=$(date +%s)
-  SEED2=$(expr "${SEED}" \* $(expr "${SEED}" + "${SEED}"))
+  SEED2=$(expr "${SEED}" / 2)
   SEED=$(echo "${SEED} % 1000" | bc)
   SEED2=$(echo "${SEED2} % 1000" | bc)
 
@@ -265,7 +265,7 @@ while [  "${RESPOSTAUSUARIO}" != "SAIR" ] && [  "${RESPOSTAUSUARIO}" != "EXIT" ]
 
   PARENTESES=$(if [ "${NUMEROARGUMENTOS}" -gt "2" ]; then TEMP="0"; TEMP2="0"; for I in $(seq 1 "${NUMEROARGUMENTOS}"); do if [ "$TEMP" -lt $(echo  "${NUMEROARGUMENTOS} - ${I}" | bc) ]; then TEMP3=$(echo "(${SEED} * $I) % 3" | bc); case $TEMP3 in 0) echo -n "("; TEMP=$(echo "${TEMP} + 1" | bc);; 1) if [ "$TEMP" -gt "0" ]; then echo -n ")"; TEMP=$(echo "${TEMP} - 1" | bc); fi;; 2) ;; *) ;; esac; else if [ "$TEMP" -gt "0" ]; then if [ $(echo "($SEED+ $TEMP2) % 2" | bc) == "0" ]; then echo -n ")"; TEMP=$(echo "${TEMP} - 1" | bc); else TEMP2="1"; fi; fi; fi; if [ "${I}" -lt "${NUMEROARGUMENTOS}" ]; then echo -n ","; fi; done; fi)
 
-  ARGS=$(for I in $(seq 1 "${NUMEROARGUMENTOS}"); do TEMP2=$(awk "BEGIN{print ${SEED} * (${I} + ${SEED2}) / ${FATOR}}"); if [ "$(echo -n '${OPS}' | cut -d ',' -f $I)" == "/" ] && [ $(awk "BEGIN{print ${TEMP2} % ${VARVALUE}}") == "0" ]; then TEMP=$(echo "${TEMP2} + 1" | bc); else TEMP=$TEMP2; fi; awk "BEGIN{print ${TEMP2} % ${VARVALUE}}" | tr "\n" ","; done)
+  ARGS=$(for I in $(seq 1 "${NUMEROARGUMENTOS}"); do TEMP2=$(awk "BEGIN{print ${SEED} + (${I} + ${SEED2}) / ${FATOR}}"); if [ "$(echo -n '${OPS}' | cut -d ',' -f $I)" == "/" ] && [ $(awk "BEGIN{print ${TEMP2} % ${VARVALUE}}") == "0" ]; then TEMP=$(echo "${TEMP2} + 1" | bc); else TEMP=$TEMP2; fi; awk "BEGIN{print ${TEMP2} % ${VARVALUE}}" | tr "\n" ","; done)
 
   QUESTAO="$(for I in $(seq 1 "${NUMEROARGUMENTOS}"); do TEMP=$(echo -n "${PARENTESES}" | cut -d "," -f "${I}"); if [ "${TEMP}" == "(" ]; then echo -n "${TEMP}"; fi; if [ "${TEMP}" == ")" ]; then echo -n "${ARGS}" | cut -d "," -f "${I}" | tr -d "\n"; else echo -n "${ARGS}" | cut -d "," -f "${I}"; fi; if [ "${TEMP}" == ")" ]; then echo -n "${TEMP}"; fi; if [ "${I}" -lt "${NUMEROARGUMENTOS}" ]; then if [ "${TEMP}" == ")" ]; then echo -n " "; fi; echo -n "${OPS}" | cut -d "," -f "${I}"; fi; done)"
 
