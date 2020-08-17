@@ -174,9 +174,9 @@ if ! hash dos2unix &>> /dev/null; then echo "\"dos2unix\" ${NOTFOUND}."; exit 1;
 
 if ! hash gnuplot &>> /dev/null; then echo "Gnuplot ${NOTFOUND}."; exit 1; fi
 
-if ! ls "/storage/emulated/0/av_softwares/BASH scripts/antoniovandre_echo_android" &>> /dev/null; then echo "\"antoniovandre_echo_android\" ${NOTFOUND}."; exit 1; fi
+if ! ls "av_softwares/BASH scripts/antoniovandre_echo_android" &>> /dev/null; then echo "\"antoniovandre_echo_android\" ${NOTFOUND}."; exit 1; fi
 
-if ! [ -n "$AVCORES" ]; then if ! source "/storage/emulated/0/av_softwares/BASH scripts/antoniovandre_cores_android" &>> /dev/null; then echo "${ERRORLOADCOLOR}."; fi; fi
+if ! [ -n "$AVCORES" ]; then if ! source "av_softwares/BASH scripts/antoniovandre_cores_android" &>> /dev/null; then echo "${ERRORLOADCOLOR}."; fi; fi
 
 NUMEROMAXIMOARGUMENTOS="10"
 MAXIMOCASASDECIMAIS="5"
@@ -185,36 +185,36 @@ MINMAXVALUE="8"
 MAXTIME="60"
 MINTIME="10"
 AVSOUND="1"
-ARQUIVOSOMACERTO="/storage/emulated/0/av_sounds/antoniovandre_mathgame_correct.wav"
-ARQUIVOSOMERRO="/storage/emulated/0/av_sounds/antoniovandre_mathgame_error.wav"
+ARQUIVOSOMACERTO="antoniovandre_mathgame_correct.wav"
+ARQUIVOSOMERRO="antoniovandre_mathgame_error.wav"
 AVLOG="1"
-ARQUIVOLOG="/storage/emulated/0/antoniovandre_dropbox_sync_folder/antoniovandre_mathgame_log.txt"
-ARQUIVOLOGTEMP="/storage/emulated/0/antoniovandre_mathgame_log.txt"
+ARQUIVOLOG="antoniovandre_mathgame_log.txt"
+ARQUIVOLOGTEMP="antoniovandre_mathgame_log.txt"
 AVGRAFICOS="1"
-ARQUIVOGNUPLOTDATA="/storage/emulated/0/av_temp/antoniovandre_mathgame_log_gnuplot.dat"
-ARQUIVOGNUPLOTDATA2="/storage/emulated/0/av_temp/antoniovandre_mathgame_log_gnuplot_2.dat"
-ARQUIVOGNUPLOTDATA3="/storage/emulated/0/av_temp/antoniovandre_mathgame_log_gnuplot_3.dat"
-ARQUIVOGNUPLOTDATA4="/storage/emulated/0/av_temp/antoniovandre_mathgame_log_gnuplot_4.dat"
-ARQUIVOGNUPLOTDATA5="/storage/emulated/0/av_temp/antoniovandre_mathgame_log_gnuplot_5.dat"
-ARQUIVOGNUPLOTDATA6="/storage/emulated/0/av_temp/antoniovandre_mathgame_log_gnuplot_6.dat"
-ARQUIVOGNUPLOTDATA7="/storage/emulated/0/av_temp/antoniovandre_mathgame_log_gnuplot_7.dat"
-ARQUIVOGNUPLOTDATA8="/storage/emulated/0/av_temp/antoniovandre_mathgame_log_gnuplot_8.dat"
-ARQUIVOGNUPLOTDATA9="/storage/emulated/0/av_temp/antoniovandre_mathgame_log_gnuplot_9.dat"
-ARQUIVOGNUPLOTDATA10="/storage/emulated/0/av_temp/antoniovandre_mathgame_log_gnuplot_10.dat"
-ARQUIVOGRAFICO="/storage/emulated/0/antoniovandre_dropbox_sync_folder/antoniovandre_mathgame_log.png"
-ARQUIVOGRAFICOPIZZA="/storage/emulated/0/antoniovandre_dropbox_sync_folder/antoniovandre_mathgame_log_pizza.png"
-ARQUIVOGRAFICOTEMPO="/storage/emulated/0/antoniovandre_dropbox_sync_folder/antoniovandre_mathgame_log_tempo.png"
-ARQUIVOGRAFICOTEMPOANUAL="/storage/emulated/0/antoniovandre_dropbox_sync_folder/antoniovandre_mathgame_log_tempo_anual.png"
-ARQUIVOGRAFICOTEMPOMENSAL="/storage/emulated/0/antoniovandre_dropbox_sync_folder/antoniovandre_mathgame_log_tempo_mensal.png"
-ARQUIVOGRAFICOTEMPODISTSEM="/storage/emulated/0/antoniovandre_dropbox_sync_folder/antoniovandre_mathgame_log_tempo_distribuicao_semanal.png"
-ARQUIVOGRAFICOTEMPODISTMES="/storage/emulated/0/antoniovandre_dropbox_sync_folder/antoniovandre_mathgame_log_tempo_distribuicao_mensal.png"
-ARQUIVOGRAFICOTEMPODISTHOR="/storage/emulated/0/antoniovandre_dropbox_sync_folder/antoniovandre_mathgame_log_tempo_distribuicao_horaria.png"
-ARQUIVOGRAFICOTEMPOERROS="/storage/emulated/0/antoniovandre_dropbox_sync_folder/antoniovandre_mathgame_log_tempo_erros.png"
-ARQUIVOGRAFICOTEMPOANOERROS="/storage/emulated/0/antoniovandre_dropbox_sync_folder/antoniovandre_mathgame_log_tempo_anual_erros.png"
-ARQUIVOGRAFICOTEMPOMESERROS="/storage/emulated/0/antoniovandre_dropbox_sync_folder/antoniovandre_mathgame_log_tempo_mensal_erros.png"
-IMAGEGRAPH0="/storage/emulated/0/antoniovandre_mathgame_emptygraph.png"
+ARQUIVOGNUPLOTDATA="antoniovandre_mathgame_log_gnuplot.dat"
+ARQUIVOGNUPLOTDATA2="antoniovandre_mathgame_log_gnuplot_2.dat"
+ARQUIVOGNUPLOTDATA3="antoniovandre_mathgame_log_gnuplot_3.dat"
+ARQUIVOGNUPLOTDATA4="antoniovandre_mathgame_log_gnuplot_4.dat"
+ARQUIVOGNUPLOTDATA5="antoniovandre_mathgame_log_gnuplot_5.dat"
+ARQUIVOGNUPLOTDATA6="antoniovandre_mathgame_log_gnuplot_6.dat"
+ARQUIVOGNUPLOTDATA7="antoniovandre_mathgame_log_gnuplot_7.dat"
+ARQUIVOGNUPLOTDATA8="antoniovandre_mathgame_log_gnuplot_8.dat"
+ARQUIVOGNUPLOTDATA9="antoniovandre_mathgame_log_gnuplot_9.dat"
+ARQUIVOGNUPLOTDATA10="antoniovandre_mathgame_log_gnuplot_10.dat"
+ARQUIVOGRAFICO="antoniovandre_mathgame_log.png"
+ARQUIVOGRAFICOPIZZA="antoniovandre_mathgame_log_pizza.png"
+ARQUIVOGRAFICOTEMPO="antoniovandre_mathgame_log_tempo.png"
+ARQUIVOGRAFICOTEMPOANUAL="antoniovandre_mathgame_log_tempo_anual.png"
+ARQUIVOGRAFICOTEMPOMENSAL="antoniovandre_mathgame_log_tempo_mensal.png"
+ARQUIVOGRAFICOTEMPODISTSEM="antoniovandre_mathgame_log_tempo_distribuicao_semanal.png"
+ARQUIVOGRAFICOTEMPODISTMES="antoniovandre_mathgame_log_tempo_distribuicao_mensal.png"
+ARQUIVOGRAFICOTEMPODISTHOR="antoniovandre_mathgame_log_tempo_distribuicao_horaria.png"
+ARQUIVOGRAFICOTEMPOERROS="antoniovandre_mathgame_log_tempo_erros.png"
+ARQUIVOGRAFICOTEMPOANOERROS="antoniovandre_mathgame_log_tempo_anual_erros.png"
+ARQUIVOGRAFICOTEMPOMESERROS="antoniovandre_mathgame_log_tempo_mensal_erros.png"
+IMAGEGRAPH0="antoniovandre_mathgame_emptygraph.png"
 AVSTATS="1"
-ARQUIVOSTATS="/storage/emulated/0/antoniovandre_dropbox_sync_folder/antoniovandre_mathgame_log_stats.txt"
+ARQUIVOSTATS="antoniovandre_mathgame_log_stats.txt"
 
 AVTEMPO="0"
 LIMITETEMPO="20"
@@ -224,21 +224,21 @@ NUMEROARGUMENTOS="2"
 
 RESPOSTAUSUARIO=""
 
-cat "/storage/emulated/0/av_softwares/BASH scripts/Mathematical Ramblings - ascii art - 40.txt"
+cat "av_softwares/BASH scripts/Mathematical Ramblings - ascii art - 40.txt"
 
-bash /storage/emulated/0/av_softwares/BASH\ scripts/antoniovandre_echo_android "Projeto Mathematical Ramblings."
-
-echo ""
-
-bash /storage/emulated/0/av_softwares/BASH\ scripts/antoniovandre_echo_android "mathematicalramblings.blogspot.com"
+bash av_softwares/BASH\ scripts/antoniovandre_echo_android "Projeto Mathematical Ramblings."
 
 echo ""
 
-bash /storage/emulated/0/av_softwares/BASH\ scripts/antoniovandre_echo_android "${MATHGAME}."
+bash av_softwares/BASH\ scripts/antoniovandre_echo_android "mathematicalramblings.blogspot.com"
 
 echo ""
 
-bash /storage/emulated/0/av_softwares/BASH\ scripts/antoniovandre_echo_android "${VERSION} 17-08-2020."
+bash av_softwares/BASH\ scripts/antoniovandre_echo_android "${MATHGAME}."
+
+echo ""
+
+bash av_softwares/BASH\ scripts/antoniovandre_echo_android "${VERSION} 17-08-2020."
 
 echo ""
 
@@ -287,7 +287,7 @@ while [  "${RESPOSTAUSUARIO}" != "SAIR" ] && [  "${RESPOSTAUSUARIO}" != "EXIT" ]
 
   PERGUNTA=$(echo "${HOWMUCH} ${QUESTAO}${QUESTAODECIMAL}?" | tr "\n" " ")
 
-  bash /storage/emulated/0/av_softwares/BASH\ scripts/antoniovandre_echo_android "${PERGUNTA}"
+  bash av_softwares/BASH\ scripts/antoniovandre_echo_android "${PERGUNTA}"
 
   if [ "${AVTEMPO}" == "1" ]; then if ! read -t  $LIMITETEMPO RESPOSTAUSUARIO &>> /dev/null; then echo "${TIMELIMITOF} ${LIMITETEMPO} ${SECONDSREACHED}."; continue; fi; else read RESPOSTAUSUARIO; fi
 
@@ -296,16 +296,16 @@ while [  "${RESPOSTAUSUARIO}" != "SAIR" ] && [  "${RESPOSTAUSUARIO}" != "EXIT" ]
   if ! ([ "${RESPOSTAUSUARIO}" == "+A" ] || [ "${RESPOSTAUSUARIO}" == "-A" ] || [ "${RESPOSTAUSUARIO}" == "+D" ] || [ "${RESPOSTAUSUARIO}" == "-D" ] || [ "${RESPOSTAUSUARIO}" == "+N" ] || [ "${RESPOSTAUSUARIO}" == "-N" ] || [ "${RESPOSTAUSUARIO}" == "T" ] || [ "${RESPOSTAUSUARIO}" == "t" ] || [ "${RESPOSTAUSUARIO}" == "+T" ] || [ "${RESPOSTAUSUARIO}" == "-T" ] || [ "${RESPOSTAUSUARIO}" == "SAIR" ] || [ "${RESPOSTAUSUARIO}" == "EXIT" ] || [ "${RESPOSTAUSUARIO}" == "sair" ] || [ "${RESPOSTAUSUARIO}" == "exit" ] || [ "${RESPOSTAUSUARIO}" == "PULAR" ] || [ "${RESPOSTAUSUARIO}" == "JUMP" ] || [ "${RESPOSTAUSUARIO}" == "pular" ] || [ "${RESPOSTAUSUARIO}" == "jump" ]); then RESPOSTAUSUARIO=$(awk "BEGIN{print ${RESPOSTAUSUARIO}}"); fi
 
   case "${RESPOSTAUSUARIO}" in
-    "+A") if [ "${NUMEROARGUMENTOS}" -lt "${NUMEROMAXIMOARGUMENTOS}" ]; then NUMEROARGUMENTOS=$(echo "${NUMEROARGUMENTOS} + 1" | bc); bash /storage/emulated/0/av_softwares/BASH\ scripts/antoniovandre_echo_android "${ANOW} ${NUMEROARGUMENTOS}."; else bash /storage/emulated/0/av_softwares/BASH\ scripts/antoniovandre_echo_android "${AOVERFLOW}"; fi; continue;;
-    "-A") if ! [ "${NUMEROARGUMENTOS}" == "2" ]; then NUMEROARGUMENTOS=$(echo "${NUMEROARGUMENTOS} - 1" | bc); bash /storage/emulated/0/av_softwares/BASH\ scripts/antoniovandre_echo_android "${ANOW} ${NUMEROARGUMENTOS}."; else bash /storage/emulated/0/av_softwares/BASH\ scripts/antoniovandre_echo_android "${ABOTTOM}"; fi; continue;;
-    "+D") if [ "${CASASDECIMAIS}" -lt "${MAXIMOCASASDECIMAIS}" ]; then CASASDECIMAIS=$(echo "${CASASDECIMAIS} + 1" | bc); bash /storage/emulated/0/av_softwares/BASH\ scripts/antoniovandre_echo_android "${DNOW} ${CASASDECIMAIS}."; else bash /storage/emulated/0/av_softwares/BASH\ scripts/antoniovandre_echo_android "${DOVERFLOW}"; fi; continue;;
-    "-D") if ! [ "${CASASDECIMAIS}" == "0" ]; then CASASDECIMAIS=$(echo "${CASASDECIMAIS} - 1" | bc); bash /storage/emulated/0/av_softwares/BASH\ scripts/antoniovandre_echo_android "${DNOW} ${CASASDECIMAIS}."; else bash /storage/emulated/0/av_softwares/BASH\ scripts/antoniovandre_echo_android "${DBOTTOM}"; fi; continue;;
-    "+N") if [ $(echo "${MAXVALUE} * 2" | bc) -lt $MAXMAXVALUE ]; then MAXVALUE=$(echo "${MAXVALUE} * 5" | bc); bash /storage/emulated/0/av_softwares/BASH\ scripts/antoniovandre_echo_android "${NNOW} ${MAXVALUE}."; else bash /storage/emulated/0/av_softwares/BASH\ scripts/antoniovandre_echo_android "${NOVERFLOW}"; fi; continue;;
-    "-N") if [ "${MAXVALUE}" -gt "${MINMAXVALUE}" ]; then MAXVALUE=$(echo "${MAXVALUE} / 2" | bc); bash /storage/emulated/0/av_softwares/BASH\ scripts/antoniovandre_echo_android "${NNOW} ${MAXVALUE}."; else bash /storage/emulated/0/av_softwares/BASH\ scripts/antoniovandre_echo_android "${NBOTTOM}"; fi; continue;;
-    "T") if [ "${AVTEMPO}" == "0" ]; then AVTEMPO="1"; bash /storage/emulated/0/av_softwares/BASH\ scripts/antoniovandre_echo_android "${TNOW} ${AVTEMPO}."; else bash /storage/emulated/0/av_softwares/BASH\ scripts/antoniovandre_echo_android "${TIMEALREADYACTIVATED}"; fi;;
-    "t") if [ "${AVTEMPO}" == "1" ]; then AVTEMPO="0"; bash /storage/emulated/0/av_softwares/BASH\ scripts/antoniovandre_echo_android "${TNOW} ${AVTEMPO}."; else bash /storage/emulated/0/av_softwares/BASH\ scripts/antoniovandre_echo_android "${TIMEALREADYDEACTIVATED}"; fi; continue;;
-    "+T") if [ "${LIMITETEMPO}" -lt "${MAXTIME}" ]; then LIMITETEMPO=$(echo "${LIMITETEMPO} + 10" | bc); bash /storage/emulated/0/av_softwares/BASH\ scripts/antoniovandre_echo_android "${TVNOW} ${LIMITETEMPO}."; else bash /storage/emulated/0/av_softwares/BASH\ scripts/antoniovandre_echo_android "${TOVERFLOW}"; fi; continue;;
-    "-T") if [ "${LIMITETEMPO}" -gt "${MINTIME}" ]; then LIMITETEMPO=$(echo "${LIMITETEMPO} - 10" | bc); bash /storage/emulated/0/av_softwares/BASH\ scripts/antoniovandre_echo_android "${TVNOW} ${LIMITETEMPO}."; else bash /storage/emulated/0/av_softwares/BASH\ scripts/antoniovandre_echo_android "${TBOTTOM}"; fi; continue;;
+    "+A") if [ "${NUMEROARGUMENTOS}" -lt "${NUMEROMAXIMOARGUMENTOS}" ]; then NUMEROARGUMENTOS=$(echo "${NUMEROARGUMENTOS} + 1" | bc); bash av_softwares/BASH\ scripts/antoniovandre_echo_android "${ANOW} ${NUMEROARGUMENTOS}."; else bash av_softwares/BASH\ scripts/antoniovandre_echo_android "${AOVERFLOW}"; fi; continue;;
+    "-A") if ! [ "${NUMEROARGUMENTOS}" == "2" ]; then NUMEROARGUMENTOS=$(echo "${NUMEROARGUMENTOS} - 1" | bc); bash av_softwares/BASH\ scripts/antoniovandre_echo_android "${ANOW} ${NUMEROARGUMENTOS}."; else bash av_softwares/BASH\ scripts/antoniovandre_echo_android "${ABOTTOM}"; fi; continue;;
+    "+D") if [ "${CASASDECIMAIS}" -lt "${MAXIMOCASASDECIMAIS}" ]; then CASASDECIMAIS=$(echo "${CASASDECIMAIS} + 1" | bc); bash av_softwares/BASH\ scripts/antoniovandre_echo_android "${DNOW} ${CASASDECIMAIS}."; else bash av_softwares/BASH\ scripts/antoniovandre_echo_android "${DOVERFLOW}"; fi; continue;;
+    "-D") if ! [ "${CASASDECIMAIS}" == "0" ]; then CASASDECIMAIS=$(echo "${CASASDECIMAIS} - 1" | bc); bash av_softwares/BASH\ scripts/antoniovandre_echo_android "${DNOW} ${CASASDECIMAIS}."; else bash av_softwares/BASH\ scripts/antoniovandre_echo_android "${DBOTTOM}"; fi; continue;;
+    "+N") if [ $(echo "${MAXVALUE} * 2" | bc) -lt $MAXMAXVALUE ]; then MAXVALUE=$(echo "${MAXVALUE} * 5" | bc); bash av_softwares/BASH\ scripts/antoniovandre_echo_android "${NNOW} ${MAXVALUE}."; else bash av_softwares/BASH\ scripts/antoniovandre_echo_android "${NOVERFLOW}"; fi; continue;;
+    "-N") if [ "${MAXVALUE}" -gt "${MINMAXVALUE}" ]; then MAXVALUE=$(echo "${MAXVALUE} / 2" | bc); bash av_softwares/BASH\ scripts/antoniovandre_echo_android "${NNOW} ${MAXVALUE}."; else bash av_softwares/BASH\ scripts/antoniovandre_echo_android "${NBOTTOM}"; fi; continue;;
+    "T") if [ "${AVTEMPO}" == "0" ]; then AVTEMPO="1"; bash av_softwares/BASH\ scripts/antoniovandre_echo_android "${TNOW} ${AVTEMPO}."; else bash av_softwares/BASH\ scripts/antoniovandre_echo_android "${TIMEALREADYACTIVATED}"; fi;;
+    "t") if [ "${AVTEMPO}" == "1" ]; then AVTEMPO="0"; bash av_softwares/BASH\ scripts/antoniovandre_echo_android "${TNOW} ${AVTEMPO}."; else bash av_softwares/BASH\ scripts/antoniovandre_echo_android "${TIMEALREADYDEACTIVATED}"; fi; continue;;
+    "+T") if [ "${LIMITETEMPO}" -lt "${MAXTIME}" ]; then LIMITETEMPO=$(echo "${LIMITETEMPO} + 10" | bc); bash av_softwares/BASH\ scripts/antoniovandre_echo_android "${TVNOW} ${LIMITETEMPO}."; else bash av_softwares/BASH\ scripts/antoniovandre_echo_android "${TOVERFLOW}"; fi; continue;;
+    "-T") if [ "${LIMITETEMPO}" -gt "${MINTIME}" ]; then LIMITETEMPO=$(echo "${LIMITETEMPO} - 10" | bc); bash av_softwares/BASH\ scripts/antoniovandre_echo_android "${TVNOW} ${LIMITETEMPO}."; else bash av_softwares/BASH\ scripts/antoniovandre_echo_android "${TBOTTOM}"; fi; continue;;
     "SAIR") break;;
     "EXIT") break;;
     "sair") break;;
@@ -322,7 +322,7 @@ done
 
   if [ "${1}" != "ne" ] && [ "${AVLOG}" == "1" ] && [ "${AVGRAFICOS}" == "1" ] && ls "${ARQUIVOLOGTEMP}" &>> /dev/null; then
 
-    bash /storage/emulated/0/av_softwares/BASH\ scripts/antoniovandre_echo_android "${CONVLOGUNIX}" n; if dos2unix "${ARQUIVOLOGTEMP}" &>> /dev/null; then echo -ne "${AV_VERDE}"; bash /storage/emulated/0/av_softwares/BASH\ scripts/antoniovandre_echo_android "${SUCCESS}" n; echo -ne "${AV_SEMCOR}"; echo "."; else echo -ne "${AV_VERMELHO}"; bash /storage/emulated/0/av_softwares/BASH\ scripts/antoniovandre_echo_android "${FAIL}" n; echo -ne "${AV_SEMCOR}"; echo "."; exit 1; fi
+    bash av_softwares/BASH\ scripts/antoniovandre_echo_android "${CONVLOGUNIX}" n; if dos2unix "${ARQUIVOLOGTEMP}" &>> /dev/null; then echo -ne "${AV_VERDE}"; bash av_softwares/BASH\ scripts/antoniovandre_echo_android "${SUCCESS}" n; echo -ne "${AV_SEMCOR}"; echo "."; else echo -ne "${AV_VERMELHO}"; bash av_softwares/BASH\ scripts/antoniovandre_echo_android "${FAIL}" n; echo -ne "${AV_SEMCOR}"; echo "."; exit 1; fi
 
     bash antoniovandre_echo_android "${BUILDINGGRAPHS}" n
 
@@ -645,5 +645,5 @@ if [ "${AVLOG}" == "1" ] && ls "${ARQUIVOLOGTEMP}" &>> /dev/null; then bash anto
 
 if [ "${1}" != "ne" ]; then if [ "${AVLOG}" == "1" ]; then cp "${ARQUIVOLOGTEMP}" "${ARQUIVOLOG}" &>> /dev/null; fi; fi
 
-bash /storage/emulated/0/av_softwares/BASH\ scripts/antoniovandre_echo_android "${THANKS}"
+bash av_softwares/BASH\ scripts/antoniovandre_echo_android "${THANKS}"
 

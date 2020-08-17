@@ -6,7 +6,15 @@ Projeto Mathematical Ramblings.
 [https://mathematicalramblings.blogspot.com/](https://mathematicalramblings.blogspot.com/)
 ____________________
 
+Versão para Android:
+
 Execute o software com o comando "bash antoniovandre_mathgame".
+__
+
+Versão para Linux:
+
+Execute o software com o comando "bash antoniovandre_mathgame_linux".
+__
 
 Se o seu ambiente não é capaz de produzir sons, execute com "bash antoniovandre_mathgame_nosound".
 
@@ -21,7 +29,15 @@ Ferramentas utilizadas: "[https://sites.google.com/site/mathematicalramblings/ho
 Licença de uso e compartilhamento: Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA).
 ____________________
 
+Android version:
+
 Run the software with the command "bash antoniovandre_mathgame".
+__
+
+Linux version:
+
+Run the software with the command "bash antoniovandre_mathgame_linux".
+__
 
 If your environment is not capable of producing sounds, run with "bash antoniovandre_mathgame_nosound".
 
