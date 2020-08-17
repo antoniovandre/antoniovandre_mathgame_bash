@@ -205,8 +205,8 @@ MINMAXVALUE="8"
 MAXTIME="60"
 MINTIME="10"
 AVSOUND="1"
-ARQUIVOSOMACERTO="/usr/local/share/antoniovandre_mathgame_correct.wav"
-ARQUIVOSOMERRO="/usr/local/share/antoniovandre_mathgame_error.wav"
+ARQUIVOSOMACERTO="antoniovandre_mathgame_correct.wav"
+ARQUIVOSOMERRO="antoniovandre_mathgame_error.wav"
 AVLOG="1"
 ARQUIVOLOG="antoniovandre_mathgame_log.txt"
 ARQUIVOLOGTEMP="antoniovandre_mathgame_log.txt"
@@ -251,7 +251,7 @@ if (! ls "${ARQUIVOLOGTEMP}" &>> /dev/null) && ls "${ARQUIVOLOG}" &>> /dev/null;
 
 if ls "${ARQUIVOLOGTEMP}" &>> /dev/null && ls "${ARQUIVOLOG}" &>> /dev/null; then if [ $(cat "${ARQUIVOLOG}" | wc -l) -gt $(cat "${ARQUIVOLOGTEMP}" | wc -l) ]; then cp "${ARQUIVOLOG}" "${ARQUIVOLOGTEMP}"; fi; fi
 
-cat "/usr/local/share/Mathematical Ramblings - ascii art - 40.txt"
+cat "Mathematical Ramblings - ascii art - 40.txt"
 
 antoniovandre_echo "Projeto Mathematical Ramblings."
 
