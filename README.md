@@ -9,12 +9,12 @@ ____________________
 Versão para Android:
 
 Execute o software com o comando "bash antoniovandre_mathgame".
-__
+_____
 
 Versão para Linux:
 
 Execute o software com o comando "bash antoniovandre_mathgame_linux".
-__
+_____
 
 Se o seu ambiente não é capaz de produzir sons, execute com "bash antoniovandre_mathgame_nosound".
 
