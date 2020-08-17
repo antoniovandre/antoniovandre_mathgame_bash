@@ -6,7 +6,7 @@
 
 # Licença: Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA).
 
-# Última atualização: 21-07-2020.
+# Última atualização: 17-08-2020.
 
 # Argumentos: "ne" para não processar estatísticas, ou "oe" para apenas processar estatísticas.
 
@@ -239,8 +239,8 @@ ARQUIVOSTATS="/home/antoniovandre/antoniovandre_dropbox_sync_folder/antoniovandr
 
 AVTEMPO="0"
 LIMITETEMPO="20"
-MAXVALUE="32"
-CASASDECIMAIS="1"
+MAXVALUE="128"
+CASASDECIMAIS="0"
 NUMEROARGUMENTOS="2"
 
 RESPOSTAUSUARIO=""
@@ -265,7 +265,7 @@ antoniovandre_echo "${MATHGAME}."
 
 echo ""
 
-antoniovandre_echo "${VERSION} 21-07-2020."
+antoniovandre_echo "${VERSION} 17-08-2020."
 
 echo ""
 
@@ -275,8 +275,8 @@ while [  "${RESPOSTAUSUARIO}" != "SAIR" ] && [  "${RESPOSTAUSUARIO}" != "EXIT" ]
 
   SEED=$(date +%s)
   SEED2=$(expr "${SEED}" / 2)
-  SEED=$(echo "${SEED} % 1000" | bc)
-  SEED2=$(echo "${SEED2} % 1000" | bc)
+  SEED=$(echo "${SEED} % 1000 + 1" | bc)
+  SEED2=$(echo "${SEED2} % 1000 + 1" | bc)
 
   MAXVALUERED=$(echo "${MAXVALUE} / 4" | bc)
 

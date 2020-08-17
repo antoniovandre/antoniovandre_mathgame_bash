@@ -1,10 +1,12 @@
+#!/bin/bash
+
 # Projeto Mathematical Ramblings (mathematicalramblings.blogspot.com).
 
 # Script de um simples jogo de Matemática, sem som, para Android.
 
 # Licença: Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA).
 
-# Última atualização: 21-07-2020.
+# Última atualização: 17-08-2020.
 
 # Argumento: "ne" para não processar estatísticas, ou "oe" para apenas processar estatísticas.
 
@@ -216,8 +218,8 @@ ARQUIVOSTATS="antoniovandre_mathgame_log_stats.txt"
 
 AVTEMPO="0"
 LIMITETEMPO="20"
-MAXVALUE="32"
-CASASDECIMAIS="1"
+MAXVALUE="128"
+CASASDECIMAIS="0"
 NUMEROARGUMENTOS="2"
 
 RESPOSTAUSUARIO=""
@@ -236,7 +238,7 @@ bash antoniovandre_echo_android_nosound "${MATHGAME}."
 
 echo ""
 
-bash antoniovandre_echo_android_nosound "${VERSION} 21-07-2020."
+bash antoniovandre_echo_android_nosound "${VERSION} 17-08-2020."
 
 echo ""
 

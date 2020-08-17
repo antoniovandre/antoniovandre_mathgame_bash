@@ -6,7 +6,7 @@
 
 # Licença: Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA).
 
-# Última atualização: 21-07-2020.
+# Última atualização: 17-08-2020.
 
 # Argumentos: "ne" para não processar estatísticas, ou "oe" para apenas processar estatísticas.
 
@@ -218,8 +218,8 @@ ARQUIVOSTATS="/storage/emulated/0/antoniovandre_dropbox_sync_folder/antoniovandr
 
 AVTEMPO="0"
 LIMITETEMPO="20"
-MAXVALUE="32"
-CASASDECIMAIS="1"
+MAXVALUE="128"
+CASASDECIMAIS="0"
 NUMEROARGUMENTOS="2"
 
 RESPOSTAUSUARIO=""
@@ -238,7 +238,7 @@ bash /storage/emulated/0/av_softwares/BASH\ scripts/antoniovandre_echo_android "
 
 echo ""
 
-bash /storage/emulated/0/av_softwares/BASH\ scripts/antoniovandre_echo_android "${VERSION} 21-07-2020."
+bash /storage/emulated/0/av_softwares/BASH\ scripts/antoniovandre_echo_android "${VERSION} 17-08-2020."
 
 echo ""
 
@@ -252,8 +252,8 @@ while [  "${RESPOSTAUSUARIO}" != "SAIR" ] && [  "${RESPOSTAUSUARIO}" != "EXIT" ]
 
   SEED=$(date +%s)
   SEED2=$(expr "${SEED}" / 2)
-  SEED=$(echo "${SEED} % 1000" | bc)
-  SEED2=$(echo "${SEED2} % 1000" | bc)
+  SEED=$(echo "${SEED} % 1000 + 1" | bc)
+  SEED2=$(echo "${SEED2} % 1000 + 1" | bc)
 
   MAXVALUERED=$(echo "${MAXVALUE} / 4" | bc)
 
