@@ -2,11 +2,11 @@
 
 # Projeto Mathematical Ramblings (mathematicalramblings.blogspot.com).
 
-# Script de um simples jogo de Matemática, para Linux.
+# Script de um simples jogo de Matemática, para Linux, versão de distribuição.
 
 # Licença: Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA).
 
-# Última atualização: 17-08-2020.
+# Última atualização: 18-08-2020.
 
 # Argumentos: "ne" para não processar estatísticas, ou "oe" para apenas processar estatísticas.
 
@@ -31,6 +31,8 @@ case "${LINGUA}" in
     DECIMALPLACE="casa decimal"
 
     HOWMUCH="Quanto é"
+
+    VALIDEXPR="Entre com uma expressão válida"
 
     AOVERFLOW="O número de argumentos já está no limite máximo."
 
@@ -113,6 +115,8 @@ case "${LINGUA}" in
 
     HOWMUCH="How much is"
 
+    VALIDEXPR="Enter with a valid expression"
+
     AOVERFLOW="The number of arguments is already in the ceiling. "
 
     ABOTTOM="The number of arguments is already in the minimum."
@@ -180,10 +184,6 @@ esac
 
 if ! hash bash &>> /dev/null; then echo "BASH ${NOTFOUND}."; exit 1; fi
 
-if ! hash antoniovandre_dbxcli_get &>> /dev/null; then echo "\"antoniovandre_dbxcli_get\" ${NOTFOUND}."; exit 1; fi
-
-if ! hash antoniovandre_dbxcli_put &>> /dev/null; then echo "\"antoniovandre_dbxcli_put\" ${NOTFOUND}."; exit 1; fi
-
 if ! hash bc &>> /dev/null; then echo "\"bc\" ${NOTFOUND}."; exit 1; fi
 
 if ! hash play &>> /dev/null; then echo "\"play\" ${NOTFOUND}."; exit 1; fi
@@ -209,7 +209,7 @@ ARQUIVOSOMACERTO="antoniovandre_mathgame_correct.wav"
 ARQUIVOSOMERRO="antoniovandre_mathgame_error.wav"
 AVLOG="1"
 ARQUIVOLOG="antoniovandre_mathgame_log.txt"
-ARQUIVOLOGTEMP="antoniovandre_mathgame_log.txt"
+ARQUIVOLOGTEMP="antoniovandre_mathgame_log_temp.txt"
 DIRCLOUDSYNC="/antoniovandre_dropbox_sync_folder/"
 AVGRAFICOS="1"
 ARQUIVOGNUPLOTDATA="antoniovandre_mathgame_log_gnuplot.dat"
@@ -236,6 +236,7 @@ ARQUIVOGRAFICOTEMPOMESERROS="antoniovandre_mathgame_log_tempo_mensal_erros.png"
 IMAGEGRAPH0="antoniovandre_mathgame_emptygraph.png"
 AVSTATS="1"
 ARQUIVOSTATS="antoniovandre_mathgame_log_stats.txt"
+ARQUIVOTEMP="avmgvet"
 
 AVTEMPO="0"
 LIMITETEMPO="20"
@@ -265,50 +266,58 @@ antoniovandre_echo "${MATHGAME}."
 
 echo ""
 
-antoniovandre_echo "${VERSION} 17-08-2020."
+antoniovandre_echo "${VERSION} 18-08-2020."
 
 echo ""
 
 if [ "${1}" != "oe" ]; then echo "${INSTRUCOES}"; echo ""; fi
 
+FLAG="0"
+
 while [  "${RESPOSTAUSUARIO}" != "SAIR" ] && [  "${RESPOSTAUSUARIO}" != "EXIT" ] && [  "${RESPOSTAUSUARIO}" != "sair" ] && [  "${RESPOSTAUSUARIO}" != "exit" ] && [ "${1}" != "oe" ]; do
 
-  SEED=$(date +%s)
-  SEED2=$(expr "${SEED}" / 2)
-  SEED=$(echo "${SEED} % 1000" | bc)
-  SEED2=$(echo "${SEED2} % 1000" | bc)
+  if [ "${FLAG}" == "0" ]; then
+    SEED=$(date +%s)
+    SEED2=$(expr "${SEED}" / 2)
+    SEED=$(echo "${SEED} % 1000" | bc)
+    SEED2=$(echo "${SEED2} % 1000" | bc)
 
-  MAXVALUERED=$(echo "${MAXVALUE} / 4" | bc)
+    MAXVALUERED=$(echo "${MAXVALUE} / 4" | bc)
 
-  FATOR=$(echo "10 ^ ${CASASDECIMAIS}" | bc)
+    FATOR=$(echo "10 ^ ${CASASDECIMAIS}" | bc)
 
-  OPS=$(for I in $(seq 1 $(echo "${NUMEROARGUMENTOS} - 1" | bc)); do case $(echo "(${SEED} + $I) % 4" | bc) in 0) echo -n "+";; 1) echo -n "-";; 2) echo -n "x";; 3) echo -n "/";; *) ;; esac; if [ "${I}" -lt $(echo "${NUMEROARGUMENTOS} - 1" | bc) ]; then echo -n ","; fi; done)
+    OPS=$(for I in $(seq 1 $(echo "${NUMEROARGUMENTOS} - 1" | bc)); do case $(echo "(${SEED} * $I) % 4" | bc) in 0) echo -n "+";; 1) echo -n "-";; 2) echo -n "x";; 3) echo -n "/";; *) ;; esac; if [ "${I}" -lt $(echo "${NUMEROARGUMENTOS} - 1" | bc) ]; then echo -n ","; fi; done)
 
-  if [ "${OPS}" != "$(echo -n ${OPS} | tr 'x' ' ')" ] || [ "${OPS}" != "$(echo -n ${OPS} | tr '/' ' ')" ]; then VARVALUE=$MAXVALUERED; else VARVALUE=$MAXVALUE; fi
+    if [ "${OPS}" != "$(echo -n ${OPS} | tr 'x' ' ')" ] || [ "${OPS}" != "$(echo -n ${OPS} | tr '/' ' ')" ]; then VARVALUE=$MAXVALUERED; else VARVALUE=$MAXVALUE; fi
 
-  PARENTESES=$(if [ "${NUMEROARGUMENTOS}" -gt "2" ]; then TEMP="0"; TEMP2="0"; for I in $(seq 1 "${NUMEROARGUMENTOS}"); do if [ "$TEMP" -lt $(echo  "${NUMEROARGUMENTOS} - ${I}" | bc) ]; then TEMP3=$(echo "(${SEED} * $I) % 3" | bc); case $TEMP3 in 0) echo -n "("; TEMP=$(echo "${TEMP} + 1" | bc);; 1) if [ "$TEMP" -gt "0" ]; then echo -n ")"; TEMP=$(echo "${TEMP} - 1" | bc); fi;; 2) ;; *) ;; esac; else if [ "$TEMP" -gt "0" ]; then if [ $(echo "($SEED+ $TEMP2) % 2" | bc) == "0" ]; then echo -n ")"; TEMP=$(echo "${TEMP} - 1" | bc); else TEMP2="1"; fi; fi; fi; if [ "${I}" -lt "${NUMEROARGUMENTOS}" ]; then echo -n ","; fi; done; fi)
+    PARENTESES=$(if [ "${NUMEROARGUMENTOS}" -gt "2" ]; then TEMP="0"; TEMP2="0"; for I in $(seq 1 "${NUMEROARGUMENTOS}"); do if [ "$TEMP" -lt $(echo  "${NUMEROARGUMENTOS} - ${I}" | bc) ]; then TEMP3=$(echo "(${SEED} * $I) % 3" | bc); case $TEMP3 in 0) echo -n "("; TEMP=$(echo "${TEMP} + 1" | bc);; 1) if [ "$TEMP" -gt "0" ]; then echo -n ")"; TEMP=$(echo "${TEMP} - 1" | bc); fi;; 2) ;; *) ;; esac; else if [ "$TEMP" -gt "0" ]; then if [ $(echo "($SEED+ $TEMP2) % 2" | bc) == "0" ]; then echo -n ")"; TEMP=$(echo "${TEMP} - 1" | bc); else TEMP2="1"; fi; fi; fi; if [ "${I}" -lt "${NUMEROARGUMENTOS}" ]; then echo -n ","; fi; done; fi)
 
-  ARGS=$(for I in $(seq 1 "${NUMEROARGUMENTOS}"); do TEMP2=$(awk "BEGIN{print ((${SEED} + ${SEED2}) + (${I} * ${SEED} * ${SEED2}) / ${FATOR})}"); TEMP=$TEMP2; if [ "${I}" -gt "1" ]; then if [ "$(echo -n '${OPS}' | cut -d ',' -f $(expr $I - 1))" == "/" ] && [ $(awk "BEGIN{print ${TEMP2} % ${VARVALUE}}") == "0" ]; then TEMP=$(echo "${TEMP2} + 1" | bc); fi; fi; awk "BEGIN{print ${TEMP} % ${VARVALUE}}" | tr "\n" ","; done)
+    ARGS=$(for I in $(seq 1 "${NUMEROARGUMENTOS}"); do TEMP=$(awk "BEGIN{print ((${SEED} + ${SEED2}) + (${I} * ${SEED} * ${SEED2}) / ${FATOR})}"); awk "BEGIN{print ${TEMP} % ${VARVALUE}}" | tr "\n" ","; done)
 
-  QUESTAO="$(for I in $(seq 1 "${NUMEROARGUMENTOS}"); do TEMP=$(echo -n "${PARENTESES}" | cut -d "," -f "${I}"); if [ "${TEMP}" == "(" ]; then echo -n "${TEMP}"; fi; if [ "${TEMP}" == ")" ]; then echo -n "${ARGS}" | cut -d "," -f "${I}" | tr -d "\n"; else echo -n "${ARGS}" | cut -d "," -f "${I}"; fi; if [ "${TEMP}" == ")" ]; then echo -n "${TEMP}"; fi; if [ "${I}" -lt "${NUMEROARGUMENTOS}" ]; then if [ "${TEMP}" == ")" ]; then echo -n " "; fi; echo -n "${OPS}" | cut -d "," -f "${I}"; fi; done)"
+    QUESTAO="$(for I in $(seq 1 "${NUMEROARGUMENTOS}"); do TEMP=$(echo -n "${PARENTESES}" | cut -d "," -f "${I}"); if [ "${TEMP}" == "(" ]; then echo -n "${TEMP}"; fi; if [ "${TEMP}" == ")" ]; then echo -n "${ARGS}" | cut -d "," -f "${I}" | tr -d "\n"; else echo -n "${ARGS}" | cut -d "," -f "${I}"; fi; if [ "${TEMP}" == ")" ]; then echo -n "${TEMP}"; fi; if [ "${I}" -lt "${NUMEROARGUMENTOS}" ]; then if [ "${TEMP}" == ")" ]; then echo -n " "; fi; echo -n "${OPS}" | cut -d "," -f "${I}"; fi; done)"
 
-  RESPOSTABRUTA=$(echo $QUESTAO | tr "x" "*" | bc -l)
+    rm "$ARQUIVOTEMP" &>> /dev/null
 
-  TEMP=$(LC_NUMERIC="en_US.UTF-8" printf "%.${CASASDECIMAIS}f" "${RESPOSTABRUTA}")
+    TEMP=$(echo $QUESTAO | tr "x" "*" | bc -l 2>> "${ARQUIVOTEMP}")
 
-  TEMP2=$(echo "${TEMP} * ${FATOR}" | bc)
+    if [ "$(wc -c ${ARQUIVOTEMP} | cut -d ' ' -f 1)" -gt "0" ]; then continue; else RESPOSTABRUTA=$TEMP; fi
 
-  RESPOSTATEMP1=${TEMP2%.*}
+    TEMP=$(LC_NUMERIC="en_US.UTF-8" printf "%.${CASASDECIMAIS}f" "${RESPOSTABRUTA}")
 
-  RESPOSTATEMP2=$(awk "BEGIN{print ${RESPOSTABRUTA} * ${FATOR}}")
+    TEMP2=$(echo "${TEMP} * ${FATOR}" | bc)
 
-  if ! [ "${RESPOSTATEMP1}" == "${RESPOSTATEMP2}" ]; then if ! [ "${CASASDECIMAIS}" == "1" ]; then QUESTAODECIMAL=", ${ROUNDWITH} ${CASASDECIMAIS} ${DECIMALPLACES}"; else QUESTAODECIMAL=", ${ROUNDWITH} 1 ${DECIMALPLACE}"; fi; else QUESTAODECIMAL=""; fi
+    RESPOSTATEMP1=${TEMP2%.*}
 
-  RESPOSTA=$(LC_NUMERIC="en_US.UTF-8" printf "%.${CASASDECIMAIS}f" "$(echo ${QUESTAO} | tr 'x' '*' | bc -l)")
+    RESPOSTATEMP2=$(awk "BEGIN{print ${RESPOSTABRUTA} * ${FATOR}}")
 
-  RESPOSTA=$(awk "BEGIN{print ${RESPOSTA}}")
+    if ! [ "${RESPOSTATEMP1}" == "${RESPOSTATEMP2}" ]; then if ! [ "${CASASDECIMAIS}" == "1" ]; then QUESTAODECIMAL=", ${ROUNDWITH} ${CASASDECIMAIS} ${DECIMALPLACES}"; else QUESTAODECIMAL=", ${ROUNDWITH} 1 ${DECIMALPLACE}"; fi; else QUESTAODECIMAL=""; fi
 
-  PERGUNTA=$(echo "${HOWMUCH} ${QUESTAO}${QUESTAODECIMAL}?" | tr "\n" " ")
+    RESPOSTA=$(LC_NUMERIC="en_US.UTF-8" printf "%.${CASASDECIMAIS}f" "$(echo ${QUESTAO} | tr 'x' '*' | bc -l)")
+
+    RESPOSTA=$(awk "BEGIN{print ${RESPOSTA}}")
+
+    PERGUNTA=$(echo "${HOWMUCH} ${QUESTAO}${QUESTAODECIMAL}?" | tr "\n" " ")
+  fi
 
   antoniovandre_echo "${PERGUNTA}"
 
@@ -338,7 +347,7 @@ while [  "${RESPOSTAUSUARIO}" != "SAIR" ] && [  "${RESPOSTAUSUARIO}" != "EXIT" ]
     "pular") continue;;
     "jump") continue;;
     "${RESPOSTA}") if [ "${AVLOG}" == "1" ]; then echo "_____" >> "${ARQUIVOLOGTEMP}"; LANG=en_us_88591 date >> "${ARQUIVOLOGTEMP}"; echo "Pergunta: ${PERGUNTA}" >> "${ARQUIVOLOGTEMP}"; echo "Resposta: ${RESPOSTAUSUARIO}" >> "${ARQUIVOLOGTEMP}"; echo "Eval: acertou." >> "${ARQUIVOLOGTEMP}"; fi; echo -e "${AV_VERDE}${CORRECT}${AV_SEMCOR}."; if [ "${AVSOUND}" == "1" ]; then play "${ARQUIVOSOMACERTO}" &>> /dev/null; fi;;
-    *) if [ "${AVLOG}" == "1" ]; then echo "_____" >> "${ARQUIVOLOGTEMP}"; LANG=en_us_88591 date >> "${ARQUIVOLOGTEMP}"; echo "Pergunta: ${PERGUNTA}" >> "${ARQUIVOLOGTEMP}"; echo "Resposta: ${RESPOSTAUSUARIOP}" >> "${ARQUIVOLOGTEMP}"; echo "Eval: errou." >> "${ARQUIVOLOGTEMP}"; fi; echo -e "${AV_VERMELHO}${WRONG}${AV_SEMCOR}."; if [ "${AVSOUND}" == "1" ]; then play "${ARQUIVOSOMERRO}" &>> /dev/null; fi;;
+    *) if ! [[ "${RESPOSTAUSUARIO}" =~ "^[+-]?[0-9]+([.][0-9]+)?$" ]]; then echo "${VALIDEXPR}."; FLAG="1"; continue; fi; if [ "${AVLOG}" == "1" ]; then echo "_____" >> "${ARQUIVOLOGTEMP}"; LANG=en_us_88591 date >> "${ARQUIVOLOGTEMP}"; echo "Pergunta: ${PERGUNTA}" >> "${ARQUIVOLOGTEMP}"; echo "Resposta: ${RESPOSTAUSUARIOP}" >> "${ARQUIVOLOGTEMP}"; echo "Eval: errou." >> "${ARQUIVOLOGTEMP}"; fi; echo -e "${AV_VERMELHO}${WRONG}${AV_SEMCOR}."; if [ "${AVSOUND}" == "1" ]; then play "${ARQUIVOSOMERRO}" &>> /dev/null; fi;;
   esac
 
 done
@@ -670,3 +679,4 @@ if [ "${1}" != "ne" ]; then if [ "${AVLOG}" == "1" ]; then cp "${ARQUIVOLOGTEMP}
 
 antoniovandre_echo "${THANKS}"
 
+exit 0

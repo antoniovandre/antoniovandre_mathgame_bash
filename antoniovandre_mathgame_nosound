@@ -2,11 +2,11 @@
 
 # Projeto Mathematical Ramblings (mathematicalramblings.blogspot.com).
 
-# Script de um simples jogo de Matemática, sem som, para Android.
+# Script de um simples jogo de Matemática, sem som, para Android, versão de distribuição.
 
 # Licença: Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA).
 
-# Última atualização: 17-08-2020.
+# Última atualização: 18-08-2020.
 
 # Argumento: "ne" para não processar estatísticas, ou "oe" para apenas processar estatísticas.
 
@@ -31,6 +31,8 @@ case "${LINGUA}" in
     DECIMALPLACE="casa decimal"
 
     HOWMUCH="Quanto é"
+
+    VALIDEXPR="Entre com uma expressão válida"
 
     AOVERFLOW="O número de argumentos já está no limite máximo."
 
@@ -104,6 +106,8 @@ case "${LINGUA}" in
     DECIMALPLACE="decimal place"
 
     HOWMUCH="How much is"
+  
+    VALIDEXPR="Enter with a valid expression"
 
     AOVERFLOW="The number of arguments is already in the ceiling. "
 
@@ -162,21 +166,21 @@ case "${LINGUA}" in
   *) ;;
 esac
 
-if ! hash bash 1>> /dev/null 2>> /dev/null; then echo "BASH ${NOTFOUND}."; exit 1; fi
+if ! hash bash &>> /dev/null; then echo "BASH ${NOTFOUND}."; exit 1; fi
 
-if ! hash bc 1>> /dev/null 2>> /dev/null; then echo "\"bc\" ${NOTFOUND}."; exit 1; fi
+if ! hash bc &>> /dev/null; then echo "\"bc\" ${NOTFOUND}."; exit 1; fi
 
-# if ! hash play 1>> /dev/null 2>> /dev/null; then echo "\"play\" ${NOTFOUND}."; exit 1; fi
+if ! hash play &>> /dev/null; then echo "\"play\" ${NOTFOUND}."; exit 1; fi
 
-if ! hash unix2dos 1>> /dev/null 2>> /dev/null; then echo "\"unix2dos\" ${NOTFOUND}."; exit 1; fi
+if ! hash unix2dos &>> /dev/null; then echo "\"unix2dos\" ${NOTFOUND}."; exit 1; fi
 
-if ! hash dos2unix 1>> /dev/null 2>> /dev/null; then echo "\"dos2unix\" ${NOTFOUND}."; exit 1; fi
+if ! hash dos2unix &>> /dev/null; then echo "\"dos2unix\" ${NOTFOUND}."; exit 1; fi
 
-if ! hash gnuplot 1>> /dev/null 2>> /dev/null; then echo "Gnuplot ${NOTFOUND}."; exit 1; fi
+if ! hash gnuplot &>> /dev/null; then echo "Gnuplot ${NOTFOUND}."; exit 1; fi
 
-if ! ls "antoniovandre_echo_android_nosound" 1>> /dev/null 2>> /dev/null; then echo "\"antoniovandre_echo_android_nosound\" ${NOTFOUND}."; exit 1; fi
+if ! ls "antoniovandre_echo_android_nosound" &>> /dev/null; then echo "\"antoniovandre_echo_android_nosound\" ${NOTFOUND}."; exit 1; fi
 
-if ! [ -n "$AVCORES" ]; then if ! source "antoniovandre_cores_android"; then echo "${ERRORLOADCOLOR}."; fi; fi
+if ! [ -n "$AVCORES" ]; then if ! source "antoniovandre_cores_android" &>> /dev/null; then echo "${ERRORLOADCOLOR}."; fi; fi
 
 NUMEROMAXIMOARGUMENTOS="10"
 MAXIMOCASASDECIMAIS="5"
@@ -215,6 +219,7 @@ ARQUIVOGRAFICOTEMPOMESERROS="antoniovandre_mathgame_log_tempo_mensal_erros.png"
 IMAGEGRAPH0="antoniovandre_mathgame_emptygraph.png"
 AVSTATS="1"
 ARQUIVOSTATS="antoniovandre_mathgame_log_stats.txt"
+ARQUIVOTEMP="avmgvet"
 
 AVTEMPO="0"
 LIMITETEMPO="20"
@@ -238,58 +243,66 @@ bash antoniovandre_echo_android_nosound "${MATHGAME}."
 
 echo ""
 
-bash antoniovandre_echo_android_nosound "${VERSION} 17-08-2020."
+bash antoniovandre_echo_android_nosound "${VERSION} 18-08-2020."
 
 echo ""
 
 if [ "${1}" != "oe" ]; then echo "${INSTRUCOES}"; echo ""; fi
 
-if (! ls "${ARQUIVOLOGTEMP}" 1>> /dev/null 2>> /dev/null) && ls "${ARQUIVOLOG}" 1>> /dev/null 2>> /dev/null; then cp "${ARQUIVOLOG}" "${ARQUIVOLOGTEMP}"; fi
+if (! ls "${ARQUIVOLOGTEMP}" &>> /dev/null) && ls "${ARQUIVOLOG}" &>> /dev/null; then cp "${ARQUIVOLOG}" "${ARQUIVOLOGTEMP}"; fi
 
-if ls "${ARQUIVOLOGTEMP}" 1>> /dev/null 2>> /dev/null && ls "${ARQUIVOLOG}" 1>> /dev/null 2>> /dev/null; then if [ $(cat "${ARQUIVOLOG}" | wc -l) -gt $(cat "${ARQUIVOLOGTEMP}" | wc -l) ]; then cp "${ARQUIVOLOG}" "${ARQUIVOLOGTEMP}"; fi; fi
+if ls "${ARQUIVOLOGTEMP}" &>> /dev/null && ls "${ARQUIVOLOG}" &>> /dev/null; then if [ $(cat "${ARQUIVOLOG}" | wc -l) -gt $(cat "${ARQUIVOLOGTEMP}" | wc -l) ]; then cp "${ARQUIVOLOG}" "${ARQUIVOLOGTEMP}"; fi; fi
+
+FLAG="0"
 
 while [  "${RESPOSTAUSUARIO}" != "SAIR" ] && [  "${RESPOSTAUSUARIO}" != "EXIT" ] && [  "${RESPOSTAUSUARIO}" != "sair" ] && [  "${RESPOSTAUSUARIO}" != "exit" ] && [ "${1}" != "oe" ]; do
 
-  SEED=$(date +%s)
-  SEED2=$(expr "${SEED}" / 2)
-  SEED=$(echo "${SEED} % 1000" | bc)
-  SEED2=$(echo "${SEED2} % 1000" | bc)
+  if [ "${FLAG}" == "0" ]; then
+    SEED=$(date +%s)
+    SEED2=$(expr "${SEED}" / 2)
+    SEED=$(echo "${SEED} % 1000" | bc)
+    SEED2=$(echo "${SEED2} % 1000" | bc)
 
-  MAXVALUERED=$(echo "${MAXVALUE} / 4" | bc)
+    MAXVALUERED=$(echo "${MAXVALUE} / 4" | bc)
 
-  FATOR=$(echo "10 ^ ${CASASDECIMAIS}" | bc)
+    FATOR=$(echo "10 ^ ${CASASDECIMAIS}" | bc)
 
-  OPS=$(for I in $(seq 1 $(echo "${NUMEROARGUMENTOS} - 1" | bc)); do case $(echo "(${SEED} * $I) % 4" | bc) in 0) echo -n "+";; 1) echo -n "-";; 2) echo -n "x";; 3) echo -n "/";; *) ;; esac; if [ "${I}" -lt $(echo "${NUMEROARGUMENTOS} - 1" | bc) ]; then echo -n ","; fi; done)
+    OPS=$(for I in $(seq 1 $(echo "${NUMEROARGUMENTOS} - 1" | bc)); do case $(echo "(${SEED} * $I) % 4" | bc) in 0) echo -n "+";; 1) echo -n "-";; 2) echo -n "x";; 3) echo -n "/";; *) ;; esac; if [ "${I}" -lt $(echo "${NUMEROARGUMENTOS} - 1" | bc) ]; then echo -n ","; fi; done)
 
-  if [ "${OPS}" != "$(echo -n ${OPS} | tr 'x' ' ')" ] || [ "${OPS}" != "$(echo -n ${OPS} | tr '/' ' ')" ]; then VARVALUE=$MAXVALUERED; else VARVALUE=$MAXVALUE; fi
+    if [ "${OPS}" != "$(echo -n ${OPS} | tr 'x' ' ')" ] || [ "${OPS}" != "$(echo -n ${OPS} | tr '/' ' ')" ]; then VARVALUE=$MAXVALUERED; else VARVALUE=$MAXVALUE; fi
 
-  PARENTESES=$(if [ "${NUMEROARGUMENTOS}" -gt "2" ]; then TEMP="0"; TEMP2="0"; for I in $(seq 1 "${NUMEROARGUMENTOS}"); do if [ "$TEMP" -lt $(echo  "${NUMEROARGUMENTOS} - ${I}" | bc) ]; then TEMP3=$(echo "(${SEED} * $I) % 3" | bc); case $TEMP3 in 0) echo -n "("; TEMP=$(echo "${TEMP} + 1" | bc);; 1) if [ "$TEMP" -gt "0" ]; then echo -n ")"; TEMP=$(echo "${TEMP} - 1" | bc); fi;; 2) ;; *) ;; esac; else if [ "$TEMP" -gt "0" ]; then if [ $(echo "($SEED+ $TEMP2) % 2" | bc) == "0" ]; then echo -n ")"; TEMP=$(echo "${TEMP} - 1" | bc); else TEMP2="1"; fi; fi; fi; if [ "${I}" -lt "${NUMEROARGUMENTOS}" ]; then echo -n ","; fi; done; fi)
+    PARENTESES=$(if [ "${NUMEROARGUMENTOS}" -gt "2" ]; then TEMP="0"; TEMP2="0"; for I in $(seq 1 "${NUMEROARGUMENTOS}"); do if [ "$TEMP" -lt $(echo  "${NUMEROARGUMENTOS} - ${I}" | bc) ]; then TEMP3=$(echo "(${SEED} * $I) % 3" | bc); case $TEMP3 in 0) echo -n "("; TEMP=$(echo "${TEMP} + 1" | bc);; 1) if [ "$TEMP" -gt "0" ]; then echo -n ")"; TEMP=$(echo "${TEMP} - 1" | bc); fi;; 2) ;; *) ;; esac; else if [ "$TEMP" -gt "0" ]; then if [ $(echo "($SEED+ $TEMP2) % 2" | bc) == "0" ]; then echo -n ")"; TEMP=$(echo "${TEMP} - 1" | bc); else TEMP2="1"; fi; fi; fi; if [ "${I}" -lt "${NUMEROARGUMENTOS}" ]; then echo -n ","; fi; done; fi)
 
-  ARGS=$(for I in $(seq 1 "${NUMEROARGUMENTOS}"); do TEMP2=$(awk "BEGIN{print ((${SEED} + ${SEED2}) + (${I} * ${SEED} * ${SEED2}) / ${FATOR})}"); TEMP=$TEMP2; if [ "${I}" -gt "1" ]; then if [ "$(echo -n '${OPS}' | cut -d ',' -f $(expr $I - 1))" == "/" ] && [ $(awk "BEGIN{print ${TEMP2} % ${VARVALUE}}") == "0" ]; then TEMP=$(echo "${TEMP2} + 1" | bc); fi; fi; awk "BEGIN{print ${TEMP} % ${VARVALUE}}" | tr "\n" ","; done)
+    ARGS=$(for I in $(seq 1 "${NUMEROARGUMENTOS}"); do TEMP=$(awk "BEGIN{print ((${SEED} + ${SEED2}) + (${I} * ${SEED} * ${SEED2}) / ${FATOR})}"); awk "BEGIN{print ${TEMP} % ${VARVALUE}}" | tr "\n" ","; done)
 
-  QUESTAO="$(for I in $(seq 1 "${NUMEROARGUMENTOS}"); do TEMP=$(echo -n "${PARENTESES}" | cut -d "," -f "${I}"); if [ "${TEMP}" == "(" ]; then echo -n "${TEMP}"; fi; if [ "${TEMP}" == ")" ]; then echo -n "${ARGS}" | cut -d "," -f "${I}" | tr -d "\n"; else echo -n "${ARGS}" | cut -d "," -f "${I}"; fi; if [ "${TEMP}" == ")" ]; then echo -n "${TEMP}"; fi; if [ "${I}" -lt "${NUMEROARGUMENTOS}" ]; then if [ "${TEMP}" == ")" ]; then echo -n " "; fi; echo -n "${OPS}" | cut -d "," -f "${I}"; fi; done)"
+    QUESTAO="$(for I in $(seq 1 "${NUMEROARGUMENTOS}"); do TEMP=$(echo -n "${PARENTESES}" | cut -d "," -f "${I}"); if [ "${TEMP}" == "(" ]; then echo -n "${TEMP}"; fi; if [ "${TEMP}" == ")" ]; then echo -n "${ARGS}" | cut -d "," -f "${I}" | tr -d "\n"; else echo -n "${ARGS}" | cut -d "," -f "${I}"; fi; if [ "${TEMP}" == ")" ]; then echo -n "${TEMP}"; fi; if [ "${I}" -lt "${NUMEROARGUMENTOS}" ]; then if [ "${TEMP}" == ")" ]; then echo -n " "; fi; echo -n "${OPS}" | cut -d "," -f "${I}"; fi; done)"
 
-  RESPOSTABRUTA=$(echo $QUESTAO | tr "x" "*" | bc -l)
+    rm "$ARQUIVOTEMP" &>> /dev/null
 
-  TEMP=$(LC_NUMERIC="en_US.UTF-8" printf "%.${CASASDECIMAIS}f" "${RESPOSTABRUTA}")
+    TEMP=$(echo $QUESTAO | tr "x" "*" | bc -l 2>> "${ARQUIVOTEMP}")
 
-  TEMP2=$(echo "${TEMP} * ${FATOR}" | bc)
+    if [ "$(wc -c ${ARQUIVOTEMP} | cut -d ' ' -f 1)" -gt "0" ]; then continue; else RESPOSTABRUTA=$TEMP; fi
 
-  RESPOSTATEMP1=${TEMP2%.*}
+    TEMP=$(LC_NUMERIC="en_US.UTF-8" printf "%.${CASASDECIMAIS}f" "${RESPOSTABRUTA}")
 
-  RESPOSTATEMP2=$(awk "BEGIN{print ${RESPOSTABRUTA} * ${FATOR}}")
+    TEMP2=$(echo "${TEMP} * ${FATOR}" | bc)
 
-  if ! [ "${RESPOSTATEMP1}" == "${RESPOSTATEMP2}" ]; then if ! [ "${CASASDECIMAIS}" == "1" ]; then QUESTAODECIMAL=", ${ROUNDWITH} ${CASASDECIMAIS} ${DECIMALPLACES}"; else QUESTAODECIMAL=", ${ROUNDWITH} 1 ${DECIMALPLACE}"; fi; else QUESTAODECIMAL=""; fi
+    RESPOSTATEMP1=${TEMP2%.*}
 
-  RESPOSTA=$(LC_NUMERIC="en_US.UTF-8" printf "%.${CASASDECIMAIS}f" "$(echo ${QUESTAO} | tr 'x' '*' | bc -l)")
+    RESPOSTATEMP2=$(awk "BEGIN{print ${RESPOSTABRUTA} * ${FATOR}}")
 
-  RESPOSTA=$(awk "BEGIN{print ${RESPOSTA}}")
+    if ! [ "${RESPOSTATEMP1}" == "${RESPOSTATEMP2}" ]; then if ! [ "${CASASDECIMAIS}" == "1" ]; then QUESTAODECIMAL=", ${ROUNDWITH} ${CASASDECIMAIS} ${DECIMALPLACES}"; else QUESTAODECIMAL=", ${ROUNDWITH} 1 ${DECIMALPLACE}"; fi; else QUESTAODECIMAL=""; fi
 
-  PERGUNTA=$(echo "${HOWMUCH} ${QUESTAO}${QUESTAODECIMAL}?" | tr "\n" " ")
+    RESPOSTA=$(LC_NUMERIC="en_US.UTF-8" printf "%.${CASASDECIMAIS}f" "$(echo ${QUESTAO} | tr 'x' '*' | bc -l)")
+
+    RESPOSTA=$(awk "BEGIN{print ${RESPOSTA}}")
+
+    PERGUNTA=$(echo "${HOWMUCH} ${QUESTAO}${QUESTAODECIMAL}?" | tr "\n" " ")
+  fi
 
   bash antoniovandre_echo_android_nosound "${PERGUNTA}"
 
-  if [ "${AVTEMPO}" == "1" ]; then if ! read -t  $LIMITETEMPO RESPOSTAUSUARIO 1>> /dev/null 2>> /dev/null; then echo "${TIMELIMITOF} ${LIMITETEMPO} ${SECONDSREACHED}."; continue; fi; else read RESPOSTAUSUARIO; fi
+  if [ "${AVTEMPO}" == "1" ]; then if ! read -t  $LIMITETEMPO RESPOSTAUSUARIO &>> /dev/null; then echo "${TIMELIMITOF} ${LIMITETEMPO} ${SECONDSREACHED}."; continue; fi; else read RESPOSTAUSUARIO; fi
 
   RESPOSTAUSUARIOP=$RESPOSTAUSUARIO
 
@@ -314,15 +327,17 @@ while [  "${RESPOSTAUSUARIO}" != "SAIR" ] && [  "${RESPOSTAUSUARIO}" != "EXIT" ]
     "JUMP") continue;;
     "pular") continue;;
     "jump") continue;;
-    "${RESPOSTA}") if [ "${AVLOG}" == "1" ]; then echo "_____" >> "${ARQUIVOLOGTEMP}"; LANG=en_us_88591 date >> "${ARQUIVOLOGTEMP}"; echo "Pergunta: ${PERGUNTA}" >> "${ARQUIVOLOGTEMP}"; echo "Resposta: ${RESPOSTAUSUARIOP}" >> "${ARQUIVOLOGTEMP}"; echo "Eval: acertou." >> "${ARQUIVOLOGTEMP}"; fi; echo -e "${AV_VERDE}${CORRECT}${AV_SEMCOR}."; if [ "${AVSOUND}" == "1" ]; then play "${ARQUIVOSOMACERTO}" 1>> /dev/null 2>> /dev/null; fi;;
-    *) if [ "${AVLOG}" == "1" ]; then echo "_____" >> "${ARQUIVOLOGTEMP}"; LANG=en_us_88591 date >> "${ARQUIVOLOGTEMP}"; echo "Pergunta: ${PERGUNTA}" >> "${ARQUIVOLOGTEMP}"; echo "Resposta: ${RESPOSTAUSUARIO}" >> "${ARQUIVOLOGTEMP}"; echo "Eval: errou." >> "${ARQUIVOLOGTEMP}"; fi; echo -e "${AV_VERMELHO}${WRONG}${AV_SEMCOR}."; if [ "${AVSOUND}" == "1" ]; then play "${ARQUIVOSOMERRO}" 1>> /dev/null 2>> /dev/null; fi;;
+    "${RESPOSTA}") if [ "${AVLOG}" == "1" ]; then echo "_____" >> "${ARQUIVOLOGTEMP}"; LANG=en_us_88591 date >> "${ARQUIVOLOGTEMP}"; echo "Pergunta: ${PERGUNTA}" >> "${ARQUIVOLOGTEMP}"; echo "Resposta: ${RESPOSTAUSUARIOP}" >> "${ARQUIVOLOGTEMP}"; echo "Eval: acertou." >> "${ARQUIVOLOGTEMP}"; fi; echo -e "${AV_VERDE}${CORRECT}${AV_SEMCOR}."; if [ "${AVSOUND}" == "1" ]; then play "${ARQUIVOSOMACERTO}" &>> /dev/null; fi;;
+    *) if ! [[ "${RESPOSTAUSUARIO}" =~ "^[+-]?[0-9]+([.][0-9]+)?$" ]]; then echo "${VALIDEXPR}."; FLAG="1"; continue; fi; if [ "${AVLOG}" == "1" ]; then echo "_____" >> "${ARQUIVOLOGTEMP}"; LANG=en_us_88591 date >> "${ARQUIVOLOGTEMP}"; echo "Pergunta: ${PERGUNTA}" >> "${ARQUIVOLOGTEMP}"; echo "Resposta: ${RESPOSTAUSUARIO}" >> "${ARQUIVOLOGTEMP}"; echo "Eval: errou." >> "${ARQUIVOLOGTEMP}"; fi; echo -e "${AV_VERMELHO}${WRONG}${AV_SEMCOR}."; if [ "${AVSOUND}" == "1" ]; then play "${ARQUIVOSOMERRO}" &>> /dev/null; fi;;
   esac
+
+  FLAG="0"
 
 done
 
-  if [ "${1}" != "ne" ] && [ "${AVLOG}" == "1" ] && [ "${AVGRAFICOS}" == "1" ] && ls "${ARQUIVOLOGTEMP}" 1>> /dev/null 2>> /dev/null; then
+  if [ "${1}" != "ne" ] && [ "${AVLOG}" == "1" ] && [ "${AVGRAFICOS}" == "1" ] && ls "${ARQUIVOLOGTEMP}" &>> /dev/null; then
 
-    bash antoniovandre_echo_android_nosound "${CONVLOGUNIX}" n; if dos2unix "${ARQUIVOLOGTEMP}" 1>> /dev/null 2>> /dev/null; then echo -ne "${AV_VERDE}"; bash antoniovandre_echo_android_nosound "${SUCCESS}" n; echo -ne "${AV_SEMCOR}"; echo "."; else echo -ne "${AV_VERMELHO}"; bash antoniovandre_echo_android_nosound "${FAIL}" n; echo -ne "${AV_SEMCOR}"; echo "."; exit 1; fi
+    bash antoniovandre_echo_android_nosound "${CONVLOGUNIX}" n; if dos2unix "${ARQUIVOLOGTEMP}" &>> /dev/null; then echo -ne "${AV_VERDE}"; bash antoniovandre_echo_android_nosound "${SUCCESS}" n; echo -ne "${AV_SEMCOR}"; echo "."; else echo -ne "${AV_VERMELHO}"; bash antoniovandre_echo_android_nosound "${FAIL}" n; echo -ne "${AV_SEMCOR}"; echo "."; exit 1; fi
 
     bash antoniovandre_echo_android_nosound "${BUILDINGGRAPHS}" n
 
@@ -361,19 +376,19 @@ done
 
     if [ "${NUMEROACERTOS}" -gt "${NUMEROERROS}" ]; then MAXACERTOSERROS=$NUMEROACERTOS; else MAXACERTOSERROS=$NUMEROERROS; fi
 
-if [ "${MAXACERTOSERROS}" -gt "0" ]; then gnuplot -p -e "set xtics font 'Verdana,10'; set yrange [0:]; set boxwidth 0.3; set style fill solid; set xtics 1; set ytics 0,${MAXACERTOSERROS}; set terminal png size 800,600; set title 'Comparativo de acertos e erros.'; show title; set output '${ARQUIVOGRAFICO}'; plot '${ARQUIVOGNUPLOTDATA}' using 1:3:4:xtic(2) notitle with boxes linecolor variable" 1>> /dev/null 2>> /dev/null; else cp "${IMAGEGRAPH0}" "${ARQUIVOGRAFICO}" 1>> /dev/null 2>> /dev/null; fi
+if [ "${MAXACERTOSERROS}" -gt "0" ]; then gnuplot -p -e "set xtics font 'Verdana,10'; set yrange [0:]; set boxwidth 0.3; set style fill solid; set xtics 1; set ytics 0,${MAXACERTOSERROS}; set terminal png size 800,600; set title 'Comparativo de acertos e erros.'; show title; set output '${ARQUIVOGRAFICO}'; plot '${ARQUIVOGNUPLOTDATA}' using 1:3:4:xtic(2) notitle with boxes linecolor variable" &>> /dev/null; else cp "${IMAGEGRAPH0}" "${ARQUIVOGRAFICO}" &>> /dev/null; fi
 
     echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
-if [ "${MAXACERTOSERROS}" -gt "0" ]; then gnuplot -p -e "Ai=0.0; yi=0.0; yi2=0.0; ang(x)=x*360.0/${TOTALRESPOSTAS}; set size square; set xrange [-1:1.5]; set yrange [-1.25:1.25]; set boxwidth 0.3; set style fill solid 1; unset border; unset tics; unset key; set terminal png size 800,600; set title 'Comparativo de acertos e erros.'; show title; set output '${ARQUIVOGRAFICOPIZZA}'; plot '${ARQUIVOGNUPLOTDATA}' u (0):(0):(1):(Ai):(Ai=Ai+ang(\$3)):(\$4) with circle linecolor var, '${ARQUIVOGNUPLOTDATA}' u (1.5):(yi=yi+0.5/\$3):(\$2) w labels, '${ARQUIVOGNUPLOTDATA}' u (1.3):(yi2=yi2+0.5/\$3):(\$4) w p pt 5 ps 2 linecolor var" 1>> /dev/null 2>> /dev/null; else cp "${IMAGEGRAPH0}" "${ARQUIVOGRAFICOPIZZA}" 1>> /dev/null 2>> /dev/null; fi
+if [ "${MAXACERTOSERROS}" -gt "0" ]; then gnuplot -p -e "Ai=0.0; yi=0.0; yi2=0.0; ang(x)=x*360.0/${TOTALRESPOSTAS}; set size square; set xrange [-1:1.5]; set yrange [-1.25:1.25]; set boxwidth 0.3; set style fill solid 1; unset border; unset tics; unset key; set terminal png size 800,600; set title 'Comparativo de acertos e erros.'; show title; set output '${ARQUIVOGRAFICOPIZZA}'; plot '${ARQUIVOGNUPLOTDATA}' u (0):(0):(1):(Ai):(Ai=Ai+ang(\$3)):(\$4) with circle linecolor var, '${ARQUIVOGNUPLOTDATA}' u (1.5):(yi=yi+0.5/\$3):(\$2) w labels, '${ARQUIVOGNUPLOTDATA}' u (1.3):(yi2=yi2+0.5/\$3):(\$4) w p pt 5 ps 2 linecolor var" &>> /dev/null; else cp "${IMAGEGRAPH0}" "${ARQUIVOGRAFICOPIZZA}" &>> /dev/null; fi
 
     echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
-    rm "${ARQUIVOGNUPLOTDATA}" 1>> /dev/null 2>> /dev/null
+    rm "${ARQUIVOGNUPLOTDATA}" &>> /dev/null
 
     echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
-    rm "${ARQUIVOGNUPLOTDATA2}" 1>> /dev/null 2>> /dev/null
+    rm "${ARQUIVOGNUPLOTDATA2}" &>> /dev/null
 
     echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
@@ -386,7 +401,7 @@ if [ "${MAXACERTOSERROS}" -gt "0" ]; then gnuplot -p -e "Ai=0.0; yi=0.0; yi2=0.0
 
     echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
-    rm "${ARQUIVOGNUPLOTDATA3}" 1>> /dev/null 2>> /dev/null
+    rm "${ARQUIVOGNUPLOTDATA3}" &>> /dev/null
 
     echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
@@ -399,7 +414,7 @@ if [ "${MAXACERTOSERROS}" -gt "0" ]; then gnuplot -p -e "Ai=0.0; yi=0.0; yi2=0.0
 
     echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
-    rm "${ARQUIVOGNUPLOTDATA4}" 1>> /dev/null 2>> /dev/null
+    rm "${ARQUIVOGNUPLOTDATA4}" &>> /dev/null
 
     echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
@@ -412,7 +427,7 @@ if [ "${MAXACERTOSERROS}" -gt "0" ]; then gnuplot -p -e "Ai=0.0; yi=0.0; yi2=0.0
 
     echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
-    rm "${ARQUIVOGNUPLOTDATA5}" 1>> /dev/null 2>> /dev/null
+    rm "${ARQUIVOGNUPLOTDATA5}" &>> /dev/null
 
     echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
@@ -435,7 +450,7 @@ if [ "${MAXACERTOSERROS}" -gt "0" ]; then gnuplot -p -e "Ai=0.0; yi=0.0; yi2=0.0
 
     echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
-    rm "${ARQUIVOGNUPLOTDATA6}" 1>> /dev/null 2>> /dev/null
+    rm "${ARQUIVOGNUPLOTDATA6}" &>> /dev/null
 
     echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
@@ -468,7 +483,7 @@ if [ "${MAXACERTOSERROS}" -gt "0" ]; then gnuplot -p -e "Ai=0.0; yi=0.0; yi2=0.0
 
     echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
-    rm "${ARQUIVOGNUPLOTDATA7}" 1>> /dev/null 2>> /dev/null
+    rm "${ARQUIVOGNUPLOTDATA7}" &>> /dev/null
 
     echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
@@ -525,7 +540,7 @@ if [ "${MAXACERTOSERROS}" -gt "0" ]; then gnuplot -p -e "Ai=0.0; yi=0.0; yi2=0.0
 
     echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
-    rm "${ARQUIVOGNUPLOTDATA8}" 1>> /dev/null 2>> /dev/null
+    rm "${ARQUIVOGNUPLOTDATA8}" &>> /dev/null
 
     echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
@@ -537,7 +552,7 @@ if [ "${MAXACERTOSERROS}" -gt "0" ]; then gnuplot -p -e "Ai=0.0; yi=0.0; yi2=0.0
 
     echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
-    rm "${ARQUIVOGNUPLOTDATA9}" 1>> /dev/null 2>> /dev/null
+    rm "${ARQUIVOGNUPLOTDATA9}" &>> /dev/null
 
     echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
@@ -549,7 +564,7 @@ if [ "${MAXACERTOSERROS}" -gt "0" ]; then gnuplot -p -e "Ai=0.0; yi=0.0; yi2=0.0
 
     echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
-    rm "${ARQUIVOGNUPLOTDATA10}" 1>> /dev/null 2>> /dev/null
+    rm "${ARQUIVOGNUPLOTDATA10}" &>> /dev/null
 
     echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
@@ -561,89 +576,90 @@ if [ "${MAXACERTOSERROS}" -gt "0" ]; then gnuplot -p -e "Ai=0.0; yi=0.0; yi2=0.0
 
     echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
-    if [ "${MAXDIA}" -gt "0" ]; then gnuplot -p -e "set xtics font 'Verdana,10'; set yrange [0:]; set boxwidth 0.3; set style fill solid; set xtics 1; set ytics 0,${MAXDIA}; set terminal png size 800,600; set xtics rotate by 90 right; set title 'Frequência diária de uso do game.'; show title; set output '${ARQUIVOGRAFICOTEMPO}'; plot '${ARQUIVOGNUPLOTDATA2}' using 2:xticlabels(1) notitle with lines lc -1" 1>> /dev/null 2>> /dev/null; else cp "${IMAGEGRAPH0}" "${ARQUIVOGRAFICOTEMPO}" 1>> /dev/null 2>> /dev/null; fi
+    if [ "${MAXDIA}" -gt "0" ]; then gnuplot -p -e "set xtics font 'Verdana,10'; set yrange [0:]; set boxwidth 0.3; set style fill solid; set xtics 1; set ytics 0,${MAXDIA}; set terminal png size 800,600; set xtics rotate by 90 right; set title 'Frequência diária de uso do game.'; show title; set output '${ARQUIVOGRAFICOTEMPO}'; plot '${ARQUIVOGNUPLOTDATA2}' using 2:xticlabels(1) notitle with lines lc -1" &>> /dev/null; else cp "${IMAGEGRAPH0}" "${ARQUIVOGRAFICOTEMPO}" &>> /dev/null; fi
 
     echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
-    if [ "${MAXANO}" -gt "0" ]; then gnuplot -p -e "set xtics font 'Verdana,10'; set yrange [0:]; set boxwidth 0.3; set style fill solid; set xtics 1; set ytics 0,${MAXANO}; set terminal png size 800,600; set xtics rotate by 90 right; set title 'Frequência anual de uso do game.'; show title; set output '${ARQUIVOGRAFICOTEMPOANUAL}'; plot '${ARQUIVOGNUPLOTDATA3}' using 2:xticlabels(1) notitle with lines lc -1" 1>> /dev/null 2>> /dev/null; else cp "${IMAGEGRAPH0}" "${ARQUIVOGRAFICOTEMPOANUAL}" 1>> /dev/null 2>> /dev/null; fi
+    if [ "${MAXANO}" -gt "0" ]; then gnuplot -p -e "set xtics font 'Verdana,10'; set yrange [0:]; set boxwidth 0.3; set style fill solid; set xtics 1; set ytics 0,${MAXANO}; set terminal png size 800,600; set xtics rotate by 90 right; set title 'Frequência anual de uso do game.'; show title; set output '${ARQUIVOGRAFICOTEMPOANUAL}'; plot '${ARQUIVOGNUPLOTDATA3}' using 2:xticlabels(1) notitle with lines lc -1" &>> /dev/null; else cp "${IMAGEGRAPH0}" "${ARQUIVOGRAFICOTEMPOANUAL}" &>> /dev/null; fi
 
     echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
-    if [ "${MAXMES}" -gt "0" ]; then gnuplot -p -e "set xtics font 'Verdana,10'; set yrange [0:]; set boxwidth 0.3; set style fill solid; set xtics 1; set ytics 0,${MAXMES}; set terminal png size 800,600; set xtics rotate by 90 right; set title 'Frequência mensal de uso do game.'; show title; set output '${ARQUIVOGRAFICOTEMPOMENSAL}'; plot '${ARQUIVOGNUPLOTDATA4}' using 2:xticlabels(1) notitle with lines lc -1" 1>> /dev/null 2>> /dev/null; else cp "${IMAGEGRAPH0}" "${ARQUIVOGRAFICOTEMPOMENSAL}" 1>> /dev/null 2>> /dev/null; fi
+    if [ "${MAXMES}" -gt "0" ]; then gnuplot -p -e "set xtics font 'Verdana,10'; set yrange [0:]; set boxwidth 0.3; set style fill solid; set xtics 1; set ytics 0,${MAXMES}; set terminal png size 800,600; set xtics rotate by 90 right; set title 'Frequência mensal de uso do game.'; show title; set output '${ARQUIVOGRAFICOTEMPOMENSAL}'; plot '${ARQUIVOGNUPLOTDATA4}' using 2:xticlabels(1) notitle with lines lc -1" &>> /dev/null; else cp "${IMAGEGRAPH0}" "${ARQUIVOGRAFICOTEMPOMENSAL}" &>> /dev/null; fi
 
     echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
-    if [ "${MAXDIASEMANA}" -gt "0" ]; then gnuplot -p -e "set xtics font 'Verdana,10'; set yrange [0:]; set boxwidth 0.3; set style fill solid; set xtics 1; set ytics 0,${MAXDIASEMANA}; set terminal png size 800,600; set xtics rotate by 90 right; set title 'Distribuição semanal de uso do game.'; show title; set output '${ARQUIVOGRAFICOTEMPODISTSEM}'; plot '${ARQUIVOGNUPLOTDATA5}' using 2:xticlabels(1) notitle with lines lc -1" 1>> /dev/null 2>> /dev/null; else cp "${IMAGEGRAPH0}" "${ARQUIVOGRAFICOTEMPODISTSEM}" 1>> /dev/null 2>> /dev/null; fi
+    if [ "${MAXDIASEMANA}" -gt "0" ]; then gnuplot -p -e "set xtics font 'Verdana,10'; set yrange [0:]; set boxwidth 0.3; set style fill solid; set xtics 1; set ytics 0,${MAXDIASEMANA}; set terminal png size 800,600; set xtics rotate by 90 right; set title 'Distribuição semanal de uso do game.'; show title; set output '${ARQUIVOGRAFICOTEMPODISTSEM}'; plot '${ARQUIVOGNUPLOTDATA5}' using 2:xticlabels(1) notitle with lines lc -1" &>> /dev/null; else cp "${IMAGEGRAPH0}" "${ARQUIVOGRAFICOTEMPODISTSEM}" &>> /dev/null; fi
 
     echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
-    if [ "${MAXMESANO}" -gt "0" ]; then gnuplot -p -e "set xtics font 'Verdana,10'; set yrange [0:]; set boxwidth 0.3; set style fill solid; set xtics 1; set ytics 0,${MAXMESANO}; set terminal png size 800,600; set xtics rotate by 90 right; set title 'Distribuição mensal de uso do game.'; show title; set output '${ARQUIVOGRAFICOTEMPODISTMES}'; plot '${ARQUIVOGNUPLOTDATA6}' using 2:xticlabels(1) notitle with lines lc -1" 1>> /dev/null 2>> /dev/null; else cp "${IMAGEGRAPH0}" "${ARQUIVOGRAFICOTEMPODISTMES}" 1>> /dev/null 2>> /dev/null; fi
+    if [ "${MAXMESANO}" -gt "0" ]; then gnuplot -p -e "set xtics font 'Verdana,10'; set yrange [0:]; set boxwidth 0.3; set style fill solid; set xtics 1; set ytics 0,${MAXMESANO}; set terminal png size 800,600; set xtics rotate by 90 right; set title 'Distribuição mensal de uso do game.'; show title; set output '${ARQUIVOGRAFICOTEMPODISTMES}'; plot '${ARQUIVOGNUPLOTDATA6}' using 2:xticlabels(1) notitle with lines lc -1" &>> /dev/null; else cp "${IMAGEGRAPH0}" "${ARQUIVOGRAFICOTEMPODISTMES}" &>> /dev/null; fi
 
     echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
-    if [ "${MAXHORADIA}" -gt "0" ]; then gnuplot -p -e "set xtics font 'Verdana,10'; set yrange [0:]; set boxwidth 0.3; set style fill solid; set xtics 1; set ytics 0,${MAXHORADIA}; set terminal png size 800,600; set xtics rotate by 90 right; set title 'Distribuição horária de uso do game.'; show title; set output '${ARQUIVOGRAFICOTEMPODISTHOR}'; plot '${ARQUIVOGNUPLOTDATA7}' using 2:xticlabels(1) notitle with lines lc -1" 1>> /dev/null 2>> /dev/null; else cp "${IMAGEGRAPH0}" "${ARQUIVOGRAFICOTEMPODISTHOR}" 1>> /dev/null 2>> /dev/null; fi
+    if [ "${MAXHORADIA}" -gt "0" ]; then gnuplot -p -e "set xtics font 'Verdana,10'; set yrange [0:]; set boxwidth 0.3; set style fill solid; set xtics 1; set ytics 0,${MAXHORADIA}; set terminal png size 800,600; set xtics rotate by 90 right; set title 'Distribuição horária de uso do game.'; show title; set output '${ARQUIVOGRAFICOTEMPODISTHOR}'; plot '${ARQUIVOGNUPLOTDATA7}' using 2:xticlabels(1) notitle with lines lc -1" &>> /dev/null; else cp "${IMAGEGRAPH0}" "${ARQUIVOGRAFICOTEMPODISTHOR}" &>> /dev/null; fi
 
     echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
-    if [ "${MAXDIAERROS}" -gt "0" ]; then gnuplot -p -e "set xtics font 'Verdana,10'; set yrange [0:]; set boxwidth 0.3; set style fill solid; set xtics 1; set ytics 0,${MAXDIAERROS}; set terminal png size 800,600; set xtics rotate by 90 right; set title 'Frequência diária de erros no uso do game.'; show title; set output '${ARQUIVOGRAFICOTEMPOERROS}'; plot '${ARQUIVOGNUPLOTDATA8}' using 2:xticlabels(1) notitle with lines lc -1" 1>> /dev/null 2>> /dev/null; else cp "${IMAGEGRAPH0}" "${ARQUIVOGRAFICOTEMPOERROS}" 1>> /dev/null 2>> /dev/null; fi
+    if [ "${MAXDIAERROS}" -gt "0" ]; then gnuplot -p -e "set xtics font 'Verdana,10'; set yrange [0:]; set boxwidth 0.3; set style fill solid; set xtics 1; set ytics 0,${MAXDIAERROS}; set terminal png size 800,600; set xtics rotate by 90 right; set title 'Frequência diária de erros no uso do game.'; show title; set output '${ARQUIVOGRAFICOTEMPOERROS}'; plot '${ARQUIVOGNUPLOTDATA8}' using 2:xticlabels(1) notitle with lines lc -1" &>> /dev/null; else cp "${IMAGEGRAPH0}" "${ARQUIVOGRAFICOTEMPOERROS}" &>> /dev/null; fi
 
     echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
-    if [ "${MAXANOERROS}" -gt "0" ]; then gnuplot -p -e "set xtics font 'Verdana,10'; set yrange [0:]; set boxwidth 0.3; set style fill solid; set xtics 1; set ytics 0,${MAXANOERROS}; set terminal png size 800,600; set xtics rotate by 90 right; set title 'Frequência anual de erros no uso do game.'; show title; set output '${ARQUIVOGRAFICOTEMPOANOERROS}'; plot '${ARQUIVOGNUPLOTDATA9}' using 2:xticlabels(1) notitle with lines lc -1" 1>> /dev/null 2>> /dev/null; else cp "${IMAGEGRAPH0}" "${ARQUIVOGRAFICOTEMPOANOERROS}" 1>> /dev/null 2>> /dev/null; fi
+    if [ "${MAXANOERROS}" -gt "0" ]; then gnuplot -p -e "set xtics font 'Verdana,10'; set yrange [0:]; set boxwidth 0.3; set style fill solid; set xtics 1; set ytics 0,${MAXANOERROS}; set terminal png size 800,600; set xtics rotate by 90 right; set title 'Frequência anual de erros no uso do game.'; show title; set output '${ARQUIVOGRAFICOTEMPOANOERROS}'; plot '${ARQUIVOGNUPLOTDATA9}' using 2:xticlabels(1) notitle with lines lc -1" &>> /dev/null; else cp "${IMAGEGRAPH0}" "${ARQUIVOGRAFICOTEMPOANOERROS}" &>> /dev/null; fi
 
     echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
-    if [ "${MAXMESERROS}" -gt "0" ]; then gnuplot -p -e "set xtics font 'Verdana,10'; set yrange [0:]; set boxwidth 0.3; set style fill solid; set xtics 1; set ytics 0,${MAXMESERROS}; set terminal png size 800,600; set xtics rotate by 90 right; set title 'Frequência mensal de erros no uso do game.'; show title; set output '${ARQUIVOGRAFICOTEMPOMESERROS}'; plot '${ARQUIVOGNUPLOTDATA10}' using 2:xticlabels(1) notitle with lines lc -1" 1>> /dev/null 2>> /dev/null; else cp "${IMAGEGRAPH0}" "${ARQUIVOGRAFICOTEMPOMESERROS}" 1>> /dev/null 2>> /dev/null; fi
+    if [ "${MAXMESERROS}" -gt "0" ]; then gnuplot -p -e "set xtics font 'Verdana,10'; set yrange [0:]; set boxwidth 0.3; set style fill solid; set xtics 1; set ytics 0,${MAXMESERROS}; set terminal png size 800,600; set xtics rotate by 90 right; set title 'Frequência mensal de erros no uso do game.'; show title; set output '${ARQUIVOGRAFICOTEMPOMESERROS}'; plot '${ARQUIVOGNUPLOTDATA10}' using 2:xticlabels(1) notitle with lines lc -1" &>> /dev/null; else cp "${IMAGEGRAPH0}" "${ARQUIVOGRAFICOTEMPOMESERROS}" &>> /dev/null; fi
 
     echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
-    rm "${ARQUIVOGNUPLOTDATA}" 1>> /dev/null 2>> /dev/null
+    rm "${ARQUIVOGNUPLOTDATA}" &>> /dev/null
 
     echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
-    rm "${ARQUIVOGNUPLOTDATA2}" 1>> /dev/null 2>> /dev/null
+    rm "${ARQUIVOGNUPLOTDATA2}" &>> /dev/null
 
     echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
-    rm "${ARQUIVOGNUPLOTDATA3}" 1>> /dev/null 2>> /dev/null
+    rm "${ARQUIVOGNUPLOTDATA3}" &>> /dev/null
 
     echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
-    rm "${ARQUIVOGNUPLOTDATA4}" 1>> /dev/null 2>> /dev/null
+    rm "${ARQUIVOGNUPLOTDATA4}" &>> /dev/null
 
     echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
-    rm "${ARQUIVOGNUPLOTDATA5}" 1>> /dev/null 2>> /dev/null
+    rm "${ARQUIVOGNUPLOTDATA5}" &>> /dev/null
 
     echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
-    rm "${ARQUIVOGNUPLOTDATA6}" 1>> /dev/null 2>> /dev/null
+    rm "${ARQUIVOGNUPLOTDATA6}" &>> /dev/null
 
     echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
-    rm "${ARQUIVOGNUPLOTDATA7}" 1>> /dev/null 2>> /dev/null
+    rm "${ARQUIVOGNUPLOTDATA7}" &>> /dev/null
 
     echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
-    rm "${ARQUIVOGNUPLOTDATA8}" 1>> /dev/null 2>> /dev/null
+    rm "${ARQUIVOGNUPLOTDATA8}" &>> /dev/null
 
     echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
-    rm "${ARQUIVOGNUPLOTDATA9}" 1>> /dev/null 2>> /dev/null
+    rm "${ARQUIVOGNUPLOTDATA9}" &>> /dev/null
 
     echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
-    rm "${ARQUIVOGNUPLOTDATA10}" 1>> /dev/null 2>> /dev/null
+    rm "${ARQUIVOGNUPLOTDATA10}" &>> /dev/null
 
     echo -ne "\b"; echo -ne "${AV_VERDE}"; bash antoniovandre_echo_android_nosound "${CONCLUDED}" n; echo -ne "${AV_SEMCOR}"; echo "."
 
   fi
 
-if [ "${1}" != "ne" ] && [ "${AVLOG}" == "1" ] && [ "${AVSTATS}" == "1" ] && ls "${ARQUIVOLOGTEMP}" 1>> /dev/null 2>> /dev/null; then MAXACERTOSERROS="0"; NUMEROACERTOS="0"; NUMEROERROS="0"; NUMEROACERTOS=$(cat "${ARQUIVOLOGTEMP}" | grep "Eval: acertou." | wc -l); NUMEROERROS=$(cat "${ARQUIVOLOGTEMP}" | grep "Eval: errou." | wc -l); TOTALRESPOSTAS=$(echo "${NUMEROACERTOS} + ${NUMEROERROS}" | bc); PERCENTUALACERTO=$(echo "100 * ${NUMEROACERTOS} / ${TOTALRESPOSTAS}" | bc -l); PERCENTUALERRO=$(echo "100 * ${NUMEROERROS} / ${TOTALRESPOSTAS}" | bc -l); bash antoniovandre_echo_android_nosound "${BUILDINGSTATSFILE}" n; echo "Arquivo de estatísticas do jogo." > "${ARQUIVOSTATS}"; echo "_____" >> "${ARQUIVOSTATS}"; echo "Total de respostas: ${TOTALRESPOSTAS}." >> "${ARQUIVOSTATS}"; echo "Total de acertos: ${NUMEROACERTOS}." >> "${ARQUIVOSTATS}"; echo "Total de erros: ${NUMEROERROS}." >> "${ARQUIVOSTATS}"; echo "Percentual de acerto: ${PERCENTUALACERTO} %." >> "${ARQUIVOSTATS}"; echo "Percentual de erro: ${PERCENTUALERRO} %." >> "${ARQUIVOSTATS}"; echo -ne "${AV_VERDE}"; bash antoniovandre_echo_android_nosound "${CONCLUDED}" n; echo -ne "${AV_SEMCOR}"; echo "."; fi
+if [ "${1}" != "ne" ] && [ "${AVLOG}" == "1" ] && [ "${AVSTATS}" == "1" ] && ls "${ARQUIVOLOGTEMP}" &>> /dev/null; then MAXACERTOSERROS="0"; NUMEROACERTOS="0"; NUMEROERROS="0"; NUMEROACERTOS=$(cat "${ARQUIVOLOGTEMP}" | grep "Eval: acertou." | wc -l); NUMEROERROS=$(cat "${ARQUIVOLOGTEMP}" | grep "Eval: errou." | wc -l); TOTALRESPOSTAS=$(echo "${NUMEROACERTOS} + ${NUMEROERROS}" | bc); PERCENTUALACERTO=$(echo "100 * ${NUMEROACERTOS} / ${TOTALRESPOSTAS}" | bc -l); PERCENTUALERRO=$(echo "100 * ${NUMEROERROS} / ${TOTALRESPOSTAS}" | bc -l); bash antoniovandre_echo_android_nosound "${BUILDINGSTATSFILE}" n; echo "Arquivo de estatísticas do jogo." > "${ARQUIVOSTATS}"; echo "_____" >> "${ARQUIVOSTATS}"; echo "Total de respostas: ${TOTALRESPOSTAS}." >> "${ARQUIVOSTATS}"; echo "Total de acertos: ${NUMEROACERTOS}." >> "${ARQUIVOSTATS}"; echo "Total de erros: ${NUMEROERROS}." >> "${ARQUIVOSTATS}"; echo "Percentual de acerto: ${PERCENTUALACERTO} %." >> "${ARQUIVOSTATS}"; echo "Percentual de erro: ${PERCENTUALERRO} %." >> "${ARQUIVOSTATS}"; echo -ne "${AV_VERDE}"; bash antoniovandre_echo_android_nosound "${CONCLUDED}" n; echo -ne "${AV_SEMCOR}"; echo "."; fi
 
-if [ "${AVLOG}" == "1" ] && ls "${ARQUIVOLOGTEMP}" 1>> /dev/null 2>> /dev/null; then bash antoniovandre_echo_android_nosound "${CONVLOGDOS}" n; unix2dos "${ARQUIVOLOGTEMP}" 1>> /dev/null 2>> /dev/null; echo -ne "${AV_VERDE}"; bash antoniovandre_echo_android_nosound "${CONCLUDED}" n; echo -ne "${AV_SEMCOR}"; echo "."; fi
+if [ "${AVLOG}" == "1" ] && ls "${ARQUIVOLOGTEMP}" &>> /dev/null; then bash antoniovandre_echo_android_nosound "${CONVLOGDOS}" n; unix2dos "${ARQUIVOLOGTEMP}" &>> /dev/null; echo -ne "${AV_VERDE}"; bash antoniovandre_echo_android_nosound "${CONCLUDED}" n; echo -ne "${AV_SEMCOR}"; echo "."; fi
 
-if [ "${1}" != "ne" ]; then if [ "${AVLOG}" == "1" ]; then cp "${ARQUIVOLOGTEMP}" "${ARQUIVOLOG}" 1>> /dev/null 2>> /dev/null; fi; fi
+if [ "${1}" != "ne" ]; then if [ "${AVLOG}" == "1" ]; then cp "${ARQUIVOLOGTEMP}" "${ARQUIVOLOG}" &>> /dev/null; fi; fi
 
 bash antoniovandre_echo_android_nosound "${THANKS}"
 
+exit 0
