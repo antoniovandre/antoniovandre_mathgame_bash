@@ -309,29 +309,27 @@ while [  "${RESPOSTAUSUARIO}" != "SAIR" ] && [  "${RESPOSTAUSUARIO}" != "EXIT" ]
   if ! ([ "${RESPOSTAUSUARIO}" == "+A" ] || [ "${RESPOSTAUSUARIO}" == "-A" ] || [ "${RESPOSTAUSUARIO}" == "+D" ] || [ "${RESPOSTAUSUARIO}" == "-D" ] || [ "${RESPOSTAUSUARIO}" == "+N" ] || [ "${RESPOSTAUSUARIO}" == "-N" ] || [ "${RESPOSTAUSUARIO}" == "T" ] || [ "${RESPOSTAUSUARIO}" == "t" ] || [ "${RESPOSTAUSUARIO}" == "+T" ] || [ "${RESPOSTAUSUARIO}" == "-T" ] || [ "${RESPOSTAUSUARIO}" == "SAIR" ] || [ "${RESPOSTAUSUARIO}" == "EXIT" ] || [ "${RESPOSTAUSUARIO}" == "sair" ] || [ "${RESPOSTAUSUARIO}" == "exit" ] || [ "${RESPOSTAUSUARIO}" == "PULAR" ] || [ "${RESPOSTAUSUARIO}" == "JUMP" ] || [ "${RESPOSTAUSUARIO}" == "pular" ] || [ "${RESPOSTAUSUARIO}" == "jump" ]); then RESPOSTAUSUARIO=$(awk "BEGIN{print ${RESPOSTAUSUARIO}}"); fi
 
   case "${RESPOSTAUSUARIO}" in
-    "+A") if [ "${NUMEROARGUMENTOS}" -lt "${NUMEROMAXIMOARGUMENTOS}" ]; then NUMEROARGUMENTOS=$(echo "${NUMEROARGUMENTOS} + 1" | bc); bash antoniovandre_echo_android "${ANOW} ${NUMEROARGUMENTOS}."; else bash antoniovandre_echo_android "${AOVERFLOW}"; fi; continue;;
-    "-A") if ! [ "${NUMEROARGUMENTOS}" == "2" ]; then NUMEROARGUMENTOS=$(echo "${NUMEROARGUMENTOS} - 1" | bc); bash antoniovandre_echo_android "${ANOW} ${NUMEROARGUMENTOS}."; else bash antoniovandre_echo_android "${ABOTTOM}"; fi; continue;;
-    "+D") if [ "${CASASDECIMAIS}" -lt "${MAXIMOCASASDECIMAIS}" ]; then CASASDECIMAIS=$(echo "${CASASDECIMAIS} + 1" | bc); bash antoniovandre_echo_android "${DNOW} ${CASASDECIMAIS}."; else bash antoniovandre_echo_android "${DOVERFLOW}"; fi; continue;;
-    "-D") if ! [ "${CASASDECIMAIS}" == "0" ]; then CASASDECIMAIS=$(echo "${CASASDECIMAIS} - 1" | bc); bash antoniovandre_echo_android "${DNOW} ${CASASDECIMAIS}."; else bash antoniovandre_echo_android "${DBOTTOM}"; fi; continue;;
-    "+N") if [ $(echo "${MAXVALUE} * 2" | bc) -lt $MAXMAXVALUE ]; then MAXVALUE=$(echo "${MAXVALUE} * 5" | bc); bash antoniovandre_echo_android "${NNOW} ${MAXVALUE}."; else bash antoniovandre_echo_android "${NOVERFLOW}"; fi; continue;;
-    "-N") if [ "${MAXVALUE}" -gt "${MINMAXVALUE}" ]; then MAXVALUE=$(echo "${MAXVALUE} / 2" | bc); bash antoniovandre_echo_android "${NNOW} ${MAXVALUE}."; else bash antoniovandre_echo_android "${NBOTTOM}"; fi; continue;;
-    "T") if [ "${AVTEMPO}" == "0" ]; then AVTEMPO="1"; bash antoniovandre_echo_android "${TNOW} ${AVTEMPO}."; else bash antoniovandre_echo_android "${TIMEALREADYACTIVATED}"; fi;;
-    "t") if [ "${AVTEMPO}" == "1" ]; then AVTEMPO="0"; bash antoniovandre_echo_android "${TNOW} ${AVTEMPO}."; else bash antoniovandre_echo_android "${TIMEALREADYDEACTIVATED}"; fi; continue;;
-    "+T") if [ "${LIMITETEMPO}" -lt "${MAXTIME}" ]; then LIMITETEMPO=$(echo "${LIMITETEMPO} + 10" | bc); bash antoniovandre_echo_android "${TVNOW} ${LIMITETEMPO}."; else bash antoniovandre_echo_android "${TOVERFLOW}"; fi; continue;;
-    "-T") if [ "${LIMITETEMPO}" -gt "${MINTIME}" ]; then LIMITETEMPO=$(echo "${LIMITETEMPO} - 10" | bc); bash antoniovandre_echo_android "${TVNOW} ${LIMITETEMPO}."; else bash antoniovandre_echo_android "${TBOTTOM}"; fi; continue;;
+    "+A") if [ "${NUMEROARGUMENTOS}" -lt "${NUMEROMAXIMOARGUMENTOS}" ]; then NUMEROARGUMENTOS=$(echo "${NUMEROARGUMENTOS} + 1" | bc); bash /storage/emulated/0/av_softwares/BASH\ scripts/antoniovandre_echo_android "${ANOW} ${NUMEROARGUMENTOS}."; else bash /storage/emulated/0/av_softwares/BASH\ scripts/antoniovandre_echo_android "${AOVERFLOW}"; fi; FLAG="0"; continue;;
+    "-A") if ! [ "${NUMEROARGUMENTOS}" == "2" ]; then NUMEROARGUMENTOS=$(echo "${NUMEROARGUMENTOS} - 1" | bc); bash /storage/emulated/0/av_softwares/BASH\ scripts/antoniovandre_echo_android "${ANOW} ${NUMEROARGUMENTOS}."; else bash /storage/emulated/0/av_softwares/BASH\ scripts/antoniovandre_echo_android "${ABOTTOM}"; fi; FLAG="0"; continue;;
+    "+D") if [ "${CASASDECIMAIS}" -lt "${MAXIMOCASASDECIMAIS}" ]; then CASASDECIMAIS=$(echo "${CASASDECIMAIS} + 1" | bc); bash /storage/emulated/0/av_softwares/BASH\ scripts/antoniovandre_echo_android "${DNOW} ${CASASDECIMAIS}."; else bash /storage/emulated/0/av_softwares/BASH\ scripts/antoniovandre_echo_android "${DOVERFLOW}"; fi; FLAG="0"; continue;;
+    "-D") if ! [ "${CASASDECIMAIS}" == "0" ]; then CASASDECIMAIS=$(echo "${CASASDECIMAIS} - 1" | bc); bash /storage/emulated/0/av_softwares/BASH\ scripts/antoniovandre_echo_android "${DNOW} ${CASASDECIMAIS}."; else bash /storage/emulated/0/av_softwares/BASH\ scripts/antoniovandre_echo_android "${DBOTTOM}"; fi; FLAG="0"; continue;;
+    "+N") if [ $(echo "${MAXVALUE} * 2" | bc) -lt $MAXMAXVALUE ]; then MAXVALUE=$(echo "${MAXVALUE} * 5" | bc); bash /storage/emulated/0/av_softwares/BASH\ scripts/antoniovandre_echo_android "${NNOW} ${MAXVALUE}."; else bash /storage/emulated/0/av_softwares/BASH\ scripts/antoniovandre_echo_android "${NOVERFLOW}"; fi; FLAG="0"; continue;;
+    "-N") if [ "${MAXVALUE}" -gt "${MINMAXVALUE}" ]; then MAXVALUE=$(echo "${MAXVALUE} / 2" | bc); bash /storage/emulated/0/av_softwares/BASH\ scripts/antoniovandre_echo_android "${NNOW} ${MAXVALUE}."; else bash /storage/emulated/0/av_softwares/BASH\ scripts/antoniovandre_echo_android "${NBOTTOM}"; fi; FLAG="0"; continue;;
+    "T") if [ "${AVTEMPO}" == "0" ]; then AVTEMPO="1"; bash /storage/emulated/0/av_softwares/BASH\ scripts/antoniovandre_echo_android "${TNOW} ${AVTEMPO}."; else bash /storage/emulated/0/av_softwares/BASH\ scripts/antoniovandre_echo_android "${TIMEALREADYACTIVATED}"; fi; FLAG="0"; continue;;
+    "t") if [ "${AVTEMPO}" == "1" ]; then AVTEMPO="0"; bash /storage/emulated/0/av_softwares/BASH\ scripts/antoniovandre_echo_android "${TNOW} ${AVTEMPO}."; else bash /storage/emulated/0/av_softwares/BASH\ scripts/antoniovandre_echo_android "${TIMEALREADYDEACTIVATED}"; fi; FLAG="0"; continue;;
+    "+T") if [ "${LIMITETEMPO}" -lt "${MAXTIME}" ]; then LIMITETEMPO=$(echo "${LIMITETEMPO} + 10" | bc); bash /storage/emulated/0/av_softwares/BASH\ scripts/antoniovandre_echo_android "${TVNOW} ${LIMITETEMPO}."; else bash /storage/emulated/0/av_softwares/BASH\ scripts/antoniovandre_echo_android "${TOVERFLOW}"; fi; FLAG="0"; continue;;
+    "-T") if [ "${LIMITETEMPO}" -gt "${MINTIME}" ]; then LIMITETEMPO=$(echo "${LIMITETEMPO} - 10" | bc); bash /storage/emulated/0/av_softwares/BASH\ scripts/antoniovandre_echo_android "${TVNOW} ${LIMITETEMPO}."; else bash /storage/emulated/0/av_softwares/BASH\ scripts/antoniovandre_echo_android "${TBOTTOM}"; fi; FLAG="0"; continue;;
     "SAIR") break;;
     "EXIT") break;;
     "sair") break;;
     "exit") break;;
-    "PULAR") continue;;
-    "JUMP") continue;;
-    "pular") continue;;
-    "jump") continue;;
+    "PULAR") FLAG="0"; continue;;
+    "JUMP") FLAG="0"; continue;;
+    "pular") FLAG="0"; continue;;
+    "jump") FLAG="0"; continue;;
     "${RESPOSTA}") if [ "${AVLOG}" == "1" ]; then echo "_____" >> "${ARQUIVOLOGTEMP}"; LANG=en_us_88591 date >> "${ARQUIVOLOGTEMP}"; echo "Pergunta: ${PERGUNTA}" >> "${ARQUIVOLOGTEMP}"; echo "Resposta: ${RESPOSTAUSUARIOP}" >> "${ARQUIVOLOGTEMP}"; echo "Eval: acertou." >> "${ARQUIVOLOGTEMP}"; fi; echo -e "${AV_VERDE}${CORRECT}${AV_SEMCOR}."; if [ "${AVSOUND}" == "1" ]; then play "${ARQUIVOSOMACERTO}" &>> /dev/null; fi;;
-    *) if ! [[ "${RESPOSTAUSUARIO}" =~ "^[+-]?[0-9]+([.][0-9]+)?$" ]]; then echo "${VALIDEXPR}."; FLAG="1"; continue; fi; if [ "${AVLOG}" == "1" ]; then echo "_____" >> "${ARQUIVOLOGTEMP}"; LANG=en_us_88591 date >> "${ARQUIVOLOGTEMP}"; echo "Pergunta: ${PERGUNTA}" >> "${ARQUIVOLOGTEMP}"; echo "Resposta: ${RESPOSTAUSUARIO}" >> "${ARQUIVOLOGTEMP}"; echo "Eval: errou." >> "${ARQUIVOLOGTEMP}"; fi; echo -e "${AV_VERMELHO}${WRONG}${AV_SEMCOR}."; if [ "${AVSOUND}" == "1" ]; then play "${ARQUIVOSOMERRO}" &>> /dev/null; fi;;
+    *) if ! [[ "${RESPOSTAUSUARIO}" =~ "^[+-]?[0-9]+([.][0-9]+)?$" ]]; then sleep 1s; bash /storage/emulated/0/av_softwares/BASH\ scripts/antoniovandre_echo_android "${VALIDEXPR}."; FLAG="1"; continue; fi; if [ "${AVLOG}" == "1" ]; then echo "_____" >> "${ARQUIVOLOGTEMP}"; LANG=en_us_88591 date >> "${ARQUIVOLOGTEMP}"; echo "Pergunta: ${PERGUNTA}" >> "${ARQUIVOLOGTEMP}"; echo "Resposta: ${RESPOSTAUSUARIO}" >> "${ARQUIVOLOGTEMP}"; echo "Eval: errou." >> "${ARQUIVOLOGTEMP}"; fi; echo -e "${AV_VERMELHO}${WRONG}${AV_SEMCOR}."; if [ "${AVSOUND}" == "1" ]; then play "${ARQUIVOSOMERRO}" &>> /dev/null; fi; FLAG="0";;
   esac
-
-  FLAG="0"
 
 done
 
