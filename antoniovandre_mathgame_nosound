@@ -6,23 +6,53 @@
 
 # Licença: Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA).
 
-# Última atualização: 18-08-2020.
+# Última atualização: 19-08-2020.
 
 # Argumento: "ne" para não processar estatísticas, ou "oe" para apenas processar estatísticas.
 
-while [ "${LINGUA}" != "p" ] &&  [ "${LINGUA}" != "e" ]; do echo "Entre com \"p\" para português."; echo "Enter with \"e\" for english."; read LINGUA; done
+while [ "${LINGUA}" != "p" ] &&  [ "${LINGUA}" != "e" ]; do echo "Entre com \"p\" para português."; echo "Enter with \"e\" for english."; read LINGUA; echo ""; done
 
 case "${LINGUA}" in
   "p")
     NOTFOUND="não encontrado"
 
-    ERRORLOADCOLOR="Ocorreu um erro ao carregar o arquivo de cores"
+    LOADINGCOLORS="Carregando antoniovandre_cores... "
 
+    ERRORLOADCOLOR="Ocorreu um erro ao carregar o arquivo de cores"
+  ;;
+  "e")
+    NOTFOUND="not found"
+
+    LOADINGCOLORS="Loading antoniovandre_cores... "
+
+    ERRORLOADCOLOR="There was an error loading the color file"
+  ;;
+  *) ;;
+esac
+
+if ! hash bash &>> /dev/null; then echo "BASH ${NOTFOUND}."; exit 1; fi
+
+if ! hash bc &>> /dev/null; then echo "\"bc\" ${NOTFOUND}."; exit 1; fi
+
+if ! hash play &>> /dev/null; then echo "\"play\" ${NOTFOUND}."; exit 1; fi
+
+if ! hash unix2dos &>> /dev/null; then echo "\"unix2dos\" ${NOTFOUND}."; exit 1; fi
+
+if ! hash dos2unix &>> /dev/null; then echo "\"dos2unix\" ${NOTFOUND}."; exit 1; fi
+
+if ! hash gnuplot &>> /dev/null; then echo "Gnuplot ${NOTFOUND}."; exit 1; fi
+
+if ! ls "antoniovandre_echo_android_nosound" &>> /dev/null; then echo "\"antoniovandre_echo_android_nosound\" ${NOTFOUND}."; exit 1; fi
+
+if ! [ -n "$AVCORES" ]; then echo -ne "${LOADINGCOLORS}"; if ! source "/storage/emulated/0/av_softwares/BASH scripts/antoniovandre_cores_android" &>> /dev/null; then echo -e "${ERRORLOADCOLOR}."; else echo -e "${AV_VERDE}Ok${AV_SEMCOR}.\n"; fi; fi
+
+case "${LINGUA}" in
+  "p")
     MATHGAME="Jogo de Matemática"
 
     VERSION="Versão"
 
-    INSTRUCOES="Digite \"SAIR\", \"EXIT\", \"sair\", ou \"exit\" para sair, \"PULAR\", \"JUMP\", \"pular\" ou \"jump\" para pular, \"+A\" para incrementar o número de argumentos, \"-A\" para diminuir o número de argumentos, \"+D\" para incrementar o número de casas decimais, \"-D\" para diminuir o número de casas decimais, \"+N\" para aumentar o limite superior dos números, \"-N\" para reduzir o limite superior dos números, \"T\" para ativar tempo, \"t\" para desativar tempo, \"+T\" para aumentar o tempo, ou \"-T\" para reduzir o tempo."
+    INSTRUCOES="Digite \"${AV_AMARELO}SAIR${AV_SEMCOR}\", \"${AV_AMARELO}EXIT${AV_SEMCOR}\", \"${AV_AMARELO}sair${AV_SEMCOR}\", ou \"${AV_AMARELO}exit${AV_SEMCOR}\" para sair.\n\nDigite \"${AV_AMARELO}PULAR${AV_SEMCOR}\", \"${AV_AMARELO}JUMP${AV_SEMCOR}\", \"${AV_AMARELO}pular${AV_SEMCOR}\" ou \"${AV_AMARELO}jump${AV_SEMCOR}\" para pular.\n\nDigite \"${AV_AMARELO}+A${AV_SEMCOR}\" para incrementar o número de argumentos, \"${AV_AMARELO}-A${AV_SEMCOR}\" para diminuir o número de argumentos.\n\nDigite \"${AV_AMARELO}+D${AV_SEMCOR}\" para incrementar o número de casas decimais, \"${AV_AMARELO}-D${AV_SEMCOR}\" para diminuir o número de casas decimais.\n\nDigite \"${AV_AMARELO}+N${AV_SEMCOR}\" para aumentar o limite superior dos números, \"${AV_AMARELO}-N${AV_SEMCOR}\" para reduzir o limite superior dos números.\n\nDigite \"${AV_AMARELO}T${AV_SEMCOR}\" para ativar tempo, \"${AV_AMARELO}t${AV_SEMCOR}\" para desativar tempo, \"${AV_AMARELO}+T${AV_SEMCOR}\" para aumentar o tempo, ou \"${AV_AMARELO}-T${AV_SEMCOR}\" para reduzir o tempo."
 
     ROUNDWITH="arredondado com"
 
@@ -74,9 +104,17 @@ case "${LINGUA}" in
 
     THANKS="Muito obrigado por apreciar este game."
 
+    ERRORDOWNLOADFILES="Erro ao fazer download dos arquivos"
+
+    ERRORUPLOADFILES="Erro ao fazer upload dos arquivos"
+
     SUCCESS="Sucesso"
 
     FAIL="Falhou"
+
+    MAKINGDOWNLOAD="Fazendo download dos arquivos necessários... "
+
+    MAKINGUPLOAD="Fazendo upload dos arquivos... "
 
     BUILDINGSTATSFILE="Construindo arquivo de estatísticas... "
 
@@ -89,15 +127,11 @@ case "${LINGUA}" in
     BUILDINGGRAPHS="Construindo os gráficos. Isto pode demorar um pouco... "
   ;;
   "e")
-    NOTFOUND="not found"
-
-    ERRORLOADCOLOR="There was an error loading the color file"
-
     MATHGAME="Game of Mathematics"
 
     VERSION="Version"
 
-    INSTRUCOES="Type \"SAIR\", \"EXIT\", \"sair\", or \"exit\" to exit, \"PULAR\", \"JUMP\", \"pular\" or \"jump\" to jump, \"+A\" to increase the number of arguments, \"-A\" to decrease the number of arguments, \"+D\" to increase the number of decimal places, \"-D\" to decrease the number of decimal places, \"+N\" to increase the upper limit of the numbers, \"-N\" to reduce the upper limit of the numbers, \"T\" to activated time, \"t\" to deactivate time, \"+T\" to increase time, or \"-T\" to reduce time."
+    INSTRUCOES="Type \"${AV_AMARELO}SAIR${AV_SEMCOR}\", \"${AV_AMARELO}EXIT${AV_SEMCOR}\", \"${AV_AMARELO}sair${AV_SEMCOR}\", or \"${AV_AMARELO}exit${AV_SEMCOR}\" to exit.\n\nType \"${AV_AMARELO}PULAR${AV_SEMCOR}\", \"${AV_AMARELO}JUMP${AV_SEMCOR}\", \"${AV_AMARELO}pular${AV_SEMCOR}\" or \"${AV_AMARELO}jump${AV_SEMCOR}\" to jump.\n\nType \"${AV_AMARELO}+A${AV_SEMCOR}\" to increase the number of arguments, \"${AV_AMARELO}-A${AV_SEMCOR}\" to decrease the number of arguments.\n\nType \"${AV_AMARELO}+D${AV_SEMCOR}\" to increase the number of decimal places, \"${AV_AMARELO}-D${AV_SEMCOR}\" to decrease the number of decimal places.\n\nType \"${AV_AMARELO}+N${AV_SEMCOR}\" to increase the upper limit of the numbers, \"${AV_AMARELO}-N${AV_SEMCOR}\" to reduce the upper limit of the numbers.\n\nType \"${AV_AMARELO}T${AV_SEMCOR}\" to activated time, \"${AV_AMARELO}t${AV_SEMCOR}\" to deactivate time, \"${AV_AMARELO}+T${AV_SEMCOR}\" to increase time, or \"${AV_AMARELO}-T${AV_SEMCOR}\" to reduce time."
 
     ROUNDWITH="rounding with"
 
@@ -106,7 +140,7 @@ case "${LINGUA}" in
     DECIMALPLACE="decimal place"
 
     HOWMUCH="How much is"
-  
+
     VALIDEXPR="Enter with a valid expression"
 
     AOVERFLOW="The number of arguments is already in the ceiling. "
@@ -149,9 +183,17 @@ case "${LINGUA}" in
 
     THANKS="Very thank You for appreciate this game."
 
+    ERRORDOWNLOADFILES="Error downloading files"
+
+    ERRORUPLOADFILES="Error uploading files"
+
     SUCCESS="Success"
 
     FAIL="Fail"
+
+    MAKINGDOWNLOAD="Making download of necessary files... "
+
+    MAKINGUPLOAD="Making files upload... "
 
     BUILDINGSTATSFILE="Building stats file... "
 
@@ -165,22 +207,6 @@ case "${LINGUA}" in
   ;;
   *) ;;
 esac
-
-if ! hash bash &>> /dev/null; then echo "BASH ${NOTFOUND}."; exit 1; fi
-
-if ! hash bc &>> /dev/null; then echo "\"bc\" ${NOTFOUND}."; exit 1; fi
-
-if ! hash play &>> /dev/null; then echo "\"play\" ${NOTFOUND}."; exit 1; fi
-
-if ! hash unix2dos &>> /dev/null; then echo "\"unix2dos\" ${NOTFOUND}."; exit 1; fi
-
-if ! hash dos2unix &>> /dev/null; then echo "\"dos2unix\" ${NOTFOUND}."; exit 1; fi
-
-if ! hash gnuplot &>> /dev/null; then echo "Gnuplot ${NOTFOUND}."; exit 1; fi
-
-if ! ls "antoniovandre_echo_android_nosound" &>> /dev/null; then echo "\"antoniovandre_echo_android_nosound\" ${NOTFOUND}."; exit 1; fi
-
-if ! [ -n "$AVCORES" ]; then if ! source "antoniovandre_cores_android" &>> /dev/null; then echo "${ERRORLOADCOLOR}."; fi; fi
 
 NUMEROMAXIMOARGUMENTOS="10"
 MAXIMOCASASDECIMAIS="5"
@@ -243,11 +269,11 @@ bash antoniovandre_echo_android_nosound "${MATHGAME}."
 
 echo ""
 
-bash antoniovandre_echo_android_nosound "${VERSION} 18-08-2020."
+bash antoniovandre_echo_android_nosound "${VERSION} 19-08-2020."
 
 echo ""
 
-if [ "${1}" != "oe" ]; then echo "${INSTRUCOES}"; echo ""; fi
+if [ "${1}" != "oe" ]; then echo -e "${INSTRUCOES}"; echo ""; fi
 
 if (! ls "${ARQUIVOLOGTEMP}" &>> /dev/null) && ls "${ARQUIVOLOG}" &>> /dev/null; then cp "${ARQUIVOLOG}" "${ARQUIVOLOGTEMP}"; fi
 
@@ -302,7 +328,7 @@ while [  "${RESPOSTAUSUARIO}" != "SAIR" ] && [  "${RESPOSTAUSUARIO}" != "EXIT" ]
 
   bash antoniovandre_echo_android_nosound "${PERGUNTA}"
 
-  if [ "${AVTEMPO}" == "1" ]; then if ! read -t  $LIMITETEMPO RESPOSTAUSUARIO &>> /dev/null; then echo "${TIMELIMITOF} ${LIMITETEMPO} ${SECONDSREACHED}."; continue; fi; else read RESPOSTAUSUARIO; fi
+  if [ "${AVTEMPO}" == "1" ]; then if ! read -t $LIMITETEMPO RESPOSTAUSUARIO &>> /dev/null; then echo "${TIMELIMITOF} ${LIMITETEMPO} ${SECONDSREACHED}."; continue; fi; else read RESPOSTAUSUARIO; fi
 
   RESPOSTAUSUARIOP=$RESPOSTAUSUARIO
 
