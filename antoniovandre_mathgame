@@ -44,7 +44,7 @@ if ! hash gnuplot &>> /dev/null; then echo "Gnuplot ${NOTFOUND}."; exit 1; fi
 
 if ! ls "antoniovandre_echo_android" &>> /dev/null; then echo "\"antoniovandre_echo_android\" ${NOTFOUND}."; exit 1; fi
 
-if ! [ -n "$AVCORES" ]; then echo -ne "${LOADINGCOLORS}"; if ! source "/storage/emulated/0/av_softwares/BASH scripts/antoniovandre_cores_android" &>> /dev/null; then echo -e "${ERRORLOADCOLOR}."; else echo -e "${AV_VERDE}Ok${AV_SEMCOR}.\n"; fi; fi
+if ! [ -n "$AVCORES" ]; then echo -ne "${LOADINGCOLORS}"; if ! source "antoniovandre_cores_android" &>> /dev/null; then echo -e "${ERRORLOADCOLOR}."; else echo -e "${AV_VERDE}Ok${AV_SEMCOR}.\n"; fi; fi
 
 case "${LINGUA}" in
   "p")

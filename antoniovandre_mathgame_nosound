@@ -34,8 +34,6 @@ if ! hash bash &>> /dev/null; then echo "BASH ${NOTFOUND}."; exit 1; fi
 
 if ! hash bc &>> /dev/null; then echo "\"bc\" ${NOTFOUND}."; exit 1; fi
 
-if ! hash play &>> /dev/null; then echo "\"play\" ${NOTFOUND}."; exit 1; fi
-
 if ! hash unix2dos &>> /dev/null; then echo "\"unix2dos\" ${NOTFOUND}."; exit 1; fi
 
 if ! hash dos2unix &>> /dev/null; then echo "\"dos2unix\" ${NOTFOUND}."; exit 1; fi
@@ -44,7 +42,7 @@ if ! hash gnuplot &>> /dev/null; then echo "Gnuplot ${NOTFOUND}."; exit 1; fi
 
 if ! ls "antoniovandre_echo_android_nosound" &>> /dev/null; then echo "\"antoniovandre_echo_android_nosound\" ${NOTFOUND}."; exit 1; fi
 
-if ! [ -n "$AVCORES" ]; then echo -ne "${LOADINGCOLORS}"; if ! source "/storage/emulated/0/av_softwares/BASH scripts/antoniovandre_cores_android" &>> /dev/null; then echo -e "${ERRORLOADCOLOR}."; else echo -e "${AV_VERDE}Ok${AV_SEMCOR}.\n"; fi; fi
+if ! [ -n "$AVCORES" ]; then echo -ne "${LOADINGCOLORS}"; if ! source "antoniovandre_cores_android" &>> /dev/null; then echo -e "${ERRORLOADCOLOR}."; else echo -e "${AV_VERDE}Ok${AV_SEMCOR}.\n"; fi; fi
 
 case "${LINGUA}" in
   "p")
