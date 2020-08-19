@@ -98,6 +98,10 @@ case "${LINGUA}" in
 
     SECONDSREACHED="segundos atingido"
 
+    SEGUNDOS="segundos"
+
+    TIMEDEACTIVATED="O tempo está desativado."
+
     TIMEALREADYACTIVATED="O tempo já está ativado."
 
     TIMEALREADYDEACTIVATED="O tempo já está desativado."
@@ -176,6 +180,10 @@ case "${LINGUA}" in
     TIMELIMITOF="Time limit of"
 
     SECONDSREACHED="seconds reached"
+
+    SEGUNDOS="seconds"
+
+    TIMEDEACTIVATED="Time is deactivated."
 
     TIMEALREADYACTIVATED="Time already activated."
 
@@ -335,7 +343,7 @@ while [  "${RESPOSTAUSUARIO}" != "SAIR" ] && [  "${RESPOSTAUSUARIO}" != "EXIT" ]
 
   RESPOSTAUSUARIOP=$RESPOSTAUSUARIO
 
-  if ! ([ "${RESPOSTAUSUARIO}" == "+A" ] || [ "${RESPOSTAUSUARIO}" == "-A" ] || [ "${RESPOSTAUSUARIO}" == "+D" ] || [ "${RESPOSTAUSUARIO}" == "-D" ] || [ "${RESPOSTAUSUARIO}" == "+N" ] || [ "${RESPOSTAUSUARIO}" == "-N" ] || [ "${RESPOSTAUSUARIO}" == "T" ] || [ "${RESPOSTAUSUARIO}" == "t" ] || [ "${RESPOSTAUSUARIO}" == "+T" ] || [ "${RESPOSTAUSUARIO}" == "-T" ] || [ "${RESPOSTAUSUARIO}" == "SAIR" ] || [ "${RESPOSTAUSUARIO}" == "EXIT" ] || [ "${RESPOSTAUSUARIO}" == "sair" ] || [ "${RESPOSTAUSUARIO}" == "exit" ] || [ "${RESPOSTAUSUARIO}" == "PULAR" ] || [ "${RESPOSTAUSUARIO}" == "JUMP" ] || [ "${RESPOSTAUSUARIO}" == "pular" ] || [ "${RESPOSTAUSUARIO}" == "jump" ]); then RESPOSTAUSUARIO=$(LC_NUMERIC="en_US.UTF-8" printf "%.${CASASDECIMAIS}f" "$(echo ${RESPOSTAUSUARIO} | bc -l)"); RESPOSTAUSUARIO=$(awk "BEGIN{print ${RESPOSTAUSUARIO}}"); fi
+  if ! ([ "${RESPOSTAUSUARIO}" == "+A" ] || [ "${RESPOSTAUSUARIO}" == "-A" ] || [ "${RESPOSTAUSUARIO}" == "+D" ] || [ "${RESPOSTAUSUARIO}" == "-D" ] || [ "${RESPOSTAUSUARIO}" == "+N" ] || [ "${RESPOSTAUSUARIO}" == "-N" ] || [ "${RESPOSTAUSUARIO}" == "T" ] || [ "${RESPOSTAUSUARIO}" == "t" ] || [ "${RESPOSTAUSUARIO}" == "+T" ] || [ "${RESPOSTAUSUARIO}" == "-T" ] || [ "${RESPOSTAUSUARIO}" == "SAIR" ] || [ "${RESPOSTAUSUARIO}" == "EXIT" ] || [ "${RESPOSTAUSUARIO}" == "sair" ] || [ "${RESPOSTAUSUARIO}" == "exit" ] || [ "${RESPOSTAUSUARIO}" == "PULAR" ] || [ "${RESPOSTAUSUARIO}" == "JUMP" ] || [ "${RESPOSTAUSUARIO}" == "pular" ] || [ "${RESPOSTAUSUARIO}" == "jump" ]); then RESPOSTAUSUARIO=$(LC_NUMERIC="en_US.UTF-8" printf "%.${CASASDECIMAIS}f" "$(echo ${RESPOSTAUSUARIO} | bc -l 2>> /dev/null)"); RESPOSTAUSUARIO=$(awk "BEGIN{print ${RESPOSTAUSUARIO}}"); fi
 
   case "${RESPOSTAUSUARIO}" in
     "+A") if [ "${NUMEROARGUMENTOS}" -lt "${NUMEROMAXIMOARGUMENTOS}" ]; then NUMEROARGUMENTOS=$(echo "${NUMEROARGUMENTOS} + 1" | bc); antoniovandre_echo "${ANOW} ${NUMEROARGUMENTOS}."; else antoniovandre_echo "${AOVERFLOW}"; fi; FLAG="0"; continue;;
@@ -344,10 +352,10 @@ while [  "${RESPOSTAUSUARIO}" != "SAIR" ] && [  "${RESPOSTAUSUARIO}" != "EXIT" ]
     "-D") if ! [ "${CASASDECIMAIS}" == "0" ]; then CASASDECIMAIS=$(echo "${CASASDECIMAIS} - 1" | bc); antoniovandre_echo "${DNOW} ${CASASDECIMAIS}."; else antoniovandre_echo "${DBOTTOM}"; fi; FLAG="0"; continue;;
     "+N") if [ $(echo "${MAXVALUE} * 2" | bc) -lt $MAXMAXVALUE ]; then MAXVALUE=$(echo "${MAXVALUE} * 5" | bc); antoniovandre_echo "${NNOW} ${MAXVALUE}."; else antoniovandre_echo "${NOVERFLOW}"; fi; FLAG="0"; continue;;
     "-N") if [ "${MAXVALUE}" -gt "${MINMAXVALUE}" ]; then MAXVALUE=$(echo "${MAXVALUE} / 2" | bc); antoniovandre_echo "${NNOW} ${MAXVALUE}."; else antoniovandre_echo "${NBOTTOM}"; fi; FLAG="0"; continue;;
-    "T") if [ "${AVTEMPO}" == "0" ]; then AVTEMPO="1"; antoniovandre_echo "${TNOW} ${AVTEMPO}."; else antoniovandre_echo "${TIMEALREADYACTIVATED}"; fi; FLAG="0"; continue;;
-    "t") if [ "${AVTEMPO}" == "1" ]; then AVTEMPO="0"; antoniovandre_echo "${TNOW} ${AVTEMPO}."; else antoniovandre_echo "${TIMEALREADYDEACTIVATED}"; fi; FLAG="0"; continue;;
-    "+T") if [ "${LIMITETEMPO}" -lt "${MAXTIME}" ]; then LIMITETEMPO=$(echo "${LIMITETEMPO} + 10" | bc); antoniovandre_echo "${TVNOW} ${LIMITETEMPO}."; else antoniovandre_echo "${TOVERFLOW}"; fi; FLAG="0"; continue;;
-    "-T") if [ "${LIMITETEMPO}" -gt "${MINTIME}" ]; then LIMITETEMPO=$(echo "${LIMITETEMPO} - 10" | bc); antoniovandre_echo "${TVNOW} ${LIMITETEMPO}."; else antoniovandre_echo "${TBOTTOM}"; fi; FLAG="0"; continue;;
+    "T") if [ "${AVTEMPO}" == "0" ]; then AVTEMPO="1"; antoniovandre_echo "${TNOW} ${AVTEMPO}."; else antoniovandre_echo "${TIMEALREADYACTIVATED}"; fi; FLAG="1"; continue;;
+    "t") if [ "${AVTEMPO}" == "1" ]; then AVTEMPO="0"; antoniovandre_echo "${TNOW} ${AVTEMPO}."; else antoniovandre_echo "${TIMEALREADYDEACTIVATED}"; fi; FLAG="1"; continue;;
+    "+T") if [ "${AVTEMPO}" == "1" ]; then if [ "${LIMITETEMPO}" -lt "${MAXTIME}" ]; then LIMITETEMPO=$(echo "${LIMITETEMPO} + 10" | bc); antoniovandre_echo "${TVNOW} ${LIMITETEMPO}."; else antoniovandre_echo "${TOVERFLOW}"; fi; else antoniovandre_echo "${TIMEDEACTIVATED}"; fi; FLAG="1"; continue;;
+    "-T") if [ "${AVTEMPO}" == "1" ]; then if [ "${LIMITETEMPO}" -gt "${MINTIME}" ]; then LIMITETEMPO=$(echo "${LIMITETEMPO} - 10" | bc); antoniovandre_echo "${TVNOW} ${LIMITETEMPO}."; else antoniovandre_echo "${TBOTTOM}"; fi; else antoniovandre_echo "${TIMEDEACTIVATED}"; fi; FLAG="1"; continue;;
     "SAIR") break;;
     "EXIT") break;;
     "sair") break;;
