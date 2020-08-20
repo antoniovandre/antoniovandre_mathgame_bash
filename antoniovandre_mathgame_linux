@@ -6,7 +6,7 @@
 
 # Licença: Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA).
 
-# Última atualização: 19-08-2020.
+# Última atualização: 20-08-2020.
 
 # Argumentos: "ne" para não processar estatísticas, ou "oe" para apenas processar estatísticas.
 
@@ -255,6 +255,19 @@ IMAGEGRAPH0="antoniovandre_mathgame_emptygraph.png"
 AVSTATS="1"
 ARQUIVOSTATS="antoniovandre_mathgame_log_stats.txt"
 ARQUIVOTEMP="avmgvet"
+LOCKFILE="avmglf"
+
+case "${LINGUA}" in
+  "p")
+    LOCKFILEEXISTS="Jogo já em execução ou encerrado incorretamente. No segundo caso remova \"${LOCKFILE}\""
+  ;;
+  "e")
+    LOCKFILEEXISTS="Game already running or closed incorrectly. In second case, remove \"${LOCKFILE}\""
+  ;;
+  *) ;;
+esac
+
+if ls "${LOCKFILE}" &>> /dev/null; then echo -ne "${AV_VERMELHO}"; antoniovandre_echo "${LOCKFILEEXISTS}" n; echo -e "${AV_SEMCOR}."; exit 1; else touch "${LOCKFILE}"; fi
 
 AVTEMPO="0"
 LIMITETEMPO="20"
@@ -696,5 +709,7 @@ if [ "${AVLOG}" == "1" ] && ls "${ARQUIVOLOGTEMP}" &>> /dev/null; then bash anto
 if [ "${1}" != "ne" ]; then if [ "${AVLOG}" == "1" ]; then cp "${ARQUIVOLOGTEMP}" "${ARQUIVOLOG}" &>> /dev/null; antoniovandre_echo "${MAKINGUPLOAD}" n; if (! antoniovandre_dbxcli_put "${ARQUIVOLOG}" "${DIRCLOUDSYNC}${ARQUIVOLOG##*/}" &>> /dev/null) || (! echo -ne "1/13") || (! antoniovandre_dbxcli_put "${ARQUIVOGRAFICO}" "${DIRCLOUDSYNC}${ARQUIVOGRAFICO##*/}" &>> /dev/null) || (! echo -ne "\b\b\b\b2/13") || (! antoniovandre_dbxcli_put "${ARQUIVOGRAFICOPIZZA}" "${DIRCLOUDSYNC}${ARQUIVOGRAFICOPIZZA##*/}" &>> /dev/null) || (! echo -ne "\b\b\b\b3/13") || (! antoniovandre_dbxcli_put "${ARQUIVOGRAFICOTEMPO}" "${DIRCLOUDSYNC}${ARQUIVOGRAFICOTEMPO##*/}" &>> /dev/null) || (! echo -ne "\b\b\b\b4/13") || (! antoniovandre_dbxcli_put "${ARQUIVOGRAFICOTEMPOANUAL}" "${DIRCLOUDSYNC}${ARQUIVOGRAFICOTEMPOANUAL##*/}" &>> /dev/null) || (! echo -ne "\b\b\b\b5/13") || (! antoniovandre_dbxcli_put "${ARQUIVOSTATS}" "${DIRCLOUDSYNC}${ARQUIVOSTATS##*/}" &>> /dev/null) || (! echo -ne "\b\b\b\b6/13") || (! antoniovandre_dbxcli_put "${ARQUIVOGRAFICOTEMPOMENSAL}" "${DIRCLOUDSYNC}${ARQUIVOGRAFICOTEMPOMENSAL##*/}" &>> /dev/null) || (! echo -ne "\b\b\b\b7/13") || (! antoniovandre_dbxcli_put "${ARQUIVOGRAFICOTEMPODISTSEM}" "${DIRCLOUDSYNC}${ARQUIVOGRAFICOTEMPODISTSEM##*/}" &>> /dev/null) || (! echo -ne "\b\b\b\b8/13") || (! antoniovandre_dbxcli_put "${ARQUIVOGRAFICOTEMPODISTMES}" "${DIRCLOUDSYNC}${ARQUIVOGRAFICOTEMPODISTMES##*/}" &>> /dev/null) || (! echo -ne "\b\b\b\b9/13") || (! antoniovandre_dbxcli_put "${ARQUIVOGRAFICOTEMPODISTHOR}" "${DIRCLOUDSYNC}${ARQUIVOGRAFICOTEMPODISTHOR##*/}" &>> /dev/null) || (! echo -ne "\b\b\b\b10/13") || (! antoniovandre_dbxcli_put "${ARQUIVOGRAFICOTEMPOERROS}" "${DIRCLOUDSYNC}${ARQUIVOGRAFICOTEMPOERROS##*/}" &>> /dev/null) || (! echo -ne "\b\b\b\b\b11/13") || (! antoniovandre_dbxcli_put "${ARQUIVOGRAFICOTEMPOANOERROS}" "${DIRCLOUDSYNC}${ARQUIVOGRAFICOTEMPOANOERROS##*/}" &>> /dev/null) || (! echo -ne "\b\b\b\b\b12/13") || (! antoniovandre_dbxcli_put "${ARQUIVOGRAFICOTEMPOMESERROS}" "${DIRCLOUDSYNC}${ARQUIVOGRAFICOTEMPOMESERROS##*/}" &>> /dev/null) || (! echo -ne "\b\b\b\b\b     \b\b\b\b\b"); then echo -ne "${AV_VERMELHO}"; antoniovandre_echo "${ERRORUPLOADFILES}" n; echo -e "${AV_SEMCOR}."; exit 1; fi; echo -ne "${AV_VERDE}"; antoniovandre_echo "${SUCCESS}" n; echo -e "${AV_SEMCOR}."; fi; fi
 
 antoniovandre_echo "${THANKS}"
+
+rm "${LOCKFILE}" &>> /dev/null
 
 exit 0

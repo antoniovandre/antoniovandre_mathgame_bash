@@ -6,7 +6,7 @@
 
 # Licença: Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA).
 
-# Última atualização: 19-08-2020.
+# Última atualização: 20-08-2020.
 
 # Argumentos: "ne" para não processar estatísticas, ou "oe" para apenas processar estatísticas.
 
@@ -254,6 +254,19 @@ IMAGEGRAPH0="antoniovandre_mathgame_emptygraph.png"
 AVSTATS="1"
 ARQUIVOSTATS="antoniovandre_mathgame_log_stats.txt"
 ARQUIVOTEMP="avmgvet"
+LOCKFILE="avmglf"
+
+case "${LINGUA}" in
+  "p")
+    LOCKFILEEXISTS="Jogo já em execução ou encerrado incorretamente. No segundo caso remova \"${LOCKFILE}\""
+  ;;
+  "e")
+    LOCKFILEEXISTS="Game already running or closed incorrectly. In second case, remove \"${LOCKFILE}\""
+  ;;
+  *) ;;
+esac
+
+if ls "${LOCKFILE}" &>> /dev/null; then echo -ne "${AV_VERMELHO}"; bash antoniovandre_echo_android "${LOCKFILEEXISTS}" n; echo -e "${AV_SEMCOR}."; exit 1; else touch "${LOCKFILE}"; fi
 
 AVTEMPO="0"
 LIMITETEMPO="20"
@@ -693,5 +706,7 @@ if [ "${AVLOG}" == "1" ] && ls "${ARQUIVOLOGTEMP}" &>> /dev/null; then bash anto
 if [ "${1}" != "ne" ]; then if [ "${AVLOG}" == "1" ]; then cp "${ARQUIVOLOGTEMP}" "${ARQUIVOLOG}" &>> /dev/null; fi; fi
 
 bash antoniovandre_echo_android "${THANKS}"
+
+rm "${LOCKFILE}" &>> /dev/null
 
 exit 0
