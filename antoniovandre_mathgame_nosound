@@ -127,6 +127,8 @@ case "${LINGUA}" in
     CONCLUDED="Concluído"
 
     BUILDINGGRAPHS="Construindo os gráficos. Isto pode demorar um pouco... "
+
+    AVMENSAGEMERRO="Mensagem de Antonio Vandré indisponível ou não há conexão com a internet"
   ;;
   "e")
     MATHGAME="Game of Mathematics"
@@ -210,6 +212,8 @@ case "${LINGUA}" in
     CONCLUDED="Concluded"
 
     BUILDINGGRAPHS="Building graphs. This may take a while... "
+
+    AVMENSAGEMERRO="Message from Antonio Vandré unavailable or there is no internet connection"
   ;;
   *) ;;
 esac
