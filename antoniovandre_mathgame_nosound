@@ -6,7 +6,7 @@
 
 # Licença: Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA).
 
-# Última atualização: 20-08-2020.
+# Última atualização: 21-08-2020.
 
 # Argumento: "ne" para não processar estatísticas, ou "oe" para apenas processar estatísticas.
 
@@ -289,7 +289,7 @@ bash antoniovandre_echo_android_nosound "${MATHGAME}."
 
 echo ""
 
-bash antoniovandre_echo_android_nosound "${VERSION} 20-08-2020."
+bash antoniovandre_echo_android_nosound "${VERSION} 21-08-2020."
 
 echo ""
 
@@ -384,7 +384,7 @@ if [ "${1}" != "ne" ] && [ "${AVLOG}" == "1" ] && [ "${AVGRAFICOS}" == "1" ] && 
 
   bash antoniovandre_echo_android_nosound "${CONVLOGUNIX}" n; if dos2unix "${ARQUIVOLOGTEMP}" &>> /dev/null; then echo -ne "${AV_VERDE}"; bash antoniovandre_echo_android_nosound "${SUCCESS}" n; echo -ne "${AV_SEMCOR}"; echo "."; else echo -ne "${AV_VERMELHO}"; bash antoniovandre_echo_android_nosound "${FAIL}" n; echo -ne "${AV_SEMCOR}"; echo "."; exit 1; fi
 
-  antoniovandre_echo_android_nosound "${BUILDINGGRAPHS}" n
+  bash antoniovandre_echo_android_nosound "${BUILDINGGRAPHS}" n
 
   CHARPROGRESS=""
   MAXACERTOSERROS="0"
@@ -695,7 +695,7 @@ if [ "${1}" != "ne" ] && [ "${AVLOG}" == "1" ] && [ "${AVGRAFICOS}" == "1" ] && 
 
   rm "${ARQUIVOGNUPLOTDATA10}" &>> /dev/null
 
-  echo -ne "\b"; echo -ne "${AV_VERDE}"; antoniovandre_echo_android_nosound "${CONCLUDED}" n; echo -ne "${AV_SEMCOR}"; echo "."
+  echo -ne "\b"; echo -ne "${AV_VERDE}"; bash antoniovandre_echo_android_nosound "${CONCLUDED}" n; echo -ne "${AV_SEMCOR}"; echo "."
 
 fi
 
