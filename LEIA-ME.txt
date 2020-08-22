@@ -9,7 +9,7 @@ __
 Versão para Linux:
 
 Execute o software com o comando "bash antoniovandre_mathgame_linux".
-__
+_____
 
 Se o seu ambiente não é capaz de produzir sons, execute com "bash antoniovandre_mathgame_nosound".
 
@@ -20,5 +20,9 @@ O processamento das estatísticas pode ser demorado, então você pode jogar com
 Há muitas outras opções disponíveis ao se editar os fontes.
 
 Ferramentas utilizadas: "https://sites.google.com/site/mathematicalramblings/home" na sessão "Ferramentas utilizadas".
+_____
+
+O shell pode cometer erros, nestes casos isento-me de responsabilidade.
+_____
 
 Licença de uso e compartilhamento: Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA).

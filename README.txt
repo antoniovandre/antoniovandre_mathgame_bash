@@ -4,12 +4,12 @@ ____________________
 Android version:
 
 Run the software with the command "bash antoniovandre_mathgame".
-__
+_____
 
 Linux version:
 
 Run the software with the command "bash antoniovandre_mathgame_linux".
-__
+_____
 
 If your environment is not capable of producing sounds, run with "bash antoniovandre_mathgame_nosound".
 
@@ -20,5 +20,9 @@ The processing of the statistics can be time consuming, so you can play with the
 There are many other options avaliable when editing fonts.
 
 Tools used: "https://sites.google.com/site/mathematicalramblings/home" in session "Ferramentas utilizadas".
+_____
+
+The shell can make mistakes, in which case I am exempt from liability.
+_____
 
 Use and sharing license: Attribution-Non-Commercial-Share-Equal (CC BY-NC-SA).
