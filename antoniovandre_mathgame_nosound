@@ -293,7 +293,7 @@ bash antoniovandre_echo_android_nosound "${MATHGAME}."
 
 echo ""
 
-bash antoniovandre_echo_android_nosound "${VERSION} 21-08-2020."
+bash antoniovandre_echo_android_nosound "${VERSION} 24-08-2020."
 
 echo ""
 

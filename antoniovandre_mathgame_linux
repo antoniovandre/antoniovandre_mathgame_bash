@@ -302,7 +302,7 @@ antoniovandre_echo "${MATHGAME}."
 
 echo ""
 
-antoniovandre_echo "${VERSION} 21-08-2020."
+antoniovandre_echo "${VERSION} 24-08-2020."
 
 echo ""
 
