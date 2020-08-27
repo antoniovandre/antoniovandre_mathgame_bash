@@ -1,12 +1,14 @@
 #!/bin/bash
 
+# Proprietário: Antonio Vandré Pedrosa Furtunato Gomes (bit.ly/antoniovandre_legadoontologico).
+
 # Projeto Mathematical Ramblings (mathematicalramblings.blogspot.com).
 
 # Script de um simples jogo de Matemática, para Linux, versão de distribuição.
 
 # Licença: Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA).
 
-# Última atualização: 24-08-2020.
+# Última atualização: 27-08-2020.
 
 # Argumentos: "ne" para não processar estatísticas, ou "oe" para apenas processar estatísticas.
 
@@ -118,6 +120,8 @@ case "${LINGUA}" in
 
     MAKINGDOWNLOAD="Fazendo download dos arquivos necessários... "
 
+    MAKINGDOWNLOADOPT="Fazendo download dos arquivos opcionais... "
+
     MAKINGUPLOAD="Fazendo upload dos arquivos... "
 
     BUILDINGSTATSFILE="Construindo arquivo de estatísticas... "
@@ -203,6 +207,8 @@ case "${LINGUA}" in
 
     MAKINGDOWNLOAD="Making download of necessary files... "
 
+    MAKINGDOWNLOADOPT="Making download of optional files... "
+
     MAKINGUPLOAD="Making files upload... "
 
     BUILDINGSTATSFILE="Building stats file... "
@@ -220,6 +226,7 @@ case "${LINGUA}" in
   *) ;;
 esac
 
+MRLOGOASCIIFILE="Mathematical Ramblings - ascii art - 40.txt"
 NUMEROMAXIMOARGUMENTOS="10"
 MAXIMOCASASDECIMAIS="5"
 MAXMAXVALUE="1024"
@@ -282,13 +289,13 @@ NUMEROARGUMENTOS="2"
 
 RESPOSTAUSUARIO=""
 
-if [ "${AVLOG}" == "1" ]; then antoniovandre_echo "${MAKINGDOWNLOAD}" n; if ! antoniovandre_dbxcli_get "${DIRCLOUDSYNC}${ARQUIVOLOG##*/}" "${ARQUIVOLOG%/*}/" &>> /dev/null; then echo -ne "${AV_VERMELHO}"; antoniovandre_echo "${ERRORDOWNLOADFILES}" n; echo -e "${AV_SEMCOR}."; exit 1; fi; echo -ne "${AV_VERDE}"; antoniovandre_echo "${SUCCESS}" n; echo -e "${AV_SEMCOR}."; fi
+if [ "${AVLOG}" == "1" ]; then if [ "${1}" == "ne" ]; then antoniovandre_echo "${MAKINGDOWNLOADOPT}" n; else antoniovandre_echo "${MAKINGDOWNLOAD}" n; fi; if (! antoniovandre_dbxcli_get "${DIRCLOUDSYNC}${ARQUIVOLOG##*/}" "${ARQUIVOLOG%/*}/" &>> /dev/null) || (! antoniovandre_dbxcli_get "${DIRCLOUDSYNC}${ARQUIVOLOGTEMP##*/}" "${ARQUIVOLOGTEMP%/*}/" &>> /dev/null); then echo -ne "${AV_VERMELHO}"; antoniovandre_echo "${ERRORDOWNLOADFILES}" n; echo -e "${AV_SEMCOR}."; if ! [ "${1}" == "ne" ]; then exit 1; fi; fi; echo -ne "${AV_VERDE}"; antoniovandre_echo "${SUCCESS}" n; echo -e "${AV_SEMCOR}."; fi
 
 if (! ls "${ARQUIVOLOGTEMP}" &>> /dev/null) && ls "${ARQUIVOLOG}" &>> /dev/null; then cp "${ARQUIVOLOG}" "${ARQUIVOLOGTEMP}"; fi
 
 if ls "${ARQUIVOLOGTEMP}" &>> /dev/null && ls "${ARQUIVOLOG}" &>> /dev/null; then if [ $(cat "${ARQUIVOLOG}" | wc -l) -gt $(cat "${ARQUIVOLOGTEMP}" | wc -l) ]; then cp "${ARQUIVOLOG}" "${ARQUIVOLOGTEMP}"; fi; fi
 
-cat "Mathematical Ramblings - ascii art - 40.txt"
+cat "${MRLOGOASCIIFILE}"
 
 antoniovandre_echo "Projeto Mathematical Ramblings."
 
@@ -302,7 +309,7 @@ antoniovandre_echo "${MATHGAME}."
 
 echo ""
 
-antoniovandre_echo "${VERSION} 24-08-2020."
+antoniovandre_echo "${VERSION} 27-08-2020."
 
 echo ""
 
@@ -361,7 +368,7 @@ while [  "${RESPOSTAUSUARIO}" != "SAIR" ] && [  "${RESPOSTAUSUARIO}" != "EXIT" ]
 
   RESPOSTAUSUARIOP=$RESPOSTAUSUARIO
 
-  if ! ([ "${RESPOSTAUSUARIO}" == "+A" ] || [ "${RESPOSTAUSUARIO}" == "-A" ] || [ "${RESPOSTAUSUARIO}" == "+D" ] || [ "${RESPOSTAUSUARIO}" == "-D" ] || [ "${RESPOSTAUSUARIO}" == "+N" ] || [ "${RESPOSTAUSUARIO}" == "-N" ] || [ "${RESPOSTAUSUARIO}" == "T" ] || [ "${RESPOSTAUSUARIO}" == "t" ] || [ "${RESPOSTAUSUARIO}" == "+T" ] || [ "${RESPOSTAUSUARIO}" == "-T" ] || [ "${RESPOSTAUSUARIO}" == "SAIR" ] || [ "${RESPOSTAUSUARIO}" == "EXIT" ] || [ "${RESPOSTAUSUARIO}" == "sair" ] || [ "${RESPOSTAUSUARIO}" == "exit" ] || [ "${RESPOSTAUSUARIO}" == "PULAR" ] || [ "${RESPOSTAUSUARIO}" == "JUMP" ] || [ "${RESPOSTAUSUARIO}" == "pular" ] || [ "${RESPOSTAUSUARIO}" == "jump" ] || [ "${RESPOSTAUSUARIO}" == "M" ]); then RESPOSTAUSUARIO=$(LC_NUMERIC="en_US.UTF-8" printf "%.${CASASDECIMAIS}f" "$(echo ${RESPOSTAUSUARIO} | bc -l 2>> /dev/null)"); RESPOSTAUSUARIO=$(awk "BEGIN{print ${RESPOSTAUSUARIO}}"); fi
+  if ! ([ "${RESPOSTAUSUARIO}" == "+A" ] || [ "${RESPOSTAUSUARIO}" == "-A" ] || [ "${RESPOSTAUSUARIO}" == "+D" ] || [ "${RESPOSTAUSUARIO}" == "-D" ] || [ "${RESPOSTAUSUARIO}" == "+N" ] || [ "${RESPOSTAUSUARIO}" == "-N" ] || [ "${RESPOSTAUSUARIO}" == "T" ] || [ "${RESPOSTAUSUARIO}" == "t" ] || [ "${RESPOSTAUSUARIO}" == "+T" ] || [ "${RESPOSTAUSUARIO}" == "-T" ] || [ "${RESPOSTAUSUARIO}" == "SAIR" ] || [ "${RESPOSTAUSUARIO}" == "EXIT" ] || [ "${RESPOSTAUSUARIO}" == "sair" ] || [ "${RESPOSTAUSUARIO}" == "exit" ] || [ "${RESPOSTAUSUARIO}" == "PULAR" ] || [ "${RESPOSTAUSUARIO}" == "JUMP" ] || [ "${RESPOSTAUSUARIO}" == "pular" ] || [ "${RESPOSTAUSUARIO}" == "jump" ] || [ "${RESPOSTAUSUARIO}" == "M" ]); then RESPOSTAUSUARIO=$(echo "${RESPOSTAUSUARIO}" | tr -d "\"" | tr -d "'" | tr -d "\`" | tr -d "\$" | tr -d " "); RESPOSTAUSUARIO=$(LC_NUMERIC="en_US.UTF-8" printf "%.${CASASDECIMAIS}f" "$(echo ${RESPOSTAUSUARIO} | bc -l 2>> /dev/null)"); RESPOSTAUSUARIO=$(awk "BEGIN{print ${RESPOSTAUSUARIO}}"); fi
 
   case "${RESPOSTAUSUARIO}" in
     "+A") if [ "${NUMEROARGUMENTOS}" -lt "${NUMEROMAXIMOARGUMENTOS}" ]; then NUMEROARGUMENTOS=$(echo "${NUMEROARGUMENTOS} + 1" | bc); antoniovandre_echo "${ANOW} ${NUMEROARGUMENTOS}."; else antoniovandre_echo "${AOVERFLOW}"; fi; FLAG="0"; continue;;
@@ -712,7 +719,7 @@ if [ "${1}" != "ne" ] && [ "${AVLOG}" == "1" ] && [ "${AVSTATS}" == "1" ] && ls 
 
 if [ "${AVLOG}" == "1" ] && ls "${ARQUIVOLOGTEMP}" &>> /dev/null; then antoniovandre_echo "${CONVLOGDOS}" n; if unix2dos "${ARQUIVOLOGTEMP}" &>> /dev/null; then echo -ne "${AV_VERDE}"; antoniovandre_echo "${SUCCESS}" n; echo -ne "${AV_SEMCOR}"; echo "."; else echo -ne "${AV_VERMELHO}"; antoniovandre_echo "${FAIL}" n; echo -ne "${AV_SEMCOR}"; echo "."; exit 1; fi; fi
 
-if [ "${1}" != "ne" ]; then if [ "${AVLOG}" == "1" ]; then cp "${ARQUIVOLOGTEMP}" "${ARQUIVOLOG}" &>> /dev/null; antoniovandre_echo "${MAKINGUPLOAD}" n; if (! antoniovandre_dbxcli_put "${ARQUIVOLOG}" "${DIRCLOUDSYNC}${ARQUIVOLOG##*/}" &>> /dev/null) || (! echo -ne "1/13") || (! antoniovandre_dbxcli_put "${ARQUIVOGRAFICO}" "${DIRCLOUDSYNC}${ARQUIVOGRAFICO##*/}" &>> /dev/null) || (! echo -ne "\b\b\b\b2/13") || (! antoniovandre_dbxcli_put "${ARQUIVOGRAFICOPIZZA}" "${DIRCLOUDSYNC}${ARQUIVOGRAFICOPIZZA##*/}" &>> /dev/null) || (! echo -ne "\b\b\b\b3/13") || (! antoniovandre_dbxcli_put "${ARQUIVOGRAFICOTEMPO}" "${DIRCLOUDSYNC}${ARQUIVOGRAFICOTEMPO##*/}" &>> /dev/null) || (! echo -ne "\b\b\b\b4/13") || (! antoniovandre_dbxcli_put "${ARQUIVOGRAFICOTEMPOANUAL}" "${DIRCLOUDSYNC}${ARQUIVOGRAFICOTEMPOANUAL##*/}" &>> /dev/null) || (! echo -ne "\b\b\b\b5/13") || (! antoniovandre_dbxcli_put "${ARQUIVOSTATS}" "${DIRCLOUDSYNC}${ARQUIVOSTATS##*/}" &>> /dev/null) || (! echo -ne "\b\b\b\b6/13") || (! antoniovandre_dbxcli_put "${ARQUIVOGRAFICOTEMPOMENSAL}" "${DIRCLOUDSYNC}${ARQUIVOGRAFICOTEMPOMENSAL##*/}" &>> /dev/null) || (! echo -ne "\b\b\b\b7/13") || (! antoniovandre_dbxcli_put "${ARQUIVOGRAFICOTEMPODISTSEM}" "${DIRCLOUDSYNC}${ARQUIVOGRAFICOTEMPODISTSEM##*/}" &>> /dev/null) || (! echo -ne "\b\b\b\b8/13") || (! antoniovandre_dbxcli_put "${ARQUIVOGRAFICOTEMPODISTMES}" "${DIRCLOUDSYNC}${ARQUIVOGRAFICOTEMPODISTMES##*/}" &>> /dev/null) || (! echo -ne "\b\b\b\b9/13") || (! antoniovandre_dbxcli_put "${ARQUIVOGRAFICOTEMPODISTHOR}" "${DIRCLOUDSYNC}${ARQUIVOGRAFICOTEMPODISTHOR##*/}" &>> /dev/null) || (! echo -ne "\b\b\b\b10/13") || (! antoniovandre_dbxcli_put "${ARQUIVOGRAFICOTEMPOERROS}" "${DIRCLOUDSYNC}${ARQUIVOGRAFICOTEMPOERROS##*/}" &>> /dev/null) || (! echo -ne "\b\b\b\b\b11/13") || (! antoniovandre_dbxcli_put "${ARQUIVOGRAFICOTEMPOANOERROS}" "${DIRCLOUDSYNC}${ARQUIVOGRAFICOTEMPOANOERROS##*/}" &>> /dev/null) || (! echo -ne "\b\b\b\b\b12/13") || (! antoniovandre_dbxcli_put "${ARQUIVOGRAFICOTEMPOMESERROS}" "${DIRCLOUDSYNC}${ARQUIVOGRAFICOTEMPOMESERROS##*/}" &>> /dev/null) || (! echo -ne "\b\b\b\b\b     \b\b\b\b\b"); then echo -ne "${AV_VERMELHO}"; antoniovandre_echo "${ERRORUPLOADFILES}" n; echo -e "${AV_SEMCOR}."; exit 1; fi; echo -ne "${AV_VERDE}"; antoniovandre_echo "${SUCCESS}" n; echo -e "${AV_SEMCOR}."; fi; fi
+if [ "${1}" != "ne" ]; then if [ "${AVLOG}" == "1" ]; then cp "${ARQUIVOLOGTEMP}" "${ARQUIVOLOG}" &>> /dev/null; antoniovandre_echo "${MAKINGUPLOAD}" n; if (! antoniovandre_dbxcli_put "${ARQUIVOLOG}" "${DIRCLOUDSYNC}${ARQUIVOLOG##*/}" &>> /dev/null) || (! echo -ne "1/13") || (! antoniovandre_dbxcli_put "${ARQUIVOGRAFICO}" "${DIRCLOUDSYNC}${ARQUIVOGRAFICO##*/}" &>> /dev/null) || (! echo -ne "\b\b\b\b2/13") || (! antoniovandre_dbxcli_put "${ARQUIVOGRAFICOPIZZA}" "${DIRCLOUDSYNC}${ARQUIVOGRAFICOPIZZA##*/}" &>> /dev/null) || (! echo -ne "\b\b\b\b3/13") || (! antoniovandre_dbxcli_put "${ARQUIVOGRAFICOTEMPO}" "${DIRCLOUDSYNC}${ARQUIVOGRAFICOTEMPO##*/}" &>> /dev/null) || (! echo -ne "\b\b\b\b4/13") || (! antoniovandre_dbxcli_put "${ARQUIVOGRAFICOTEMPOANUAL}" "${DIRCLOUDSYNC}${ARQUIVOGRAFICOTEMPOANUAL##*/}" &>> /dev/null) || (! echo -ne "\b\b\b\b5/13") || (! antoniovandre_dbxcli_put "${ARQUIVOSTATS}" "${DIRCLOUDSYNC}${ARQUIVOSTATS##*/}" &>> /dev/null) || (! echo -ne "\b\b\b\b6/13") || (! antoniovandre_dbxcli_put "${ARQUIVOGRAFICOTEMPOMENSAL}" "${DIRCLOUDSYNC}${ARQUIVOGRAFICOTEMPOMENSAL##*/}" &>> /dev/null) || (! echo -ne "\b\b\b\b7/13") || (! antoniovandre_dbxcli_put "${ARQUIVOGRAFICOTEMPODISTSEM}" "${DIRCLOUDSYNC}${ARQUIVOGRAFICOTEMPODISTSEM##*/}" &>> /dev/null) || (! echo -ne "\b\b\b\b8/13") || (! antoniovandre_dbxcli_put "${ARQUIVOGRAFICOTEMPODISTMES}" "${DIRCLOUDSYNC}${ARQUIVOGRAFICOTEMPODISTMES##*/}" &>> /dev/null) || (! echo -ne "\b\b\b\b9/13") || (! antoniovandre_dbxcli_put "${ARQUIVOGRAFICOTEMPODISTHOR}" "${DIRCLOUDSYNC}${ARQUIVOGRAFICOTEMPODISTHOR##*/}" &>> /dev/null) || (! echo -ne "\b\b\b\b10/13") || (! antoniovandre_dbxcli_put "${ARQUIVOGRAFICOTEMPOERROS}" "${DIRCLOUDSYNC}${ARQUIVOGRAFICOTEMPOERROS##*/}" &>> /dev/null) || (! echo -ne "\b\b\b\b\b11/13") || (! antoniovandre_dbxcli_put "${ARQUIVOGRAFICOTEMPOANOERROS}" "${DIRCLOUDSYNC}${ARQUIVOGRAFICOTEMPOANOERROS##*/}" &>> /dev/null) || (! echo -ne "\b\b\b\b\b12/13") || (! antoniovandre_dbxcli_put "${ARQUIVOGRAFICOTEMPOMESERROS}" "${DIRCLOUDSYNC}${ARQUIVOGRAFICOTEMPOMESERROS##*/}" &>> /dev/null) || (! echo -ne "\b\b\b\b\b     \b\b\b\b\b"); then echo -ne "${AV_VERMELHO}"; antoniovandre_echo "${ERRORUPLOADFILES}" n; echo -e "${AV_SEMCOR}."; exit 1; fi; echo -ne "${AV_VERDE}"; antoniovandre_echo "${SUCCESS}" n; echo -e "${AV_SEMCOR}."; fi; else if [ "${AVLOG}" == "1" ]; then antoniovandre_echo "${MAKINGUPLOAD}" n; if ! antoniovandre_dbxcli_put "${ARQUIVOLOGTEMP}" "${DIRCLOUDSYNC}${ARQUIVOLOGTEMP##*/}" &>> /dev/null; then echo -ne "${AV_VERMELHO}"; antoniovandre_echo "${ERRORUPLOADFILES}" n; echo -e "${AV_SEMCOR}."; fi; echo -ne "${AV_VERDE}"; antoniovandre_echo "${SUCCESS}" n; echo -e "${AV_SEMCOR}."; fi; fi
 
 antoniovandre_echo "${THANKS}"
 
