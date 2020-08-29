@@ -8,7 +8,7 @@
 
 # Licença: Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA).
 
-# Última atualização: 28-08-2020.
+# Última atualização: 29-08-2020.
 
 # Argumentos: "ne" para não processar estatísticas, ou "oe" para apenas processar estatísticas.
 
@@ -54,7 +54,7 @@ case "${LINGUA}" in
 
     VERSION="Versão"
 
-    INSTRUCOES="Digite \"${AV_AMARELO}SAIR${AV_SEMCOR}\", \"${AV_AMARELO}EXIT${AV_SEMCOR}\", \"${AV_AMARELO}sair${AV_SEMCOR}\", ou \"${AV_AMARELO}exit${AV_SEMCOR}\" para sair.\n\nDigite \"${AV_AMARELO}PULAR${AV_SEMCOR}\", \"${AV_AMARELO}JUMP${AV_SEMCOR}\", \"${AV_AMARELO}pular${AV_SEMCOR}\" ou \"${AV_AMARELO}jump${AV_SEMCOR}\" para pular.\n\nDigite \"${AV_AMARELO}+A${AV_SEMCOR}\" para incrementar o número de argumentos, \"${AV_AMARELO}-A${AV_SEMCOR}\" para diminuir o número de argumentos.\n\nDigite \"${AV_AMARELO}+D${AV_SEMCOR}\" para incrementar o número de casas decimais, \"${AV_AMARELO}-D${AV_SEMCOR}\" para diminuir o número de casas decimais.\n\nDigite \"${AV_AMARELO}+N${AV_SEMCOR}\" para aumentar o limite superior dos números, \"${AV_AMARELO}-N${AV_SEMCOR}\" para reduzir o limite superior dos números.\n\nDigite \"${AV_AMARELO}T${AV_SEMCOR}\" para ativar tempo, \"${AV_AMARELO}t${AV_SEMCOR}\" para desativar tempo, \"${AV_AMARELO}+T${AV_SEMCOR}\" para aumentar o tempo, ou \"${AV_AMARELO}-T${AV_SEMCOR}\" para reduzir o tempo.\n\nDigite \"${AV_AMARELO}M${AV_SEMCOR}\" para mostrar a mensagem de Antonio Vandré."
+    INSTRUCOES="Digite \"${AV_AMARELO}SAIR${AV_SEMCOR}\", \"${AV_AMARELO}EXIT${AV_SEMCOR}\", \"${AV_AMARELO}sair${AV_SEMCOR}\", ou \"${AV_AMARELO}exit${AV_SEMCOR}\" para sair.\n\nDigite \"${AV_AMARELO}PULAR${AV_SEMCOR}\", \"${AV_AMARELO}JUMP${AV_SEMCOR}\", \"${AV_AMARELO}pular${AV_SEMCOR}\" ou \"${AV_AMARELO}jump${AV_SEMCOR}\" para pular.\n\nDigite \"${AV_AMARELO}+A${AV_SEMCOR}\" para incrementar o número de argumentos, \"${AV_AMARELO}-A${AV_SEMCOR}\" para diminuir o número de argumentos.\n\nDigite \"${AV_AMARELO}+D${AV_SEMCOR}\" para incrementar o número de casas decimais, \"${AV_AMARELO}-D${AV_SEMCOR}\" para diminuir o número de casas decimais.\n\nDigite \"${AV_AMARELO}+N${AV_SEMCOR}\" para aumentar o limite superior dos números, \"${AV_AMARELO}-N${AV_SEMCOR}\" para reduzir o limite superior dos números.\n\nDigite \"${AV_AMARELO}T${AV_SEMCOR}\" para ativar tempo, \"${AV_AMARELO}t${AV_SEMCOR}\" para desativar tempo, \"${AV_AMARELO}+T${AV_SEMCOR}\" para aumentar o tempo, ou \"${AV_AMARELO}-T${AV_SEMCOR}\" para reduzir o tempo.\n\nDigite \"${AV_AMARELO}M${AV_SEMCOR}\" para mostrar a mensagem de Antonio Vandré.\n\nDigite \"${AV_AMARELO}AJUDA${AV_SEMCOR}\", \"${AV_AMARELO}HELP${AV_SEMCOR}\", \"${AV_AMARELO}H${AV_SEMCOR}\", \"${AV_AMARELO}ajuda${AV_SEMCOR}\", \"${AV_AMARELO}help${AV_SEMCOR}\" ou \"${AV_AMARELO}h${AV_SEMCOR}\" para mostrar esta mensagem."
 
     ROUNDWITH="arredondado com"
 
@@ -139,7 +139,7 @@ case "${LINGUA}" in
 
     VERSION="Version"
 
-    INSTRUCOES="Type \"${AV_AMARELO}SAIR${AV_SEMCOR}\", \"${AV_AMARELO}EXIT${AV_SEMCOR}\", \"${AV_AMARELO}sair${AV_SEMCOR}\", or \"${AV_AMARELO}exit${AV_SEMCOR}\" to exit.\n\nType \"${AV_AMARELO}PULAR${AV_SEMCOR}\", \"${AV_AMARELO}JUMP${AV_SEMCOR}\", \"${AV_AMARELO}pular${AV_SEMCOR}\" or \"${AV_AMARELO}jump${AV_SEMCOR}\" to jump.\n\nType \"${AV_AMARELO}+A${AV_SEMCOR}\" to increase the number of arguments, \"${AV_AMARELO}-A${AV_SEMCOR}\" to decrease the number of arguments.\n\nType \"${AV_AMARELO}+D${AV_SEMCOR}\" to increase the number of decimal places, \"${AV_AMARELO}-D${AV_SEMCOR}\" to decrease the number of decimal places.\n\nType \"${AV_AMARELO}+N${AV_SEMCOR}\" to increase the upper limit of the numbers, \"${AV_AMARELO}-N${AV_SEMCOR}\" to reduce the upper limit of the numbers.\n\nType \"${AV_AMARELO}T${AV_SEMCOR}\" to activated time, \"${AV_AMARELO}t${AV_SEMCOR}\" to deactivate time, \"${AV_AMARELO}+T${AV_SEMCOR}\" to increase time, or \"${AV_AMARELO}-T${AV_SEMCOR}\" to reduce time.\n\nType \"${AV_AMARELO}M${AV_SEMCOR}\" to show Antonio Vandré's message."
+    INSTRUCOES="Type \"${AV_AMARELO}SAIR${AV_SEMCOR}\", \"${AV_AMARELO}EXIT${AV_SEMCOR}\", \"${AV_AMARELO}sair${AV_SEMCOR}\", or \"${AV_AMARELO}exit${AV_SEMCOR}\" to exit.\n\nType \"${AV_AMARELO}PULAR${AV_SEMCOR}\", \"${AV_AMARELO}JUMP${AV_SEMCOR}\", \"${AV_AMARELO}pular${AV_SEMCOR}\" or \"${AV_AMARELO}jump${AV_SEMCOR}\" to jump.\n\nType \"${AV_AMARELO}+A${AV_SEMCOR}\" to increase the number of arguments, \"${AV_AMARELO}-A${AV_SEMCOR}\" to decrease the number of arguments.\n\nType \"${AV_AMARELO}+D${AV_SEMCOR}\" to increase the number of decimal places, \"${AV_AMARELO}-D${AV_SEMCOR}\" to decrease the number of decimal places.\n\nType \"${AV_AMARELO}+N${AV_SEMCOR}\" to increase the upper limit of the numbers, \"${AV_AMARELO}-N${AV_SEMCOR}\" to reduce the upper limit of the numbers.\n\nType \"${AV_AMARELO}T${AV_SEMCOR}\" to activated time, \"${AV_AMARELO}t${AV_SEMCOR}\" to deactivate time, \"${AV_AMARELO}+T${AV_SEMCOR}\" to increase time, or \"${AV_AMARELO}-T${AV_SEMCOR}\" to reduce time.\n\nType \"${AV_AMARELO}M${AV_SEMCOR}\" to show Antonio Vandré's message.\n\nType \"${AV_AMARELO}AJUDA${AV_SEMCOR}\", \"${AV_AMARELO}HELP${AV_SEMCOR}\", \"${AV_AMARELO}H${AV_SEMCOR}\", \"${AV_AMARELO}ajuda${AV_SEMCOR}\", \"${AV_AMARELO}help${AV_SEMCOR}\" or \"${AV_AMARELO}h${AV_SEMCOR}\" to show this message."
 
     ROUNDWITH="rounding with"
 
@@ -298,7 +298,7 @@ bash antoniovandre_echo_android "${MATHGAME}."
 
 echo ""
 
-bash antoniovandre_echo_android "${VERSION} 28-08-2020."
+bash antoniovandre_echo_android "${VERSION} 29-08-2020."
 
 echo ""
 
@@ -314,15 +314,16 @@ while [  "${RESPOSTAUSUARIO}" != "SAIR" ] && [  "${RESPOSTAUSUARIO}" != "EXIT" ]
 
   if [ "${FLAG}" == "0" ]; then
     SEED=$(date +%s)
-    SEED2=$(expr "${SEED}" / 2)
-    SEED3=$(expr "${SEED}" / 3)
-    SEED4=$(expr "${SEED}" / 4)
-    SEED5=$(expr "${SEED}" / 5)
-    SEED6=$(expr "${SEED}" / 6)
-    SEED7=$(expr "${SEED}" / 7)
-    SEED8=$(expr "${SEED}" / 8)
-    SEED9=$(expr "${SEED}" / 9)
-    SEED10=$(expr "${SEED}" / 10)
+    SEED2=$(expr "${SEED}" / 2 + 11)
+    SEED3=$(expr "${SEED}" / 3 + 10)
+    SEED4=$(expr "${SEED}" / 4 + 9)
+    SEED5=$(expr "${SEED}" / 5 + 8)
+    SEED6=$(expr "${SEED}" / 6 + 7)
+    SEED7=$(expr "${SEED}" / 7 + 6)
+    SEED8=$(expr "${SEED}" / 8 + 5)
+    SEED9=$(expr "${SEED}" / 9 + 4)
+    SEED10=$(expr "${SEED}" / 10 + 3)
+    SEED11=$(expr "${SEED}" / 11 + 2)
     SEED=$(echo "${SEED} % 1000" | bc)
     SEED2=$(echo "${SEED2} % 1000" | bc)
     SEED3=$(echo "${SEED3} % 1000" | bc)
@@ -333,18 +334,19 @@ while [  "${RESPOSTAUSUARIO}" != "SAIR" ] && [  "${RESPOSTAUSUARIO}" != "EXIT" ]
     SEED8=$(echo "${SEED8} % 1000" | bc)
     SEED9=$(echo "${SEED9} % 1000" | bc)
     SEED10=$(echo "${SEED10} % 1000" | bc)
+    SEED11=$(echo "${SEED11} % 1000" | bc)
 
     MAXVALUERED=$(echo "${MAXVALUE} / 4" | bc)
 
     FATOR=$(echo "10 ^ ${CASASDECIMAIS}" | bc)
 
-    OPS=$(for I in $(seq 1 $(echo "${NUMEROARGUMENTOS} - 1" | bc)); do case $(echo "((${SEED} + ${SEED2} - ${SEED3} + ${SEED4} - ${SEED5} + ${SEED6} - ${SEED7} + ${SEED8} - ${SEED9} + ${SEED10}) + (${I} * ${SEED} * ${SEED2} / ${SEED3} * ${SEED4} * ${SEED5} / ${SEED6} * ${SEED7} * ${SEED8} / ${SEED9} * ${SEED10})) % 4" | bc) in 0) echo -n "+";; 1) echo -n "-";; 2) echo -n "x";; 3) echo -n "/";; *) ;; esac; if [ "${I}" -lt $(echo "${NUMEROARGUMENTOS} - 1" | bc) ]; then echo -n ","; fi; done)
+    OPS=$(for I in $(seq 2 $(echo "${NUMEROARGUMENTOS}" | bc)); do case $(echo "((${SEED} + ${SEED2} - ${SEED3} + ${SEED4} + ${SEED5} - ${SEED6} + ${SEED7} + ${SEED8} - ${SEED9} + ${SEED10} + ${SEED11}) + ${I} * (${SEED} + ${SEED2} + ${SEED3} - ${SEED4} + ${SEED5} + ${SEED6} + ${SEED7} - ${SEED8} + ${SEED9} + ${SEED10} + ${SEED11})) % 4" | bc) in 0) echo -n "+";; 1) echo -n "-";; 2) echo -n "x";; 3) echo -n "/";; *) ;; esac; if [ "${I}" -lt $(echo "${NUMEROARGUMENTOS} - 1" | bc) ]; then echo -n ","; fi; done)
 
     if [ "${OPS}" != "$(echo -n ${OPS} | tr 'x' ' ')" ] || [ "${OPS}" != "$(echo -n ${OPS} | tr '/' ' ')" ]; then VARVALUE=$MAXVALUERED; else VARVALUE=$MAXVALUE; fi
 
     PARENTESES=$(if [ "${NUMEROARGUMENTOS}" -gt "2" ]; then TEMP="0"; TEMP2="0"; for I in $(seq 1 "${NUMEROARGUMENTOS}"); do if [ "$TEMP" -lt $(echo  "${NUMEROARGUMENTOS} - ${I}" | bc) ]; then TEMP3=$(echo "(${SEED} * $I) % 3" | bc); case $TEMP3 in 0) echo -n "("; TEMP=$(echo "${TEMP} + 1" | bc);; 1) if [ "$TEMP" -gt "0" ]; then echo -n ")"; TEMP=$(echo "${TEMP} - 1" | bc); fi;; 2) ;; *) ;; esac; else if [ "$TEMP" -gt "0" ]; then if [ $(echo "($SEED+ $TEMP2) % 2" | bc) == "0" ]; then echo -n ")"; TEMP=$(echo "${TEMP} - 1" | bc); else TEMP2="1"; fi; fi; fi; if [ "${I}" -lt "${NUMEROARGUMENTOS}" ]; then echo -n ","; fi; done; fi)
 
-    ARGS=$(for I in $(seq 1 "${NUMEROARGUMENTOS}"); do TEMP=$(awk "BEGIN{print ((${SEED} + ${SEED2} + ${SEED3} + ${SEED4} - ${SEED5} + ${SEED6} + ${SEED7} + ${SEED8} - ${SEED9} + ${SEED10}) + ${I} * ${SEED} * ${SEED2} * ${SEED3} * ${SEED4} / ${SEED5} * ${SEED6} * ${SEED7} * ${SEED8} * ${SEED9} / ${SEED10}) / ${FATOR}}"); awk "BEGIN{print ${TEMP} % ${VARVALUE}}" | tr "\n" ","; done)
+    ARGS=$(for I in $(seq 1 "${NUMEROARGUMENTOS}"); do TEMP=$(awk "BEGIN{print ((${SEED} + ${SEED2} + ${SEED3} + ${SEED4} - ${SEED5} + ${SEED6} + ${SEED7} + ${SEED8} + ${SEED9} - ${SEED10}) + ${SEED11} + ${I} * (${SEED} + ${SEED2} + ${SEED3} + ${SEED4} + ${SEED5} - ${SEED6} + ${SEED7} + ${SEED8} + ${SEED9} + ${SEED10} + ${SEED11})) / ${FATOR}}"); awk "BEGIN{print ${TEMP} % ${VARVALUE}}" | tr "\n" ","; done)
 
     QUESTAO="$(for I in $(seq 1 "${NUMEROARGUMENTOS}"); do TEMP=$(echo -n "${PARENTESES}" | cut -d "," -f "${I}"); if [ "${TEMP}" == "(" ]; then echo -n "${TEMP}"; fi; if [ "${TEMP}" == ")" ]; then echo -n "${ARGS}" | cut -d "," -f "${I}" | tr -d "\n"; else echo -n "${ARGS}" | cut -d "," -f "${I}"; fi; if [ "${TEMP}" == ")" ]; then echo -n "${TEMP}"; fi; if [ "${I}" -lt "${NUMEROARGUMENTOS}" ]; then if [ "${TEMP}" == ")" ]; then echo -n " "; fi; echo -n "${OPS}" | cut -d "," -f "${I}"; fi; done)"
 
@@ -377,7 +379,7 @@ while [  "${RESPOSTAUSUARIO}" != "SAIR" ] && [  "${RESPOSTAUSUARIO}" != "EXIT" ]
 
   RESPOSTAUSUARIOP=$RESPOSTAUSUARIO
 
-  if ! ([ "${RESPOSTAUSUARIO}" == "+A" ] || [ "${RESPOSTAUSUARIO}" == "-A" ] || [ "${RESPOSTAUSUARIO}" == "+D" ] || [ "${RESPOSTAUSUARIO}" == "-D" ] || [ "${RESPOSTAUSUARIO}" == "+N" ] || [ "${RESPOSTAUSUARIO}" == "-N" ] || [ "${RESPOSTAUSUARIO}" == "T" ] || [ "${RESPOSTAUSUARIO}" == "t" ] || [ "${RESPOSTAUSUARIO}" == "+T" ] || [ "${RESPOSTAUSUARIO}" == "-T" ] || [ "${RESPOSTAUSUARIO}" == "SAIR" ] || [ "${RESPOSTAUSUARIO}" == "EXIT" ] || [ "${RESPOSTAUSUARIO}" == "sair" ] || [ "${RESPOSTAUSUARIO}" == "exit" ] || [ "${RESPOSTAUSUARIO}" == "PULAR" ] || [ "${RESPOSTAUSUARIO}" == "JUMP" ] || [ "${RESPOSTAUSUARIO}" == "pular" ] || [ "${RESPOSTAUSUARIO}" == "jump" ] || [ "${RESPOSTAUSUARIO}" == "M" ]); then RESPOSTAUSUARIO=$(echo "${RESPOSTAUSUARIO}" | tr -d "\"" | tr -d "'" | tr -d "\`" | tr -d "\$" | tr "x" "*" | tr "X" "*" | tr -d " "); RESPOSTAUSUARIO=$(LC_NUMERIC="en_US.UTF-8" printf "%.${CASASDECIMAIS}f" "$(echo ${RESPOSTAUSUARIO} | bc -l 2>> /dev/null)"); RESPOSTAUSUARIO=$(awk "BEGIN{print ${RESPOSTAUSUARIO}}"); fi
+  if ! ([ "${RESPOSTAUSUARIO}" == "+A" ] || [ "${RESPOSTAUSUARIO}" == "-A" ] || [ "${RESPOSTAUSUARIO}" == "+D" ] || [ "${RESPOSTAUSUARIO}" == "-D" ] || [ "${RESPOSTAUSUARIO}" == "+N" ] || [ "${RESPOSTAUSUARIO}" == "-N" ] || [ "${RESPOSTAUSUARIO}" == "T" ] || [ "${RESPOSTAUSUARIO}" == "t" ] || [ "${RESPOSTAUSUARIO}" == "+T" ] || [ "${RESPOSTAUSUARIO}" == "-T" ] || [ "${RESPOSTAUSUARIO}" == "SAIR" ] || [ "${RESPOSTAUSUARIO}" == "EXIT" ] || [ "${RESPOSTAUSUARIO}" == "sair" ] || [ "${RESPOSTAUSUARIO}" == "exit" ] || [ "${RESPOSTAUSUARIO}" == "PULAR" ] || [ "${RESPOSTAUSUARIO}" == "JUMP" ] || [ "${RESPOSTAUSUARIO}" == "pular" ] || [ "${RESPOSTAUSUARIO}" == "jump" ] || [ "${RESPOSTAUSUARIO}" == "M" ] || [ "${RESPOSTAUSUARIO}" == "AJUDA" ] || [ "${RESPOSTAUSUARIO}" == "HELP" ] || [ "${RESPOSTAUSUARIO}" == "H" ] || [ "${RESPOSTAUSUARIO}" == "ajuda" ] || [ "${RESPOSTAUSUARIO}" == "help" ] || [ "${RESPOSTAUSUARIO}" == "h" ]); then RESPOSTAUSUARIO=$(echo "${RESPOSTAUSUARIO}" | tr -d "\"" | tr -d "'" | tr -d "\`" | tr -d "\$" | tr "x" "*" | tr "X" "*" | tr -d " "); RESPOSTAUSUARIO=$(LC_NUMERIC="en_US.UTF-8" printf "%.${CASASDECIMAIS}f" "$(echo ${RESPOSTAUSUARIO} | bc -l 2>> /dev/null)"); RESPOSTAUSUARIO=$(awk "BEGIN{print ${RESPOSTAUSUARIO}}"); fi
 
   case "${RESPOSTAUSUARIO}" in
     "+A") if [ "${NUMEROARGUMENTOS}" -lt "${NUMEROMAXIMOARGUMENTOS}" ]; then NUMEROARGUMENTOS=$(echo "${NUMEROARGUMENTOS} + 1" | bc); bash antoniovandre_echo_android "${ANOW} ${NUMEROARGUMENTOS}."; else bash antoniovandre_echo_android "${AOVERFLOW}"; fi; FLAG="0"; continue;;
@@ -399,6 +401,12 @@ while [  "${RESPOSTAUSUARIO}" != "SAIR" ] && [  "${RESPOSTAUSUARIO}" != "EXIT" ]
     "pular") FLAG="0"; continue;;
     "jump") FLAG="0"; continue;;
     "M") echo ""; if ! wget -T $TIMEOUTMENSAGEM -qO- https://bit.ly/avmgmensagemdl 2>> /dev/null; then echo -ne "${AV_VERMELHO}"; bash antoniovandre_echo_android "${AVMENSAGEMERRO}" n; echo -e "${AV_SEMCOR}."; fi; echo ""; FLAG="1"; continue;;
+    "AJUDA") echo ""; echo -e "${INSTRUCOES}"; echo ""; FLAG=1; continue;;
+    "HELP") echo ""; echo -e "${INSTRUCOES}"; echo ""; FLAG=1; continue;;
+    "H") echo ""; echo -e "${INSTRUCOES}"; echo ""; FLAG=1; continue;;
+    "ajuda") echo ""; echo -e "${INSTRUCOES}"; echo ""; FLAG=1; continue;;
+    "help") echo ""; echo -e "${INSTRUCOES}"; echo ""; FLAG=1; continue;;
+    "h") echo ""; echo -e "${INSTRUCOES}"; echo ""; FLAG=1; continue;;
     "${RESPOSTA}") if [ "${AVLOG}" == "1" ]; then echo "_____" >> "${ARQUIVOLOGTEMP}"; LANG=en_us_88591 date >> "${ARQUIVOLOGTEMP}"; echo "Pergunta: ${PERGUNTA}" >> "${ARQUIVOLOGTEMP}"; echo "Resposta: ${RESPOSTAUSUARIOP}" >> "${ARQUIVOLOGTEMP}"; echo "Eval: acertou." >> "${ARQUIVOLOGTEMP}"; fi; echo -e "${AV_VERDE}${CORRECT}${AV_SEMCOR}."; if [ "${AVSOUND}" == "1" ]; then play "${ARQUIVOSOMACERTO}" &>> /dev/null; fi; FLAG="0";;
     *) if ! [[ "${RESPOSTAUSUARIO}" =~ "^[+-]?[0-9]+([.][0-9]+)?$" ]]; then bash antoniovandre_echo_android "${VALIDEXPR}."; FLAG="1"; continue; fi; if [ "${AVLOG}" == "1" ]; then echo "_____" >> "${ARQUIVOLOGTEMP}"; LANG=en_us_88591 date >> "${ARQUIVOLOGTEMP}"; echo "Pergunta: ${PERGUNTA}" >> "${ARQUIVOLOGTEMP}"; echo "Resposta: ${RESPOSTAUSUARIO}" >> "${ARQUIVOLOGTEMP}"; echo "Eval: errou." >> "${ARQUIVOLOGTEMP}"; fi; echo -e "${AV_VERMELHO}${WRONG}${AV_SEMCOR}."; if [ "${AVSOUND}" == "1" ]; then play "${ARQUIVOSOMERRO}" &>> /dev/null; fi; FLAG="0";;
   esac
