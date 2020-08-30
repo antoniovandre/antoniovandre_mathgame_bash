@@ -220,6 +220,7 @@ case "${LINGUA}" in
   *) ;;
 esac
 
+CHAOS="10" # Deve ser um inteiro maior ou igual a 2. Determina a aleatoriedade dos argumentos e operadores.
 MRLOGOASCIIFILE="Mathematical Ramblings - ascii art - 40.txt"
 NUMEROMAXIMOARGUMENTOS="10"
 MAXIMOCASASDECIMAIS="5"
@@ -311,40 +312,19 @@ FLAG="0"
 while [  "${RESPOSTAUSUARIO}" != "SAIR" ] && [  "${RESPOSTAUSUARIO}" != "EXIT" ] && [  "${RESPOSTAUSUARIO}" != "sair" ] && [  "${RESPOSTAUSUARIO}" != "exit" ] && [ "${1}" != "oe" ]; do
 
   if [ "${FLAG}" == "0" ]; then
-    SEED=$(date +%s)
-    SEED2=$(expr "${SEED}" / 2 + 11)
-    SEED3=$(expr "${SEED}" / 3 + 10)
-    SEED4=$(expr "${SEED}" / 4 + 9)
-    SEED5=$(expr "${SEED}" / 5 + 8)
-    SEED6=$(expr "${SEED}" / 6 + 7)
-    SEED7=$(expr "${SEED}" / 7 + 6)
-    SEED8=$(expr "${SEED}" / 8 + 5)
-    SEED9=$(expr "${SEED}" / 9 + 4)
-    SEED10=$(expr "${SEED}" / 10 + 3)
-    SEED11=$(expr "${SEED}" / 11 + 2)
-    SEED=$(echo "${SEED} % 1000" | bc)
-    SEED2=$(echo "${SEED2} % 1000" | bc)
-    SEED3=$(echo "${SEED3} % 1000" | bc)
-    SEED4=$(echo "${SEED4} % 1000" | bc)
-    SEED5=$(echo "${SEED5} % 1000" | bc)
-    SEED6=$(echo "${SEED6} % 1000" | bc)
-    SEED7=$(echo "${SEED7} % 1000" | bc)
-    SEED8=$(echo "${SEED8} % 1000" | bc)
-    SEED9=$(echo "${SEED9} % 1000" | bc)
-    SEED10=$(echo "${SEED10} % 1000" | bc)
-    SEED11=$(echo "${SEED11} % 1000" | bc)
+    SEEDS=""; SEED=$(date +%s); SEEDST="${SEED}"; for I in $(seq 2 "${CHAOS}"); do TEMP=$(expr "${SEED}" / 2 + "${CHAOS}" - "${I}" + 2); SEEDST="${SEEDST},${TEMP}"; done; VIRGULA=""; for I in $(seq 1 "${CHAOS}"); do TEMP2=$(echo -n "${SEEDST}" | cut -d "," -f "${I}"); TEMP=$(echo "${TEMP2} % 1000" | bc); SEEDS="${SEEDS}${VIRGULA}${TEMP}"; VIRGULA=","; done
 
     MAXVALUERED=$(echo "${MAXVALUE} / 4" | bc)
 
     FATOR=$(echo "10 ^ ${CASASDECIMAIS}" | bc)
 
-    OPS=$(for I in $(seq 2 $(echo "${NUMEROARGUMENTOS}" | bc)); do case $(echo "((${SEED} + ${SEED2} - ${SEED3} + ${SEED4} + ${SEED5} - ${SEED6} + ${SEED7} + ${SEED8} - ${SEED9} + ${SEED10} + ${SEED11}) + ${I} * (${SEED} + ${SEED2} + ${SEED3} - ${SEED4} + ${SEED5} + ${SEED6} + ${SEED7} - ${SEED8} + ${SEED9} + ${SEED10} + ${SEED11})) % 4" | bc) in 0) echo -n "+";; 1) echo -n "-";; 2) echo -n "x";; 3) echo -n "/";; *) ;; esac; if [ "${I}" -lt $(echo "${NUMEROARGUMENTOS}" | bc) ]; then echo -n ","; fi; done)
+    OPS=$(for I in $(seq 2 $(echo "${NUMEROARGUMENTOS}" | bc)); do TEMP=$(echo "$(for J in $(seq 1 ${CHAOS}); do echo -n ${SEEDS} | cut -d ',' -f ${J} | tr -d '\n'; if [ ${J} -lt ${CHAOS} ]; then if [ $(expr ${J} % 2) -gt 0 ]; then echo -n '+'; else echo -n '-'; fi; fi; done) + ${I} * ($(for J in $(seq 1 ${CHAOS}); do echo -n ${SEEDS} | cut -d ',' -f ${J} | tr -d '\n'; if [ ${J} -lt ${CHAOS} ]; then if [ $(expr ${J} % 3) -gt 0 ]; then echo -n '+'; else echo -n '-'; fi; fi; done))"); case $(echo "(${TEMP}) % 4" | bc) in 0) echo -n "+";; 1) echo -n "-";; 2) echo -n "x";; 3) echo -n "/";; *) ;; esac; if [ "${I}" -lt $(echo "${NUMEROARGUMENTOS}" | bc) ]; then echo -n ","; fi; done)
 
     if [ "${OPS}" != "$(echo -n ${OPS} | tr 'x' ' ')" ] || [ "${OPS}" != "$(echo -n ${OPS} | tr '/' ' ')" ]; then VARVALUE=$MAXVALUERED; else VARVALUE=$MAXVALUE; fi
 
-    PARENTESES=$(if [ "${NUMEROARGUMENTOS}" -gt "2" ]; then TEMP="0"; TEMP2="0"; for I in $(seq 1 "${NUMEROARGUMENTOS}"); do if [ "$TEMP" -lt $(echo  "${NUMEROARGUMENTOS} - ${I}" | bc) ]; then TEMP3=$(echo "(${SEED} * $I) % 3" | bc); case $TEMP3 in 0) echo -n "("; TEMP=$(echo "${TEMP} + 1" | bc);; 1) if [ "$TEMP" -gt "0" ]; then echo -n ")"; TEMP=$(echo "${TEMP} - 1" | bc); fi;; 2) ;; *) ;; esac; else if [ "$TEMP" -gt "0" ]; then if [ $(echo "($SEED+ $TEMP2) % 2" | bc) == "0" ]; then echo -n ")"; TEMP=$(echo "${TEMP} - 1" | bc); else TEMP2="1"; fi; fi; fi; if [ "${I}" -lt "${NUMEROARGUMENTOS}" ]; then echo -n ","; fi; done; fi)
+    PARENTESES=$(if [ "${NUMEROARGUMENTOS}" -gt "2" ]; then TEMP="0"; TEMP2="0"; for I in $(seq 1 "${NUMEROARGUMENTOS}"); do if [ "$TEMP" -lt $(echo  "${NUMEROARGUMENTOS} - ${I}" | bc) ]; then TEMP3=$(echo "($(echo -n ${SEEDS} | cut -d ',' -f 1) * $I) % 3" | bc); case $TEMP3 in 0) echo -n "("; TEMP=$(echo "${TEMP} + 1" | bc);; 1) if [ "$TEMP" -gt "0" ]; then echo -n ")"; TEMP=$(echo "${TEMP} - 1" | bc); fi;; 2) ;; *) ;; esac; else if [ "$TEMP" -gt "0" ]; then if [ $(echo "($SEED + $TEMP2) % 2" | bc) == "0" ]; then echo -n ")"; TEMP=$(echo "${TEMP} - 1" | bc); else TEMP2="1"; fi; fi; fi; if [ "${I}" -lt "${NUMEROARGUMENTOS}" ]; then echo -n ","; fi; done; fi)
 
-    ARGS=$(for I in $(seq 1 "${NUMEROARGUMENTOS}"); do TEMP=$(awk "BEGIN{print ((${SEED} + ${SEED2} + ${SEED3} + ${SEED4} - ${SEED5} + ${SEED6} + ${SEED7} + ${SEED8} + ${SEED9} - ${SEED10}) + ${SEED11} + ${I} * (${SEED} + ${SEED2} + ${SEED3} + ${SEED4} + ${SEED5} - ${SEED6} + ${SEED7} + ${SEED8} + ${SEED9} + ${SEED10} + ${SEED11})) / ${FATOR}}"); awk "BEGIN{print ${TEMP} % ${VARVALUE}}" | tr "\n" ","; done)
+    ARGS=$(for I in $(seq 1 "${NUMEROARGUMENTOS}"); do TEMP=$(awk "BEGIN{print ($(echo "$(for J in $(seq 1 ${CHAOS}); do echo -n ${SEEDS} | cut -d ',' -f ${J} | tr -d '\n'; if [ ${J} -lt ${CHAOS} ]; then if [ $(expr ${J} % 4) -gt 0 ]; then echo -n '+'; else echo -n '-'; fi; fi; done) + ${I} * ($(for J in $(seq 1 ${CHAOS}); do echo -n ${SEEDS} | cut -d ',' -f ${J} | tr -d '\n'; if [ ${J} -lt ${CHAOS} ]; then if [ $(expr ${J} % 5) -gt 0 ]; then echo -n '+'; else echo -n '-'; fi; fi; done))") / ${FATOR})}"); awk "BEGIN{print ${TEMP} % ${VARVALUE}}" | tr "\n" ","; done)
 
     QUESTAO=$(for I in $(seq 1 "${NUMEROARGUMENTOS}"); do TEMP=$(echo -n "${PARENTESES}" | cut -d "," -f "${I}"); if [ "${TEMP}" == "(" ]; then echo -n "${TEMP}"; fi; if [ "${TEMP}" == ")" ]; then echo -n "${ARGS}" | cut -d "," -f "${I}" | tr -d "\n"; else echo -n "${ARGS}" | cut -d "," -f "${I}"; fi; if [ "${TEMP}" == ")" ]; then echo -n "${TEMP}"; fi; if [ "${I}" -lt "${NUMEROARGUMENTOS}" ]; then if [ "${TEMP}" == ")" ]; then echo -n " "; fi; echo -n "${OPS}" | cut -d "," -f "${I}"; fi; done)
 
