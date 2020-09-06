@@ -8,7 +8,7 @@
 
 # Licença: Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA).
 
-# Última atualização: 29-08-2020.
+# Última atualização: 06-09-2020.
 
 # Argumento: "ne" para não processar estatísticas, ou "oe" para apenas processar estatísticas.
 
@@ -297,7 +297,7 @@ bash antoniovandre_echo_android_nosound "${MATHGAME}."
 
 echo ""
 
-bash antoniovandre_echo_android_nosound "${VERSION} 29-08-2020."
+bash antoniovandre_echo_android_nosound "${VERSION} 06-09-2020."
 
 echo ""
 
@@ -353,7 +353,7 @@ while [  "${RESPOSTAUSUARIO}" != "SAIR" ] && [  "${RESPOSTAUSUARIO}" != "EXIT" ]
 
   bash antoniovandre_echo_android_nosound "${PERGUNTA}"
 
-  if [ "${AVTEMPO}" == "1" ]; then if ! read -t $LIMITETEMPO RESPOSTAUSUARIO &>> /dev/null; then echo "${TIMELIMITOF} ${LIMITETEMPO} ${SECONDSREACHED}."; continue; fi; else read RESPOSTAUSUARIO; fi
+  if [ "${AVTEMPO}" == "1" ]; then if ! read -t $LIMITETEMPO RESPOSTAUSUARIO &>> /dev/null; then echo "${TIMELIMITOF} ${LIMITETEMPO} ${SECONDSREACHED}."; FLAG="0"; continue; fi; else read RESPOSTAUSUARIO; fi
 
   RESPOSTAUSUARIOP=$RESPOSTAUSUARIO
 
