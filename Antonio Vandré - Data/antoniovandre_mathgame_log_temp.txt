@@ -1,0 +1,5471 @@
+_____
+Sat Mar 28 17:12:26 -03 2020
+Pergunta: Quanto é 10 + 12? 
+Resposta: 22
+Eval: acertou.
+_____
+Sat Mar 28 17:28:45 -03 2020
+Pergunta: Quanto é 0 + 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Sat Mar 28 17:28:55 -03 2020
+Pergunta: Quanto é 3 x 4? 
+Resposta: 12
+Eval: acertou.
+_____
+Sat Mar 28 17:29:06 -03 2020
+Pergunta: Quanto é 2.2 x 4? 
+Resposta: 8.8
+Eval: acertou.
+_____
+Sun Mar 29 11:57:19 -03 2020
+Pergunta: Quanto é 1.2 + 20? 
+Resposta: 21.2
+Eval: acertou.
+_____
+Sun Mar 29 12:00:57 -03 2020
+Pergunta: Quanto é 5.2 / 1.5, arredondado com 1 casa decimal? 
+Resposta: 3.5
+Eval: acertou.
+_____
+Sun Mar 29 17:56:30 -03 2020
+Pergunta: Quanto é 31.2 + 4.8? 
+Resposta: 36
+Eval: acertou.
+_____
+Sun Mar 29 17:57:15 -03 2020
+Pergunta: Quanto é 2 / 1.5, arredondado com 1 casa decimal? 
+Resposta: 1.3
+Eval: acertou.
+_____
+Sun Mar 29 17:57:29 -03 2020
+Pergunta: Quanto é 12 + 24? 
+Resposta: 36
+Eval: acertou.
+_____
+Sun Mar 29 17:57:57 -03 2020
+Pergunta: Quanto é 27.6 + 8.8? 
+Resposta: 36.4
+Eval: acertou.
+_____
+Sun Mar 29 17:58:13 -03 2020
+Pergunta: Quanto é 16.2 - 0.3? 
+Resposta: 15.9
+Eval: acertou.
+_____
+Sun Mar 29 17:58:41 -03 2020
+Pergunta: Quanto é 11.2 + 28.8? 
+Resposta: 40
+Eval: acertou.
+_____
+Sun Mar 29 18:00:10 -03 2020
+Pergunta: Quanto é 0.2 x 4.8, arredondado com 1 casa decimal? 
+Resposta: 1.0
+Eval: acertou.
+_____
+Sun Mar 29 18:00:54 -03 2020
+Pergunta: Quanto é 1 x 6.4? 
+Resposta: 6.4
+Eval: acertou.
+_____
+Sun Mar 29 18:01:23 -03 2020
+Pergunta: Quanto é 2.2 x 4? 
+Resposta: 8.8
+Eval: acertou.
+_____
+Sun Mar 29 18:35:12 -03 2020
+Pergunta: Quanto é 26.2 - 0.3? 
+Resposta: 25.9
+Eval: acertou.
+_____
+Sun Mar 29 18:35:25 -03 2020
+Pergunta: Quanto é 0 / 7.9? 
+Resposta: 0
+Eval: acertou.
+_____
+Sun Mar 29 20:34:59 -03 2020
+Pergunta: Quanto é 0.6 x 0.8, arredondado com 1 casa decimal? 
+Resposta: 0.5
+Eval: acertou.
+_____
+Sun Mar 29 20:41:02 -03 2020
+Pergunta: Quanto é 31.2 + 24? 
+Resposta: 55.2
+Eval: acertou.
+_____
+Sun Mar 29 20:46:45 -03 2020
+Pergunta: Quanto é 6 / 1.5? 
+Resposta: 4
+Eval: acertou.
+_____
+Sun Mar 29 20:50:04 -03 2020
+Pergunta: Quanto é 0 / 7.9? 
+Resposta: 0
+Eval: acertou.
+_____
+Sun Mar 29 20:51:46 -03 2020
+Pergunta: Quanto é 26 + 18.4? 
+Resposta: 44.4
+Eval: acertou.
+_____
+Sun Mar 29 21:02:48 -03 2020
+Pergunta: Quanto é 12.2 - 3.5? 
+Resposta: 8.7
+Eval: acertou.
+_____
+Sun Mar 29 21:08:15 -03 2020
+Pergunta: Quanto é 2 / 7.9, arredondado com 1 casa decimal? 
+Resposta: 0.3
+Eval: acertou.
+_____
+Sun Mar 29 21:12:28 -03 2020
+Pergunta: Quanto é 27.6 + 8.8? 
+Resposta: 36.4
+Eval: acertou.
+_____
+Sun Mar 29 21:18:07 -03 2020
+Pergunta: Quanto é 16.6 - 0.3? 
+Resposta: 16.3
+Eval: acertou.
+_____
+Sun Mar 29 21:20:51 -03 2020
+Pergunta: Quanto é 2.6 x 4.8, arredondado com 1 casa decimal? 
+Resposta: 12.5
+Eval: acertou.
+_____
+Mon Mar 30 11:58:43 -03 2020
+Pergunta: Quanto é 4.6 x 0.8, arredondado com 1 casa decimal? 
+Resposta: 3.7
+Eval: acertou.
+_____
+Tue Mar 31 10:27:51 -03 2020
+Pergunta: Quanto é 19.2 + 12.8? 
+Resposta: 32
+Eval: acertou.
+_____
+Tue Mar 31 16:45:26 -03 2020
+Pergunta: Quanto é 20.6 - 16.3? 
+Resposta: 4.3
+Eval: acertou.
+_____
+Tue Mar 31 16:45:36 -03 2020
+Pergunta: Quanto é 7 x 4? 
+Resposta: 28
+Eval: acertou.
+_____
+Tue Mar 31 16:45:48 -03 2020
+Pergunta: Quanto é 6.2 x 4? 
+Resposta: 24.8
+Eval: acertou.
+_____
+Tue Mar 31 16:45:54 -03 2020
+Pergunta: Quanto é 1 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Tue Mar 31 16:46:03 -03 2020
+Pergunta: Quanto é 1.2 + 0.8? 
+Resposta: 2
+Eval: acertou.
+_____
+Tue Mar 31 16:46:14 -03 2020
+Pergunta: Quanto é 3 - 3.5? 
+Resposta: -0.5
+Eval: acertou.
+_____
+Tue Mar 31 17:11:23 -03 2020
+Pergunta: Quanto é 3.2 / 6.3, arredondado com 1 casa decimal? 
+Resposta: 0.5
+Eval: acertou.
+_____
+Tue Mar 31 18:13:37 -03 2020
+Pergunta: Quanto é 20 + 8? 
+Resposta: 28
+Eval: acertou.
+_____
+Wed Apr  1 19:45:31 -03 2020
+Pergunta: Quanto é 7.6 / 6.3, arredondado com 1 casa decimal? 
+Resposta: 1.2
+Eval: acertou.
+_____
+Thu Apr  2 10:58:32 -03 2020
+Pergunta: Quanto é 4.6 x 0.8, arredondado com 1 casa decimal? 
+Resposta: 3.7
+Eval: acertou.
+_____
+Thu Apr  2 21:12:28 -03 2020
+Pergunta: Quanto é 4 / 1.5, arredondado com 1 casa decimal? 
+Resposta: 2.7
+Eval: acertou.
+_____
+Thu Apr  2 21:39:27 -03 2020
+Pergunta: Quanto é 5 x 6.4? 
+Resposta: 32
+Eval: acertou.
+_____
+Fri Apr  3 09:45:49 -03 2020
+Pergunta: Quanto é 6.2 - 3.5? 
+Resposta: 2.7
+Eval: acertou.
+_____
+Fri Apr  3 09:46:23 -03 2020
+Pergunta: Quanto é 11 - 9.9? 
+Resposta: 1.1
+Eval: acertou.
+_____
+Fri Apr  3 21:46:37 -03 2020
+Pergunta: Quanto é 5 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Fri Apr  3 21:46:52 -03 2020
+Pergunta: Quanto é 28.6 - 16.3? 
+Resposta: 12.3
+Eval: acertou.
+_____
+Fri Apr  3 21:47:08 -03 2020
+Pergunta: Quanto é 3.6 + 24.8? 
+Resposta: 28.4
+Eval: acertou.
+_____
+Fri Apr  3 22:41:28 -03 2020
+Pergunta: Quanto é 2.2 x 0.8, arredondado com 1 casa decimal? 
+Resposta: 1.8
+Eval: acertou.
+_____
+Sat Apr  4 10:03:36 -03 2020
+Pergunta: Quanto é 24.2 - 0.3? 
+Resposta: 23.9
+Eval: acertou.
+_____
+Sat Apr  4 10:31:25 -03 2020
+Pergunta: Quanto é 3 - 9.9? 
+Resposta: -6.9
+Eval: acertou.
+_____
+Mon Apr  6 10:46:16 -03 2020
+Pergunta: Quanto é 7 - 19.5? 
+Resposta: -12.5
+Eval: acertou.
+_____
+Mon Apr  6 10:46:25 -03 2020
+Pergunta: Quanto é 7.2 + 20.8? 
+Resposta: 28
+Eval: acertou.
+_____
+Mon Apr  6 10:48:37 -03 2020
+Pergunta: Quanto é 19 - 9.9? 
+Resposta: 9.1
+Eval: acertou.
+_____
+Mon Apr  6 19:42:40 -03 2020
+Pergunta: Quanto é 5.2 + 28? 
+Resposta: 33.2
+Eval: acertou.
+_____
+Mon Apr  6 19:42:43 -03 2020
+Pergunta: Quanto é 0 + 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Mon Apr  6 19:42:54 -03 2020
+Pergunta: Quanto é 1.2 / 1.5? 
+Resposta: 0.8
+Eval: acertou.
+_____
+Mon Apr  6 19:43:10 -03 2020
+Pergunta: Quanto é 5 x 6.4? 
+Resposta: 32
+Eval: acertou.
+_____
+Mon Apr  6 19:43:14 -03 2020
+Pergunta: Quanto é 5 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Mon Apr  6 19:43:34 -03 2020
+Pergunta: Quanto é 7 x 2.4? 
+Resposta: 16.8
+Eval: acertou.
+_____
+Mon Apr  6 19:43:48 -03 2020
+Pergunta: Quanto é 5 x 6.4? 
+Resposta: 32
+Eval: acertou.
+_____
+Mon Apr  6 19:44:02 -03 2020
+Pergunta: Quanto é 17.2 + 20? 
+Resposta: 37.2
+Eval: acertou.
+_____
+Mon Apr  6 19:44:59 -03 2020
+Pergunta: Quanto é 4.6 x 0.8, arredondado com 1 casa decimal? 
+Resposta: 3.7
+Eval: acertou.
+_____
+Mon Apr  6 19:50:34 -03 2020
+Pergunta: Quanto é 17.2 + 20? 
+Resposta: 37.2
+Eval: acertou.
+_____
+Mon Apr  6 19:50:43 -03 2020
+Pergunta: Quanto é 7 x 2.4? 
+Resposta: 16.8
+Eval: acertou.
+_____
+Mon Apr  6 19:55:36 -03 2020
+Pergunta: Quanto é 5.2 / 1.5, arredondado com 1 casa decimal? 
+Resposta: 3.5
+Eval: acertou.
+_____
+Mon Apr  6 19:58:50 -03 2020
+Pergunta: Quanto é 3.2 + 12.8? 
+Resposta: 16
+Eval: acertou.
+_____
+Mon Apr  6 19:58:54 -03 2020
+Pergunta: Quanto é 7 x 4? 
+Resposta: 28
+Eval: acertou.
+_____
+Mon Apr  6 19:58:59 -03 2020
+Pergunta: Quanto é 1 x 6.4? 
+Resposta: 6.4
+Eval: acertou.
+_____
+Mon Apr  6 20:00:12 -03 2020
+Pergunta: Quanto é 2 / 7.9, arredondado com 1 casa decimal? 
+Resposta: 0.3
+Eval: acertou.
+_____
+Mon Apr  6 20:04:58 -03 2020
+Pergunta: Quanto é 15.6 + 16.8? 
+Resposta: 32.4
+Eval: acertou.
+_____
+Mon Apr  6 20:05:07 -03 2020
+Pergunta: Quanto é 6.2 x 4? 
+Resposta: 24.8
+Eval: acertou.
+_____
+Tue Apr  7 19:07:55 -03 2020
+Pergunta: Quanto é 20 + 14.4? 
+Resposta: 34.4
+Eval: acertou.
+_____
+Tue Apr  7 19:08:05 -03 2020
+Pergunta: Quanto é 6 / 1.5? 
+Resposta: 4
+Eval: acertou.
+_____
+Tue Apr  7 19:21:20 -03 2020
+Pergunta: Quanto é 23 - 19.5? 
+Resposta: 3.5
+Eval: acertou.
+_____
+Tue Apr  7 19:24:37 -03 2020
+Pergunta: Quanto é 8 + 16? 
+Resposta: 24
+Eval: acertou.
+_____
+Tue Apr  7 20:23:22 -03 2020
+Pergunta: Quanto é 0.2 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Tue Apr  7 22:29:01 -03 2020
+Pergunta: Quanto é 21 - 19.5? 
+Resposta: 1.5
+Eval: acertou.
+_____
+Wed Apr  8 11:09:23 -03 2020
+Pergunta: Quanto é 19 - 9.9? 
+Resposta: 9.1
+Eval: acertou.
+_____
+Wed Apr  8 11:09:38 -03 2020
+Pergunta: Quanto é 7.2 + 8? 
+Resposta: 15.2
+Eval: acertou.
+_____
+Wed Apr  8 11:10:25 -03 2020
+Pergunta: Quanto é 10 + 12? 
+Resposta: 22
+Eval: acertou.
+_____
+Wed Apr  8 11:11:43 -03 2020
+Pergunta: Quanto é 17.2 + 20? 
+Resposta: 37.2
+Eval: acertou.
+_____
+Wed Apr  8 11:11:57 -03 2020
+Pergunta: Quanto é 25 - 3.5? 
+Resposta: 21.5
+Eval: acertou.
+_____
+Thu Apr  9 12:07:50 -03 2020
+Pergunta: Quanto é 22.2 - 3.5? 
+Resposta: 18.7
+Eval: acertou.
+_____
+Thu Apr  9 12:38:19 -03 2020
+Pergunta: Quanto é 29.6 + 20.8? 
+Resposta: 50.4
+Eval: acertou.
+_____
+Thu Apr  9 12:44:15 -03 2020
+Pergunta: Quanto é 7 x 4? 
+Resposta: 28
+Eval: acertou.
+_____
+Thu Apr  9 12:45:01 -03 2020
+Pergunta: Quanto é 10.6 - 16.3? 
+Resposta: -5.7
+Eval: acertou.
+_____
+Thu Apr  9 12:45:14 -03 2020
+Pergunta: Quanto é 4 + 14.4? 
+Resposta: 18.4
+Eval: acertou.
+_____
+Thu Apr  9 12:45:33 -03 2020
+Pergunta: Quanto é 13.2 + 24.8? 
+Resposta: 38
+Eval: acertou.
+_____
+Thu Apr  9 12:46:34 -03 2020
+Pergunta: Quanto é 4 / 1.5, arredondado com 1 casa decimal? 
+Resposta: 2.7
+Eval: acertou.
+_____
+Thu Apr  9 12:53:52 -03 2020
+Pergunta: Quanto é 28.6 - 16.3? 
+Resposta: 12.3
+Eval: acertou.
+_____
+Thu Apr  9 12:56:00 -03 2020
+Pergunta: Quanto é 2 / 1.5, arredondado com 1 casa decimal? 
+Resposta: 1.3
+Eval: acertou.
+_____
+Thu Apr  9 13:03:25 -03 2020
+Pergunta: Quanto é 5.2 / 1.5, arredondado com 1 casa decimal? 
+Resposta: 3.5
+Eval: acertou.
+_____
+Thu Apr  9 13:05:41 -03 2020
+Pergunta: Quanto é 27.2 + 16? 
+Resposta: 43.2
+Eval: acertou.
+_____
+Thu Apr  9 13:13:25 -03 2020
+Pergunta: Quanto é 28 + 30.4? 
+Resposta: 58.4
+Eval: acertou.
+_____
+Thu Apr  9 13:13:50 -03 2020
+Pergunta: Quanto é 25 - 9.9? 
+Resposta: 15.1
+Eval: acertou.
+_____
+Thu Apr  9 13:16:08 -03 2020
+Pergunta: Quanto é 25.6 + 12.8? 
+Resposta: 38.4
+Eval: acertou.
+_____
+Thu Apr  9 13:16:16 -03 2020
+Pergunta: Quanto é 3 x 4? 
+Resposta: 12
+Eval: acertou.
+_____
+Thu Apr  9 13:16:26 -03 2020
+Pergunta: Quanto é 2.2 x 4? 
+Resposta: 8.8
+Eval: acertou.
+_____
+Thu Apr  9 13:17:57 -03 2020
+Pergunta: Quanto é 23 - 25.9? 
+Resposta: -2.9
+Eval: acertou.
+_____
+Thu Apr  9 13:18:09 -03 2020
+Pergunta: Quanto é 8 + 16? 
+Resposta: 24
+Eval: acertou.
+_____
+Thu Apr  9 13:18:28 -03 2020
+Pergunta: Quanto é 23.6 + 0.8? 
+Resposta: 24.4
+Eval: acertou.
+_____
+Thu Apr  9 13:18:55 -03 2020
+Pergunta: Quanto é 7 x 4? 
+Resposta: 28
+Eval: acertou.
+_____
+Thu Apr  9 15:21:06 -03 2020
+Pergunta: Quanto é 2.6 - 16.3? 
+Resposta: -13.7
+Eval: acertou.
+_____
+Thu Apr  9 15:21:22 -03 2020
+Pergunta: Quanto é 27 - 9.9? 
+Resposta: 17.1
+Eval: acertou.
+_____
+Thu Apr  9 15:21:35 -03 2020
+Pergunta: Quanto é 18 + 2.4? 
+Resposta: 20.4
+Eval: acertou.
+_____
+Thu Apr  9 15:21:47 -03 2020
+Pergunta: Quanto é 2.2 x 4? 
+Resposta: 8.8
+Eval: acertou.
+_____
+Thu Apr  9 15:30:31 -03 2020
+Pergunta: Quanto é 7 - 25.9? 
+Resposta: -18.9
+Eval: acertou.
+_____
+Thu Apr  9 15:30:56 -03 2020
+Pergunta: Quanto é 16.2 - 19.5? 
+Resposta: -3.3
+Eval: acertou.
+_____
+Thu Apr  9 15:31:10 -03 2020
+Pergunta: Quanto é 6.2 x 4? 
+Resposta: 24.8
+Eval: acertou.
+_____
+Thu Apr  9 15:37:30 -03 2020
+Pergunta: Quanto é 13.6 + 20.8? 
+Resposta: 34.4
+Eval: acertou.
+_____
+Thu Apr  9 15:37:58 -03 2020
+Pergunta: Quanto é 22.2 - 3.5? 
+Resposta: 18.7
+Eval: acertou.
+_____
+Thu Apr  9 15:38:07 -03 2020
+Pergunta: Quanto é 16 + 0? 
+Resposta: 16
+Eval: acertou.
+_____
+Thu Apr  9 15:38:15 -03 2020
+Pergunta: Quanto é 3 x 4? 
+Resposta: 12
+Eval: acertou.
+_____
+Thu Apr  9 15:38:28 -03 2020
+Pergunta: Quanto é 14.6 - 0.3? 
+Resposta: 14.3
+Eval: acertou.
+_____
+Thu Apr  9 15:40:22 -03 2020
+Pergunta: Quanto é 3.2 / 6.3, arredondado com 1 casa decimal? 
+Resposta: 0.5
+Eval: acertou.
+_____
+Thu Apr  9 15:41:13 -03 2020
+Pergunta: Quanto é 21 - 19.5? 
+Resposta: 1.5
+Eval: acertou.
+_____
+Thu Apr  9 15:41:25 -03 2020
+Pergunta: Quanto é 6 / 1.5? 
+Resposta: 4
+Eval: acertou.
+_____
+Thu Apr  9 15:43:25 -03 2020
+Pergunta: Quanto é 11.2 + 16? 
+Resposta: 27.2
+Eval: acertou.
+_____
+Thu Apr  9 15:47:25 -03 2020
+Pergunta: Quanto é 5.6 / 6.3, arredondado com 1 casa decimal? 
+Resposta: 0.9
+Eval: acertou.
+_____
+Thu Apr  9 15:50:51 -03 2020
+Pergunta: Quanto é 1.6 / 6.3, arredondado com 1 casa decimal? 
+Resposta: 0.3
+Eval: acertou.
+_____
+Thu Apr  9 16:00:31 -03 2020
+Pergunta: Quanto é 5 x 6.4? 
+Resposta: 32
+Eval: acertou.
+_____
+Thu Apr  9 16:01:05 -03 2020
+Pergunta: Quanto é 7 x 2.4? 
+Resposta: 16.8
+Eval: acertou.
+_____
+Thu Apr  9 16:01:25 -03 2020
+Pergunta: Quanto é 5.2 + 28? 
+Resposta: 33.2
+Eval: acertou.
+_____
+Thu Apr  9 16:01:44 -03 2020
+Pergunta: Quanto é 5.6 / 6.3, arredondado com 1 casa decimal? 
+Resposta: 0.9
+Eval: acertou.
+_____
+Thu Apr  9 16:03:53 -03 2020
+Pergunta: Quanto é 6.2 x 0.8, arredondado com 1 casa decimal? 
+Resposta: 5
+Eval: acertou.
+_____
+Thu Apr  9 16:04:07 -03 2020
+Pergunta: Quanto é 6 / 1.5? 
+Resposta: 4
+Eval: acertou.
+_____
+Thu Apr  9 16:05:23 -03 2020
+Pergunta: Quanto é 21 - 25.9? 
+Resposta: -4.9
+Eval: acertou.
+_____
+Thu Apr  9 17:14:21 -03 2020
+Pergunta: Quanto é 7 - 19.5? 
+Resposta: -12.5
+Eval: acertou.
+_____
+Thu Apr  9 17:14:31 -03 2020
+Pergunta: Quanto é 20 + 14.4? 
+Resposta: 34.4
+Eval: acertou.
+_____
+Thu Apr  9 17:15:14 -03 2020
+Pergunta: Quanto é 24.2 - 19.5? 
+Resposta: 4.7
+Eval: acertou.
+_____
+Thu Apr  9 17:15:23 -03 2020
+Pergunta: Quanto é 1.2 + 0.8? 
+Resposta: 2
+Eval: acertou.
+_____
+Thu Apr  9 17:16:49 -03 2020
+Pergunta: Quanto é 5.6 / 6.3, arredondado com 1 casa decimal? 
+Resposta: 0.9
+Eval: acertou.
+_____
+Thu Apr  9 17:17:08 -03 2020
+Pergunta: Quanto é 23.6 + 0.8? 
+Resposta: 24.4
+Eval: acertou.
+_____
+Thu Apr  9 17:24:51 -03 2020
+Pergunta: Quanto é 3.2 / 6.3, arredondado com 1 casa decimal? 
+Resposta: 0.5
+Eval: acertou.
+_____
+Thu Apr  9 17:25:56 -03 2020
+Pergunta: Quanto é 26.2 - 19.5? 
+Resposta: 6.7
+Eval: acertou.
+_____
+Thu Apr  9 17:26:03 -03 2020
+Pergunta: Quanto é 0.2 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Apr  9 17:26:13 -03 2020
+Pergunta: Quanto é 3 - 3.5? 
+Resposta: -0.5
+Eval: acertou.
+_____
+Thu Apr  9 17:37:16 -03 2020
+Pergunta: Quanto é 27.2 + 28.8? 
+Resposta: 56
+Eval: acertou.
+_____
+Thu Apr  9 17:37:27 -03 2020
+Pergunta: Quanto é 0 / 7.9? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Apr  9 17:37:42 -03 2020
+Pergunta: Quanto é 9 - 9.9? 
+Resposta: -0.9
+Eval: acertou.
+_____
+Thu Apr  9 17:37:56 -03 2020
+Pergunta: Quanto é 28 + 30.4? 
+Resposta: 58.4
+Eval: acertou.
+_____
+Thu Apr  9 17:42:00 -03 2020
+Pergunta: Quanto é 4 / 7.9, arredondado com 1 casa decimal? 
+Resposta: 0.5
+Eval: acertou.
+_____
+Thu Apr  9 20:12:45 -03 2020
+Pergunta: Quanto é 0 + 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Apr  9 20:13:08 -03 2020
+Pergunta: Quanto é 27.2 + 28.8? 
+Resposta: 56
+Eval: acertou.
+_____
+Thu Apr  9 21:10:52 -03 2020
+Pergunta: Quanto é 15 - 25.9? 
+Resposta: -10.9
+Eval: acertou.
+_____
+Thu Apr  9 21:11:15 -03 2020
+Pergunta: Quanto é 22.2 - 3.5? 
+Resposta: 19.7
+Eval: errou.
+_____
+Thu Apr  9 21:11:34 -03 2020
+Pergunta: Quanto é 17.2 + 0.8? 
+Resposta: 18
+Eval: acertou.
+_____
+Thu Apr  9 21:11:44 -03 2020
+Pergunta: Quanto é 5 x 6.4? 
+Resposta: 32
+Eval: acertou.
+_____
+Thu Apr  9 21:12:04 -03 2020
+Pergunta: Quanto é 12 + 30.4? 
+Resposta: 42.4
+Eval: acertou.
+_____
+Thu Apr  9 21:12:30 -03 2020
+Pergunta: Quanto é 31 - 19.5? 
+Resposta: 11.5
+Eval: acertou.
+_____
+Thu Apr  9 21:12:44 -03 2020
+Pergunta: Quanto é 0 / 7.9? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Apr  9 21:13:04 -03 2020
+Pergunta: Quanto é 11 - 3.5? 
+Resposta: 7.5
+Eval: acertou.
+_____
+Thu Apr  9 21:13:16 -03 2020
+Pergunta: Quanto é 20 + 14.4? 
+Resposta: 34.4
+Eval: acertou.
+_____
+Thu Apr  9 21:13:28 -03 2020
+Pergunta: Quanto é 29.2 + 24.8? 
+Resposta: 54
+Eval: acertou.
+_____
+Thu Apr  9 21:13:36 -03 2020
+Pergunta: Quanto é 3.2 + 0? 
+Resposta: 3.2
+Eval: acertou.
+_____
+Thu Apr  9 21:13:49 -03 2020
+Pergunta: Quanto é 23.2 + 20.8? 
+Resposta: 44
+Eval: acertou.
+_____
+Thu Apr  9 21:14:04 -03 2020
+Pergunta: Quanto é 11 - 9.9? 
+Resposta: 1.1
+Eval: acertou.
+_____
+Thu Apr  9 21:14:18 -03 2020
+Pergunta: Quanto é 2 + 2.4? 
+Resposta: 4.4
+Eval: acertou.
+_____
+Thu Apr  9 21:14:27 -03 2020
+Pergunta: Quanto é 2.2 x 4? 
+Resposta: 8.8
+Eval: acertou.
+_____
+Thu Apr  9 21:19:02 -03 2020
+Pergunta: Quanto é 1 x 6.4? 
+Resposta: 6.4
+Eval: acertou.
+_____
+Thu Apr  9 21:20:30 -03 2020
+Pergunta: Quanto é 3.2 / 1.5, arredondado com 1 casa decimal? 
+Resposta: 2.1
+Eval: acertou.
+_____
+Thu Apr  9 21:20:53 -03 2020
+Pergunta: Quanto é 7 x 2.4? 
+Resposta: 16.8
+Eval: acertou.
+_____
+Thu Apr  9 21:21:15 -03 2020
+Pergunta: Quanto é 30.2 - 3.5? 
+Resposta: 26.7
+Eval: acertou.
+_____
+Thu Apr  9 21:21:34 -03 2020
+Pergunta: Quanto é 9.2 + 16.8? 
+Resposta: 26
+Eval: acertou.
+_____
+Thu Apr  9 21:21:51 -03 2020
+Pergunta: Quanto é 5 x 6.4? 
+Resposta: 32
+Eval: acertou.
+_____
+Thu Apr  9 21:23:15 -03 2020
+Pergunta: Quanto é 26 + 12? 
+Resposta: 38
+Eval: acertou.
+_____
+Thu Apr  9 21:23:43 -03 2020
+Pergunta: Quanto é 21.2 + 8.8? 
+Resposta: 30
+Eval: acertou.
+_____
+Thu Apr  9 21:24:12 -03 2020
+Pergunta: Quanto é 29 - 19.5? 
+Resposta: 9.5
+Eval: acertou.
+_____
+Thu Apr  9 22:22:25 -03 2020
+Pergunta: Quanto é 28.2 - 3.5? 
+Resposta: 24.7
+Eval: acertou.
+_____
+Thu Apr  9 22:23:52 -03 2020
+Pergunta: Quanto é 23.2 + 8? 
+Resposta: 31.2
+Eval: acertou.
+_____
+Thu Apr  9 22:24:09 -03 2020
+Pergunta: Quanto é 0.2 - 19.5? 
+Resposta: -19.3
+Eval: acertou.
+_____
+Thu Apr  9 22:24:30 -03 2020
+Pergunta: Quanto é 5 - 25.9? 
+Resposta: -20.9
+Eval: acertou.
+_____
+Fri Apr 10 20:47:10 -03 2020
+Pergunta: Quanto é 18 + 28? 
+Resposta: 46
+Eval: acertou.
+_____
+Sat Apr 11 20:26:25 -03 2020
+Pergunta: Quanto é 7.6 + 0.8? 
+Resposta: 8.4
+Eval: acertou.
+_____
+Sat Apr 11 20:27:03 -03 2020
+Pergunta: Quanto é 31 - 25.9? 
+Resposta: 5.1
+Eval: acertou.
+_____
+Sat Apr 11 20:28:27 -03 2020
+Pergunta: Quanto é 7.6 / 6.3, arredondado com 1 casa decimal? 
+Resposta: 1.2
+Eval: acertou.
+_____
+Sat Apr 11 20:28:37 -03 2020
+Pergunta: Quanto é 1 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Sat Apr 11 20:28:46 -03 2020
+Pergunta: Quanto é 0 / 7.9? 
+Resposta: 0
+Eval: acertou.
+_____
+Sat Apr 11 20:29:04 -03 2020
+Pergunta: Quanto é 1 - 9.9? 
+Resposta: -8.9
+Eval: acertou.
+_____
+Sat Apr 11 20:29:47 -03 2020
+Pergunta: Quanto é 6.2 x 0.8, arredondado com 1 casa decimal? 
+Resposta: 5
+Eval: acertou.
+_____
+Sat Apr 11 20:50:45 -03 2020
+Pergunta: Quanto é 14.2 - 16.3? 
+Resposta: -2.1
+Eval: acertou.
+_____
+Sat Apr 11 20:51:25 -03 2020
+Pergunta: Quanto é 21 - 25.9? 
+Resposta: -4.9
+Eval: acertou.
+_____
+Sat Apr 11 20:51:41 -03 2020
+Pergunta: Quanto é 1 - 9.9? 
+Resposta: -8.9
+Eval: acertou.
+_____
+Sat Apr 11 20:52:02 -03 2020
+Pergunta: Quanto é 4 + 14.4? 
+Resposta: 18.4
+Eval: acertou.
+_____
+Sat Apr 11 20:52:19 -03 2020
+Pergunta: Quanto é 7 - 19.5? 
+Resposta: -12.5
+Eval: acertou.
+_____
+Sat Apr 11 21:11:13 -03 2020
+Pergunta: Quanto é 4.2 x 4.8, arredondado com 1 casa decimal? 
+Resposta: 20.2
+Eval: acertou.
+_____
+Sat Apr 11 21:11:30 -03 2020
+Pergunta: Quanto é 20.6 - 16.3? 
+Resposta: 4.3
+Eval: acertou.
+_____
+Sat Apr 11 21:11:51 -03 2020
+Pergunta: Quanto é 11.6 + 8.8? 
+Resposta: 20.4
+Eval: acertou.
+_____
+Sat Apr 11 21:12:10 -03 2020
+Pergunta: Quanto é 3 x 2.4? 
+Resposta: 7.2
+Eval: acertou.
+_____
+Sat Apr 11 21:12:55 -03 2020
+Pergunta: Quanto é 18.2 - 19.5? 
+Resposta: -1.3
+Eval: acertou.
+_____
+Sat Apr 11 21:13:11 -03 2020
+Pergunta: Quanto é 6.2 x 4? 
+Resposta: 24.8
+Eval: acertou.
+_____
+Sat Apr 11 21:13:32 -03 2020
+Pergunta: Quanto é 3 x 2.4? 
+Resposta: 7.2
+Eval: acertou.
+_____
+Sat Apr 11 21:13:46 -03 2020
+Pergunta: Quanto é 5 x 6.4? 
+Resposta: 32
+Eval: acertou.
+_____
+Sat Apr 11 21:14:10 -03 2020
+Pergunta: Quanto é 15 - 25.9? 
+Resposta: -10.9
+Eval: acertou.
+_____
+Sat Apr 11 21:14:24 -03 2020
+Pergunta: Quanto é 1 x 6.4? 
+Resposta: 6.4
+Eval: acertou.
+_____
+Sat Apr 11 21:15:01 -03 2020
+Pergunta: Quanto é 2.2 x 0.8, arredondado com 1 casa decimal? 
+Resposta: 1.8
+Eval: acertou.
+_____
+Sat Apr 11 21:15:18 -03 2020
+Pergunta: Quanto é 12 + 30.4? 
+Resposta: 42.4
+Eval: acertou.
+_____
+Sat Apr 11 21:22:18 -03 2020
+Pergunta: Quanto é 28.2 - 16.3? 
+Resposta: 11.9
+Eval: acertou.
+_____
+Sat Apr 11 21:24:06 -03 2020
+Pergunta: Quanto é 6.6 x 4.8, arredondado com 1 casa decimal? 
+Resposta: 31.7
+Eval: acertou.
+_____
+Sat Apr 11 21:24:17 -03 2020
+Pergunta: Quanto é 7 x 4? 
+Resposta: 28
+Eval: acertou.
+_____
+Sat Apr 11 21:26:15 -03 2020
+Pergunta: Quanto é 2 / 7.9, arredondado com 1 casa decimal? 
+Resposta: 0.3
+Eval: acertou.
+_____
+Sat Apr 11 21:26:32 -03 2020
+Pergunta: Quanto é 2.2 x 4? 
+Resposta: 8.8
+Eval: acertou.
+_____
+Sat Apr 11 21:26:57 -03 2020
+Pergunta: Quanto é 7 x 2.4? 
+Resposta: 16.8
+Eval: acertou.
+_____
+Sat Apr 11 21:27:13 -03 2020
+Pergunta: Quanto é 10.2 - 0.3? 
+Resposta: 9.9
+Eval: acertou.
+_____
+Sat Apr 11 21:35:46 -03 2020
+Pergunta: Quanto é 25.2 + 16.8? 
+Resposta: 42
+Eval: acertou.
+_____
+Sat Apr 11 21:35:55 -03 2020
+Pergunta: Quanto é 5 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Sat Apr 11 21:36:08 -03 2020
+Pergunta: Quanto é 4.2 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Sat Apr 11 21:39:19 -03 2020
+Pergunta: Quanto é 24.2 - 19.5? 
+Resposta: 4.7
+Eval: acertou.
+_____
+Sat Apr 11 21:40:24 -03 2020
+Pergunta: Quanto é 1.2 / 1.5? 
+Resposta: 0.8
+Eval: acertou.
+_____
+Sat Apr 11 21:40:44 -03 2020
+Pergunta: Quanto é 17.2 + 20? 
+Resposta: 37.2
+Eval: acertou.
+_____
+Sat Apr 11 22:06:31 -03 2020
+Pergunta: Quanto é 12.2 - 3.5? 
+Resposta: 8.7
+Eval: acertou.
+_____
+Sat Apr 11 22:06:45 -03 2020
+Pergunta: Quanto é 6 / 1.5? 
+Resposta: 4
+Eval: acertou.
+_____
+Sat Apr 11 22:06:57 -03 2020
+Pergunta: Quanto é 3.2 + 0? 
+Resposta: 3.2
+Eval: acertou.
+_____
+Sat Apr 11 22:07:08 -03 2020
+Pergunta: Quanto é 6 + 4? 
+Resposta: 10
+Eval: acertou.
+_____
+Sat Apr 11 22:07:17 -03 2020
+Pergunta: Quanto é 1 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Sat Apr 11 22:07:25 -03 2020
+Pergunta: Quanto é 0 + 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Sat Apr 11 22:07:44 -03 2020
+Pergunta: Quanto é 7.2 + 8? 
+Resposta: 15.2
+Eval: acertou.
+_____
+Sun Apr 12 10:43:30 -03 2020
+Pergunta: Quanto é 5.2 + 8.8? 
+Resposta: 14
+Eval: acertou.
+_____
+Sun Apr 12 10:43:41 -03 2020
+Pergunta: Quanto é 0 / 1.5? 
+Resposta: 0
+Eval: acertou.
+_____
+Sun Apr 12 10:44:36 -03 2020
+Pergunta: Quanto é 7.2 / 1.5? 
+Resposta: 4.8
+Eval: acertou.
+_____
+Sun Apr 12 10:44:46 -03 2020
+Pergunta: Quanto é 0 / 7.9? 
+Resposta: 0
+Eval: acertou.
+_____
+Sun Apr 12 10:45:44 -03 2020
+Pergunta: Quanto é 15.2 + 24? 
+Resposta: 39.2
+Eval: acertou.
+_____
+Sun Apr 12 10:46:06 -03 2020
+Pergunta: Quanto é 29.2 + 12? 
+Resposta: 41.2
+Eval: acertou.
+_____
+Sun Apr 12 10:46:27 -03 2020
+Pergunta: Quanto é 23.2 + 8? 
+Resposta: 31.2
+Eval: acertou.
+_____
+Sun Apr 12 11:37:06 -03 2020
+Pergunta: Quanto é 21.2 + 8.8? 
+Resposta: 30
+Eval: acertou.
+_____
+Sun Apr 12 11:37:15 -03 2020
+Pergunta: Quanto é 1 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Sun Apr 12 11:37:22 -03 2020
+Pergunta: Quanto é 0.2 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Sun Apr 12 11:38:04 -03 2020
+Pergunta: Quanto é 11 - 3.5? 
+Resposta: 7.5
+Eval: acertou.
+_____
+Sun Apr 12 11:38:26 -03 2020
+Pergunta: Quanto é 3.2 + 0? 
+Resposta: 3.2
+Eval: acertou.
+_____
+Sun Apr 12 11:38:44 -03 2020
+Pergunta: Quanto é 13.2 + 12? 
+Resposta: 25.2
+Eval: acertou.
+_____
+Sun Apr 12 12:11:10 -03 2020
+Pergunta: Quanto é 6.6 - 0.3? 
+Resposta: 6.3
+Eval: acertou.
+_____
+Sun Apr 12 12:11:38 -03 2020
+Pergunta: Quanto é 7 x 2.4? 
+Resposta: 16.8
+Eval: acertou.
+_____
+Sun Apr 12 12:25:08 -03 2020
+Pergunta: Quanto é 22.6 - 0.3? 
+Resposta: 22.3
+Eval: acertou.
+_____
+Sun Apr 12 12:25:45 -03 2020
+Pergunta: Quanto é 17.6 + 28.8? 
+Resposta: 46.4
+Eval: acertou.
+_____
+Sun Apr 12 12:53:52 -03 2020
+Pergunta: Quanto é 11.2 + 28.8? 
+Resposta: 40
+Eval: acertou.
+_____
+Sun Apr 12 12:54:17 -03 2020
+Pergunta: Quanto é 21.2 + 8.8? 
+Resposta: 30
+Eval: acertou.
+_____
+Sun Apr 12 12:54:33 -03 2020
+Pergunta: Quanto é 10.2 - 0.3? 
+Resposta: 9.9
+Eval: acertou.
+_____
+Sun Apr 12 14:43:33 -03 2020
+Pergunta: Quanto é 24.2 - 0.3? 
+Resposta: 23.9
+Eval: acertou.
+_____
+Sun Apr 12 14:59:21 -03 2020
+Pergunta: Quanto é 22.6 - 0.3? 
+Resposta: 22.3
+Eval: acertou.
+_____
+Mon Apr 13 11:21:16 -03 2020
+Pergunta: Quanto é 1 - 3.5? 
+Resposta: -2.5
+Eval: acertou.
+_____
+Mon Apr 13 11:21:27 -03 2020
+Pergunta: Quanto é 4 + 8? 
+Resposta: 12
+Eval: acertou.
+_____
+Mon Apr 13 11:21:49 -03 2020
+Pergunta: Quanto é 21 - 25.9? 
+Resposta: -4.9
+Eval: acertou.
+_____
+Mon Apr 13 11:22:13 -03 2020
+Pergunta: Quanto é 13.6 + 20.8? 
+Resposta: 34.4
+Eval: acertou.
+_____
+Mon Apr 13 11:22:28 -03 2020
+Pergunta: Quanto é 22.6 - 0.3? 
+Resposta: 22.3
+Eval: acertou.
+_____
+Mon Apr 13 11:22:36 -03 2020
+Pergunta: Quanto é 5 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Mon Apr 13 15:24:56 -03 2020
+Pergunta: Quanto é 28 + 24? 
+Resposta: 52
+Eval: acertou.
+_____
+Mon Apr 13 15:25:06 -03 2020
+Pergunta: Quanto é 6 + 4? 
+Resposta: 10
+Eval: acertou.
+_____
+Mon Apr 13 15:25:40 -03 2020
+Pergunta: Quanto é 11 - 9.9? 
+Resposta: 1.1
+Eval: acertou.
+_____
+Mon Apr 13 15:26:00 -03 2020
+Pergunta: Quanto é 28 + 30.4? 
+Resposta: 58.4
+Eval: acertou.
+_____
+Mon Apr 13 16:52:55 -03 2020
+Pergunta: Quanto é 12.2 - 3.5? 
+Resposta: 8.7
+Eval: acertou.
+_____
+Mon Apr 13 16:53:25 -03 2020
+Pergunta: Quanto é 6 / 1.5? 
+Resposta: 4
+Eval: acertou.
+_____
+Mon Apr 13 16:53:57 -03 2020
+Pergunta: Quanto é 29 - 25.9? 
+Resposta: 3.1
+Eval: acertou.
+_____
+Mon Apr 13 16:54:12 -03 2020
+Pergunta: Quanto é 0.2 - 0.3? 
+Resposta: -0.1
+Eval: acertou.
+_____
+Mon Apr 13 16:54:21 -03 2020
+Pergunta: Quanto é 0 / 1.5? 
+Resposta: 0
+Eval: acertou.
+_____
+Mon Apr 13 18:44:53 -03 2020
+Pergunta: Quanto é 7 x 2.4? 
+Resposta: 16.8
+Eval: acertou.
+_____
+Mon Apr 13 18:45:11 -03 2020
+Pergunta: Quanto é 18.6 - 16.3? 
+Resposta: 2.3
+Eval: acertou.
+_____
+Mon Apr 13 18:45:27 -03 2020
+Pergunta: Quanto é 4.2 - 3.5? 
+Resposta: 0.7
+Eval: acertou.
+_____
+Mon Apr 13 18:46:35 -03 2020
+Pergunta: Quanto é 9 - 9.9? 
+Resposta: -0.9
+Eval: acertou.
+_____
+Mon Apr 13 18:46:44 -03 2020
+Pergunta: Quanto é 0 / 7.9? 
+Resposta: 0
+Eval: acertou.
+_____
+Wed Apr 15 14:30:14 -03 2020
+Pergunta: Quanto é 2.2 x 0.8, arredondado com 1 casa decimal? 
+Resposta: 1.8
+Eval: acertou.
+_____
+Wed Apr 15 14:30:26 -03 2020
+Pergunta: Quanto é 2.2 x 4? 
+Resposta: 8.8
+Eval: acertou.
+_____
+Wed Apr 15 14:30:47 -03 2020
+Pergunta: Quanto é 7 - 25.9? 
+Resposta: -18.9
+Eval: acertou.
+_____
+Wed Apr 15 14:31:00 -03 2020
+Pergunta: Quanto é 5 - 25.9? 
+Resposta: -20.9
+Eval: acertou.
+_____
+Wed Apr 15 18:00:44 -03 2020
+Pergunta: Quanto é 4.2 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Wed Apr 15 18:00:57 -03 2020
+Pergunta: Quanto é 19.2 + 0? 
+Resposta: 19.2
+Eval: acertou.
+_____
+Wed Apr 15 18:01:08 -03 2020
+Pergunta: Quanto é 22 + 4? 
+Resposta: 26
+Eval: acertou.
+_____
+Wed Apr 15 18:57:57 -03 2020
+Pergunta: Quanto é 16 + 6.4? 
+Resposta: 22.4
+Eval: acertou.
+_____
+Wed Apr 15 18:58:17 -03 2020
+Pergunta: Quanto é 0.6 x 0.8, arredondado com 1 casa decimal? 
+Resposta: 0.5
+Eval: acertou.
+_____
+Wed Apr 15 18:58:25 -03 2020
+Pergunta: Quanto é 2 + 28? 
+Resposta: 30
+Eval: acertou.
+_____
+Wed Apr 15 18:58:38 -03 2020
+Pergunta: Quanto é 9.2 + 4? 
+Resposta: 13.2
+Eval: acertou.
+_____
+Wed Apr 15 18:58:51 -03 2020
+Pergunta: Quanto é 28 + 24? 
+Resposta: 52
+Eval: acertou.
+_____
+Wed Apr 15 18:59:02 -03 2020
+Pergunta: Quanto é 1 x 6.4? 
+Resposta: 6.4
+Eval: acertou.
+_____
+Wed Apr 15 18:59:17 -03 2020
+Pergunta: Quanto é 24 + 22.4? 
+Resposta: 46.4
+Eval: acertou.
+_____
+Wed Apr 15 18:59:25 -03 2020
+Pergunta: Quanto é 0 + 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Fri Apr 17 11:33:27 -03 2020
+Pergunta: Quanto é 7 x 2.4? 
+Resposta: 16.8
+Eval: acertou.
+_____
+Fri Apr 17 11:33:49 -03 2020
+Pergunta: Quanto é 15.6 + 16.8? 
+Resposta: 32.4
+Eval: acertou.
+_____
+Thu Apr 30 09:41:25 -03 2020
+Pergunta: Quanto é 0 + 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Apr 30 09:41:34 -03 2020
+Pergunta: Quanto é 6 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Apr 30 09:41:45 -03 2020
+Pergunta: Quanto é 18 - 3? 
+Resposta: 15
+Eval: acertou.
+_____
+Thu Apr 30 09:41:57 -03 2020
+Pergunta: Quanto é 12 + 8? 
+Resposta: 20
+Eval: acertou.
+_____
+Thu Apr 30 09:42:07 -03 2020
+Pergunta: Quanto é 8 + 16? 
+Resposta: 24
+Eval: acertou.
+_____
+Thu Apr 30 09:42:14 -03 2020
+Pergunta: Quanto é 6 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Apr 30 09:42:23 -03 2020
+Pergunta: Quanto é 10 - 3? 
+Resposta: 7
+Eval: acertou.
+_____
+Thu Apr 30 09:42:30 -03 2020
+Pergunta: Quanto é 6 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Apr 30 09:42:39 -03 2020
+Pergunta: Quanto é 8 + 16? 
+Resposta: 24
+Eval: acertou.
+_____
+Thu Apr 30 09:42:46 -03 2020
+Pergunta: Quanto é 6 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Apr 30 09:42:54 -03 2020
+Pergunta: Quanto é 10 - 3? 
+Resposta: 7
+Eval: acertou.
+_____
+Thu Apr 30 09:43:00 -03 2020
+Pergunta: Quanto é 0 + 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Apr 30 09:43:07 -03 2020
+Pergunta: Quanto é 0 / 7? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Apr 30 09:43:15 -03 2020
+Pergunta: Quanto é 2 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Apr 30 09:49:09 -03 2020
+Pergunta: Quanto é 2 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Apr 30 09:49:19 -03 2020
+Pergunta: Quanto é 10 - 3? 
+Resposta: 7
+Eval: acertou.
+_____
+Thu Apr 30 09:49:28 -03 2020
+Pergunta: Quanto é 2 - 3? 
+Resposta: -1
+Eval: acertou.
+_____
+Thu Apr 30 09:49:35 -03 2020
+Pergunta: Quanto é 6 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Apr 30 09:49:44 -03 2020
+Pergunta: Quanto é 18 - 3? 
+Resposta: 15
+Eval: acertou.
+_____
+Thu Apr 30 09:49:51 -03 2020
+Pergunta: Quanto é 6 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Apr 30 09:50:02 -03 2020
+Pergunta: Quanto é 2 - 3? 
+Resposta: -1
+Eval: acertou.
+_____
+Thu Apr 30 09:50:12 -03 2020
+Pergunta: Quanto é 30 - 3? 
+Resposta: 27
+Eval: acertou.
+_____
+Thu Apr 30 09:50:20 -03 2020
+Pergunta: Quanto é 0 / 7? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Apr 30 09:50:28 -03 2020
+Pergunta: Quanto é 2 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Apr 30 10:22:39 -03 2020
+Pergunta: Quanto é 1 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Apr 30 10:22:59 -03 2020
+Pergunta: Quanto é 2 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Apr 30 10:23:09 -03 2020
+Pergunta: Quanto é 14 - 3? 
+Resposta: 11
+Eval: acertou.
+_____
+Thu Apr 30 10:23:18 -03 2020
+Pergunta: Quanto é 0 + 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Apr 30 10:23:24 -03 2020
+Pergunta: Quanto é 0 + 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Apr 30 10:23:31 -03 2020
+Pergunta: Quanto é 0 / 7? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Apr 30 10:23:39 -03 2020
+Pergunta: Quanto é 2 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Apr 30 10:23:46 -03 2020
+Pergunta: Quanto é 2 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Apr 30 10:23:55 -03 2020
+Pergunta: Quanto é 6 - 3? 
+Resposta: 3
+Eval: acertou.
+_____
+Thu Apr 30 10:24:04 -03 2020
+Pergunta: Quanto é 30 - 3? 
+Resposta: 27
+Eval: acertou.
+_____
+Thu Apr 30 10:24:11 -03 2020
+Pergunta: Quanto é 2 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Apr 30 10:29:41 -03 2020
+Pergunta: Quanto é 2 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Apr 30 10:29:54 -03 2020
+Pergunta: Quanto é 2 - 3? 
+Resposta: -1
+Eval: acertou.
+_____
+Thu Apr 30 10:30:07 -03 2020
+Pergunta: Quanto é 28 + 8? 
+Resposta: 36
+Eval: acertou.
+_____
+Thu Apr 30 10:30:15 -03 2020
+Pergunta: Quanto é 6 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Apr 30 10:30:29 -03 2020
+Pergunta: Quanto é 2 - 3? 
+Resposta: -1
+Eval: acertou.
+_____
+Thu Apr 30 10:30:39 -03 2020
+Pergunta: Quanto é 16 + 0? 
+Resposta: 16
+Eval: acertou.
+_____
+Thu Apr 30 10:30:47 -03 2020
+Pergunta: Quanto é 10 - 3? 
+Resposta: 7
+Eval: acertou.
+_____
+Thu Apr 30 10:30:55 -03 2020
+Pergunta: Quanto é 2 - 3? 
+Resposta: -1
+Eval: acertou.
+_____
+Thu Apr 30 10:31:02 -03 2020
+Pergunta: Quanto é 6 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Apr 30 10:31:10 -03 2020
+Pergunta: Quanto é 18 - 3? 
+Resposta: 15
+Eval: acertou.
+_____
+Thu Apr 30 10:58:00 -03 2020
+Pergunta: Quanto é 10 - 3? 
+Resposta: 7
+Eval: acertou.
+_____
+Thu Apr 30 11:09:33 -03 2020
+Pergunta: Quanto é 4 + 24? 
+Resposta: 28
+Eval: acertou.
+_____
+Thu Apr 30 11:21:55 -03 2020
+Pergunta: Quanto é 6 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Apr 30 11:22:03 -03 2020
+Pergunta: Quanto é 0 / 7? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Apr 30 11:22:11 -03 2020
+Pergunta: Quanto é 2 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Apr 30 11:22:20 -03 2020
+Pergunta: Quanto é 14 - 3? 
+Resposta: 11
+Eval: acertou.
+_____
+Thu Apr 30 11:22:28 -03 2020
+Pergunta: Quanto é 0 / 7? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Apr 30 11:22:36 -03 2020
+Pergunta: Quanto é 0 / 7? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Apr 30 11:26:37 -03 2020
+Pergunta: Quanto é 10 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Apr 30 11:26:48 -03 2020
+Pergunta: Quanto é 2 - 3? 
+Resposta: -1
+Eval: acertou.
+_____
+Thu Apr 30 11:26:56 -03 2020
+Pergunta: Quanto é 30 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Apr 30 11:27:03 -03 2020
+Pergunta: Quanto é 22 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Apr 30 11:27:18 -03 2020
+Pergunta: Quanto é 10 - 35? 
+Resposta: -25
+Eval: acertou.
+_____
+Thu Apr 30 11:28:01 -03 2020
+Pergunta: Quanto é 40 + 80? 
+Resposta: 120
+Eval: acertou.
+_____
+Thu Apr 30 11:28:25 -03 2020
+Pergunta: Quanto é 110 - 35? 
+Resposta: 75
+Eval: acertou.
+_____
+Thu Apr 30 11:28:34 -03 2020
+Pergunta: Quanto é 10 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Apr 30 11:28:47 -03 2020
+Pergunta: Quanto é 46 - 3? 
+Resposta: 43
+Eval: acertou.
+_____
+Thu Apr 30 11:28:59 -03 2020
+Pergunta: Quanto é 130 - 99? 
+Resposta: 31
+Eval: acertou.
+_____
+Thu Apr 30 12:26:49 -03 2020
+Pergunta: Quanto é 26 x 8? 
+Resposta: 34
+Eval: errou.
+_____
+Thu Apr 30 12:27:06 -03 2020
+Pergunta: Quanto é 0 / 15? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Apr 30 12:27:23 -03 2020
+Pergunta: Quanto é 92 + 40? 
+Resposta: 132
+Eval: acertou.
+_____
+Thu Apr 30 12:27:33 -03 2020
+Pergunta: Quanto é 2 x 8? 
+Resposta: 16
+Eval: acertou.
+_____
+Thu Apr 30 12:27:49 -03 2020
+Pergunta: Quanto é 72 + 48? 
+Resposta: 120
+Eval: acertou.
+_____
+Thu Apr 30 12:28:39 -03 2020
+Pergunta: Quanto é 32 / 23, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Thu Apr 30 12:28:53 -03 2020
+Pergunta: Quanto é 60 + 104? 
+Resposta: 164
+Eval: acertou.
+_____
+Thu Apr 30 12:58:06 -03 2020
+Pergunta: Quanto é 152 + 48? 
+Resposta: 200
+Eval: acertou.
+_____
+Thu Apr 30 12:58:15 -03 2020
+Pergunta: Quanto é 30 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Apr 30 12:58:22 -03 2020
+Pergunta: Quanto é 22 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Apr 30 12:58:34 -03 2020
+Pergunta: Quanto é 50 - 35? 
+Resposta: 15
+Eval: acertou.
+_____
+Thu Apr 30 12:58:43 -03 2020
+Pergunta: Quanto é 12 + 8? 
+Resposta: 20
+Eval: acertou.
+_____
+Thu Apr 30 12:58:52 -03 2020
+Pergunta: Quanto é 30 - 35? 
+Resposta: -5
+Eval: acertou.
+_____
+Thu Apr 30 12:58:59 -03 2020
+Pergunta: Quanto é 0 / 15? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Apr 30 12:59:09 -03 2020
+Pergunta: Quanto é 142 - 3? 
+Resposta: 139
+Eval: acertou.
+_____
+Thu Apr 30 13:12:36 -03 2020
+Pergunta: Quanto é 96 + 128? 
+Resposta: 224
+Eval: acertou.
+_____
+Thu Apr 30 13:12:45 -03 2020
+Pergunta: Quanto é 0 + 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Apr 30 13:13:04 -03 2020
+Pergunta: Quanto é 16 / 23, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Thu Apr 30 13:13:49 -03 2020
+Pergunta: Quanto é 36 / 23, arredondado com 0 casas decimais? 
+Resposta: 2
+Eval: acertou.
+_____
+Thu Apr 30 13:32:38 -03 2020
+Pergunta: Quanto é 122 - 35? 
+Resposta: 87
+Eval: acertou.
+_____
+Thu Apr 30 13:32:48 -03 2020
+Pergunta: Quanto é 6 x 8? 
+Resposta: 48
+Eval: acertou.
+_____
+Thu Apr 30 13:32:55 -03 2020
+Pergunta: Quanto é 30 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Apr 30 13:33:02 -03 2020
+Pergunta: Quanto é 22 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Apr 30 13:33:11 -03 2020
+Pergunta: Quanto é 0 + 64? 
+Resposta: 64
+Eval: acertou.
+_____
+Thu Apr 30 13:33:27 -03 2020
+Pergunta: Quanto é 30 x 24? 
+Resposta: 720
+Eval: acertou.
+_____
+Thu Apr 30 13:33:39 -03 2020
+Pergunta: Quanto é 10 - 99? 
+Resposta: -89
+Eval: acertou.
+_____
+Thu Apr 30 13:33:55 -03 2020
+Pergunta: Quanto é 26 x 8? 
+Resposta: 104
+Eval: errou.
+_____
+Thu Apr 30 13:34:07 -03 2020
+Pergunta: Quanto é 2 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Apr 30 13:34:20 -03 2020
+Pergunta: Quanto é 130 - 99? 
+Resposta: 31
+Eval: acertou.
+_____
+Thu Apr 30 13:34:34 -03 2020
+Pergunta: Quanto é 32 / 15, arredondado com 0 casas decimais? 
+Resposta: 2
+Eval: acertou.
+_____
+Thu Apr 30 13:34:42 -03 2020
+Pergunta: Quanto é 6 - 3? 
+Resposta: 3
+Eval: acertou.
+_____
+Thu Apr 30 15:58:00 -03 2020
+Pergunta: Quanto é 30 - 35? 
+Resposta: -5
+Eval: acertou.
+_____
+Thu Apr 30 15:58:16 -03 2020
+Pergunta: Quanto é 110 - 35? 
+Resposta: 75
+Eval: acertou.
+_____
+Thu Apr 30 15:58:31 -03 2020
+Pergunta: Quanto é 20 / 39, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Thu Apr 30 15:58:46 -03 2020
+Pergunta: Quanto é 30 x 24? 
+Resposta: 720
+Eval: acertou.
+_____
+Thu Apr 30 15:58:54 -03 2020
+Pergunta: Quanto é 32 + 0? 
+Resposta: 32
+Eval: acertou.
+_____
+Thu Apr 30 15:59:03 -03 2020
+Pergunta: Quanto é 26 - 3? 
+Resposta: 23
+Eval: acertou.
+_____
+Thu Apr 30 15:59:25 -03 2020
+Pergunta: Quanto é 22 x 8? 
+Resposta: 176
+Eval: acertou.
+_____
+Thu Apr 30 15:59:41 -03 2020
+Pergunta: Quanto é 72 + 80? 
+Resposta: 152
+Eval: acertou.
+_____
+Thu Apr 30 16:13:18 -03 2020
+Pergunta: Quanto é 120 + 144? 
+Resposta: 264
+Eval: acertou.
+_____
+Thu Apr 30 16:13:28 -03 2020
+Pergunta: Quanto é 6 x 8? 
+Resposta: 48
+Eval: acertou.
+_____
+Thu Apr 30 16:13:36 -03 2020
+Pergunta: Quanto é 30 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Apr 30 16:13:42 -03 2020
+Pergunta: Quanto é 22 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Apr 30 16:13:53 -03 2020
+Pergunta: Quanto é 10 - 35? 
+Resposta: -25
+Eval: acertou.
+_____
+Thu Apr 30 16:14:07 -03 2020
+Pergunta: Quanto é 52 + 88? 
+Resposta: 140
+Eval: acertou.
+_____
+Thu Apr 30 16:14:29 -03 2020
+Pergunta: Quanto é 50 - 99? 
+Resposta: -49
+Eval: acertou.
+_____
+Thu Apr 30 17:10:52 -03 2020
+Pergunta: Quanto é 122 - 35? 
+Resposta: 87
+Eval: acertou.
+_____
+Thu Apr 30 17:11:05 -03 2020
+Pergunta: Quanto é 72 + 48? 
+Resposta: 120
+Eval: acertou.
+_____
+Thu Apr 30 17:11:20 -03 2020
+Pergunta: Quanto é 132 + 120? 
+Resposta: 252
+Eval: acertou.
+_____
+Thu Apr 30 17:11:33 -03 2020
+Pergunta: Quanto é 12 / 15, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Thu Apr 30 17:11:40 -03 2020
+Pergunta: Quanto é 0 / 15? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Apr 30 17:12:29 -03 2020
+Pergunta: Quanto é 26 x 8? 
+Resposta: 208
+Eval: acertou.
+_____
+Thu Apr 30 18:04:53 -03 2020
+Pergunta: Quanto é 122 - 35? 
+Resposta: 87
+Eval: acertou.
+_____
+Thu Apr 30 18:05:06 -03 2020
+Pergunta: Quanto é 106 - 3? 
+Resposta: 103
+Eval: acertou.
+_____
+Thu Apr 30 18:05:20 -03 2020
+Pergunta: Quanto é 30 - 99? 
+Resposta: -69
+Eval: acertou.
+_____
+Thu Apr 30 18:05:32 -03 2020
+Pergunta: Quanto é 12 / 15, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Thu Apr 30 18:05:40 -03 2020
+Pergunta: Quanto é 0 / 15? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Apr 30 19:29:23 -03 2020
+Pergunta: Quanto é 26 x 8? 
+Resposta: 208
+Eval: acertou.
+_____
+Thu Apr 30 19:29:34 -03 2020
+Pergunta: Quanto é 32 + 0? 
+Resposta: 32
+Eval: acertou.
+_____
+Thu Apr 30 19:29:44 -03 2020
+Pergunta: Quanto é 72 + 48? 
+Resposta: 120
+Eval: acertou.
+_____
+Thu Apr 30 19:30:08 -03 2020
+Pergunta: Quanto é 22 x 8? 
+Resposta: 176
+Eval: acertou.
+_____
+Thu Apr 30 19:30:23 -03 2020
+Pergunta: Quanto é 156 + 8? 
+Resposta: 164
+Eval: acertou.
+_____
+Thu Apr 30 19:30:36 -03 2020
+Pergunta: Quanto é 22 x 8? 
+Resposta: 176
+Eval: acertou.
+_____
+Thu Apr 30 19:30:47 -03 2020
+Pergunta: Quanto é 2 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Apr 30 19:30:56 -03 2020
+Pergunta: Quanto é 30 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Apr 30 19:31:04 -03 2020
+Pergunta: Quanto é 22 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Apr 30 19:58:25 -03 2020
+Pergunta: Quanto é 22 x 8? 
+Resposta: 176
+Eval: acertou.
+_____
+Thu Apr 30 19:58:42 -03 2020
+Pergunta: Quanto é 70 - 99? 
+Resposta: -29
+Eval: acertou.
+_____
+Thu Apr 30 19:58:59 -03 2020
+Pergunta: Quanto é 60 + 104? 
+Resposta: 164
+Eval: acertou.
+_____
+Thu Apr 30 19:59:08 -03 2020
+Pergunta: Quanto é 102 - 3? 
+Resposta: 99
+Eval: acertou.
+_____
+Thu Apr 30 19:59:32 -03 2020
+Pergunta: Quanto é 32 / 23, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Thu Apr 30 19:59:47 -03 2020
+Pergunta: Quanto é 32 + 128? 
+Resposta: 160
+Eval: acertou.
+_____
+Thu Apr 30 20:00:01 -03 2020
+Pergunta: Quanto é 150 - 99? 
+Resposta: 51
+Eval: acertou.
+_____
+Thu Apr 30 20:05:48 -03 2020
+Pergunta: Quanto é 140 + 104? 
+Resposta: 244
+Eval: acertou.
+_____
+Thu Apr 30 20:06:14 -03 2020
+Pergunta: Quanto é 56 + 48? 
+Resposta: 104
+Eval: acertou.
+_____
+Thu Apr 30 20:06:26 -03 2020
+Pergunta: Quanto é 146 - 3? 
+Resposta: 143
+Eval: acertou.
+_____
+Thu Apr 30 20:06:45 -03 2020
+Pergunta: Quanto é 70 - 99? 
+Resposta: -29
+Eval: acertou.
+_____
+Thu Apr 30 20:07:13 -03 2020
+Pergunta: Quanto é 16 / 23, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Thu Apr 30 20:07:24 -03 2020
+Pergunta: Quanto é 126 - 3? 
+Resposta: 123
+Eval: acertou.
+_____
+Thu Apr 30 20:07:34 -03 2020
+Pergunta: Quanto é 2 x 8? 
+Resposta: 16
+Eval: acertou.
+_____
+Thu Apr 30 20:07:45 -03 2020
+Pergunta: Quanto é 152 + 48? 
+Resposta: 200
+Eval: acertou.
+_____
+Thu Apr 30 20:08:18 -03 2020
+Pergunta: Quanto é 36 / 23, arredondado com 0 casas decimais? 
+Resposta: 2
+Eval: acertou.
+_____
+Thu Apr 30 21:25:15 -03 2020
+Pergunta: Quanto é 26 x 8? 
+Resposta: 204
+Eval: errou.
+_____
+Thu Apr 30 21:25:26 -03 2020
+Pergunta: Quanto é 0 / 39? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Apr 30 21:25:47 -03 2020
+Pergunta: Quanto é 10 - 99? 
+Resposta: -89
+Eval: acertou.
+_____
+Fri May  1 14:44:55 -03 2020
+Pergunta: Quanto é 30 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Fri May  1 14:45:12 -03 2020
+Pergunta: Quanto é 20 / 39, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Fri May  1 14:45:35 -03 2020
+Pergunta: Quanto é 20 / 15, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Mon Jun 22 17:01:06 -03 2020
+Pergunta: Quanto é 0 / 7? 
+Resposta: 0
+Eval: acertou.
+_____
+Mon Jun 22 17:01:15 -03 2020
+Pergunta: Quanto é 2 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Mon Jun 22 17:01:25 -03 2020
+Pergunta: Quanto é 22 - 3? 
+Resposta: 19
+Eval: acertou.
+_____
+Mon Jun 22 17:01:32 -03 2020
+Pergunta: Quanto é 0 / 7? 
+Resposta: 0
+Eval: acertou.
+_____
+Mon Jun 22 17:01:38 -03 2020
+Pergunta: Quanto é 2 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Mon Jun 22 17:01:48 -03 2020
+Pergunta: Quanto é 30 - 3? 
+Resposta: 27
+Eval: acertou.
+_____
+Mon Jun 22 17:02:09 -03 2020
+Pergunta: Quanto é 6 x 8? 
+Resposta: 48
+Eval: acertou.
+_____
+Thu Jul  2 11:26:12 -03 2020
+Pergunta: Quanto é 2 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Mon Jul 20 10:48:06 -03 2020
+Pergunta: Quanto é 18 + 28? 
+Resposta: 46
+Eval: acertou.
+_____
+Mon Jul 20 10:48:34 -03 2020
+Pergunta: Quanto é 6 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Mon Jul 20 10:48:50 -03 2020
+Pergunta: Quanto é 28 + 8? 
+Resposta: 36
+Eval: acertou.
+_____
+Mon Jul 20 10:48:57 -03 2020
+Pergunta: Quanto é 2 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Mon Jul 20 10:49:13 -03 2020
+Pergunta: Quanto é 12 + 8? 
+Resposta: 20
+Eval: acertou.
+_____
+Mon Jul 20 10:49:26 -03 2020
+Pergunta: Quanto é 12 + 8? 
+Resposta: 20
+Eval: acertou.
+_____
+Mon Jul 20 10:49:34 -03 2020
+Pergunta: Quanto é 0 + 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Mon Jul 20 10:49:50 -03 2020
+Pergunta: Quanto é 6 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Mon Jul 20 10:49:57 -03 2020
+Pergunta: Quanto é 6 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Mon Jul 20 10:53:10 -03 2020
+Pergunta: Quanto é 16 + 0? 
+Resposta: 16
+Eval: acertou.
+_____
+Mon Jul 20 10:53:29 -03 2020
+Pergunta: Quanto é 6 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Mon Jul 20 10:53:44 -03 2020
+Pergunta: Quanto é 24 + 16? 
+Resposta: 40
+Eval: acertou.
+_____
+Mon Jul 20 10:53:51 -03 2020
+Pergunta: Quanto é 6 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Mon Jul 20 10:53:57 -03 2020
+Pergunta: Quanto é 0 + 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Mon Jul 20 10:54:14 -03 2020
+Pergunta: Quanto é 8 + 16? 
+Resposta: 24
+Eval: acertou.
+_____
+Mon Jul 20 10:54:26 -03 2020
+Pergunta: Quanto é 6 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Mon Jul 20 18:08:30 -03 2020
+Pergunta: Quanto é 16 + 0? 
+Resposta: 16
+Eval: acertou.
+_____
+Mon Jul 20 18:08:39 -03 2020
+Pergunta: Quanto é 19 - 12? 
+Resposta: 7
+Eval: acertou.
+_____
+Mon Jul 20 18:08:49 -03 2020
+Pergunta: Quanto é 19 - 20? 
+Resposta: -1
+Eval: acertou.
+_____
+Mon Jul 20 18:11:37 -03 2020
+Pergunta: Quanto é 1 x 2? 
+Resposta: 2
+Eval: acertou.
+_____
+Mon Jul 20 18:11:47 -03 2020
+Pergunta: Quanto é 18 + 4? 
+Resposta: 22
+Eval: acertou.
+_____
+Mon Jul 20 18:12:12 -03 2020
+Pergunta: Quanto é 8 + 16? 
+Resposta: 24
+Eval: acertou.
+_____
+Mon Jul 20 18:12:34 -03 2020
+Pergunta: Quanto é 5 / 4, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Mon Jul 20 18:15:14 -03 2020
+Pergunta: Quanto é 0 / 6? 
+Resposta: 0
+Eval: acertou.
+_____
+Mon Jul 20 18:15:51 -03 2020
+Pergunta: Quanto é 18 + 21? 
+Resposta: 39
+Eval: acertou.
+_____
+Mon Jul 20 18:16:11 -03 2020
+Pergunta: Quanto é 6 + 1? 
+Resposta: 7
+Eval: acertou.
+_____
+Mon Jul 20 18:16:17 -03 2020
+Pergunta: Quanto é 3 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Mon Jul 20 18:16:30 -03 2020
+Pergunta: Quanto é 30 + 9? 
+Resposta: 39
+Eval: acertou.
+_____
+Mon Jul 20 18:23:16 -03 2020
+Pergunta: Quanto é 6 x 7? 
+Resposta: 42
+Eval: acertou.
+_____
+Mon Jul 20 18:23:37 -03 2020
+Pergunta: Quanto é 13 + 14? 
+Resposta: 27
+Eval: acertou.
+_____
+Tue Jul 21 18:04:33 -03 2020
+Pergunta: Quanto é 5 x 7? 
+Resposta: 35
+Eval: acertou.
+_____
+Sun Aug 16 15:34:37 -03 2020
+Pergunta: Quanto é 129 - 135? 
+Resposta: -6
+Eval: acertou.
+_____
+Sun Aug 16 15:34:50 -03 2020
+Pergunta: Quanto é 1 - 121? 
+Resposta: -120
+Eval: acertou.
+_____
+Sun Aug 16 15:35:19 -03 2020
+Pergunta: Quanto é 130 + 42? 
+Resposta: 172
+Eval: acertou.
+_____
+Sun Aug 16 15:35:48 -03 2020
+Pergunta: Quanto é 7 / 30, arredondado com 0 casas decimais? 
+Resposta: 0
+Eval: acertou.
+_____
+Sun Aug 16 15:40:58 -03 2020
+Pergunta: Quanto é 20 + 52? 
+Resposta: 72
+Eval: acertou.
+_____
+Sun Aug 16 15:43:29 -03 2020
+Pergunta: Quanto é 15 x 17? 
+Resposta: 255
+Eval: acertou.
+_____
+Sun Aug 16 15:48:32 -03 2020
+Pergunta: Quanto é 57 - 115? 
+Resposta: -58
+Eval: acertou.
+_____
+Sun Aug 16 15:48:58 -03 2020
+Pergunta: Quanto é 62 + 150? 
+Resposta: 212
+Eval: acertou.
+_____
+Sun Aug 16 16:00:31 -03 2020
+Pergunta: Quanto é 39 / 10, arredondado com 0 casas decimais? 
+Resposta: 4
+Eval: acertou.
+_____
+Sun Aug 16 16:01:10 -03 2020
+Pergunta: Quanto é 7 / 2, arredondado com 0 casas decimais? 
+Resposta: 4
+Eval: acertou.
+_____
+Sun Aug 16 16:02:11 -03 2020
+Pergunta: Quanto é 9 x 27? 
+Resposta: 243
+Eval: acertou.
+_____
+Sun Aug 16 16:13:13 -03 2020
+Pergunta: Quanto é 29 x 31? 
+Resposta: 899
+Eval: acertou.
+_____
+Sun Aug 16 16:13:42 -03 2020
+Pergunta: Quanto é 41 - 87? 
+Resposta: -46
+Eval: acertou.
+_____
+Sun Aug 16 16:24:09 -03 2020
+Pergunta: Quanto é 35 x 5? 
+Resposta: 175
+Eval: acertou.
+_____
+Sun Aug 16 16:24:27 -03 2020
+Pergunta: Quanto é 137 - 95? 
+Resposta: 42
+Eval: acertou.
+_____
+Sun Aug 16 16:26:11 -03 2020
+Pergunta: Quanto é 15 x 25? 
+Resposta: 375
+Eval: acertou.
+_____
+Sun Aug 16 16:26:27 -03 2020
+Pergunta: Quanto é 7 / 12, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Sun Aug 16 16:26:47 -03 2020
+Pergunta: Quanto é 35 x 5? 
+Resposta: 175
+Eval: acertou.
+_____
+Sun Aug 16 20:01:49 -03 2020
+Pergunta: Quanto é 39 / 10, arredondado com 0 casas decimais? 
+Resposta: 4
+Eval: acertou.
+_____
+Sun Aug 16 20:02:24 -03 2020
+Pergunta: Quanto é 97 - 105? 
+Resposta: -8
+Eval: acertou.
+_____
+Sun Aug 16 20:03:03 -03 2020
+Pergunta: Quanto é 54 + 126? 
+Resposta: 180
+Eval: acertou.
+_____
+Sun Aug 16 20:03:49 -03 2020
+Pergunta: Quanto é 31 / 22, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Sun Aug 16 20:04:02 -03 2020
+Pergunta: Quanto é 100 + 132? 
+Resposta: 232
+Eval: acertou.
+_____
+Sun Aug 16 20:42:39 -03 2020
+Pergunta: Quanto é 121 - 67? 
+Resposta: 54
+Eval: acertou.
+_____
+Sun Aug 16 20:42:50 -03 2020
+Pergunta: Quanto é 7 / 10, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Sun Aug 16 20:44:19 -03 2020
+Pergunta: Quanto é 137 - 15? 
+Resposta: 122
+Eval: acertou.
+_____
+Mon Aug 17 09:51:13 -03 2020
+Pergunta: Quanto é 49 - 85? 
+Resposta: -36
+Eval: acertou.
+_____
+Mon Aug 17 09:57:14 -03 2020
+Pergunta: Quanto é 12 + 140? 
+Resposta: 152
+Eval: acertou.
+_____
+Mon Aug 17 09:59:47 -03 2020
+Pergunta: Quanto é 92 + 60? 
+Resposta: 152
+Eval: acertou.
+_____
+Mon Aug 17 10:00:51 -03 2020
+Pergunta: Quanto é 29 x 31? 
+Resposta: 899
+Eval: acertou.
+_____
+Mon Aug 17 10:30:20 -03 2020
+Pergunta: Quanto é 3 / 1? 
+Resposta: 3
+Eval: acertou.
+_____
+Mon Aug 17 11:28:54 -03 2020
+Pergunta: Quanto é 11 / 17, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Mon Aug 17 11:29:19 -03 2020
+Pergunta: Quanto é 3 / 29, arredondado com 0 casas decimais? 
+Resposta: 0
+Eval: acertou.
+_____
+Mon Aug 17 11:29:49 -03 2020
+Pergunta: Quanto é 22 + 94? 
+Resposta: 116
+Eval: acertou.
+_____
+Mon Aug 17 11:30:53 -03 2020
+Pergunta: Quanto é 29 x 31? 
+Resposta: 899
+Eval: acertou.
+_____
+Mon Aug 17 11:31:05 -03 2020
+Pergunta: Quanto é 29 x 31? 
+Resposta: 899
+Eval: acertou.
+_____
+Mon Aug 17 11:31:52 -03 2020
+Pergunta: Quanto é 95 - 82? 
+Resposta: 13
+Eval: acertou.
+_____
+Mon Aug 17 11:32:05 -03 2020
+Pergunta: Quanto é 122 + 66? 
+Resposta: 188
+Eval: acertou.
+_____
+Mon Aug 17 11:32:18 -03 2020
+Pergunta: Quanto é 100 + 4? 
+Resposta: 104
+Eval: acertou.
+_____
+Mon Aug 17 11:32:28 -03 2020
+Pergunta: Quanto é 55 - 22? 
+Resposta: 33
+Eval: acertou.
+_____
+Mon Aug 17 11:32:51 -03 2020
+Pergunta: Quanto é 15 / 23, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Mon Aug 17 11:33:28 -03 2020
+Pergunta: Quanto é 7 / 3, arredondado com 0 casas decimais? 
+Resposta: 2
+Eval: acertou.
+_____
+Mon Aug 17 11:33:42 -03 2020
+Pergunta: Quanto é 10 + 82? 
+Resposta: 92
+Eval: acertou.
+_____
+Mon Aug 17 11:34:22 -03 2020
+Pergunta: Quanto é 9 x 27? 
+Resposta: 243
+Eval: acertou.
+_____
+Mon Aug 17 11:35:45 -03 2020
+Pergunta: Quanto é 21 x 23? 
+Resposta: 483
+Eval: acertou.
+_____
+Mon Aug 17 11:37:21 -03 2020
+Pergunta: Quanto é 3 x 21? 
+Resposta: 63
+Eval: acertou.
+_____
+Mon Aug 17 11:37:58 -03 2020
+Pergunta: Quanto é 19 x 13? 
+Resposta: 247
+Eval: acertou.
+_____
+Mon Aug 17 11:38:17 -03 2020
+Pergunta: Quanto é 11 / 5, arredondado com 0 casas decimais? 
+Resposta: 2
+Eval: acertou.
+_____
+Mon Aug 17 11:48:00 -03 2020
+Pergunta: Quanto é 22 + 78? 
+Resposta: 100
+Eval: acertou.
+_____
+Mon Aug 17 11:48:35 -03 2020
+Pergunta: Quanto é 39 - 86? 
+Resposta: -47
+Eval: acertou.
+_____
+Mon Aug 17 11:49:00 -03 2020
+Pergunta: Quanto é 108 + 44? 
+Resposta: 152
+Eval: acertou.
+_____
+Mon Aug 17 11:49:24 -03 2020
+Pergunta: Quanto é 16 + 80? 
+Resposta: 96
+Eval: acertou.
+_____
+Mon Aug 17 11:50:10 -03 2020
+Pergunta: Quanto é 107 - 96? 
+Resposta: 11
+Eval: acertou.
+_____
+Mon Aug 17 11:50:24 -03 2020
+Pergunta: Quanto é 15 / 3? 
+Resposta: 5
+Eval: acertou.
+_____
+Mon Aug 17 11:50:53 -03 2020
+Pergunta: Quanto é 19 / 25, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Mon Aug 17 11:51:34 -03 2020
+Pergunta: Quanto é 115 - 108? 
+Resposta: 7
+Eval: acertou.
+_____
+Mon Aug 17 11:51:45 -03 2020
+Pergunta: Quanto é 27 / 29, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Mon Aug 17 11:52:48 -03 2020
+Pergunta: Quanto é 71 - 70? 
+Resposta: 1
+Eval: acertou.
+_____
+Mon Aug 17 11:53:09 -03 2020
+Pergunta: Quanto é 7 - 102? 
+Resposta: -95
+Eval: acertou.
+_____
+Mon Aug 17 11:53:30 -03 2020
+Pergunta: Quanto é 68 + 68? 
+Resposta: 136
+Eval: acertou.
+_____
+Mon Aug 17 12:22:04 -03 2020
+Pergunta: Quanto é 46 + 102? 
+Resposta: 148
+Eval: acertou.
+_____
+Mon Aug 17 12:22:32 -03 2020
+Pergunta: Quanto é 115 - 44? 
+Resposta: 71
+Eval: acertou.
+_____
+Mon Aug 17 12:22:56 -03 2020
+Pergunta: Quanto é 31 - 90? 
+Resposta: -59
+Eval: acertou.
+_____
+Mon Aug 17 12:41:00 -03 2020
+Pergunta: Quanto é 115 - 108? 
+Resposta: 7
+Eval: acertou.
+_____
+Mon Aug 17 12:41:45 -03 2020
+Pergunta: Quanto é 15 - 26 x 5? 
+Resposta: -115
+Eval: acertou.
+_____
+Mon Aug 17 12:42:10 -03 2020
+Pergunta: Quanto é 3 / 29, arredondado com 0 casas decimais? 
+Resposta: 0
+Eval: acertou.
+_____
+Mon Aug 17 12:42:47 -03 2020
+Pergunta: Quanto é 7 / 19, arredondado com 0 casas decimais? 
+Resposta: 0
+Eval: acertou.
+_____
+Mon Aug 17 12:43:07 -03 2020
+Pergunta: Quanto é 122 + 66? 
+Resposta: 188
+Eval: acertou.
+_____
+Mon Aug 17 15:43:31 -03 2020
+Pergunta: Quanto é 23 x 1? 
+Resposta: 23
+Eval: acertou.
+_____
+Mon Aug 17 15:43:47 -03 2020
+Pergunta: Quanto é 124 + 60? 
+Resposta: 184
+Eval: acertou.
+_____
+Mon Aug 17 15:43:56 -03 2020
+Pergunta: Quanto é 11 x 5? 
+Resposta: 55
+Eval: acertou.
+_____
+Mon Aug 17 15:44:10 -03 2020
+Pergunta: Quanto é 7 / 15, arredondado com 0 casas decimais? 
+Resposta: 0
+Eval: acertou.
+_____
+Mon Aug 17 15:44:30 -03 2020
+Pergunta: Quanto é 31 x 9? 
+Resposta: 279
+Eval: acertou.
+_____
+Mon Aug 17 15:45:01 -03 2020
+Pergunta: Quanto é 99 - 52? 
+Resposta: 47
+Eval: acertou.
+_____
+Mon Aug 17 15:45:16 -03 2020
+Pergunta: Quanto é 67 - 68? 
+Resposta: -1
+Eval: acertou.
+_____
+Mon Aug 17 15:59:49 -03 2020
+Pergunta: Quanto é 0 + 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Mon Aug 17 16:20:11 -03 2020
+Pergunta: Quanto é 27 x 21? 
+Resposta: 567
+Eval: acertou.
+_____
+Mon Aug 17 16:23:54 -03 2020
+Pergunta: Quanto é 24 + 24? 
+Resposta: 48
+Eval: acertou.
+_____
+Mon Aug 17 16:24:09 -03 2020
+Pergunta: Quanto é 15 / 23, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Mon Aug 17 16:24:29 -03 2020
+Pergunta: Quanto é 127 - 2? 
+Resposta: 125
+Eval: acertou.
+_____
+Mon Aug 17 16:25:25 -03 2020
+Pergunta: Quanto é 51 - 76? 
+Resposta: -25
+Eval: acertou.
+_____
+Mon Aug 17 16:25:47 -03 2020
+Pergunta: Quanto é 123 - 8? 
+Resposta: 115
+Eval: acertou.
+_____
+Mon Aug 17 16:25:59 -03 2020
+Pergunta: Quanto é 31 / 15, arredondado com 0 casas decimais? 
+Resposta: 2
+Eval: acertou.
+_____
+Mon Aug 17 16:26:46 -03 2020
+Pergunta: Quanto é 17 x 3? 
+Resposta: 51
+Eval: acertou.
+_____
+Mon Aug 17 16:26:58 -03 2020
+Pergunta: Quanto é 3 / 29, arredondado com 0 casas decimais? 
+Resposta: 0
+Eval: acertou.
+_____
+Mon Aug 17 16:27:26 -03 2020
+Pergunta: Quanto é 119 - 118? 
+Resposta: 1
+Eval: acertou.
+_____
+Mon Aug 17 16:28:19 -03 2020
+Pergunta: Quanto é 11 / 17, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Mon Aug 17 16:28:34 -03 2020
+Pergunta: Quanto é 20 + 52? 
+Resposta: 72
+Eval: acertou.
+_____
+Mon Aug 17 16:30:43 -03 2020
+Pergunta: Quanto é 27 x 13? 
+Resposta: 351
+Eval: acertou.
+_____
+Mon Aug 17 16:31:27 -03 2020
+Pergunta: Quanto é 108 + 12? 
+Resposta: 120
+Eval: acertou.
+_____
+Mon Aug 17 16:31:46 -03 2020
+Pergunta: Quanto é 86 + 30? 
+Resposta: 116
+Eval: acertou.
+_____
+Mon Aug 17 16:31:59 -03 2020
+Pergunta: Quanto é 87 - 6? 
+Resposta: 81
+Eval: acertou.
+_____
+Mon Aug 17 16:32:46 -03 2020
+Pergunta: Quanto é 29 x 31? 
+Resposta: 899
+Eval: acertou.
+_____
+Mon Aug 17 16:32:57 -03 2020
+Pergunta: Quanto é 5 x 7? 
+Resposta: 35
+Eval: acertou.
+_____
+Mon Aug 17 16:41:26 -03 2020
+Pergunta: Quanto é 64 + 0? 
+Resposta: 0
+Eval: errou.
+_____
+Mon Aug 17 16:42:07 -03 2020
+Pergunta: Quanto é 27 / 13, arredondado com 0 casas decimais? 
+Resposta: 2
+Eval: acertou.
+_____
+Mon Aug 17 16:42:23 -03 2020
+Pergunta: Quanto é 30 + 86? 
+Resposta: 116
+Eval: acertou.
+_____
+Mon Aug 17 16:42:39 -03 2020
+Pergunta: Quanto é 21 x 15? 
+Resposta: 315
+Eval: acertou.
+_____
+Mon Aug 17 16:42:48 -03 2020
+Pergunta: Quanto é 3 / 17, arredondado com 0 casas decimais? 
+Resposta: 0
+Eval: acertou.
+_____
+Mon Aug 17 16:43:09 -03 2020
+Pergunta: Quanto é 122 + 82? 
+Resposta: 204
+Eval: acertou.
+_____
+Mon Aug 17 16:43:33 -03 2020
+Pergunta: Quanto é 0 + 64? 
+Resposta: 64
+Eval: acertou.
+_____
+Mon Aug 17 16:59:27 -03 2020
+Pergunta: Quanto é 30 + 38? 
+Resposta: 68
+Eval: acertou.
+_____
+Mon Aug 17 16:59:45 -03 2020
+Pergunta: Quanto é 7 / 2, arredondado com 0 casas decimais? 
+Resposta: 4
+Eval: acertou.
+_____
+Mon Aug 17 19:26:58 -03 2020
+Pergunta: Quanto é 108 + 44? 
+Resposta: 152
+Eval: acertou.
+_____
+Mon Aug 17 19:27:57 -03 2020
+Pergunta: Quanto é 27 x 21? 
+Resposta: 567
+Eval: acertou.
+_____
+Mon Aug 17 19:28:08 -03 2020
+Pergunta: Quanto é 24 + 24? 
+Resposta: 48
+Eval: acertou.
+_____
+Mon Aug 17 19:28:25 -03 2020
+Pergunta: Quanto é 23 / 6, arredondado com 0 casas decimais? 
+Resposta: 4
+Eval: acertou.
+_____
+Mon Aug 17 19:28:44 -03 2020
+Pergunta: Quanto é 26 + 114? 
+Resposta: 140
+Eval: acertou.
+_____
+Mon Aug 17 20:06:57 -03 2020
+Pergunta: Quanto é 89 - 51? 
+Resposta: 38
+Eval: acertou.
+_____
+Mon Aug 17 20:52:53 -03 2020
+Pergunta: Quanto é 7 x 9? 
+Resposta: 63
+Eval: acertou.
+_____
+Mon Aug 17 20:53:10 -03 2020
+Pergunta: Quanto é 9 x 27? 
+Resposta: 243
+Eval: acertou.
+_____
+Mon Aug 17 21:04:35 -03 2020
+Pergunta: Quanto é 105 - 125? 
+Resposta: -20
+Eval: acertou.
+_____
+Mon Aug 17 21:20:24 -03 2020
+Pergunta: Quanto é 90 + 34? 
+Resposta: 124
+Eval: acertou.
+_____
+Mon Aug 17 21:20:47 -03 2020
+Pergunta: Quanto é 65 - 87? 
+Resposta: -22
+Eval: acertou.
+_____
+Tue Aug 18 11:08:28 -03 2020
+Pergunta: Quanto é 11 x 5? 
+Resposta: 55
+Eval: acertou.
+_____
+_____
+Tue Aug 18 11:27:20 -03 2020
+Pergunta: Quanto é 1 - 39? 
+Resposta: -38
+Eval: acertou.
+_____
+Tue Aug 18 11:29:26 -03 2020
+Pergunta: Quanto é 1 - 103? 
+Resposta: -102
+Eval: acertou.
+_____
+Tue Aug 18 11:29:43 -03 2020
+Pergunta: Quanto é 1 x 19? 
+Resposta: 19
+Eval: acertou.
+_____
+Tue Aug 18 12:08:29 -03 2020
+Pergunta: Quanto é 13 x 7? 
+Resposta: 91
+Eval: acertou.
+_____
+Tue Aug 18 15:15:38 -03 2020
+Pergunta: Quanto é 31 / 12, arredondado com 0 casas decimais? 
+Resposta: 3
+Eval: acertou.
+_____
+Tue Aug 18 15:22:50 -03 2020
+Pergunta: Quanto é 17 x 3? 
+Resposta: 51
+Eval: acertou.
+_____
+Tue Aug 18 15:23:18 -03 2020
+Pergunta: Quanto é 23 x 25? 
+Resposta: 575
+Eval: acertou.
+_____
+Tue Aug 18 15:23:32 -03 2020
+Pergunta: Quanto é 105 - 93? 
+Resposta: 12
+Eval: acertou.
+_____
+Tue Aug 18 17:05:26 -03 2020
+Pergunta: Quanto é 41 - 47? 
+Resposta: -6
+Eval: acertou.
+_____
+Tue Aug 18 17:23:20 -03 2020
+Pergunta: Quanto é 97 - 111? 
+Resposta: -14
+Eval: acertou.
+_____
+Tue Aug 18 17:23:39 -03 2020
+Pergunta: Quanto é 122 + 66? 
+Resposta: 188
+Eval: acertou.
+_____
+Tue Aug 18 18:28:16 -03 2020
+Pergunta: Quanto é 27 x 13? 
+Resposta: 351
+Eval: acertou.
+_____
+Tue Aug 18 18:28:29 -03 2020
+Pergunta: Quanto é 30 + 38? 
+Resposta: 68
+Eval: acertou.
+_____
+Tue Aug 18 18:28:38 -03 2020
+Pergunta: Quanto é 40 + 40? 
+Resposta: 80
+Eval: acertou.
+_____
+Tue Aug 18 18:29:00 -03 2020
+Pergunta: Quanto é 84 + 116? 
+Resposta: 200
+Eval: acertou.
+_____
+Tue Aug 18 18:29:18 -03 2020
+Pergunta: Quanto é 88 + 88? 
+Resposta: 176
+Eval: acertou.
+_____
+Tue Aug 18 18:29:35 -03 2020
+Pergunta: Quanto é 65 - 17? 
+Resposta: 48
+Eval: acertou.
+_____
+Tue Aug 18 18:29:45 -03 2020
+Pergunta: Quanto é 97 - 57? 
+Resposta: 40
+Eval: acertou.
+_____
+Tue Aug 18 18:29:55 -03 2020
+Pergunta: Quanto é 7 / 22, arredondado com 0 casas decimais? 
+Resposta: 0
+Eval: acertou.
+_____
+Tue Aug 18 18:30:19 -03 2020
+Pergunta: Quanto é 7 / 18, arredondado com 0 casas decimais? 
+Resposta: 0
+Eval: acertou.
+_____
+Tue Aug 18 18:30:32 -03 2020
+Pergunta: Quanto é 31 / 16, arredondado com 0 casas decimais? 
+Resposta: 2
+Eval: acertou.
+_____
+Tue Aug 18 18:30:41 -03 2020
+Pergunta: Quanto é 17 x 3? 
+Resposta: 51
+Eval: acertou.
+_____
+Tue Aug 18 18:30:54 -03 2020
+Pergunta: Quanto é 54 + 126? 
+Resposta: 180
+Eval: acertou.
+_____
+Tue Aug 18 18:31:02 -03 2020
+Pergunta: Quanto é 1 - 1? 
+Resposta: 0
+Eval: acertou.
+_____
+Tue Aug 18 18:31:13 -03 2020
+Pergunta: Quanto é 44 + 76? 
+Resposta: 120
+Eval: acertou.
+_____
+Tue Aug 18 18:31:25 -03 2020
+Pergunta: Quanto é 102 + 46? 
+Resposta: 148
+Eval: acertou.
+_____
+Tue Aug 18 18:31:34 -03 2020
+Pergunta: Quanto é 31 / 16, arredondado com 0 casas decimais? 
+Resposta: 2
+Eval: acertou.
+_____
+Tue Aug 18 18:32:08 -03 2020
+Pergunta: Quanto é 5 x 7? 
+Resposta: 35
+Eval: acertou.
+_____
+Tue Aug 18 18:32:19 -03 2020
+Pergunta: Quanto é 58 + 2? 
+Resposta: 60
+Eval: acertou.
+_____
+Tue Aug 18 18:50:08 -03 2020
+Pergunta: Quanto é 25 x 3? 
+Resposta: 75
+Eval: acertou.
+_____
+Tue Aug 18 18:50:20 -03 2020
+Pergunta: Quanto é 89 - 83? 
+Resposta: 6
+Eval: acertou.
+_____
+Tue Aug 18 18:50:30 -03 2020
+Pergunta: Quanto é 31 / 16, arredondado com 0 casas decimais? 
+Resposta: 2
+Eval: acertou.
+_____
+Tue Aug 18 18:50:42 -03 2020
+Pergunta: Quanto é 60 + 124? 
+Resposta: 184
+Eval: acertou.
+_____
+Tue Aug 18 18:50:56 -03 2020
+Pergunta: Quanto é 25 - 35? 
+Resposta: -10
+Eval: acertou.
+_____
+Tue Aug 18 21:08:28 -03 2020
+Pergunta: Quanto é 25 - 35? 
+Resposta: -10
+Eval: acertou.
+_____
+Tue Aug 18 21:10:33 -03 2020
+Pergunta: Quanto é 57 - 81? 
+Resposta: -24
+Eval: acertou.
+_____
+Tue Aug 18 21:10:43 -03 2020
+Pergunta: Quanto é 23 / 22, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Tue Aug 18 21:10:56 -03 2020
+Pergunta: Quanto é 57 - 11? 
+Resposta: 46
+Eval: acertou.
+_____
+Tue Aug 18 21:13:22 -03 2020
+Pergunta: Quanto é 23 / 18, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Tue Aug 18 21:16:47 -03 2020
+Pergunta: Quanto é 14 + 22? 
+Resposta: 36
+Eval: acertou.
+_____
+Tue Aug 18 21:17:03 -03 2020
+Pergunta: Quanto é 29 x 31? 
+Resposta: 899
+Eval: acertou.
+_____
+Tue Aug 18 21:17:26 -03 2020
+Pergunta: Quanto é 65 - 49? 
+Resposta: 16
+Eval: acertou.
+_____
+Tue Aug 18 21:18:10 -03 2020
+Pergunta: Quanto é 17 - 45? 
+Resposta: -28
+Eval: acertou.
+_____
+Tue Aug 18 21:19:03 -03 2020
+Pergunta: Quanto é 62 + 70? 
+Resposta: 132
+Eval: acertou.
+_____
+Tue Aug 18 21:19:16 -03 2020
+Pergunta: Quanto é 81 - 29? 
+Resposta: 52
+Eval: acertou.
+_____
+Tue Aug 18 21:20:21 -03 2020
+Pergunta: Quanto é 31 / 4, arredondado com 0 casas decimais? 
+Resposta: 8
+Eval: acertou.
+_____
+Tue Aug 18 21:20:33 -03 2020
+Pergunta: Quanto é 31 / 4, arredondado com 0 casas decimais? 
+Resposta: 8
+Eval: acertou.
+_____
+Tue Aug 18 21:20:58 -03 2020
+Pergunta: Quanto é 86 + 30? 
+Resposta: 116
+Eval: acertou.
+_____
+Tue Aug 18 21:21:14 -03 2020
+Pergunta: Quanto é 122 + 66? 
+Resposta: 188
+Eval: acertou.
+_____
+Tue Aug 18 21:21:24 -03 2020
+Pergunta: Quanto é 65 - 55? 
+Resposta: 10
+Eval: acertou.
+_____
+Tue Aug 18 21:21:57 -03 2020
+Pergunta: Quanto é 11 x 29? 
+Resposta: 319
+Eval: acertou.
+_____
+Tue Aug 18 21:23:14 -03 2020
+Pergunta: Quanto é 44 + 76? 
+Resposta: 120
+Eval: acertou.
+_____
+Tue Aug 18 21:23:22 -03 2020
+Pergunta: Quanto é 70 + 14? 
+Resposta: 84
+Eval: acertou.
+_____
+Tue Aug 18 21:24:58 -03 2020
+Pergunta: Quanto é 65 - 119? 
+Resposta: -54
+Eval: acertou.
+_____
+Tue Aug 18 21:25:09 -03 2020
+Pergunta: Quanto é 34 + 42? 
+Resposta: 76
+Eval: acertou.
+_____
+Tue Aug 18 21:26:11 -03 2020
+Pergunta: Quanto é 76 + 108? 
+Resposta: 184
+Eval: acertou.
+_____
+Tue Aug 18 21:26:49 -03 2020
+Pergunta: Quanto é 27 x 13? 
+Resposta: 351
+Eval: acertou.
+_____
+Tue Aug 18 21:48:49 -03 2020
+Pergunta: Quanto é 11 x 29? 
+Resposta: 319
+Eval: acertou.
+_____
+Tue Aug 18 22:09:31 -03 2020
+Pergunta: Quanto é 80 + 16? 
+Resposta: 96
+Eval: acertou.
+_____
+Tue Aug 18 22:09:40 -03 2020
+Pergunta: Quanto é 41 - 47? 
+Resposta: -6
+Eval: acertou.
+_____
+Tue Aug 18 22:10:25 -03 2020
+Pergunta: Quanto é 31 / 12, arredondado com 0 casas decimais? 
+Resposta: 3
+Eval: acertou.
+_____
+Tue Aug 18 22:10:34 -03 2020
+Pergunta: Quanto é 23 / 26, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Tue Aug 18 22:11:14 -03 2020
+Pergunta: Quanto é 41 - 79? 
+Resposta: -38
+Eval: acertou.
+_____
+Tue Aug 18 22:11:58 -03 2020
+Pergunta: Quanto é 89 - 115? 
+Resposta: -26
+Eval: acertou.
+_____
+Tue Aug 18 22:12:07 -03 2020
+Pergunta: Quanto é 64 + 0? 
+Resposta: 64
+Eval: acertou.
+_____
+Tue Aug 18 22:12:15 -03 2020
+Pergunta: Quanto é 25 x 3? 
+Resposta: 75
+Eval: acertou.
+_____
+Tue Aug 18 22:12:41 -03 2020
+Pergunta: Quanto é 21 x 15? 
+Resposta: 315
+Eval: acertou.
+_____
+Tue Aug 18 22:12:59 -03 2020
+Pergunta: Quanto é 26 + 114? 
+Resposta: 140
+Eval: acertou.
+_____
+Tue Aug 18 22:13:12 -03 2020
+Pergunta: Quanto é 73 - 55? 
+Resposta: 18
+Eval: acertou.
+_____
+Tue Aug 18 22:17:28 -03 2020
+Pergunta: Quanto é 23 / 30, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Tue Aug 18 22:17:40 -03 2020
+Pergunta: Quanto é 23 / 30, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Tue Aug 18 22:19:26 -03 2020
+Pergunta: Quanto é 27 x 21? 
+Resposta: 567
+Eval: acertou.
+_____
+Tue Aug 18 22:20:20 -03 2020
+Pergunta: Quanto é 57 - 81? 
+Resposta: -24
+Eval: acertou.
+_____
+Tue Aug 18 22:20:32 -03 2020
+Pergunta: Quanto é 68 + 100? 
+Resposta: 168
+Eval: acertou.
+_____
+Wed Aug 19 11:12:32 -03 2020
+Pergunta: Quanto é 31 / 28, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Wed Aug 19 12:30:31 -03 2020
+Pergunta: Quanto é 31 / 20, arredondado com 0 casas decimais? 
+Resposta: 2
+Eval: acertou.
+_____
+Thu Aug 20 13:34:20 -03 2020
+Pergunta: Quanto é 5 x 31? 
+Resposta: 155
+Eval: acertou.
+_____
+Thu Aug 20 13:35:02 -03 2020
+Pergunta: Quanto é 57 - 113? 
+Resposta: -56
+Eval: acertou.
+_____
+Thu Aug 20 13:35:11 -03 2020
+Pergunta: Quanto é 124 + 60? 
+Resposta: 184
+Eval: acertou.
+_____
+Thu Aug 20 13:35:19 -03 2020
+Pergunta: Quanto é 5 x 31? 
+Resposta: 155
+Eval: acertou.
+_____
+Thu Aug 20 13:35:27 -03 2020
+Pergunta: Quanto é 1 x 11? 
+Resposta: 11
+Eval: acertou.
+_____
+Thu Aug 20 13:40:25 -03 2020
+Pergunta: Quanto é 29 x 23? 
+Resposta: 667
+Eval: acertou.
+_____
+Thu Aug 20 13:40:42 -03 2020
+Pergunta: Quanto é 122 + 82? 
+Resposta: 204
+Eval: acertou.
+_____
+Thu Aug 20 13:40:53 -03 2020
+Pergunta: Quanto é 18 + 106? 
+Resposta: 124
+Eval: acertou.
+_____
+Thu Aug 20 13:41:15 -03 2020
+Pergunta: Quanto é 31 / 20, arredondado com 0 casas decimais? 
+Resposta: 2
+Eval: acertou.
+_____
+Thu Aug 20 13:41:30 -03 2020
+Pergunta: Quanto é 9 - 39? 
+Resposta: -30
+Eval: acertou.
+_____
+Thu Aug 20 13:41:40 -03 2020
+Pergunta: Quanto é 90 + 50? 
+Resposta: 140
+Eval: acertou.
+_____
+Thu Aug 20 13:42:23 -03 2020
+Pergunta: Quanto é 31 / 12, arredondado com 0 casas decimais? 
+Resposta: 3
+Eval: acertou.
+_____
+Thu Aug 20 13:45:25 -03 2020
+Pergunta: Quanto é 121 - 33? 
+Resposta: 88
+Eval: acertou.
+_____
+Thu Aug 20 13:45:50 -03 2020
+Pergunta: Quanto é 31 / 28, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Thu Aug 20 13:45:57 -03 2020
+Pergunta: Quanto é 8 + 8? 
+Resposta: 16
+Eval: acertou.
+_____
+Thu Aug 20 13:46:13 -03 2020
+Pergunta: Quanto é 31 / 12, arredondado com 0 casas decimais? 
+Resposta: 3
+Eval: acertou.
+_____
+Thu Aug 20 13:46:31 -03 2020
+Pergunta: Quanto é 31 / 20, arredondado com 0 casas decimais? 
+Resposta: 2
+Eval: acertou.
+_____
+Thu Aug 20 13:48:54 -03 2020
+Pergunta: Quanto é 17 x 27? 
+Resposta: 459
+Eval: acertou.
+_____
+Thu Aug 20 13:49:07 -03 2020
+Pergunta: Quanto é 108 + 12? 
+Resposta: 120
+Eval: acertou.
+_____
+Thu Aug 20 13:49:16 -03 2020
+Pergunta: Quanto é 113 - 3? 
+Resposta: 110
+Eval: acertou.
+_____
+Thu Aug 20 13:49:30 -03 2020
+Pergunta: Quanto é 112 + 112? 
+Resposta: 224
+Eval: acertou.
+_____
+Thu Aug 20 13:49:41 -03 2020
+Pergunta: Quanto é 7 x 9? 
+Resposta: 63
+Eval: acertou.
+_____
+Thu Aug 20 13:49:57 -03 2020
+Pergunta: Quanto é 31 / 12, arredondado com 0 casas decimais? 
+Resposta: 3
+Eval: acertou.
+_____
+Thu Aug 20 13:54:53 -03 2020
+Pergunta: Quanto é 49 - 53? 
+Resposta: -4
+Eval: acertou.
+_____
+Thu Aug 20 13:55:59 -03 2020
+Pergunta: Quanto é 62 + 70? 
+Resposta: 132
+Eval: acertou.
+_____
+Thu Aug 20 13:56:46 -03 2020
+Pergunta: Quanto é 31 / 12, arredondado com 0 casas decimais? 
+Resposta: 3
+Eval: acertou.
+_____
+Thu Aug 20 13:56:54 -03 2020
+Pergunta: Quanto é 16 + 16? 
+Resposta: 32
+Eval: acertou.
+_____
+Thu Aug 20 13:57:14 -03 2020
+Pergunta: Quanto é 113 - 69? 
+Resposta: 44
+Eval: acertou.
+_____
+Thu Aug 20 13:57:24 -03 2020
+Pergunta: Quanto é 1 - 71? 
+Resposta: -70
+Eval: acertou.
+_____
+Thu Aug 20 13:57:55 -03 2020
+Pergunta: Quanto é 27 x 13? 
+Resposta: 351
+Eval: acertou.
+_____
+Thu Aug 20 13:58:22 -03 2020
+Pergunta: Quanto é 11 x 29? 
+Resposta: 319
+Eval: acertou.
+_____
+Thu Aug 20 13:58:32 -03 2020
+Pergunta: Quanto é 1 - 97? 
+Resposta: -96
+Eval: acertou.
+_____
+Thu Aug 20 13:58:44 -03 2020
+Pergunta: Quanto é 7 / 30, arredondado com 0 casas decimais? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Aug 20 14:04:29 -03 2020
+Pergunta: Quanto é 31 / 28, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Thu Aug 20 14:04:41 -03 2020
+Pergunta: Quanto é 32 + 96? 
+Resposta: 128
+Eval: acertou.
+_____
+Thu Aug 27 15:06:23 -03 2020
+Pergunta: How much is 41 - 15? 
+Resposta: 26
+Eval: acertou.
+_____
+Thu Aug 27 15:50:31 -03 2020
+Pergunta: Quanto é 19 x 13? 
+Resposta: 247
+Eval: acertou.
+_____
+Thu Aug 27 15:51:02 -03 2020
+Pergunta: Quanto é 9 x 27? 
+Resposta: 243
+Eval: acertou.
+_____
+Thu Aug 27 16:19:35 -03 2020
+Pergunta: Quanto é 44 + 76? 
+Resposta: 120
+Eval: acertou.
+_____
+Thu Aug 27 16:19:45 -03 2020
+Pergunta: Quanto é 25 x 3? 
+Resposta: 75
+Eval: acertou.
+_____
+Thu Aug 27 16:20:10 -03 2020
+Pergunta: Quanto é 118 + 46? 
+Resposta: 164
+Eval: acertou.
+_____
+Thu Aug 27 16:28:19 -03 2020
+Pergunta: Quanto é 97 - 47? 
+Resposta: 50
+Eval: acertou.
+_____
+Thu Aug 27 16:28:37 -03 2020
+Pergunta: Quanto é 3 x 21? 
+Resposta: 63
+Eval: acertou.
+_____
+Thu Aug 27 16:28:52 -03 2020
+Pergunta: Quanto é 31 / 20, arredondado com 0 casas decimais? 
+Resposta: 2
+Eval: acertou.
+_____
+Thu Aug 27 16:29:14 -03 2020
+Pergunta: Quanto é 31 / 28, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Thu Aug 27 16:29:59 -03 2020
+Pergunta: Quanto é 10 + 82? 
+Resposta: 92
+Eval: acertou.
+_____
+Thu Aug 27 17:04:00 -03 2020
+Pergunta: Quanto é 81 - 29? 
+Resposta: 52
+Eval: acertou.
+_____
+Thu Aug 27 17:04:14 -03 2020
+Pergunta: Quanto é 7 / 10, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Thu Aug 27 17:04:33 -03 2020
+Pergunta: Quanto é 88 + 88? 
+Resposta: 176
+Eval: acertou.
+_____
+Thu Aug 27 17:14:43 -03 2020
+Pergunta: Quanto é 7 / 26, arredondado com 0 casas decimais? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Aug 27 17:14:54 -03 2020
+Pergunta: Quanto é 89 - 19? 
+Resposta: 70
+Eval: acertou.
+_____
+Thu Aug 27 17:36:12 -03 2020
+Pergunta: Quanto é 121 - 65? 
+Resposta: 56
+Eval: acertou.
+_____
+Thu Aug 27 17:36:27 -03 2020
+Pergunta: Quanto é 96 + 96? 
+Resposta: 192
+Eval: acertou.
+_____
+Thu Aug 27 17:36:43 -03 2020
+Pergunta: Quanto é 31 / 8, arredondado com 0 casas decimais? 
+Resposta: 4
+Eval: acertou.
+_____
+Thu Aug 27 17:37:00 -03 2020
+Pergunta: Quanto é 65 - 119? 
+Resposta: -54
+Eval: acertou.
+_____
+Thu Aug 27 17:37:10 -03 2020
+Pergunta: Quanto é 7 x 9? 
+Resposta: 63
+Eval: acertou.
+_____
+Thu Aug 27 17:42:10 -03 2020
+Pergunta: Quanto é 17 - 109? 
+Resposta: -92
+Eval: acertou.
+_____
+Thu Aug 27 17:42:18 -03 2020
+Pergunta: Quanto é 126 + 6? 
+Resposta: 132
+Eval: acertou.
+_____
+Thu Aug 27 17:42:51 -03 2020
+Pergunta: Quanto é 33 - 63? 
+Resposta: -30
+Eval: acertou.
+_____
+Thu Aug 27 17:45:54 -03 2020
+Pergunta: Quanto é 97 - 15? 
+Resposta: 82
+Eval: acertou.
+_____
+Thu Aug 27 17:46:50 -03 2020
+Pergunta: Quanto é 22 + 78? 
+Resposta: 100
+Eval: acertou.
+_____
+Thu Aug 27 17:49:23 -03 2020
+Pergunta: Quanto é 105 - 31? 
+Resposta: 37*2
+Eval: acertou.
+_____
+Thu Aug 27 17:50:39 -03 2020
+Pergunta: Quanto é 126 + 54? 
+Resposta: 180
+Eval: acertou.
+_____
+Thu Aug 27 17:51:07 -03 2020
+Pergunta: Quanto é 89 - 41? 
+Resposta: 48
+Eval: acertou.
+_____
+Thu Aug 27 17:51:18 -03 2020
+Pergunta: Quanto é 105 - 31? 
+Resposta: 74
+Eval: acertou.
+_____
+Thu Aug 27 17:51:41 -03 2020
+Pergunta: Quanto é 41 - 13? 
+Resposta: 28
+Eval: acertou.
+_____
+Thu Aug 27 17:52:59 -03 2020
+Pergunta: Quanto é 104 + 104? 
+Resposta: 208
+Eval: acertou.
+_____
+Thu Aug 27 17:57:10 -03 2020
+Pergunta: Quanto é 32 + 96? 
+Resposta: 128
+Eval: acertou.
+_____
+Thu Aug 27 17:57:40 -03 2020
+Pergunta: Quanto é 105 - 125? 
+Resposta: -30+10
+Eval: acertou.
+_____
+Thu Aug 27 17:57:53 -03 2020
+Pergunta: Quanto é 23 x 1? 
+Resposta: 23
+Eval: acertou.
+_____
+Thu Aug 27 17:58:08 -03 2020
+Pergunta: Quanto é 78 + 6? 
+Resposta: 84
+Eval: acertou.
+_____
+Thu Aug 27 18:00:48 -03 2020
+Pergunta: Quanto é 5 x 31? 
+Resposta: 155
+Eval: acertou.
+_____
+Thu Aug 27 18:01:13 -03 2020
+Pergunta: Quanto é 13 x 15? 
+Resposta: 195
+Eval: acertou.
+_____
+Thu Aug 27 18:01:22 -03 2020
+Pergunta: Quanto é 7 / 30, arredondado com 0 casas decimais? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Aug 27 18:01:34 -03 2020
+Pergunta: Quanto é 113 - 99? 
+Resposta: 14
+Eval: acertou.
+_____
+Thu Aug 27 18:01:54 -03 2020
+Pergunta: Quanto é 16 + 16? 
+Resposta: 32
+Eval: acertou.
+_____
+Thu Aug 27 19:51:07 -03 2020
+Pergunta: Quanto é 7 / 30, arredondado com 0 casas decimais? 
+Resposta: 5 - 5
+Eval: acertou.
+_____
+Thu Aug 27 20:16:03 -03 2020
+Pergunta: Quanto é 113 - 3? 
+Resposta: "110"
+Eval: acertou.
+_____
+Thu Aug 27 21:05:42 -03 2020
+Pergunta: Quanto é 27 x 13? 
+Resposta: 351
+Eval: acertou.
+_____
+Thu Aug 27 21:05:55 -03 2020
+Pergunta: Quanto é 25 x 3? 
+Resposta: 75
+Eval: acertou.
+_____
+Thu Aug 27 21:06:11 -03 2020
+Pergunta: Quanto é 27 x 21? 
+Resposta: 567
+Eval: acertou.
+_____
+Thu Aug 27 21:13:35 -03 2020
+Pergunta: Quanto é 89 - 51? 
+Resposta: 38
+Eval: acertou.
+_____
+Thu Aug 27 21:15:59 -03 2020
+Pergunta: Quanto é 28 + 92? 
+Resposta: 120
+Eval: acertou.
+_____
+Thu Aug 27 21:16:13 -03 2020
+Pergunta: Quanto é 5 x 31? 
+Resposta: 154 + 1
+Eval: acertou.
+_____
+Thu Aug 27 21:16:23 -03 2020
+Pergunta: Quanto é 64 + 0? 
+Resposta: 64
+Eval: acertou.
+_____
+Thu Aug 27 21:16:33 -03 2020
+Pergunta: Quanto é 73 - 5? 
+Resposta: 68
+Eval: acertou.
+_____
+Thu Aug 27 21:17:05 -03 2020
+Pergunta: Quanto é 86 + 14? 
+Resposta: 100
+Eval: acertou.
+_____
+Thu Aug 27 21:17:24 -03 2020
+Pergunta: Quanto é 23 / 2, arredondado com 0 casas decimais? 
+Resposta: 12
+Eval: acertou.
+_____
+Thu Aug 27 21:17:40 -03 2020
+Pergunta: Quanto é 31 / 20, arredondado com 0 casas decimais? 
+Resposta: 2
+Eval: acertou.
+_____
+Thu Aug 27 21:22:40 -03 2020
+Pergunta: Quanto é 27 x 21? 
+Resposta: 567
+Eval: acertou.
+_____
+Thu Aug 27 21:23:27 -03 2020
+Pergunta: Quanto é 21 x 23? 
+Resposta: 483
+Eval: acertou.
+_____
+Thu Aug 27 21:23:35 -03 2020
+Pergunta: Quanto é 33 - 9? 
+Resposta: 24
+Eval: acertou.
+_____
+Thu Aug 27 21:23:45 -03 2020
+Pergunta: Quanto é 7 / 6, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Thu Aug 27 21:23:59 -03 2020
+Pergunta: Quanto é 94 + 102? 
+Resposta: 196
+Eval: acertou.
+_____
+Thu Aug 27 21:26:27 -03 2020
+Pergunta: Quanto é 13 x 15? 
+Resposta: 195
+Eval: acertou.
+_____
+Thu Aug 27 21:26:49 -03 2020
+Pergunta: Quanto é 27 x 13? 
+Resposta: 351
+Eval: acertou.
+_____
+Thu Aug 27 21:27:23 -03 2020
+Pergunta: Quanto é 114 + 122? 
+Resposta: 236
+Eval: acertou.
+_____
+Thu Aug 27 21:27:32 -03 2020
+Pergunta: Quanto é 1 - 103? 
+Resposta: -102
+Eval: acertou.
+_____
+Thu Aug 27 21:27:43 -03 2020
+Pergunta: Quanto é 31 / 20, arredondado com 0 casas decimais? 
+Resposta: 2
+Eval: acertou.
+_____
+Thu Aug 27 21:28:00 -03 2020
+Pergunta: Quanto é 29 x 31? 
+Resposta: 899
+Eval: acertou.
+_____
+Thu Aug 27 21:31:12 -03 2020
+Pergunta: Quanto é 21 x 23? 
+Resposta: 483
+Eval: acertou.
+_____
+Thu Aug 27 21:31:23 -03 2020
+Pergunta: Quanto é 21 x 23? 
+Resposta: 483
+Eval: acertou.
+_____
+Thu Aug 27 21:31:32 -03 2020
+Pergunta: Quanto é 33 - 63? 
+Resposta: -30
+Eval: acertou.
+_____
+Thu Aug 27 21:31:48 -03 2020
+Pergunta: Quanto é 31 / 12, arredondado com 0 casas decimais? 
+Resposta: 3
+Eval: acertou.
+_____
+Fri Aug 28 16:35:46 -03 2020
+Pergunta: Quanto é 47 - 23? 
+Resposta: 24
+Eval: acertou.
+_____
+Fri Aug 28 16:36:13 -03 2020
+Pergunta: Quanto é 10 / 16, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Fri Aug 28 16:36:43 -03 2020
+Pergunta: Quanto é 22 - 6? 
+Resposta: 16
+Eval: acertou.
+_____
+Fri Aug 28 16:36:53 -03 2020
+Pergunta: Quanto é 2 / 8, arredondado com 0 casas decimais? 
+Resposta: 0
+Eval: acertou.
+_____
+Fri Aug 28 16:57:17 -03 2020
+Pergunta: Quanto é 14 / 16, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Fri Aug 28 16:57:53 -03 2020
+Pergunta: Quanto é 28 - 62? 
+Resposta: -34
+Eval: acertou.
+_____
+Fri Aug 28 16:58:06 -03 2020
+Pergunta: Quanto é 20 x 4? 
+Resposta: 80
+Eval: acertou.
+_____
+Fri Aug 28 16:58:21 -03 2020
+Pergunta: Quanto é 58 + 58? 
+Resposta: 116
+Eval: acertou.
+_____
+Fri Aug 28 16:58:42 -03 2020
+Pergunta: Quanto é 88 + 88? 
+Resposta: 176
+Eval: acertou.
+_____
+Fri Aug 28 17:01:55 -03 2020
+Pergunta: Quanto é 12 x 28? 
+Resposta: 336
+Eval: acertou.
+_____
+Fri Aug 28 17:02:44 -03 2020
+Pergunta: Quanto é 24 x 8? 
+Resposta: 192
+Eval: acertou.
+_____
+Fri Aug 28 17:02:54 -03 2020
+Pergunta: Quanto é 6 / 20, arredondado com 0 casas decimais? 
+Resposta: 0
+Eval: acertou.
+_____
+Fri Aug 28 17:03:10 -03 2020
+Pergunta: Quanto é 74 + 74? 
+Resposta: 148
+Eval: acertou.
+_____
+Fri Aug 28 17:03:20 -03 2020
+Pergunta: Quanto é 105 - 105? 
+Resposta: 0
+Eval: acertou.
+_____
+Fri Aug 28 17:03:45 -03 2020
+Pergunta: Quanto é 22 x 22? 
+Resposta: 484
+Eval: acertou.
+_____
+Fri Aug 28 17:03:53 -03 2020
+Pergunta: Quanto é 16 / 1? 
+Resposta: 16
+Eval: acertou.
+_____
+Fri Aug 28 17:04:01 -03 2020
+Pergunta: Quanto é 0 x 16? 
+Resposta: 0
+Eval: acertou.
+_____
+Fri Aug 28 17:04:30 -03 2020
+Pergunta: Quanto é 24 / 19, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Fri Aug 28 17:04:40 -03 2020
+Pergunta: Quanto é 18 + 18? 
+Resposta: 36
+Eval: acertou.
+_____
+Fri Aug 28 17:05:28 -03 2020
+Pergunta: Quanto é 65 - 93? 
+Resposta: -28
+Eval: acertou.
+_____
+Fri Aug 28 17:05:46 -03 2020
+Pergunta: Quanto é 121 - 117? 
+Resposta: 4
+Eval: acertou.
+_____
+Fri Aug 28 17:06:01 -03 2020
+Pergunta: Quanto é 30 x 30? 
+Resposta: 900
+Eval: acertou.
+_____
+Fri Aug 28 17:06:09 -03 2020
+Pergunta: Quanto é 24 / 23, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Fri Aug 28 17:06:15 -03 2020
+Pergunta: Quanto é 0 / 25? 
+Resposta: 0
+Eval: acertou.
+_____
+Fri Aug 28 17:06:24 -03 2020
+Pergunta: Quanto é 78 - 74? 
+Resposta: 4
+Eval: acertou.
+_____
+Fri Aug 28 17:06:48 -03 2020
+Pergunta: Quanto é 83 - 67? 
+Resposta: 16
+Eval: acertou.
+_____
+Fri Aug 28 17:06:58 -03 2020
+Pergunta: Quanto é 24 / 31, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Fri Aug 28 17:07:10 -03 2020
+Pergunta: Quanto é 2 x 2? 
+Resposta: 4
+Eval: acertou.
+_____
+Fri Aug 28 17:07:23 -03 2020
+Pergunta: Quanto é 56 + 56? 
+Resposta: 112
+Eval: acertou.
+_____
+Fri Aug 28 17:07:49 -03 2020
+Pergunta: Quanto é 87 - 95? 
+Resposta: -8
+Eval: acertou.
+_____
+Fri Aug 28 17:08:41 -03 2020
+Pergunta: Quanto é 24 / 17, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Fri Aug 28 17:08:49 -03 2020
+Pergunta: Quanto é 16 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Fri Aug 28 17:11:02 -03 2020
+Pergunta: Quanto é 7 x 31? 
+Resposta: 217
+Eval: acertou.
+_____
+Fri Aug 28 17:11:28 -03 2020
+Pergunta: Quanto é 46 - 122? 
+Resposta: -76
+Eval: acertou.
+_____
+Fri Aug 28 17:11:48 -03 2020
+Pergunta: Quanto é 29 - 41? 
+Resposta: -12
+Eval: acertou.
+_____
+Fri Aug 28 17:11:57 -03 2020
+Pergunta: Quanto é 29 / 5, arredondado com 0 casas decimais? 
+Resposta: 6
+Eval: acertou.
+_____
+Fri Aug 28 17:12:23 -03 2020
+Pergunta: Quanto é 12 / 19, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Fri Aug 28 17:12:47 -03 2020
+Pergunta: Quanto é 23 - 55? 
+Resposta: -32
+Eval: acertou.
+_____
+Fri Aug 28 17:12:56 -03 2020
+Pergunta: Quanto é 19 - 3? 
+Resposta: 16
+Eval: acertou.
+_____
+Fri Aug 28 17:13:08 -03 2020
+Pergunta: Quanto é 96 - 14? 
+Resposta: 82
+Eval: acertou.
+_____
+Fri Aug 28 17:13:25 -03 2020
+Pergunta: Quanto é 14 / 20, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Fri Aug 28 17:13:42 -03 2020
+Pergunta: Quanto é 105 + 105? 
+Resposta: 210
+Eval: acertou.
+_____
+Fri Aug 28 17:14:14 -03 2020
+Pergunta: Quanto é 44 - 80? 
+Resposta: -36
+Eval: acertou.
+_____
+Fri Aug 28 17:14:25 -03 2020
+Pergunta: Quanto é 1 + 65? 
+Resposta: 66
+Eval: acertou.
+_____
+Fri Aug 28 17:14:37 -03 2020
+Pergunta: Quanto é 24 / 27, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Fri Aug 28 17:14:46 -03 2020
+Pergunta: Quanto é 24 / 5, arredondado com 0 casas decimais? 
+Resposta: 5
+Eval: acertou.
+_____
+Fri Aug 28 17:14:53 -03 2020
+Pergunta: Quanto é 125 - 125? 
+Resposta: 0
+Eval: acertou.
+_____
+Fri Aug 28 17:15:01 -03 2020
+Pergunta: Quanto é 10 + 10? 
+Resposta: 20
+Eval: acertou.
+_____
+Fri Aug 28 17:15:10 -03 2020
+Pergunta: Quanto é 24 / 25, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Fri Aug 28 17:16:03 -03 2020
+Pergunta: Quanto é 105 - 41? 
+Resposta: 64
+Eval: acertou.
+_____
+Fri Aug 28 17:16:14 -03 2020
+Pergunta: Quanto é 34 - 60? 
+Resposta: -26
+Eval: acertou.
+_____
+Fri Aug 28 17:16:29 -03 2020
+Pergunta: Quanto é 118 - 78? 
+Resposta: 40
+Eval: acertou.
+_____
+Fri Aug 28 17:16:43 -03 2020
+Pergunta: Quanto é 58 + 58? 
+Resposta: 116
+Eval: acertou.
+_____
+Fri Aug 28 17:17:29 -03 2020
+Pergunta: Quanto é 36 - 118? 
+Resposta: -82
+Eval: acertou.
+_____
+Fri Aug 28 17:18:03 -03 2020
+Pergunta: Quanto é 24 x 8? 
+Resposta: 192
+Eval: acertou.
+_____
+Fri Aug 28 17:19:20 -03 2020
+Pergunta: Quanto é 27 / 15, arredondado com 0 casas decimais? 
+Resposta: 2
+Eval: acertou.
+_____
+Fri Aug 28 17:19:31 -03 2020
+Pergunta: Quanto é 22 x 22? 
+Resposta: 484
+Eval: acertou.
+_____
+Fri Aug 28 17:19:45 -03 2020
+Pergunta: Quanto é 14 / 20, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Fri Aug 28 17:19:52 -03 2020
+Pergunta: Quanto é 2 x 2? 
+Resposta: 4
+Eval: acertou.
+_____
+Fri Aug 28 17:20:00 -03 2020
+Pergunta: Quanto é 8 / 2? 
+Resposta: 4
+Eval: acertou.
+_____
+Fri Aug 28 17:20:06 -03 2020
+Pergunta: Quanto é 3 - 3? 
+Resposta: 0
+Eval: acertou.
+_____
+Fri Aug 28 17:20:34 -03 2020
+Pergunta: Quanto é 78 + 14? 
+Resposta: 92
+Eval: acertou.
+_____
+Fri Aug 28 17:20:40 -03 2020
+Pergunta: Quanto é 2 x 2? 
+Resposta: 4
+Eval: acertou.
+_____
+Fri Aug 28 17:23:26 -03 2020
+Pergunta: Quanto é 9 - 69? 
+Resposta: -60
+Eval: acertou.
+_____
+Fri Aug 28 17:23:38 -03 2020
+Pergunta: Quanto é 6 - 14? 
+Resposta: -8
+Eval: acertou.
+_____
+Fri Aug 28 17:55:24 -03 2020
+Pergunta: Quanto é 24 x 8? 
+Resposta: 192
+Eval: acertou.
+_____
+Fri Aug 28 17:55:36 -03 2020
+Pergunta: Quanto é 8 / 13, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Fri Aug 28 17:55:52 -03 2020
+Pergunta: Quanto é 8 / 23, arredondado com 0 casas decimais? 
+Resposta: 0
+Eval: acertou.
+_____
+Fri Aug 28 18:45:34 -03 2020
+Pergunta: Quanto é 8 / 26, arredondado com 0 casas decimais? 
+Resposta: 0
+Eval: acertou.
+_____
+Fri Aug 28 18:45:51 -03 2020
+Pergunta: Quanto é 73 - 9? 
+Resposta: 64
+Eval: acertou.
+_____
+Fri Aug 28 18:46:42 -03 2020
+Pergunta: Quanto é 102 - 38? 
+Resposta: 64
+Eval: acertou.
+_____
+Fri Aug 28 20:05:44 -03 2020
+Pergunta: Quanto é 52 - 98? 
+Resposta: -46
+Eval: acertou.
+_____
+Fri Aug 28 20:06:00 -03 2020
+Pergunta: Quanto é 8 - 86? 
+Resposta: -78
+Eval: acertou.
+_____
+Fri Aug 28 20:06:08 -03 2020
+Pergunta: Quanto é 87 - 87? 
+Resposta: 0
+Eval: acertou.
+_____
+Fri Aug 28 20:54:49 -03 2020
+Pergunta: Quanto é 0 - 68? 
+Resposta: -68
+Eval: acertou.
+_____
+Fri Aug 28 20:55:07 -03 2020
+Pergunta: Quanto é 6 x 21? 
+Resposta: 126
+Eval: acertou.
+_____
+Fri Aug 28 20:55:25 -03 2020
+Pergunta: Quanto é 14 x 4? 
+Resposta: 56
+Eval: acertou.
+_____
+Fri Aug 28 20:55:43 -03 2020
+Pergunta: Quanto é 24 / 16, arredondado com 0 casas decimais? 
+Resposta: 2
+Eval: acertou.
+_____
+Fri Aug 28 20:56:00 -03 2020
+Pergunta: Quanto é 3 + 28? 
+Resposta: 31
+Eval: acertou.
+_____
+Fri Aug 28 20:56:21 -03 2020
+Pergunta: Quanto é 2 / 16, arredondado com 0 casas decimais? 
+Resposta: 0
+Eval: acertou.
+_____
+Fri Aug 28 20:57:10 -03 2020
+Pergunta: Quanto é 52 - 36? 
+Resposta: 16
+Eval: acertou.
+_____
+Fri Aug 28 20:57:18 -03 2020
+Pergunta: Quanto é 0 + 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Fri Aug 28 20:57:28 -03 2020
+Pergunta: Quanto é 4 x 10? 
+Resposta: 40
+Eval: acertou.
+_____
+Fri Aug 28 20:57:36 -03 2020
+Pergunta: Quanto é 0 + 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Fri Aug 28 20:57:55 -03 2020
+Pergunta: Quanto é 0 - 76? 
+Resposta: -76
+Eval: acertou.
+_____
+Fri Aug 28 20:58:02 -03 2020
+Pergunta: Quanto é 0 - 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Fri Aug 28 20:58:09 -03 2020
+Pergunta: Quanto é 0 - 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Fri Aug 28 20:58:21 -03 2020
+Pergunta: Quanto é 0 - 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Fri Aug 28 20:58:56 -03 2020
+Pergunta: Quanto é 43 - 101? 
+Resposta: -58
+Eval: acertou.
+_____
+Fri Aug 28 20:59:04 -03 2020
+Pergunta: Quanto é 0 / 29? 
+Resposta: 0
+Eval: acertou.
+_____
+Fri Aug 28 20:59:10 -03 2020
+Pergunta: Quanto é 0 x 15? 
+Resposta: 0
+Eval: acertou.
+_____
+Fri Aug 28 20:59:18 -03 2020
+Pergunta: Quanto é 0 - 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Fri Aug 28 20:59:27 -03 2020
+Pergunta: Quanto é 115 - 115? 
+Resposta: 0
+Eval: acertou.
+_____
+Fri Aug 28 20:59:43 -03 2020
+Pergunta: Quanto é 0 + 97? 
+Resposta: 97
+Eval: acertou.
+_____
+Fri Aug 28 20:59:55 -03 2020
+Pergunta: Quanto é 4 / 31, arredondado com 0 casas decimais? 
+Resposta: 0
+Eval: acertou.
+_____
+Fri Aug 28 21:00:21 -03 2020
+Pergunta: Quanto é 68 + 67? 
+Resposta: 135
+Eval: acertou.
+_____
+Fri Aug 28 21:00:42 -03 2020
+Pergunta: Quanto é 0 x 23? 
+Resposta: 0
+Eval: acertou.
+_____
+Fri Aug 28 21:00:55 -03 2020
+Pergunta: Quanto é 25 / 31, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Fri Aug 28 21:01:03 -03 2020
+Pergunta: Quanto é 15 / 15? 
+Resposta: 1
+Eval: acertou.
+_____
+Fri Aug 28 21:01:14 -03 2020
+Pergunta: Quanto é 26 / 20, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Fri Aug 28 21:01:26 -03 2020
+Pergunta: Quanto é 6 / 16, arredondado com 0 casas decimais? 
+Resposta: 0
+Eval: acertou.
+_____
+Fri Aug 28 21:01:51 -03 2020
+Pergunta: Quanto é 19 / 12, arredondado com 0 casas decimais? 
+Resposta: 2
+Eval: acertou.
+_____
+Fri Aug 28 21:02:25 -03 2020
+Pergunta: Quanto é 53 + 26? 
+Resposta: 79
+Eval: acertou.
+_____
+Fri Aug 28 21:03:25 -03 2020
+Pergunta: Quanto é 17 + 4? 
+Resposta: 21
+Eval: acertou.
+_____
+Fri Aug 28 21:03:44 -03 2020
+Pergunta: Quanto é 76 + 112? 
+Resposta: 188
+Eval: acertou.
+_____
+Fri Aug 28 21:04:10 -03 2020
+Pergunta: Quanto é 6 x 24? 
+Resposta: 144
+Eval: acertou.
+_____
+Fri Aug 28 21:04:45 -03 2020
+Pergunta: Quanto é 24 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Fri Aug 28 21:05:59 -03 2020
+Pergunta: Quanto é 28 x 24? 
+Resposta: 672
+Eval: acertou.
+_____
+Fri Aug 28 21:06:58 -03 2020
+Pergunta: Quanto é 120 - 96? 
+Resposta: 24
+Eval: acertou.
+_____
+Fri Aug 28 21:08:08 -03 2020
+Pergunta: Quanto é 48 - 72? 
+Resposta: -24
+Eval: acertou.
+_____
+Fri Aug 28 21:08:26 -03 2020
+Pergunta: Quanto é 72 + 88? 
+Resposta: 160
+Eval: acertou.
+_____
+Fri Aug 28 21:08:33 -03 2020
+Pergunta: Quanto é 96 - 96? 
+Resposta: 0
+Eval: acertou.
+_____
+Fri Aug 28 21:08:55 -03 2020
+Pergunta: Quanto é 16 x 16? 
+Resposta: 256
+Eval: acertou.
+_____
+Fri Aug 28 21:10:27 -03 2020
+Pergunta: Quanto é 72 - 96? 
+Resposta: -24
+Eval: acertou.
+_____
+Fri Aug 28 21:10:57 -03 2020
+Pergunta: Quanto é 96 + 80? 
+Resposta: 176
+Eval: acertou.
+_____
+Fri Aug 28 21:11:04 -03 2020
+Pergunta: Quanto é 8 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Fri Aug 28 21:11:13 -03 2020
+Pergunta: Quanto é 0 + 48? 
+Resposta: 48
+Eval: acertou.
+_____
+Fri Aug 28 21:11:18 -03 2020
+Pergunta: Quanto é 0 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Fri Aug 28 21:11:42 -03 2020
+Pergunta: Quanto é 16 + 48? 
+Resposta: 64
+Eval: acertou.
+_____
+Fri Aug 28 21:11:49 -03 2020
+Pergunta: Quanto é 0 x 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Fri Aug 28 21:11:56 -03 2020
+Pergunta: Quanto é 80 - 0? 
+Resposta: 80
+Eval: acertou.
+_____
+Fri Aug 28 21:12:08 -03 2020
+Pergunta: Quanto é 0 - 64? 
+Resposta: -64
+Eval: acertou.
+_____
+Fri Aug 28 21:12:21 -03 2020
+Pergunta: Quanto é 96 + 96? 
+Resposta: 192
+Eval: acertou.
+_____
+Fri Aug 28 21:12:27 -03 2020
+Pergunta: Quanto é 0 - 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Fri Aug 28 21:14:24 -03 2020
+Pergunta: Quanto é 48 + 64? 
+Resposta: 112
+Eval: acertou.
+_____
+Fri Aug 28 21:14:49 -03 2020
+Pergunta: Quanto é 126 + 126? 
+Resposta: 252
+Eval: acertou.
+_____
+Fri Aug 28 21:14:59 -03 2020
+Pergunta: Quanto é 0 + 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Fri Aug 28 21:15:12 -03 2020
+Pergunta: Quanto é 74 + 74? 
+Resposta: 148
+Eval: acertou.
+_____
+Fri Aug 28 21:15:18 -03 2020
+Pergunta: Quanto é 105 - 105? 
+Resposta: 0
+Eval: acertou.
+_____
+Fri Aug 28 21:15:27 -03 2020
+Pergunta: Quanto é 0 - 84? 
+Resposta: -84
+Eval: acertou.
+_____
+Fri Aug 28 21:15:33 -03 2020
+Pergunta: Quanto é 0 + 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Fri Aug 28 21:15:39 -03 2020
+Pergunta: Quanto é 0 + 0? 
+Resposta: 0
+Eval: acertou.
+_____
+Fri Aug 28 21:15:50 -03 2020
+Pergunta: Quanto é 70 + 102? 
+Resposta: 172
+Eval: acertou.
+_____
+Fri Aug 28 21:15:59 -03 2020
+Pergunta: Quanto é 27 / 21, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Fri Aug 28 21:16:15 -03 2020
+Pergunta: Quanto é 86 + 86? 
+Resposta: 172
+Eval: acertou.
+_____
+Fri Aug 28 21:16:43 -03 2020
+Pergunta: Quanto é 119 + 117? 
+Resposta: 236
+Eval: acertou.
+_____
+Fri Aug 28 21:17:02 -03 2020
+Pergunta: Quanto é 25 x 24? 
+Resposta: 600
+Eval: acertou.
+_____
+Fri Aug 28 21:17:11 -03 2020
+Pergunta: Quanto é 7 x 6? 
+Resposta: 42
+Eval: acertou.
+_____
+Fri Aug 28 21:17:17 -03 2020
+Pergunta: Quanto é 126 - 126? 
+Resposta: 0
+Eval: acertou.
+_____
+Fri Aug 28 21:50:40 -03 2020
+Pergunta: Quanto é 44 + 76? 
+Resposta: 120
+Eval: acertou.
+_____
+Fri Aug 28 21:51:19 -03 2020
+Pergunta: Quanto é 23 / 15, arredondado com 0 casas decimais? 
+Resposta: 2
+Eval: acertou.
+_____
+Sat Aug 29 12:15:43 -03 2020
+Pergunta: Quanto é 76 - 31? 
+Resposta: 45
+Eval: acertou.
+_____
+Sat Aug 29 12:16:26 -03 2020
+Pergunta: Quanto é 16 x 18? 
+Resposta: 288
+Eval: acertou.
+_____
+Sat Aug 29 12:16:36 -03 2020
+Pergunta: Quanto é 12 / 1? 
+Resposta: 12
+Eval: acertou.
+_____
+Sat Aug 29 12:17:22 -03 2020
+Pergunta: Quanto é 96 + 80? 
+Resposta: 176
+Eval: acertou.
+_____
+Sat Aug 29 12:20:34 -03 2020
+Pergunta: Quanto é 74 - 53? 
+Resposta: 21
+Eval: acertou.
+_____
+Sat Aug 29 12:21:03 -03 2020
+Pergunta: Quanto é 30 / 13, arredondado com 0 casas decimais? 
+Resposta: 2
+Eval: acertou.
+_____
+Sat Aug 29 12:21:11 -03 2020
+Pergunta: Quanto é 14 x 10? 
+Resposta: 140
+Eval: acertou.
+_____
+Sat Aug 29 12:21:27 -03 2020
+Pergunta: Quanto é 30 x 18? 
+Resposta: 540
+Eval: acertou.
+_____
+Sat Aug 29 12:21:35 -03 2020
+Pergunta: Quanto é 16 x 16? 
+Resposta: 256
+Eval: acertou.
+_____
+Sat Aug 29 12:21:50 -03 2020
+Pergunta: Quanto é 88 + 108? 
+Resposta: 196
+Eval: acertou.
+_____
+Sat Aug 29 12:22:01 -03 2020
+Pergunta: Quanto é 4 / 1? 
+Resposta: 4
+Eval: acertou.
+_____
+Sat Aug 29 12:24:26 -03 2020
+Pergunta: Quanto é 96 + 60? 
+Resposta: 156
+Eval: acertou.
+_____
+Sat Aug 29 12:24:48 -03 2020
+Pergunta: Quanto é 30 x 28? 
+Resposta: 840
+Eval: acertou.
+_____
+Sat Aug 29 12:25:02 -03 2020
+Pergunta: Quanto é 50 + 78? 
+Resposta: 128
+Eval: acertou.
+_____
+Sat Aug 29 12:25:20 -03 2020
+Pergunta: Quanto é 20 + 100? 
+Resposta: 120
+Eval: acertou.
+_____
+Sat Aug 29 12:25:39 -03 2020
+Pergunta: Quanto é 82 + 66? 
+Resposta: 148
+Eval: acertou.
+_____
+Sat Aug 29 12:26:41 -03 2020
+Pergunta: Quanto é 22 x 26? 
+Resposta: 572
+Eval: acertou.
+_____
+Sat Aug 29 13:48:55 -03 2020
+Pergunta: Quanto é 10 - 15 x 20? 
+Resposta: -290
+Eval: acertou.
+_____
+Sat Aug 29 16:19:50 -03 2020
+Pergunta: Quanto é 16 x 4? 
+Resposta: 64
+Eval: acertou.
+_____
+Sat Aug 29 22:09:24 -03 2020
+Pergunta: Quanto é 28 x 18? 
+Resposta: 504
+Eval: acertou.
+_____
+Sat Aug 29 22:12:28 -03 2020
+Pergunta: Quanto é 62 - 21? 
+Resposta: 41
+Eval: acertou.
+_____
+Sat Aug 29 22:13:36 -03 2020
+Pergunta: Quanto é 28 x 14? 
+Resposta: 392
+Eval: acertou.
+_____
+Sat Aug 29 22:13:51 -03 2020
+Pergunta: Quanto é 28 / 23, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Sat Aug 29 22:14:02 -03 2020
+Pergunta: Quanto é 30 x 2? 
+Resposta: 60
+Eval: acertou.
+_____
+Sat Aug 29 22:14:19 -03 2020
+Pergunta: Quanto é 14 / 31, arredondado com 0 casas decimais? 
+Resposta: 0
+Eval: acertou.
+_____
+Sat Aug 29 22:14:28 -03 2020
+Pergunta: Quanto é 14 / 7? 
+Resposta: 2
+Eval: acertou.
+_____
+Sat Aug 29 22:16:27 -03 2020
+Pergunta: Quanto é 126 + 100? 
+Resposta: 226
+Eval: acertou.
+_____
+Sat Aug 29 22:16:40 -03 2020
+Pergunta: Quanto é 14 / 7? 
+Resposta: 2
+Eval: acertou.
+_____
+Sat Aug 29 22:17:16 -03 2020
+Pergunta: Quanto é 12 x 6? 
+Resposta: 72
+Eval: acertou.
+_____
+Sat Aug 29 22:18:03 -03 2020
+Pergunta: Quanto é 60 - 21? 
+Resposta: 39
+Eval: acertou.
+_____
+Sat Aug 29 22:18:28 -03 2020
+Pergunta: Quanto é 14 / 23, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Sat Aug 29 22:18:57 -03 2020
+Pergunta: Quanto é 126 + 28? 
+Resposta: 154
+Eval: acertou.
+_____
+Thu Sep  3 15:57:02 -03 2020
+Pergunta: Quanto é 126 - 1? 
+Resposta: 125
+Eval: acertou.
+_____
+Thu Sep  3 15:57:17 -03 2020
+Pergunta: Quanto é 12 / 31, arredondado com 0 casas decimais? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Sep  3 15:57:34 -03 2020
+Pergunta: Quanto é 126 - 17? 
+Resposta: 109
+Eval: acertou.
+_____
+Thu Sep  3 15:58:14 -03 2020
+Pergunta: Quanto é 28 x 22? 
+Resposta: 616
+Eval: acertou.
+_____
+Thu Sep  3 16:00:04 -03 2020
+Pergunta: Quanto é 62 - 77? 
+Resposta: -15
+Eval: acertou.
+_____
+Thu Sep  3 16:00:16 -03 2020
+Pergunta: Quanto é 44 - 41? 
+Resposta: 3
+Eval: acertou.
+_____
+Thu Sep  3 16:03:31 -03 2020
+Pergunta: Quanto é 14 x 2? 
+Resposta: 28
+Eval: acertou.
+_____
+Thu Sep  3 16:13:57 -03 2020
+Pergunta: Quanto é 44 - 81? 
+Resposta: -37
+Eval: acertou.
+_____
+Thu Sep  3 16:14:27 -03 2020
+Pergunta: Quanto é 12 x 18? 
+Resposta: 216
+Eval: acertou.
+_____
+Thu Sep  3 16:22:01 -03 2020
+Pergunta: Quanto é 124 - 105? 
+Resposta: 19
+Eval: acertou.
+_____
+Thu Sep  3 16:22:11 -03 2020
+Pergunta: Quanto é 30 x 30? 
+Resposta: 900
+Eval: acertou.
+_____
+Thu Sep  3 16:22:31 -03 2020
+Pergunta: Quanto é 14 / 27, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Thu Sep  3 16:23:38 -03 2020
+Pergunta: Quanto é 28 / 11, arredondado com 0 casas decimais? 
+Resposta: 3
+Eval: acertou.
+_____
+Thu Sep  3 16:26:31 -03 2020
+Pergunta: Quanto é 92 + 12? 
+Resposta: 104
+Eval: acertou.
+_____
+Thu Sep  3 16:26:40 -03 2020
+Pergunta: Quanto é 12 / 11, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Thu Sep  3 16:27:06 -03 2020
+Pergunta: Quanto é 12 / 15, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Thu Sep  3 16:28:07 -03 2020
+Pergunta: Quanto é 30 / 23, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Thu Sep  3 16:28:40 -03 2020
+Pergunta: Quanto é 14 x 30? 
+Resposta: 420
+Eval: acertou.
+_____
+Thu Sep  3 16:29:33 -03 2020
+Pergunta: Quanto é 14 x 14? 
+Resposta: 196
+Eval: acertou.
+_____
+Thu Sep  3 16:29:52 -03 2020
+Pergunta: Quanto é 28 x 14? 
+Resposta: 392
+Eval: acertou.
+_____
+Thu Sep  3 16:30:36 -03 2020
+Pergunta: Quanto é 28 + 104? 
+Resposta: 132
+Eval: acertou.
+_____
+Thu Sep  3 16:30:50 -03 2020
+Pergunta: Quanto é 110 + 120? 
+Resposta: 230
+Eval: acertou.
+_____
+Thu Sep  3 16:32:06 -03 2020
+Pergunta: Quanto é 92 + 36? 
+Resposta: 128
+Eval: acertou.
+_____
+Thu Sep  3 16:32:50 -03 2020
+Pergunta: Quanto é 62 - 93? 
+Resposta: -31
+Eval: acertou.
+_____
+Thu Sep  3 16:32:59 -03 2020
+Pergunta: Quanto é 28 + 0? 
+Resposta: 28
+Eval: acertou.
+_____
+Thu Sep  3 16:33:09 -03 2020
+Pergunta: Quanto é 110 + 0? 
+Resposta: 110
+Eval: acertou.
+_____
+Thu Sep  3 16:34:32 -03 2020
+Pergunta: Quanto é 62 - 125? 
+Resposta: -63
+Eval: acertou.
+_____
+Thu Sep  3 16:34:47 -03 2020
+Pergunta: Quanto é 12 / 27, arredondado com 0 casas decimais? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Sep  3 16:36:35 -03 2020
+Pergunta: Quanto é 12 / 3? 
+Resposta: 4
+Eval: acertou.
+_____
+Thu Sep  3 16:36:46 -03 2020
+Pergunta: Quanto é 44 - 9? 
+Resposta: 35
+Eval: acertou.
+_____
+Thu Sep  3 16:38:25 -03 2020
+Pergunta: Quanto é 28 x 6? 
+Resposta: 168
+Eval: acertou.
+_____
+Thu Sep  3 16:42:00 -03 2020
+Pergunta: Quanto é 14 x 18? 
+Resposta: 252
+Eval: acertou.
+_____
+Thu Sep  3 16:43:55 -03 2020
+Pergunta: Quanto é 30 x 14? 
+Resposta: 420
+Eval: acertou.
+_____
+Thu Sep  3 16:44:05 -03 2020
+Pergunta: Quanto é 14 / 31, arredondado com 0 casas decimais? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Sep  3 16:44:40 -03 2020
+Pergunta: Quanto é 12 x 18? 
+Resposta: 216
+Eval: acertou.
+_____
+Thu Sep  3 16:44:50 -03 2020
+Pergunta: Quanto é 28 / 27, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Thu Sep  3 16:45:10 -03 2020
+Pergunta: Quanto é 108 + 56? 
+Resposta: 164
+Eval: acertou.
+_____
+Thu Sep  3 16:51:50 -03 2020
+Pergunta: Quanto é 12 x 18? 
+Resposta: 216
+Eval: acertou.
+_____
+Thu Sep  3 16:52:20 -03 2020
+Pergunta: Quanto é 12 x 26? 
+Resposta: 312
+Eval: acertou.
+_____
+Thu Sep  3 16:52:47 -03 2020
+Pergunta: Quanto é 124 - 49? 
+Resposta: 75
+Eval: acertou.
+_____
+Thu Sep  3 16:53:42 -03 2020
+Pergunta: Quanto é 78 - 121? 
+Resposta: -43
+Eval: acertou.
+_____
+Thu Sep  3 16:54:08 -03 2020
+Pergunta: Quanto é 14 - 53? 
+Resposta: -39
+Eval: acertou.
+_____
+Thu Sep  3 16:54:56 -03 2020
+Pergunta: Quanto é 30 x 26? 
+Resposta: 780
+Eval: acertou.
+_____
+Thu Sep  3 16:55:57 -03 2020
+Pergunta: Quanto é 30 x 18? 
+Resposta: 540
+Eval: acertou.
+_____
+Thu Sep  3 16:56:09 -03 2020
+Pergunta: Quanto é 62 + 64? 
+Resposta: 126
+Eval: acertou.
+_____
+Thu Sep  3 16:57:26 -03 2020
+Pergunta: Quanto é 30 x 22? 
+Resposta: 660
+Eval: acertou.
+_____
+Thu Sep  3 16:57:35 -03 2020
+Pergunta: Quanto é 28 x 10? 
+Resposta: 280
+Eval: acertou.
+_____
+Thu Sep  3 19:28:07 -03 2020
+Pergunta: Quanto é 46 + 124? 
+Resposta: 170
+Eval: acertou.
+_____
+Thu Sep  3 19:28:17 -03 2020
+Pergunta: Quanto é 28 / 27, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Thu Sep  3 19:28:24 -03 2020
+Pergunta: Quanto é 30 x 2? 
+Resposta: 60
+Eval: acertou.
+_____
+Thu Sep  3 19:28:39 -03 2020
+Pergunta: Quanto é 30 x 6? 
+Resposta: 180
+Eval: acertou.
+_____
+Thu Sep  3 19:29:12 -03 2020
+Pergunta: Quanto é 28 / 11, arredondado com 0 casas decimais? 
+Resposta: 3
+Eval: acertou.
+_____
+Thu Sep  3 19:29:23 -03 2020
+Pergunta: Quanto é 28 / 27, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Thu Sep  3 19:29:39 -03 2020
+Pergunta: Quanto é 124 - 17? 
+Resposta: 107
+Eval: acertou.
+_____
+Thu Sep  3 19:29:54 -03 2020
+Pergunta: Quanto é 14 / 3, arredondado com 0 casas decimais? 
+Resposta: 5
+Eval: acertou.
+_____
+Thu Sep  3 19:30:14 -03 2020
+Pergunta: Quanto é 14 / 11, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Thu Sep  3 19:30:25 -03 2020
+Pergunta: Quanto é 12 x 2? 
+Resposta: 24
+Eval: acertou.
+_____
+Thu Sep  3 19:30:39 -03 2020
+Pergunta: Quanto é 30 x 2? 
+Resposta: 60
+Eval: acertou.
+_____
+Thu Sep  3 19:31:12 -03 2020
+Pergunta: Quanto é 78 - 49? 
+Resposta: 29
+Eval: acertou.
+_____
+Thu Sep  3 19:31:31 -03 2020
+Pergunta: Quanto é 30 x 26? 
+Resposta: 780
+Eval: acertou.
+_____
+Thu Sep  3 19:32:33 -03 2020
+Pergunta: Quanto é 124 - 81? 
+Resposta: 43
+Eval: acertou.
+_____
+Thu Sep  3 19:32:42 -03 2020
+Pergunta: Quanto é 30 x 2? 
+Resposta: 60
+Eval: acertou.
+_____
+Thu Sep  3 19:32:55 -03 2020
+Pergunta: Quanto é 44 + 60? 
+Resposta: 104
+Eval: acertou.
+_____
+Thu Sep  3 19:33:15 -03 2020
+Pergunta: Quanto é 14 - 85? 
+Resposta: -71
+Eval: acertou.
+_____
+Thu Sep  3 19:33:25 -03 2020
+Pergunta: Quanto é 14 / 15, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Thu Sep  3 19:34:10 -03 2020
+Pergunta: Quanto é 12 x 2? 
+Resposta: 24
+Eval: acertou.
+_____
+Thu Sep  3 19:34:20 -03 2020
+Pergunta: Quanto é 108 + 8? 
+Resposta: 116
+Eval: acertou.
+_____
+Thu Sep  3 19:34:28 -03 2020
+Pergunta: Quanto é 60 - 5? 
+Resposta: 55
+Eval: acertou.
+_____
+Thu Sep  3 19:34:43 -03 2020
+Pergunta: Quanto é 124 - 105? 
+Resposta: 19
+Eval: acertou.
+_____
+Thu Sep  3 19:35:10 -03 2020
+Pergunta: Quanto é 14 / 27, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Thu Sep  3 19:35:30 -03 2020
+Pergunta: Quanto é 12 x 22? 
+Resposta: 264
+Eval: acertou.
+_____
+Thu Sep  3 19:35:51 -03 2020
+Pergunta: Quanto é 14 / 19, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Thu Sep  3 19:36:07 -03 2020
+Pergunta: Quanto é 28 / 3, arredondado com 0 casas decimais? 
+Resposta: 9
+Eval: acertou.
+_____
+Thu Sep  3 19:37:17 -03 2020
+Pergunta: Quanto é 14 - 53? 
+Resposta: -39
+Eval: acertou.
+_____
+Thu Sep  3 19:39:07 -03 2020
+Pergunta: Quanto é 12 x 22? 
+Resposta: 264
+Eval: acertou.
+_____
+Thu Sep  3 19:41:08 -03 2020
+Pergunta: Quanto é 14 / 31, arredondado com 0 casas decimais? 
+Resposta: 0
+Eval: acertou.
+_____
+Thu Sep  3 19:41:24 -03 2020
+Pergunta: Quanto é 124 - 113? 
+Resposta: 11
+Eval: acertou.
+_____
+Thu Sep  3 19:42:46 -03 2020
+Pergunta: Quanto é 124 - 57? 
+Resposta: 67
+Eval: acertou.
+_____
+Thu Sep  3 19:56:32 -03 2020
+Pergunta: Quanto é 12 x 26? 
+Resposta: 312
+Eval: acertou.
+_____
+Thu Sep  3 20:01:24 -03 2020
+Pergunta: Quanto é 14 x 26? 
+Resposta: 364
+Eval: acertou.
+_____
+Thu Sep  3 20:01:41 -03 2020
+Pergunta: Quanto é 126 + 44? 
+Resposta: 170
+Eval: acertou.
+_____
+Thu Sep  3 20:01:50 -03 2020
+Pergunta: Quanto é 12 x 10? 
+Resposta: 120
+Eval: acertou.
+_____
+Thu Sep  3 20:04:39 -03 2020
+Pergunta: Quanto é 12 x 14? 
+Resposta: 168
+Eval: acertou.
+_____
+Thu Sep  3 20:04:48 -03 2020
+Pergunta: Quanto é 28 / 27, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Thu Sep  3 20:05:04 -03 2020
+Pergunta: Quanto é 30 x 2? 
+Resposta: 60
+Eval: acertou.
+_____
+Thu Sep  3 20:05:12 -03 2020
+Pergunta: Quanto é 30 x 10? 
+Resposta: 300
+Eval: acertou.
+_____
+Thu Sep  3 20:05:22 -03 2020
+Pergunta: Quanto é 28 / 11, arredondado com 0 casas decimais? 
+Resposta: 3
+Eval: acertou.
+_____
+Thu Sep  3 20:05:38 -03 2020
+Pergunta: Quanto é 108 + 72? 
+Resposta: 180
+Eval: acertou.
+_____
+Thu Sep  3 20:05:54 -03 2020
+Pergunta: Quanto é 108 + 16? 
+Resposta: 124
+Eval: acertou.
+_____
+Thu Sep  3 20:06:13 -03 2020
+Pergunta: Quanto é 108 + 88? 
+Resposta: 196
+Eval: acertou.
+_____
+Thu Sep  3 20:06:58 -03 2020
+Pergunta: Quanto é 12 x 18? 
+Resposta: 216
+Eval: acertou.
+_____
+Thu Sep  3 20:13:40 -03 2020
+Pergunta: Quanto é 14 / 27, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Thu Sep  3 20:13:51 -03 2020
+Pergunta: Quanto é 124 - 25? 
+Resposta: 99
+Eval: acertou.
+_____
+Thu Sep  3 20:17:08 -03 2020
+Pergunta: Quanto é 78 - 25? 
+Resposta: 53
+Eval: acertou.
+_____
+Thu Sep  3 20:17:50 -03 2020
+Pergunta: Quanto é 46 + 12? 
+Resposta: 58
+Eval: acertou.
+_____
+Thu Sep  3 20:18:51 -03 2020
+Pergunta: Quanto é 28 x 22? 
+Resposta: 616
+Eval: acertou.
+_____
+Thu Sep  3 20:19:34 -03 2020
+Pergunta: Quanto é 108 - 29? 
+Resposta: 79
+Eval: acertou.
+_____
+Thu Sep  3 20:19:43 -03 2020
+Pergunta: Quanto é 28 x 10? 
+Resposta: 280
+Eval: acertou.
+_____
+Thu Sep  3 20:19:56 -03 2020
+Pergunta: Quanto é 12 / 7, arredondado com 0 casas decimais? 
+Resposta: 2
+Eval: acertou.
+_____
+Thu Sep  3 20:25:23 -03 2020
+Pergunta: Quanto é 110 + 64? 
+Resposta: 174
+Eval: acertou.
+_____
+Thu Sep  3 20:25:40 -03 2020
+Pergunta: Quanto é 44 - 65? 
+Resposta: -21
+Eval: acertou.
+_____
+Thu Sep  3 20:29:14 -03 2020
+Pergunta: Quanto é 44 - 9? 
+Resposta: 35
+Eval: acertou.
+_____
+Thu Sep  3 20:29:34 -03 2020
+Pergunta: Quanto é 92 + 124? 
+Resposta: 216
+Eval: acertou.
+_____
+Thu Sep  3 20:30:16 -03 2020
+Pergunta: Quanto é 28 x 22? 
+Resposta: 616
+Eval: acertou.
+_____
+Thu Sep  3 20:31:50 -03 2020
+Pergunta: Quanto é 12 / 3? 
+Resposta: 4
+Eval: acertou.
+_____
+Thu Sep  3 20:34:28 -03 2020
+Pergunta: Quanto é 62 - 29? 
+Resposta: 33
+Eval: acertou.
+_____
+Thu Sep  3 20:34:40 -03 2020
+Pergunta: Quanto é 126 + 100? 
+Resposta: 226
+Eval: acertou.
+_____
+Thu Sep  3 20:35:25 -03 2020
+Pergunta: Quanto é 30 x 26? 
+Resposta: 780
+Eval: acertou.
+_____
+Thu Sep  3 20:40:32 -03 2020
+Pergunta: Quanto é 62 + 32? 
+Resposta: 94
+Eval: acertou.
+_____
+Thu Sep  3 20:40:41 -03 2020
+Pergunta: Quanto é 30 x 10? 
+Resposta: 300
+Eval: acertou.
+_____
+Thu Sep  3 20:40:55 -03 2020
+Pergunta: Quanto é 44 + 36? 
+Resposta: 80
+Eval: acertou.
+_____
+Thu Sep  3 20:43:33 -03 2020
+Pergunta: Quanto é 14 - 61? 
+Resposta: -47
+Eval: acertou.
+_____
+Thu Sep  3 21:09:53 -03 2020
+Pergunta: Quanto é 12 x 10? 
+Resposta: 120
+Eval: acertou.
+_____
+Thu Sep  3 21:10:11 -03 2020
+Pergunta: Quanto é 30 x 18? 
+Resposta: 540
+Eval: acertou.
+_____
+Fri Sep  4 11:22:48 -03 2020
+Pergunta: Quanto é 12 / 11, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Fri Sep  4 11:22:55 -03 2020
+Pergunta: Quanto é 12 / 3? 
+Resposta: 4
+Eval: acertou.
+_____
+Fri Sep  4 11:23:10 -03 2020
+Pergunta: Quanto é 126 - 113? 
+Resposta: 13
+Eval: acertou.
+_____
+Fri Sep  4 11:24:11 -03 2020
+Pergunta: Quanto é 28 x 22? 
+Resposta: 616
+Eval: acertou.
+_____
+Fri Sep  4 11:24:20 -03 2020
+Pergunta: Quanto é 30 / 7, arredondado com 0 casas decimais? 
+Resposta: 4
+Eval: acertou.
+_____
+Fri Sep  4 11:24:29 -03 2020
+Pergunta: Quanto é 44 - 33? 
+Resposta: 11
+Eval: acertou.
+_____
+Fri Sep  4 11:34:30 -03 2020
+Pergunta: Quanto é 110 + 8? 
+Resposta: 118
+Eval: acertou.
+_____
+Fri Sep  4 11:35:00 -03 2020
+Pergunta: Quanto é 12 x 26? 
+Resposta: 312
+Eval: acertou.
+_____
+Fri Sep  4 11:35:19 -03 2020
+Pergunta: Quanto é 124 - 113? 
+Resposta: 11
+Eval: acertou.
+_____
+Fri Sep  4 11:37:22 -03 2020
+Pergunta: Quanto é 28 / 11, arredondado com 0 casas decimais? 
+Resposta: 3
+Eval: acertou.
+_____
+Fri Sep  4 11:37:46 -03 2020
+Pergunta: Quanto é 108 + 96? 
+Resposta: 204
+Eval: acertou.
+_____
+Fri Sep  4 11:38:04 -03 2020
+Pergunta: Quanto é 14 / 15, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Fri Sep  4 11:40:11 -03 2020
+Pergunta: Quanto é 60 - 109? 
+Resposta: -49
+Eval: acertou.
+_____
+Fri Sep  4 11:40:37 -03 2020
+Pergunta: Quanto é 60 - 45? 
+Resposta: 15
+Eval: acertou.
+_____
+Fri Sep  4 11:44:17 -03 2020
+Pergunta: Quanto é 12 x 18? 
+Resposta: 216
+Eval: acertou.
+_____
+Fri Sep  4 11:44:49 -03 2020
+Pergunta: Quanto é 108 + 48? 
+Resposta: 156
+Eval: acertou.
+_____
+Fri Sep  4 11:44:57 -03 2020
+Pergunta: Quanto é 30 x 10? 
+Resposta: 300
+Eval: acertou.
+_____
+Fri Sep  4 11:45:26 -03 2020
+Pergunta: Quanto é 30 x 14? 
+Resposta: 420
+Eval: acertou.
+_____
+Fri Sep  4 11:45:39 -03 2020
+Pergunta: Quanto é 12 x 2? 
+Resposta: 24
+Eval: acertou.
+_____
+Fri Sep  4 11:47:34 -03 2020
+Pergunta: Quanto é 124 - 49? 
+Resposta: 75
+Eval: acertou.
+_____
+Fri Sep  4 11:47:45 -03 2020
+Pergunta: Quanto é 28 / 27, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Fri Sep  4 11:47:54 -03 2020
+Pergunta: Quanto é 30 x 2? 
+Resposta: 60
+Eval: acertou.
+_____
+Fri Sep  4 11:48:37 -03 2020
+Pergunta: Quanto é 44 + 60? 
+Resposta: 104
+Eval: acertou.
+_____
+Fri Sep  4 11:48:47 -03 2020
+Pergunta: Quanto é 12 x 2? 
+Resposta: 24
+Eval: acertou.
+_____
+Fri Sep  4 11:48:59 -03 2020
+Pergunta: Quanto é 28 / 31, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Fri Sep  4 11:49:53 -03 2020
+Pergunta: Quanto é 14 / 31, arredondado com 0 casas decimais? 
+Resposta: 0
+Eval: acertou.
+_____
+Fri Sep  4 11:50:06 -03 2020
+Pergunta: Quanto é 108 + 24? 
+Resposta: 132
+Eval: acertou.
+_____
+Fri Sep  4 11:57:06 -03 2020
+Pergunta: Quanto é 126 - 121? 
+Resposta: 5
+Eval: acertou.
+_____
+Fri Sep  4 11:57:15 -03 2020
+Pergunta: Quanto é 30 / 27, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Fri Sep  4 11:57:31 -03 2020
+Pergunta: Quanto é 108 - 117? 
+Resposta: -9
+Eval: acertou.
+_____
+Fri Sep  4 11:58:08 -03 2020
+Pergunta: Quanto é 108 - 61? 
+Resposta: 47
+Eval: acertou.
+_____
+Fri Sep  4 11:58:18 -03 2020
+Pergunta: Quanto é 12 / 31, arredondado com 0 casas decimais? 
+Resposta: 0
+Eval: acertou.
+_____
+Fri Sep  4 11:58:48 -03 2020
+Pergunta: Quanto é 92 + 124? 
+Resposta: 216
+Eval: acertou.
+_____
+Fri Sep  4 11:59:05 -03 2020
+Pergunta: Quanto é 12 / 19, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Fri Sep  4 11:59:46 -03 2020
+Pergunta: Quanto é 92 + 84? 
+Resposta: 176
+Eval: acertou.
+_____
+Fri Sep  4 12:05:36 -03 2020
+Pergunta: Quanto é 28 + 72? 
+Resposta: 100
+Eval: acertou.
+_____
+Fri Sep  4 12:05:48 -03 2020
+Pergunta: Quanto é 14 x 2? 
+Resposta: 28
+Eval: acertou.
+_____
+Fri Sep  4 12:06:01 -03 2020
+Pergunta: Quanto é 110 + 120? 
+Resposta: 230
+Eval: acertou.
+_____
+Fri Sep  4 12:06:10 -03 2020
+Pergunta: Quanto é 14 x 14? 
+Resposta: 196
+Eval: acertou.
+_____
+Fri Sep  4 12:06:24 -03 2020
+Pergunta: Quanto é 28 + 8? 
+Resposta: 36
+Eval: acertou.
+_____
+Fri Sep  4 12:09:04 -03 2020
+Pergunta: Quanto é 30 x 10? 
+Resposta: 300
+Eval: acertou.
+_____
+Fri Sep  4 12:09:13 -03 2020
+Pergunta: Quanto é 28 / 23, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Fri Sep  4 12:09:22 -03 2020
+Pergunta: Quanto é 30 x 30? 
+Resposta: 900
+Eval: acertou.
+_____
+Fri Sep  4 12:09:45 -03 2020
+Pergunta: Quanto é 14 / 27, arredondado com 0 casas decimais? 
+Resposta: 1
+Eval: acertou.
+_____
+Fri Sep  4 12:11:48 -03 2020
+Pergunta: Quanto é 30 x 14? 
+Resposta: 420
+Eval: acertou.
+_____
+Fri Sep  4 12:12:04 -03 2020
+Pergunta: Quanto é 126 + 28? 
+Resposta: 154
+Eval: acertou.
+_____
+Fri Sep  4 12:20:49 -03 2020
+Pergunta: Quanto é 12 x 26? 
+Resposta: 312
+Eval: acertou.
