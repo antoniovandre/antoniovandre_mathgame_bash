@@ -8,7 +8,7 @@
 
 # Licença: Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA).
 
-# Última atualização: 06-09-2020.
+# Última atualização: 19-09-2020.
 
 # Argumento: "ne" para não processar estatísticas, ou "oe" para apenas processar estatísticas.
 
@@ -36,6 +36,8 @@ if ! hash bash &>> /dev/null; then echo "BASH ${NOTFOUND}."; exit 1; fi
 
 if ! hash bc &>> /dev/null; then echo "\"bc\" ${NOTFOUND}."; exit 1; fi
 
+#if ! hash play &>> /dev/null; then echo "\"play\" ${NOTFOUND}."; exit 1; fi
+
 if ! hash unix2dos &>> /dev/null; then echo "\"unix2dos\" ${NOTFOUND}."; exit 1; fi
 
 if ! hash dos2unix &>> /dev/null; then echo "\"dos2unix\" ${NOTFOUND}."; exit 1; fi
@@ -52,7 +54,7 @@ case "${LINGUA}" in
 
     VERSION="Versão"
 
-    INSTRUCOES="Digite \"${AV_AMARELO}SAIR${AV_SEMCOR}\", \"${AV_AMARELO}EXIT${AV_SEMCOR}\", \"${AV_AMARELO}sair${AV_SEMCOR}\", ou \"${AV_AMARELO}exit${AV_SEMCOR}\" para sair.\n\nDigite \"${AV_AMARELO}PULAR${AV_SEMCOR}\", \"${AV_AMARELO}JUMP${AV_SEMCOR}\", \"${AV_AMARELO}pular${AV_SEMCOR}\" ou \"${AV_AMARELO}jump${AV_SEMCOR}\" para pular.\n\nDigite \"${AV_AMARELO}+A${AV_SEMCOR}\" para incrementar o número de argumentos, \"${AV_AMARELO}-A${AV_SEMCOR}\" para diminuir o número de argumentos.\n\nDigite \"${AV_AMARELO}+D${AV_SEMCOR}\" para incrementar o número de casas decimais, \"${AV_AMARELO}-D${AV_SEMCOR}\" para diminuir o número de casas decimais.\n\nDigite \"${AV_AMARELO}+N${AV_SEMCOR}\" para aumentar o limite superior dos números, \"${AV_AMARELO}-N${AV_SEMCOR}\" para reduzir o limite superior dos números.\n\nDigite \"${AV_AMARELO}T${AV_SEMCOR}\" para ativar tempo, \"${AV_AMARELO}t${AV_SEMCOR}\" para desativar tempo, \"${AV_AMARELO}+T${AV_SEMCOR}\" para aumentar o tempo, ou \"${AV_AMARELO}-T${AV_SEMCOR}\" para reduzir o tempo.\n\nDigite \"${AV_AMARELO}M${AV_SEMCOR}\" para mostrar a mensagem de Antonio Vandré.\n\nDigite \"${AV_AMARELO}AJUDA${AV_SEMCOR}\", \"${AV_AMARELO}HELP${AV_SEMCOR}\", \"${AV_AMARELO}H${AV_SEMCOR}\", \"${AV_AMARELO}ajuda${AV_SEMCOR}\", \"${AV_AMARELO}help${AV_SEMCOR}\" ou \"${AV_AMARELO}h${AV_SEMCOR}\" para mostrar esta mensagem."
+    INSTRUCOES="Digite \"${AV_AMARELO}SAIR${AV_SEMCOR}\", \"${AV_AMARELO}EXIT${AV_SEMCOR}\", \"${AV_AMARELO}sair${AV_SEMCOR}\", ou \"${AV_AMARELO}exit${AV_SEMCOR}\" para sair.\n\nDigite \"${AV_AMARELO}PULAR${AV_SEMCOR}\", \"${AV_AMARELO}JUMP${AV_SEMCOR}\", \"${AV_AMARELO}pular${AV_SEMCOR}\" ou \"${AV_AMARELO}jump${AV_SEMCOR}\" para pular.\n\nDigite \"${AV_AMARELO}+C${AV_SEMCOR}\" para incrementar o CHAOS, \"${AV_AMARELO}-C${AV_SEMCOR}\" para diminuir o CHAOS.\n\nDigite \"${AV_AMARELO}+A${AV_SEMCOR}\" para incrementar o número de argumentos, \"${AV_AMARELO}-A${AV_SEMCOR}\" para diminuir o número de argumentos.\n\nDigite \"${AV_AMARELO}+D${AV_SEMCOR}\" para incrementar o número de casas decimais, \"${AV_AMARELO}-D${AV_SEMCOR}\" para diminuir o número de casas decimais.\n\nDigite \"${AV_AMARELO}+N${AV_SEMCOR}\" para aumentar o limite superior dos números, \"${AV_AMARELO}-N${AV_SEMCOR}\" para reduzir o limite superior dos números.\n\nDigite \"${AV_AMARELO}T${AV_SEMCOR}\" para ativar tempo, \"${AV_AMARELO}t${AV_SEMCOR}\" para desativar tempo, \"${AV_AMARELO}+T${AV_SEMCOR}\" para aumentar o tempo, ou \"${AV_AMARELO}-T${AV_SEMCOR}\" para reduzir o tempo.\n\nDigite \"${AV_AMARELO}M${AV_SEMCOR}\" para mostrar a mensagem de Antonio Vandré.\n\nDigite \"${AV_AMARELO}AJUDA${AV_SEMCOR}\", \"${AV_AMARELO}HELP${AV_SEMCOR}\", \"${AV_AMARELO}H${AV_SEMCOR}\", \"${AV_AMARELO}ajuda${AV_SEMCOR}\", \"${AV_AMARELO}help${AV_SEMCOR}\" ou \"${AV_AMARELO}h${AV_SEMCOR}\" para mostrar esta mensagem."
 
     ROUNDWITH="arredondado com"
 
@@ -81,6 +83,12 @@ case "${LINGUA}" in
     NBOTTOM="A magnitude dos números já está no limite mínimo."
 
     NNOW="Agora o valor máximo é"
+
+    CHAOSNOW="Agora o valor do CHAOS é"
+
+	CHAOSOVERFLOW="O valor do CHAOS já está no máximo."
+
+	CHAOSBOTTOM="O valor do CHAOS já está no mínimo."
 
     TOVERFLOW="O tempo já está no valor máximo."
 
@@ -137,7 +145,7 @@ case "${LINGUA}" in
 
     VERSION="Version"
 
-    INSTRUCOES="Type \"${AV_AMARELO}SAIR${AV_SEMCOR}\", \"${AV_AMARELO}EXIT${AV_SEMCOR}\", \"${AV_AMARELO}sair${AV_SEMCOR}\", or \"${AV_AMARELO}exit${AV_SEMCOR}\" to exit.\n\nType \"${AV_AMARELO}PULAR${AV_SEMCOR}\", \"${AV_AMARELO}JUMP${AV_SEMCOR}\", \"${AV_AMARELO}pular${AV_SEMCOR}\" or \"${AV_AMARELO}jump${AV_SEMCOR}\" to jump.\n\nType \"${AV_AMARELO}+A${AV_SEMCOR}\" to increase the number of arguments, \"${AV_AMARELO}-A${AV_SEMCOR}\" to decrease the number of arguments.\n\nType \"${AV_AMARELO}+D${AV_SEMCOR}\" to increase the number of decimal places, \"${AV_AMARELO}-D${AV_SEMCOR}\" to decrease the number of decimal places.\n\nType \"${AV_AMARELO}+N${AV_SEMCOR}\" to increase the upper limit of the numbers, \"${AV_AMARELO}-N${AV_SEMCOR}\" to reduce the upper limit of the numbers.\n\nType \"${AV_AMARELO}T${AV_SEMCOR}\" to activated time, \"${AV_AMARELO}t${AV_SEMCOR}\" to deactivate time, \"${AV_AMARELO}+T${AV_SEMCOR}\" to increase time, or \"${AV_AMARELO}-T${AV_SEMCOR}\" to reduce time.\n\nType \"${AV_AMARELO}M${AV_SEMCOR}\" to show Antonio Vandré's message.\n\nType \"${AV_AMARELO}AJUDA${AV_SEMCOR}\", \"${AV_AMARELO}HELP${AV_SEMCOR}\", \"${AV_AMARELO}H${AV_SEMCOR}\", \"${AV_AMARELO}ajuda${AV_SEMCOR}\", \"${AV_AMARELO}help${AV_SEMCOR}\" or \"${AV_AMARELO}h${AV_SEMCOR}\" to show this message."
+    INSTRUCOES="Type \"${AV_AMARELO}SAIR${AV_SEMCOR}\", \"${AV_AMARELO}EXIT${AV_SEMCOR}\", \"${AV_AMARELO}sair${AV_SEMCOR}\", or \"${AV_AMARELO}exit${AV_SEMCOR}\" to exit.\n\nType \"${AV_AMARELO}PULAR${AV_SEMCOR}\", \"${AV_AMARELO}JUMP${AV_SEMCOR}\", \"${AV_AMARELO}pular${AV_SEMCOR}\" or \"${AV_AMARELO}jump${AV_SEMCOR}\" to jump.\n\nType \"${AV_AMARELO}+C${AV_SEMCOR}\" to increase the CHAOS, \"${AV_AMARELO}-C${AV_SEMCOR}\" to decrease the CHAOS.\n\nType \"${AV_AMARELO}+A${AV_SEMCOR}\" to increase the number of arguments, \"${AV_AMARELO}-A${AV_SEMCOR}\" to decrease the number of arguments.\n\nType \"${AV_AMARELO}+D${AV_SEMCOR}\" to increase the number of decimal places, \"${AV_AMARELO}-D${AV_SEMCOR}\" to decrease the number of decimal places.\n\nType \"${AV_AMARELO}+N${AV_SEMCOR}\" to increase the upper limit of the numbers, \"${AV_AMARELO}-N${AV_SEMCOR}\" to reduce the upper limit of the numbers.\n\nType \"${AV_AMARELO}T${AV_SEMCOR}\" to activated time, \"${AV_AMARELO}t${AV_SEMCOR}\" to deactivate time, \"${AV_AMARELO}+T${AV_SEMCOR}\" to increase time, or \"${AV_AMARELO}-T${AV_SEMCOR}\" to reduce time.\n\nType \"${AV_AMARELO}M${AV_SEMCOR}\" to show Antonio Vandré's message.\n\nType \"${AV_AMARELO}AJUDA${AV_SEMCOR}\", \"${AV_AMARELO}HELP${AV_SEMCOR}\", \"${AV_AMARELO}H${AV_SEMCOR}\", \"${AV_AMARELO}ajuda${AV_SEMCOR}\", \"${AV_AMARELO}help${AV_SEMCOR}\" or \"${AV_AMARELO}h${AV_SEMCOR}\" to show this message."
 
     ROUNDWITH="rounding with"
 
@@ -166,6 +174,12 @@ case "${LINGUA}" in
     NBOTTOM="The magnitude of the numbers is already in the minimum."
 
     NNOW="Now the maximum value is"
+
+    CHAOSNOW="Now the CHAOS value is"
+
+	CHAOSOVERFLOW="The magnitude of CHAOS is already in the ceiling."
+
+	CHAOSBOTTOM="The magnitude of CHAOS is already in the minimum."
 
     TOVERFLOW="Time already in max value."
 
@@ -220,12 +234,13 @@ case "${LINGUA}" in
   *) ;;
 esac
 
-CHAOS="10" # Deve ser um inteiro maior ou igual a 2. Determina a aleatoriedade dos argumentos e operadores.
 MRLOGOASCIIFILE="Mathematical Ramblings - ascii art - 40.txt"
 NUMEROMAXIMOARGUMENTOS="10"
 MAXIMOCASASDECIMAIS="5"
-MAXMAXVALUE="1024"
+MAXMAXVALUE="1048576"
 MINMAXVALUE="8"
+MAXCHAOSVALUE="50"
+MINCHAOSVALUE="10"
 MAXTIME="60"
 MINTIME="10"
 AVSOUND="0"
@@ -234,6 +249,7 @@ ARQUIVOSOMERRO="antoniovandre_mathgame_error.wav"
 AVLOG="1"
 ARQUIVOLOG="antoniovandre_mathgame_log.txt"
 ARQUIVOLOGTEMP="antoniovandre_mathgame_log_temp.txt"
+ARQUIVOOPCOES="antoniovandre_mathgame_options"
 AVGRAFICOS="1"
 ARQUIVOGNUPLOTDATA="antoniovandre_mathgame_log_gnuplot.dat"
 ARQUIVOGNUPLOTDATA2="antoniovandre_mathgame_log_gnuplot_2.dat"
@@ -268,18 +284,23 @@ case "${LINGUA}" in
     LOCKFILEEXISTS="Jogo já em execução ou encerrado incorretamente. No segundo caso remova \"${LOCKFILE}\""
   ;;
   "e")
-    LOCKFILEEXISTS="Game already running or closed incorrectly. In second case, remove \"${LOCKFILE}\""
+    LOCKFILEEXISTS="Game already running or closed incorrectly. In second case remove \"${LOCKFILE}\""
   ;;
   *) ;;
 esac
 
 if ls "${LOCKFILE}" &>> /dev/null; then echo -ne "${AV_VERMELHO}"; bash antoniovandre_echo_android_nosound "${LOCKFILEEXISTS}" n; echo -e "${AV_SEMCOR}."; exit 1; else touch "${LOCKFILE}"; fi
 
-AVTEMPO="0"
-LIMITETEMPO="20"
-MAXVALUE="128"
-CASASDECIMAIS="0"
-NUMEROARGUMENTOS="2"
+if ! ls "${ARQUIVOOPCOES}" &>> /dev/null; then echo "10%0%30%256%0%2" > "${ARQUIVOOPCOES}"; fi
+
+CHAOS=$(cat "${ARQUIVOOPCOES}" | cut -d "%" -f 1)
+AVTEMPO=$(cat "${ARQUIVOOPCOES}" | cut -d "%" -f 2)
+LIMITETEMPO=$(cat "${ARQUIVOOPCOES}" | cut -d "%" -f 3)
+MAXVALUE=$(cat "${ARQUIVOOPCOES}" | cut -d "%" -f 4)
+CASASDECIMAIS=$(cat "${ARQUIVOOPCOES}" | cut -d "%" -f 5)
+NUMEROARGUMENTOS=$(cat "${ARQUIVOOPCOES}" | cut -d "%" -f 6)
+
+if ! [[ "${CHAOS}" =~ "^[0-9]+$" ]] || ! [[ "${AVTEMPO}" =~ "^[0-9]+$" ]] || ! [[ "${LIMITETEMPO}" =~ "^[0-9]+$" ]] || ! [[ "${MAXVALUE}" =~ "^[0-9]+$" ]] || ! [[ "${CASASDECIMAIS}" =~ "^[0-9]+$" ]] || ! [[ "${NUMEROARGUMENTOS}" =~ "^[0-9]+$" ]]; then echo "10%0%30%256%0%2" > "${ARQUIVOOPCOES}"; fi
 
 RESPOSTAUSUARIO=""
 
@@ -297,7 +318,7 @@ bash antoniovandre_echo_android_nosound "${MATHGAME}."
 
 echo ""
 
-bash antoniovandre_echo_android_nosound "${VERSION} 06-09-2020."
+bash antoniovandre_echo_android_nosound "${VERSION} 19-09-2020."
 
 echo ""
 
@@ -366,19 +387,21 @@ while [  "${RESPOSTAUSUARIO}" != "SAIR" ] && [  "${RESPOSTAUSUARIO}" != "EXIT" ]
 
   RESPOSTAUSUARIOP=$RESPOSTAUSUARIO
 
-  if ! ([ "${RESPOSTAUSUARIO}" == "+A" ] || [ "${RESPOSTAUSUARIO}" == "-A" ] || [ "${RESPOSTAUSUARIO}" == "+D" ] || [ "${RESPOSTAUSUARIO}" == "-D" ] || [ "${RESPOSTAUSUARIO}" == "+N" ] || [ "${RESPOSTAUSUARIO}" == "-N" ] || [ "${RESPOSTAUSUARIO}" == "T" ] || [ "${RESPOSTAUSUARIO}" == "t" ] || [ "${RESPOSTAUSUARIO}" == "+T" ] || [ "${RESPOSTAUSUARIO}" == "-T" ] || [ "${RESPOSTAUSUARIO}" == "SAIR" ] || [ "${RESPOSTAUSUARIO}" == "EXIT" ] || [ "${RESPOSTAUSUARIO}" == "sair" ] || [ "${RESPOSTAUSUARIO}" == "exit" ] || [ "${RESPOSTAUSUARIO}" == "PULAR" ] || [ "${RESPOSTAUSUARIO}" == "JUMP" ] || [ "${RESPOSTAUSUARIO}" == "pular" ] || [ "${RESPOSTAUSUARIO}" == "jump" ] || [ "${RESPOSTAUSUARIO}" == "M" ] || [ "${RESPOSTAUSUARIO}" == "AJUDA" ] || [ "${RESPOSTAUSUARIO}" == "HELP" ] || [ "${RESPOSTAUSUARIO}" == "H" ] || [ "${RESPOSTAUSUARIO}" == "ajuda" ] || [ "${RESPOSTAUSUARIO}" == "help" ] || [ "${RESPOSTAUSUARIO}" == "h" ]); then RESPOSTAUSUARIO=$(echo "${RESPOSTAUSUARIO}" | tr -d "\"" | tr -d "'" | tr -d "\`" | tr -d "\$" | tr "x" "*" | tr "X" "*" | tr -d " "); RESPOSTAUSUARIO=$(LC_NUMERIC="en_US.UTF-8" printf "%.${CASASDECIMAIS}f" "$(echo ${RESPOSTAUSUARIO} | bc -l 2>> /dev/null)"); RESPOSTAUSUARIO=$(awk "BEGIN{print ${RESPOSTAUSUARIO}}"); fi
+  if ! ([ "${RESPOSTAUSUARIO}" == "+A" ] || [ "${RESPOSTAUSUARIO}" == "-A" ] || [ "${RESPOSTAUSUARIO}" == "+D" ] || [ "${RESPOSTAUSUARIO}" == "-D" ] || [ "${RESPOSTAUSUARIO}" == "+N" ] || [ "${RESPOSTAUSUARIO}" == "-N" ] || [ "${RESPOSTAUSUARIO}" == "+C" ] || [ "${RESPOSTAUSUARIO}" == "-C" ] || [ "${RESPOSTAUSUARIO}" == "T" ] || [ "${RESPOSTAUSUARIO}" == "t" ] || [ "${RESPOSTAUSUARIO}" == "+T" ] || [ "${RESPOSTAUSUARIO}" == "-T" ] || [ "${RESPOSTAUSUARIO}" == "SAIR" ] || [ "${RESPOSTAUSUARIO}" == "EXIT" ] || [ "${RESPOSTAUSUARIO}" == "sair" ] || [ "${RESPOSTAUSUARIO}" == "exit" ] || [ "${RESPOSTAUSUARIO}" == "PULAR" ] || [ "${RESPOSTAUSUARIO}" == "JUMP" ] || [ "${RESPOSTAUSUARIO}" == "pular" ] || [ "${RESPOSTAUSUARIO}" == "jump" ] || [ "${RESPOSTAUSUARIO}" == "M" ] || [ "${RESPOSTAUSUARIO}" == "AJUDA" ] || [ "${RESPOSTAUSUARIO}" == "HELP" ] || [ "${RESPOSTAUSUARIO}" == "H" ] || [ "${RESPOSTAUSUARIO}" == "ajuda" ] || [ "${RESPOSTAUSUARIO}" == "help" ] || [ "${RESPOSTAUSUARIO}" == "h" ]); then RESPOSTAUSUARIO=$(echo "${RESPOSTAUSUARIO}" | tr -d "\"" | tr -d "'" | tr -d "\`" | tr -d "\$" | tr "x" "*" | tr "X" "*" | tr -d " "); RESPOSTAUSUARIO=$(LC_NUMERIC="en_US.UTF-8" printf "%.${CASASDECIMAIS}f" "$(echo ${RESPOSTAUSUARIO} | bc -l 2>> /dev/null)"); RESPOSTAUSUARIO=$(awk "BEGIN{print ${RESPOSTAUSUARIO}}"); fi
 
   case "${RESPOSTAUSUARIO}" in
-    "+A") if [ "${NUMEROARGUMENTOS}" -lt "${NUMEROMAXIMOARGUMENTOS}" ]; then NUMEROARGUMENTOS=$(echo "${NUMEROARGUMENTOS} + 1" | bc); bash antoniovandre_echo_android_nosound "${ANOW} ${NUMEROARGUMENTOS}."; else bash antoniovandre_echo_android_nosound "${AOVERFLOW}"; fi; FLAG="0"; continue;;
-    "-A") if ! [ "${NUMEROARGUMENTOS}" == "2" ]; then NUMEROARGUMENTOS=$(echo "${NUMEROARGUMENTOS} - 1" | bc); bash antoniovandre_echo_android_nosound "${ANOW} ${NUMEROARGUMENTOS}."; else bash antoniovandre_echo_android_nosound "${ABOTTOM}"; fi; FLAG="0"; continue;;
-    "+D") if [ "${CASASDECIMAIS}" -lt "${MAXIMOCASASDECIMAIS}" ]; then CASASDECIMAIS=$(echo "${CASASDECIMAIS} + 1" | bc); bash antoniovandre_echo_android_nosound "${DNOW} ${CASASDECIMAIS}."; else bash antoniovandre_echo_android_nosound "${DOVERFLOW}"; fi; FLAG="0"; continue;;
-    "-D") if ! [ "${CASASDECIMAIS}" == "0" ]; then CASASDECIMAIS=$(echo "${CASASDECIMAIS} - 1" | bc); bash antoniovandre_echo_android_nosound "${DNOW} ${CASASDECIMAIS}."; else bash antoniovandre_echo_android_nosound "${DBOTTOM}"; fi; FLAG="0"; continue;;
-    "+N") if [ $(echo "${MAXVALUE} * 2" | bc) -lt $MAXMAXVALUE ]; then MAXVALUE=$(echo "${MAXVALUE} * 5" | bc); bash antoniovandre_echo_android_nosound "${NNOW} ${MAXVALUE}."; else bash antoniovandre_echo_android_nosound "${NOVERFLOW}"; fi; FLAG="0"; continue;;
-    "-N") if [ "${MAXVALUE}" -gt "${MINMAXVALUE}" ]; then MAXVALUE=$(echo "${MAXVALUE} / 2" | bc); bash antoniovandre_echo_android_nosound "${NNOW} ${MAXVALUE}."; else bash antoniovandre_echo_android_nosound "${NBOTTOM}"; fi; FLAG="0"; continue;;
-    "T") if [ "${AVTEMPO}" == "0" ]; then AVTEMPO="1"; bash antoniovandre_echo_android_nosound "${TNOW} ${AVTEMPO}."; else bash antoniovandre_echo_android_nosound "${TIMEALREADYACTIVATED}"; fi; FLAG="1"; continue;;
-    "t") if [ "${AVTEMPO}" == "1" ]; then AVTEMPO="0"; bash antoniovandre_echo_android_nosound "${TNOW} ${AVTEMPO}."; else bash antoniovandre_echo_android_nosound "${TIMEALREADYDEACTIVATED}"; fi; FLAG="1"; continue;;
-    "+T") if [ "${AVTEMPO}" == "1" ]; then if [ "${LIMITETEMPO}" -lt "${MAXTIME}" ]; then LIMITETEMPO=$(echo "${LIMITETEMPO} + 10" | bc); bash antoniovandre_echo_android_nosound "${TVNOW} ${LIMITETEMPO}."; else bash antoniovandre_echo_android_nosound "${TOVERFLOW}"; fi; else bash antoniovandre_echo_android_nosound "${TIMEDEACTIVATED}"; fi; FLAG="1"; continue;;
-    "-T") if [ "${AVTEMPO}" == "1" ]; then if [ "${LIMITETEMPO}" -gt "${MINTIME}" ]; then LIMITETEMPO=$(echo "${LIMITETEMPO} - 10" | bc); bash antoniovandre_echo_android_nosound "${TVNOW} ${LIMITETEMPO}."; else bash antoniovandre_echo_android_nosound "${TBOTTOM}"; fi; else bash antoniovandre_echo_android_nosound "${TIMEDEACTIVATED}"; fi; FLAG="1"; continue;;
+    "+A") if [ "${NUMEROARGUMENTOS}" -lt "${NUMEROMAXIMOARGUMENTOS}" ]; then NUMEROARGUMENTOS=$(echo "${NUMEROARGUMENTOS} + 1" | bc); bash antoniovandre_echo_android_nosound "${ANOW} ${NUMEROARGUMENTOS}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; FLAG="0"; else bash antoniovandre_echo_android_nosound "${AOVERFLOW}"; FLAG="1"; fi; continue;;
+    "-A") if ! [ "${NUMEROARGUMENTOS}" == "2" ]; then NUMEROARGUMENTOS=$(echo "${NUMEROARGUMENTOS} - 1" | bc); bash antoniovandre_echo_android_nosound "${ANOW} ${NUMEROARGUMENTOS}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; FLAG="0"; else bash antoniovandre_echo_android_nosound "${ABOTTOM}"; FLAG="1"; fi; continue;;
+    "+D") if [ "${CASASDECIMAIS}" -lt "${MAXIMOCASASDECIMAIS}" ]; then CASASDECIMAIS=$(echo "${CASASDECIMAIS} + 1" | bc); bash antoniovandre_echo_android_nosound "${DNOW} ${CASASDECIMAIS}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; FLAG="0"; else bash antoniovandre_echo_android_nosound "${DOVERFLOW}"; FLAG="1"; fi; continue;;
+    "-D") if ! [ "${CASASDECIMAIS}" == "0" ]; then CASASDECIMAIS=$(echo "${CASASDECIMAIS} - 1" | bc); bash antoniovandre_echo_android_nosound "${DNOW} ${CASASDECIMAIS}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; FLAG="0"; else bash antoniovandre_echo_android_nosound "${DBOTTOM}"; FLAG="1"; fi; continue;;
+    "+N") if [ $(echo "${MAXVALUE} * 2" | bc) -lt "${MAXMAXVALUE}" ]; then MAXVALUE=$(echo "${MAXVALUE} * 2" | bc); bash antoniovandre_echo_android_nosound "${NNOW} ${MAXVALUE}."; FLAG="0"; else bash antoniovandre_echo_android_nosound "${NOVERFLOW}"; FLAG="1"; fi; continue;;
+    "-N") if [ "${MAXVALUE}" -gt "${MINMAXVALUE}" ]; then MAXVALUE=$(echo "${MAXVALUE} / 2" | bc); bash antoniovandre_echo_android_nosound "${NNOW} ${MAXVALUE}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; FLAG="0"; else bash antoniovandre_echo_android_nosound "${NBOTTOM}"; FLAG="1"; fi; continue;;
+    "+C") if [ $(echo "${CHAOS} + 1" | bc) -le $MAXCHAOSVALUE ]; then CHAOS=$(echo "${CHAOS} + 1" | bc); bash antoniovandre_echo_android_nosound "${CHAOSNOW} ${CHAOS}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; FLAG="0"; else bash antoniovandre_echo_android_nosound "${CHAOSOVERFLOW}"; FLAG="1"; fi; continue;;
+    "-C") if [ $(echo "${CHAOS} - 1" | bc) -ge $MINCHAOSVALUE ]; then CHAOS=$(echo "${CHAOS} - 1" | bc); bash antoniovandre_echo_android_nosound "${CHAOSNOW} ${CHAOS}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; FLAG="0"; else bash antoniovandre_echo_android_nosound "${CHAOSBOTTOM}"; FLAG="1"; fi; continue;;
+    "T") if [ "${AVTEMPO}" == "0" ]; then AVTEMPO="1"; bash antoniovandre_echo_android_nosound "${TNOW} ${AVTEMPO}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; else bash antoniovandre_echo_android_nosound "${TIMEALREADYACTIVATED}"; fi; FLAG="1"; continue;;
+    "t") if [ "${AVTEMPO}" == "1" ]; then AVTEMPO="0"; bash antoniovandre_echo_android_nosound "${TNOW} ${AVTEMPO}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; else bash antoniovandre_echo_android_nosound "${TIMEALREADYDEACTIVATED}"; fi; FLAG="1"; continue;;
+    "+T") if [ "${AVTEMPO}" == "1" ]; then if [ "${LIMITETEMPO}" -lt "${MAXTIME}" ]; then LIMITETEMPO=$(echo "${LIMITETEMPO} + 10" | bc); bash antoniovandre_echo_android_nosound "${TVNOW} ${LIMITETEMPO}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; else bash antoniovandre_echo_android_nosound "${TOVERFLOW}"; fi; else bash antoniovandre_echo_android_nosound "${TIMEDEACTIVATED}"; fi; FLAG="1"; continue;;
+    "-T") if [ "${AVTEMPO}" == "1" ]; then if [ "${LIMITETEMPO}" -gt "${MINTIME}" ]; then LIMITETEMPO=$(echo "${LIMITETEMPO} - 10" | bc); bash antoniovandre_echo_android_nosound "${TVNOW} ${LIMITETEMPO}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; else bash antoniovandre_echo_android_nosound "${TBOTTOM}"; fi; else bash antoniovandre_echo_android_nosound "${TIMEDEACTIVATED}"; fi; FLAG="1"; continue;;
     "SAIR") break;;
     "EXIT") break;;
     "sair") break;;
