@@ -8,7 +8,7 @@
 
 # Licença: Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA).
 
-# Última atualização: 19-09-2020.
+# Última atualização: 20-09-2020.
 
 # Argumentos: "ne" para não processar estatísticas, ou "oe" para apenas processar estatísticas.
 
@@ -53,8 +53,6 @@ case "${LINGUA}" in
     MATHGAME="Jogo de Matemática"
 
     VERSION="Versão"
-
-    INSTRUCOES="Digite \"${AV_AMARELO}SAIR${AV_SEMCOR}\", \"${AV_AMARELO}EXIT${AV_SEMCOR}\", \"${AV_AMARELO}sair${AV_SEMCOR}\", ou \"${AV_AMARELO}exit${AV_SEMCOR}\" para sair.\n\nDigite \"${AV_AMARELO}PULAR${AV_SEMCOR}\", \"${AV_AMARELO}JUMP${AV_SEMCOR}\", \"${AV_AMARELO}pular${AV_SEMCOR}\" ou \"${AV_AMARELO}jump${AV_SEMCOR}\" para pular.\n\nDigite \"${AV_AMARELO}+C${AV_SEMCOR}\" para incrementar o CHAOS, \"${AV_AMARELO}-C${AV_SEMCOR}\" para diminuir o CHAOS.\n\nDigite \"${AV_AMARELO}+A${AV_SEMCOR}\" para incrementar o número de argumentos, \"${AV_AMARELO}-A${AV_SEMCOR}\" para diminuir o número de argumentos.\n\nDigite \"${AV_AMARELO}+D${AV_SEMCOR}\" para incrementar o número de casas decimais, \"${AV_AMARELO}-D${AV_SEMCOR}\" para diminuir o número de casas decimais.\n\nDigite \"${AV_AMARELO}+N${AV_SEMCOR}\" para aumentar o limite superior dos números, \"${AV_AMARELO}-N${AV_SEMCOR}\" para reduzir o limite superior dos números.\n\nDigite \"${AV_AMARELO}T${AV_SEMCOR}\" para ativar tempo, \"${AV_AMARELO}t${AV_SEMCOR}\" para desativar tempo, \"${AV_AMARELO}+T${AV_SEMCOR}\" para aumentar o tempo, ou \"${AV_AMARELO}-T${AV_SEMCOR}\" para reduzir o tempo.\n\nDigite \"${AV_AMARELO}M${AV_SEMCOR}\" para mostrar a mensagem de Antonio Vandré.\n\nDigite \"${AV_AMARELO}AJUDA${AV_SEMCOR}\", \"${AV_AMARELO}HELP${AV_SEMCOR}\", \"${AV_AMARELO}H${AV_SEMCOR}\", \"${AV_AMARELO}ajuda${AV_SEMCOR}\", \"${AV_AMARELO}help${AV_SEMCOR}\" ou \"${AV_AMARELO}h${AV_SEMCOR}\" para mostrar esta mensagem."
 
     ROUNDWITH="arredondado com"
 
@@ -144,8 +142,6 @@ case "${LINGUA}" in
     MATHGAME="Game of Mathematics"
 
     VERSION="Version"
-
-    INSTRUCOES="Type \"${AV_AMARELO}SAIR${AV_SEMCOR}\", \"${AV_AMARELO}EXIT${AV_SEMCOR}\", \"${AV_AMARELO}sair${AV_SEMCOR}\", or \"${AV_AMARELO}exit${AV_SEMCOR}\" to exit.\n\nType \"${AV_AMARELO}PULAR${AV_SEMCOR}\", \"${AV_AMARELO}JUMP${AV_SEMCOR}\", \"${AV_AMARELO}pular${AV_SEMCOR}\" or \"${AV_AMARELO}jump${AV_SEMCOR}\" to jump.\n\nType \"${AV_AMARELO}+C${AV_SEMCOR}\" to increase the CHAOS, \"${AV_AMARELO}-C${AV_SEMCOR}\" to decrease the CHAOS.\n\nType \"${AV_AMARELO}+A${AV_SEMCOR}\" to increase the number of arguments, \"${AV_AMARELO}-A${AV_SEMCOR}\" to decrease the number of arguments.\n\nType \"${AV_AMARELO}+D${AV_SEMCOR}\" to increase the number of decimal places, \"${AV_AMARELO}-D${AV_SEMCOR}\" to decrease the number of decimal places.\n\nType \"${AV_AMARELO}+N${AV_SEMCOR}\" to increase the upper limit of the numbers, \"${AV_AMARELO}-N${AV_SEMCOR}\" to reduce the upper limit of the numbers.\n\nType \"${AV_AMARELO}T${AV_SEMCOR}\" to activated time, \"${AV_AMARELO}t${AV_SEMCOR}\" to deactivate time, \"${AV_AMARELO}+T${AV_SEMCOR}\" to increase time, or \"${AV_AMARELO}-T${AV_SEMCOR}\" to reduce time.\n\nType \"${AV_AMARELO}M${AV_SEMCOR}\" to show Antonio Vandré's message.\n\nType \"${AV_AMARELO}AJUDA${AV_SEMCOR}\", \"${AV_AMARELO}HELP${AV_SEMCOR}\", \"${AV_AMARELO}H${AV_SEMCOR}\", \"${AV_AMARELO}ajuda${AV_SEMCOR}\", \"${AV_AMARELO}help${AV_SEMCOR}\" or \"${AV_AMARELO}h${AV_SEMCOR}\" to show this message."
 
     ROUNDWITH="rounding with"
 
@@ -318,9 +314,17 @@ bash antoniovandre_echo_android "${MATHGAME}."
 
 echo ""
 
-bash antoniovandre_echo_android "${VERSION} 19-09-2020."
+bash antoniovandre_echo_android "${VERSION} 20-09-2020."
 
 echo ""
+
+case "${LINGUA}" in
+  "p")
+    INSTRUCOES="Digite \"${AV_AMARELO}SAIR${AV_SEMCOR}\", \"${AV_AMARELO}EXIT${AV_SEMCOR}\", \"${AV_AMARELO}sair${AV_SEMCOR}\", ou \"${AV_AMARELO}exit${AV_SEMCOR}\" para sair.\n\nDigite \"${AV_AMARELO}PULAR${AV_SEMCOR}\", \"${AV_AMARELO}JUMP${AV_SEMCOR}\", \"${AV_AMARELO}pular${AV_SEMCOR}\" ou \"${AV_AMARELO}jump${AV_SEMCOR}\" para pular.\n\nDigite \"${AV_AMARELO}+C${AV_SEMCOR}\" para incrementar o CHAOS, \"${AV_AMARELO}-C${AV_SEMCOR}\" para diminuir o CHAOS.\n\nDigite \"${AV_AMARELO}+A${AV_SEMCOR}\" para incrementar o número de argumentos, \"${AV_AMARELO}-A${AV_SEMCOR}\" para diminuir o número de argumentos.\n\nDigite \"${AV_AMARELO}+D${AV_SEMCOR}\" para incrementar o número de casas decimais, \"${AV_AMARELO}-D${AV_SEMCOR}\" para diminuir o número de casas decimais.\n\nDigite \"${AV_AMARELO}+N${AV_SEMCOR}\" para aumentar o limite superior dos números, \"${AV_AMARELO}-N${AV_SEMCOR}\" para reduzir o limite superior dos números.\n\nDigite \"${AV_AMARELO}T${AV_SEMCOR}\" para ativar tempo, \"${AV_AMARELO}t${AV_SEMCOR}\" para desativar tempo, \"${AV_AMARELO}+T${AV_SEMCOR}\" para aumentar o tempo, ou \"${AV_AMARELO}-T${AV_SEMCOR}\" para reduzir o tempo.\n\nDigite \"${AV_AMARELO}M${AV_SEMCOR}\" para mostrar a mensagem de Antonio Vandré.\n\nDigite \"${AV_AMARELO}AJUDA${AV_SEMCOR}\", \"${AV_AMARELO}HELP${AV_SEMCOR}\", \"${AV_AMARELO}H${AV_SEMCOR}\", \"${AV_AMARELO}ajuda${AV_SEMCOR}\", \"${AV_AMARELO}help${AV_SEMCOR}\" ou \"${AV_AMARELO}h${AV_SEMCOR}\" para mostrar esta mensagem.\n\nVariáveis:\n\nCHAOS=${AV_CIANOCLARO}${CHAOS}${AV_SEMCOR};\nTEMPO=${AV_CIANOCLARO}${AVTEMPO}${AV_SEMCOR};\nLIMITETEMPO=${AV_CIANOCLARO}${LIMITETEMPO}${AV_SEMCOR};\nMAXVALUE=${AV_CIANOCLARO}${MAXVALUE}${AV_SEMCOR};\nCASASDECIMAIS=${AV_CIANOCLARO}${CASASDECIMAIS}${AV_SEMCOR};\nNUMEROARGUMENTOS=${AV_CIANOCLARO}${NUMEROARGUMENTOS}${AV_SEMCOR}.";;
+  "e")
+    INSTRUCOES="Type \"${AV_AMARELO}SAIR${AV_SEMCOR}\", \"${AV_AMARELO}EXIT${AV_SEMCOR}\", \"${AV_AMARELO}sair${AV_SEMCOR}\", or \"${AV_AMARELO}exit${AV_SEMCOR}\" to exit.\n\nType \"${AV_AMARELO}PULAR${AV_SEMCOR}\", \"${AV_AMARELO}JUMP${AV_SEMCOR}\", \"${AV_AMARELO}pular${AV_SEMCOR}\" or \"${AV_AMARELO}jump${AV_SEMCOR}\" to jump.\n\nType \"${AV_AMARELO}+C${AV_SEMCOR}\" to increase the CHAOS, \"${AV_AMARELO}-C${AV_SEMCOR}\" to decrease the CHAOS.\n\nType \"${AV_AMARELO}+A${AV_SEMCOR}\" to increase the number of arguments, \"${AV_AMARELO}-A${AV_SEMCOR}\" to decrease the number of arguments.\n\nType \"${AV_AMARELO}+D${AV_SEMCOR}\" to increase the number of decimal places, \"${AV_AMARELO}-D${AV_SEMCOR}\" to decrease the number of decimal places.\n\nType \"${AV_AMARELO}+N${AV_SEMCOR}\" to increase the upper limit of the numbers, \"${AV_AMARELO}-N${AV_SEMCOR}\" to reduce the upper limit of the numbers.\n\nType \"${AV_AMARELO}T${AV_SEMCOR}\" to activated time, \"${AV_AMARELO}t${AV_SEMCOR}\" to deactivate time, \"${AV_AMARELO}+T${AV_SEMCOR}\" to increase time, or \"${AV_AMARELO}-T${AV_SEMCOR}\" to reduce time.\n\nType \"${AV_AMARELO}M${AV_SEMCOR}\" to show Antonio Vandré's message.\n\nType \"${AV_AMARELO}AJUDA${AV_SEMCOR}\", \"${AV_AMARELO}HELP${AV_SEMCOR}\", \"${AV_AMARELO}H${AV_SEMCOR}\", \"${AV_AMARELO}ajuda${AV_SEMCOR}\", \"${AV_AMARELO}help${AV_SEMCOR}\" or \"${AV_AMARELO}h${AV_SEMCOR}\" to show this message.\n\nVariables:\n\nCHAOS=${AV_CIANOCLARO}${CHAOS}${AV_SEMCOR};\nTEMPO=${AV_CIANOCLARO}${AVTEMPO}${AV_SEMCOR};\nLIMITETEMPO=${AV_CIANOCLARO}${LIMITETEMPO}${AV_SEMCOR};\nMAXVALUE=${AV_CIANOCLARO}${MAXVALUE}${AV_SEMCOR};\nCASASDECIMAIS=${AV_CIANOCLARO}${CASASDECIMAIS}${AV_SEMCOR};\nNUMEROARGUMENTOS=${AV_CIANOCLARO}${NUMEROARGUMENTOS}${AV_SEMCOR}.";;
+  *);;
+esac
 
 if [ "${1}" != "oe" ]; then echo -e "${INSTRUCOES}"; echo ""; fi
 
@@ -333,14 +337,18 @@ CHARPROGRESS=""
 
 while [  "${RESPOSTAUSUARIO}" != "SAIR" ] && [  "${RESPOSTAUSUARIO}" != "EXIT" ] && [  "${RESPOSTAUSUARIO}" != "sair" ] && [  "${RESPOSTAUSUARIO}" != "exit" ] && [ "${1}" != "oe" ]; do
 
+  case "${LINGUA}" in
+    "p")
+      INSTRUCOES="Digite \"${AV_AMARELO}SAIR${AV_SEMCOR}\", \"${AV_AMARELO}EXIT${AV_SEMCOR}\", \"${AV_AMARELO}sair${AV_SEMCOR}\", ou \"${AV_AMARELO}exit${AV_SEMCOR}\" para sair.\n\nDigite \"${AV_AMARELO}PULAR${AV_SEMCOR}\", \"${AV_AMARELO}JUMP${AV_SEMCOR}\", \"${AV_AMARELO}pular${AV_SEMCOR}\" ou \"${AV_AMARELO}jump${AV_SEMCOR}\" para pular.\n\nDigite \"${AV_AMARELO}+C${AV_SEMCOR}\" para incrementar o CHAOS, \"${AV_AMARELO}-C${AV_SEMCOR}\" para diminuir o CHAOS.\n\nDigite \"${AV_AMARELO}+A${AV_SEMCOR}\" para incrementar o número de argumentos, \"${AV_AMARELO}-A${AV_SEMCOR}\" para diminuir o número de argumentos.\n\nDigite \"${AV_AMARELO}+D${AV_SEMCOR}\" para incrementar o número de casas decimais, \"${AV_AMARELO}-D${AV_SEMCOR}\" para diminuir o número de casas decimais.\n\nDigite \"${AV_AMARELO}+N${AV_SEMCOR}\" para aumentar o limite superior dos números, \"${AV_AMARELO}-N${AV_SEMCOR}\" para reduzir o limite superior dos números.\n\nDigite \"${AV_AMARELO}T${AV_SEMCOR}\" para ativar tempo, \"${AV_AMARELO}t${AV_SEMCOR}\" para desativar tempo, \"${AV_AMARELO}+T${AV_SEMCOR}\" para aumentar o tempo, ou \"${AV_AMARELO}-T${AV_SEMCOR}\" para reduzir o tempo.\n\nDigite \"${AV_AMARELO}M${AV_SEMCOR}\" para mostrar a mensagem de Antonio Vandré.\n\nDigite \"${AV_AMARELO}AJUDA${AV_SEMCOR}\", \"${AV_AMARELO}HELP${AV_SEMCOR}\", \"${AV_AMARELO}H${AV_SEMCOR}\", \"${AV_AMARELO}ajuda${AV_SEMCOR}\", \"${AV_AMARELO}help${AV_SEMCOR}\" ou \"${AV_AMARELO}h${AV_SEMCOR}\" para mostrar esta mensagem.\n\nVariáveis:\n\nCHAOS=${AV_CIANOCLARO}${CHAOS}${AV_SEMCOR};\nTEMPO=${AV_CIANOCLARO}${AVTEMPO}${AV_SEMCOR};\nLIMITETEMPO=${AV_CIANOCLARO}${LIMITETEMPO}${AV_SEMCOR};\nMAXVALUE=${AV_CIANOCLARO}${MAXVALUE}${AV_SEMCOR};\nCASASDECIMAIS=${AV_CIANOCLARO}${CASASDECIMAIS}${AV_SEMCOR};\nNUMEROARGUMENTOS=${AV_CIANOCLARO}${NUMEROARGUMENTOS}${AV_SEMCOR}.";;
+	"e")
+      INSTRUCOES="Type \"${AV_AMARELO}SAIR${AV_SEMCOR}\", \"${AV_AMARELO}EXIT${AV_SEMCOR}\", \"${AV_AMARELO}sair${AV_SEMCOR}\", or \"${AV_AMARELO}exit${AV_SEMCOR}\" to exit.\n\nType \"${AV_AMARELO}PULAR${AV_SEMCOR}\", \"${AV_AMARELO}JUMP${AV_SEMCOR}\", \"${AV_AMARELO}pular${AV_SEMCOR}\" or \"${AV_AMARELO}jump${AV_SEMCOR}\" to jump.\n\nType \"${AV_AMARELO}+C${AV_SEMCOR}\" to increase the CHAOS, \"${AV_AMARELO}-C${AV_SEMCOR}\" to decrease the CHAOS.\n\nType \"${AV_AMARELO}+A${AV_SEMCOR}\" to increase the number of arguments, \"${AV_AMARELO}-A${AV_SEMCOR}\" to decrease the number of arguments.\n\nType \"${AV_AMARELO}+D${AV_SEMCOR}\" to increase the number of decimal places, \"${AV_AMARELO}-D${AV_SEMCOR}\" to decrease the number of decimal places.\n\nType \"${AV_AMARELO}+N${AV_SEMCOR}\" to increase the upper limit of the numbers, \"${AV_AMARELO}-N${AV_SEMCOR}\" to reduce the upper limit of the numbers.\n\nType \"${AV_AMARELO}T${AV_SEMCOR}\" to activated time, \"${AV_AMARELO}t${AV_SEMCOR}\" to deactivate time, \"${AV_AMARELO}+T${AV_SEMCOR}\" to increase time, or \"${AV_AMARELO}-T${AV_SEMCOR}\" to reduce time.\n\nType \"${AV_AMARELO}M${AV_SEMCOR}\" to show Antonio Vandré's message.\n\nType \"${AV_AMARELO}AJUDA${AV_SEMCOR}\", \"${AV_AMARELO}HELP${AV_SEMCOR}\", \"${AV_AMARELO}H${AV_SEMCOR}\", \"${AV_AMARELO}ajuda${AV_SEMCOR}\", \"${AV_AMARELO}help${AV_SEMCOR}\" or \"${AV_AMARELO}h${AV_SEMCOR}\" to show this message.\n\nVariables:\n\nCHAOS=${AV_CIANOCLARO}${CHAOS}${AV_SEMCOR};\nTEMPO=${AV_CIANOCLARO}${AVTEMPO}${AV_SEMCOR};\nLIMITETEMPO=${AV_CIANOCLARO}${LIMITETEMPO}${AV_SEMCOR};\nMAXVALUE=${AV_CIANOCLARO}${MAXVALUE}${AV_SEMCOR};\nCASASDECIMAIS=${AV_CIANOCLARO}${CASASDECIMAIS}${AV_SEMCOR};\nNUMEROARGUMENTOS=${AV_CIANOCLARO}${NUMEROARGUMENTOS}${AV_SEMCOR}.";;
+    *);;
+  esac
+
   if [ "${FLAG}" == "0" ]; then
 	case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
-    SEEDS=""; SEED=$(date +%s); SEEDST="${SEED}"; for I in $(seq 2 "${CHAOS}"); do case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "\b"; echo -ne "${CHARPROGRESS}"; TEMP=$(expr "${SEED}" / 2 + "${CHAOS}" - "${I}" + 2); SEEDST="${SEEDST},${TEMP}"; done; VIRGULA=""; for I in $(seq 1 "${CHAOS}"); do case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "\b"; echo -ne "${CHARPROGRESS}"; TEMP2=$(echo -n "${SEEDST}" | cut -d "," -f "${I}"); TEMP=$(echo "${TEMP2} % 1000" | bc); SEEDS="${SEEDS}${VIRGULA}${TEMP}"; VIRGULA=","; done
-
-	case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "\b"; echo -ne "${CHARPROGRESS}"
-
-    MAXVALUERED=$(echo "${MAXVALUE} / 4" | bc)
+    SEEDS=""; SEED=$(date +%s); SEEDST="${SEED}"; for I in $(seq 2 "${CHAOS}"); do case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "\b"; echo -ne "${CHARPROGRESS}"; TEMP=$(expr "${SEED}" / 2 + "${CHAOS}" - "${I}" + 2); SEEDST="${SEEDST},${TEMP}"; done; VIRGULA=""; for I in $(seq 1 "${CHAOS}"); do case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "\b"; echo -ne "${CHARPROGRESS}"; TEMP2=$(echo -n "${SEEDST}" | cut -d "," -f "${I}"); TEMP=$(echo "${TEMP2} % ${MAXVALUE}" | bc); SEEDS="${SEEDS}${VIRGULA}${TEMP}"; VIRGULA=","; done
 
 	case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "\b"; echo -ne "${CHARPROGRESS}"
 
@@ -352,13 +360,11 @@ while [  "${RESPOSTAUSUARIO}" != "SAIR" ] && [  "${RESPOSTAUSUARIO}" != "EXIT" ]
 
 	case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "\b"; echo -ne "${CHARPROGRESS}";
 
-    if [ "${OPS}" != "$(echo -n ${OPS} | tr 'x' ' ')" ] || [ "${OPS}" != "$(echo -n ${OPS} | tr '/' ' ')" ]; then VARVALUE=$MAXVALUERED; else VARVALUE=$MAXVALUE; fi
-
     PARENTESES=$(if [ "${NUMEROARGUMENTOS}" -gt "2" ]; then TEMP="0"; TEMP2="0"; for I in $(seq 1 "${NUMEROARGUMENTOS}"); do if [ "$TEMP" -lt $(echo  "${NUMEROARGUMENTOS} - ${I}" | bc) ]; then TEMP3=$(echo "($(echo -n ${SEEDS} | cut -d ',' -f 1) * $I) % 3" | bc); case $TEMP3 in 0) echo -n "("; TEMP=$(echo "${TEMP} + 1" | bc);; 1) if [ "$TEMP" -gt "0" ]; then echo -n ")"; TEMP=$(echo "${TEMP} - 1" | bc); fi;; 2) ;; *) ;; esac; else if [ "$TEMP" -gt "0" ]; then if [ $(echo "($SEED + $TEMP2) % 2" | bc) == "0" ]; then echo -n ")"; TEMP=$(echo "${TEMP} - 1" | bc); else TEMP2="1"; fi; fi; fi; if [ "${I}" -lt "${NUMEROARGUMENTOS}" ]; then echo -n ","; fi; done; fi)
 
 	case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "\b"; echo -ne "${CHARPROGRESS}"
 
-    ARGS=$(for I in $(seq 1 "${NUMEROARGUMENTOS}"); do TEMP=$(awk "BEGIN{print ($(echo "$(for J in $(seq 1 ${CHAOS}); do echo -n ${SEEDS} | cut -d ',' -f ${J} | tr -d '\n'; if [ ${J} -lt ${CHAOS} ]; then if [ $(expr ${J} % 4) -gt 0 ]; then echo -n '+'; else echo -n '-'; fi; fi; done) + ${I} * ($(for J in $(seq 1 ${CHAOS}); do echo -n ${SEEDS} | cut -d ',' -f ${J} | tr -d '\n'; if [ ${J} -lt ${CHAOS} ]; then if [ $(expr ${J} % 5) -gt 0 ]; then echo -n '+'; else echo -n '-'; fi; fi; done))") / ${FATOR})}"); awk "BEGIN{print ${TEMP} % ${VARVALUE}}" | tr "\n" ","; done)
+    ARGS=$(for I in $(seq 1 "${NUMEROARGUMENTOS}"); do TEMP=$(awk "BEGIN{print ($(echo "$(for J in $(seq 1 ${CHAOS}); do echo -n ${SEEDS} | cut -d ',' -f ${J} | tr -d '\n'; if [ ${J} -lt ${CHAOS} ]; then if [ $(expr ${J} % 4) -gt 0 ]; then echo -n '+'; else echo -n '-'; fi; fi; done) + ${I} * ($(for J in $(seq 1 ${CHAOS}); do echo -n ${SEEDS} | cut -d ',' -f ${J} | tr -d '\n'; if [ ${J} -lt ${CHAOS} ]; then if [ $(expr ${J} % 5) -gt 0 ]; then echo -n '+'; else echo -n '-'; fi; fi; done))") / ${FATOR})}"); awk "BEGIN{print ${TEMP} % ${MAXVALUE}}" | tr "\n" ","; done)
 
 	case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "\b"; echo -ne "${CHARPROGRESS}"
 
