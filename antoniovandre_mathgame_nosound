@@ -8,7 +8,7 @@
 
 # Licença: Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA).
 
-# Última atualização: 20-09-2020.
+# Última atualização: 21-09-2020.
 
 # Argumento: "ne" para não processar estatísticas, ou "oe" para apenas processar estatísticas.
 
@@ -314,7 +314,7 @@ bash antoniovandre_echo_android_nosound "${MATHGAME}."
 
 echo ""
 
-bash antoniovandre_echo_android_nosound "${VERSION} 20-09-2020."
+bash antoniovandre_echo_android_nosound "${VERSION} 21-09-2020."
 
 echo ""
 
@@ -333,6 +333,7 @@ if (! ls "${ARQUIVOLOGTEMP}" &>> /dev/null) && ls "${ARQUIVOLOG}" &>> /dev/null;
 if ls "${ARQUIVOLOGTEMP}" &>> /dev/null && ls "${ARQUIVOLOG}" &>> /dev/null; then if [ $(cat "${ARQUIVOLOG}" | wc -l) -gt $(cat "${ARQUIVOLOGTEMP}" | wc -l) ]; then cp "${ARQUIVOLOG}" "${ARQUIVOLOGTEMP}"; fi; fi
 
 FLAG="0"
+FLAG2="0"
 CHARPROGRESS=""
 
 while [  "${RESPOSTAUSUARIO}" != "SAIR" ] && [  "${RESPOSTAUSUARIO}" != "EXIT" ] && [  "${RESPOSTAUSUARIO}" != "sair" ] && [  "${RESPOSTAUSUARIO}" != "exit" ] && [ "${1}" != "oe" ]; do
@@ -346,7 +347,7 @@ while [  "${RESPOSTAUSUARIO}" != "SAIR" ] && [  "${RESPOSTAUSUARIO}" != "EXIT" ]
   esac
 
   if [ "${FLAG}" == "0" ]; then
-	case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
+	case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; if [ "${FLAG2}" == "1" ]; then echo -ne "\b"; fi; echo -ne "${CHARPROGRESS}"
 
     SEEDS=""; SEED=$(date +%s); SEEDST="${SEED}"; for I in $(seq 2 "${CHAOS}"); do case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "\b"; echo -ne "${CHARPROGRESS}"; TEMP=$(expr "${SEED}" / 2 + "${CHAOS}" - "${I}" + 2); SEEDST="${SEEDST},${TEMP}"; done; VIRGULA=""; for I in $(seq 1 "${CHAOS}"); do case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "\b"; echo -ne "${CHARPROGRESS}"; TEMP2=$(echo -n "${SEEDST}" | cut -d "," -f "${I}"); TEMP=$(echo "${TEMP2} % ${MAXVALUE}" | bc); SEEDS="${SEEDS}${VIRGULA}${TEMP}"; VIRGULA=","; done
 
@@ -380,7 +381,7 @@ while [  "${RESPOSTAUSUARIO}" != "SAIR" ] && [  "${RESPOSTAUSUARIO}" != "EXIT" ]
 
 	case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "\b"; echo -ne "${CHARPROGRESS}"
 
-    if [ "$(wc -c ${ARQUIVOTEMP} | cut -d ' ' -f 1)" -gt "0" ]; then sleep 1s; continue; else RESPOSTABRUTA=$TEMP; fi
+    if [ "$(wc -c ${ARQUIVOTEMP} | cut -d ' ' -f 1)" -gt "0" ]; then FLAG2="1"; sleep 1s; continue; else RESPOSTABRUTA=$TEMP; FLAG2="0"; fi
 
 	case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "\b"; echo -ne "${CHARPROGRESS}"
 
