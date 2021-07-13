@@ -221,7 +221,7 @@ ARQUIVOSOMACERTO="/usr/local/share/antoniovandre_mathgame_correct.wav"
 ARQUIVOSOMERRO="/usr/local/share/antoniovandre_mathgame_error.wav"
 AVLOG="1"
 ARQUIVOLOG="/cygdrive/c/Users/xanto/Dropbox/antoniovandre_dropbox_sync_folder/antoniovandre_mathgame_log.txt"
-ARQUIVOLOGTEMP="/home/xanto/antoniovandre_mathgame_log.txt"
+ARQUIVOLOGTEMP="/cygdrive/c/Users/xanto/Dropbox/antoniovandre_dropbox_sync_folder/antoniovandre_mathgame_log_temp.txt"
 DIRCLOUDSYNC="/cygdrive/c/Users/xanto/Dropbox/antoniovandre_dropbox_sync_folder/"
 ARQUIVOOPCOES="/cygdrive/c/Users/xanto/Dropbox/antoniovandre_dropbox_sync_folder/antoniovandre_mathgame_options"
 AVGRAFICOS="1"
@@ -274,7 +274,7 @@ MAXVALUE=$(cat "${ARQUIVOOPCOES}" | cut -d "%" -f 4)
 CASASDECIMAIS=$(cat "${ARQUIVOOPCOES}" | cut -d "%" -f 5)
 NUMEROARGUMENTOS=$(cat "${ARQUIVOOPCOES}" | cut -d "%" -f 6)
 
-if ! [[ "${CHAOS}" =~ "^[0-9]+$" ]] || ! [[ "${AVTEMPO}" =~ "^[0-9]+$" ]] || ! [[ "${LIMITETEMPO}" =~ "^[0-9]+$" ]] || ! [[ "${MAXVALUE}" =~ "^[0-9]+$" ]] || ! [[ "${CASASDECIMAIS}" =~ "^[0-9]+$" ]] || ! [[ "${NUMEROARGUMENTOS}" =~ "^[0-9]+$" ]]; then echo "10%0%30%256%0%2" > "${ARQUIVOOPCOES}"; fi
+# if ! [[ "${CHAOS}" =~ "^[0-9]+$" ]] || ! [[ "${AVTEMPO}" =~ "^[0-9]+$" ]] || ! [[ "${LIMITETEMPO}" =~ "^[0-9]+$" ]] || ! [[ "${MAXVALUE}" =~ "^[0-9]+$" ]] || ! [[ "${CASASDECIMAIS}" =~ "^[0-9]+$" ]] || ! [[ "${NUMEROARGUMENTOS}" =~ "^[0-9]+$" ]]; then echo "10%0%30%256%0%2" > "${ARQUIVOOPCOES}"; fi
 
 RESPOSTAUSUARIO=""
 
