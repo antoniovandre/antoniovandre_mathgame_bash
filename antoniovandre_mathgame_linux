@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# Projeto Mathematical Ramblings (mathematicalramblings.blogspot.com).
+# Projeto Mathematical Ramblings.
 
 # Script de um simples jogo de Matemática, para Linux.
 
 # Licença: Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA).
 
-# Última atualização: 20-03-2025.
+# Última atualização: 09-04-2025.
 
 # Argumentos: "ne" para não processar estatísticas, ou "oe" para apenas processar estatísticas.
 
@@ -32,6 +32,8 @@ case "${LINGUA}" in
 
     HOWMUCH="Quanto é"
 
+    VALIDEXPR="Entre com uma expressão válida"
+
     AOVERFLOW="O número de argumentos já está no limite máximo."
 
     ABOTTOM="O número de argumentos já está no limite mínimo."
@@ -54,7 +56,7 @@ case "${LINGUA}" in
 
   	CHAOSOVERFLOW="O valor do CHAOS já está no máximo."
 
-	  CHAOSBOTTOM="O valor do CHAOS já está no mínimo."
+    CHAOSBOTTOM="O valor do CHAOS já está no mínimo."
 
     TOVERFLOW="O tempo já está no valor máximo."
 
@@ -141,7 +143,7 @@ case "${LINGUA}" in
 
   	CHAOSOVERFLOW="The magnitude of CHAOS is already in the ceiling."
 
-	  CHAOSBOTTOM="The magnitude of CHAOS is already in the minimum."
+	CHAOSBOTTOM="The magnitude of CHAOS is already in the minimum."
 
     TOVERFLOW="Time already in max value."
 
@@ -190,6 +192,8 @@ case "${LINGUA}" in
   *) ;;
 esac
 
+PATH=".:${PATH}"
+
 if ! hash bash &>> /dev/null; then echo "BASH ${NOTFOUND}."; exit 1; fi
 
 if ! hash antoniovandre_dbxcli_get &>> /dev/null; then echo "\"antoniovandre_dbxcli_get\" ${NOTFOUND}."; exit 1; fi
@@ -206,9 +210,9 @@ if ! hash dos2unix &>> /dev/null; then echo "\"dos2unix\" ${NOTFOUND}."; exit 1;
 
 if ! hash gnuplot &>> /dev/null; then echo "Gnuplot ${NOTFOUND}."; exit 1; fi
 
-if ! ls "/usr/local/bin/antoniovandre_echo" &>> /dev/null; then echo "\"antoniovandre_echo\" ${NOTFOUND}."; exit 1; fi
+if ! hash antoniovandre_echo &>> /dev/null; then echo "\"antoniovandre_echo\" ${NOTFOUND}."; exit 1; fi
 
-if ! [ -n "$AVCORES" ]; then if ! source "/usr/local/bin/antoniovandre_cores" &>> /dev/null; then echo "${ERRORLOADCOLOR}."; fi; fi
+if ! [ -n "$AVCORES" ]; then if ! source "antoniovandre_cores" &>> /dev/null; then echo "${ERRORLOADCOLOR}."; fi; fi
 
 NUMEROMAXIMOARGUMENTOS="10"
 MAXIMOCASASDECIMAIS="5"
@@ -217,40 +221,41 @@ MINMAXVALUE="8"
 MAXTIME="60"
 MINTIME="10"
 AVSOUND="1"
-ARQUIVOSOMACERTO="/usr/local/share/antoniovandre_mathgame_correct.wav"
-ARQUIVOSOMERRO="/usr/local/share/antoniovandre_mathgame_error.wav"
+ARQUIVOSOMACERTO="antoniovandre_mathgame_correct.wav"
+ARQUIVOSOMERRO="antoniovandre_mathgame_error.wav"
 AVLOG="1"
-ARQUIVOLOG="/home/antoniovandre/antoniovandre_dropbox_sync_folder/antoniovandre_mathgame_log.txt"
-ARQUIVOLOGTEMP="/home/antoniovandre/antoniovandre_mathgame_log.txt"
-DIRCLOUDSYNC="/antoniovandre_dropbox_sync_folder/"
+ARQUIVOLOG="antoniovandre_mathgame_log.txt"
+ARQUIVOLOGTEMP="antoniovandre_mathgame_log.txt"
+ARQUIVOOPCOES="antoniovandre_mathgame_options"
+DIRCLOUDSYNC="/antoniovandre_mathgame/"
 AVGRAFICOS="1"
-ARQUIVOGNUPLOTDATA="/home/antoniovandre/Temp/antoniovandre_mathgame_log_gnuplot.dat"
-ARQUIVOGNUPLOTDATA2="/home/antoniovandre/Temp/antoniovandre_mathgame_log_gnuplot_2.dat"
-ARQUIVOGNUPLOTDATA3="/home/antoniovandre/Temp/antoniovandre_mathgame_log_gnuplot_3.dat"
-ARQUIVOGNUPLOTDATA4="/home/antoniovandre/Temp/antoniovandre_mathgame_log_gnuplot_4.dat"
-ARQUIVOGNUPLOTDATA5="/home/antoniovandre/Temp/antoniovandre_mathgame_log_gnuplot_5.dat"
-ARQUIVOGNUPLOTDATA6="/home/antoniovandre/Temp/antoniovandre_mathgame_log_gnuplot_6.dat"
-ARQUIVOGNUPLOTDATA7="/home/antoniovandre/Temp/antoniovandre_mathgame_log_gnuplot_7.dat"
-ARQUIVOGNUPLOTDATA8="/home/antoniovandre/Temp/antoniovandre_mathgame_log_gnuplot_8.dat"
-ARQUIVOGNUPLOTDATA9="/home/antoniovandre/Temp/antoniovandre_mathgame_log_gnuplot_9.dat"
-ARQUIVOGNUPLOTDATA10="/home/antoniovandre/Temp/antoniovandre_mathgame_log_gnuplot_10.dat"
-ARQUIVOGRAFICO="/home/antoniovandre/antoniovandre_dropbox_sync_folder/antoniovandre_mathgame_log.png"
-ARQUIVOGRAFICOPIZZA="/home/antoniovandre/antoniovandre_dropbox_sync_folder/antoniovandre_mathgame_log_pizza.png"
-ARQUIVOGRAFICOTEMPO="/home/antoniovandre/antoniovandre_dropbox_sync_folder/antoniovandre_mathgame_log_tempo.png"
-ARQUIVOGRAFICOTEMPOANUAL="/home/antoniovandre/antoniovandre_dropbox_sync_folder/antoniovandre_mathgame_log_tempo_anual.png"
-ARQUIVOGRAFICOTEMPOMENSAL="/home/antoniovandre/antoniovandre_dropbox_sync_folder/antoniovandre_mathgame_log_tempo_mensal.png"
-ARQUIVOGRAFICOTEMPODISTSEM="/home/antoniovandre/antoniovandre_dropbox_sync_folder/antoniovandre_mathgame_log_tempo_distribuicao_semanal.png"
-ARQUIVOGRAFICOTEMPODISTMES="/home/antoniovandre/antoniovandre_dropbox_sync_folder/antoniovandre_mathgame_log_tempo_distribuicao_mensal.png"
-ARQUIVOGRAFICOTEMPODISTHOR="/home/antoniovandre/antoniovandre_dropbox_sync_folder/antoniovandre_mathgame_log_tempo_distribuicao_horaria.png"
-ARQUIVOGRAFICOTEMPOERROS="/home/antoniovandre/antoniovandre_dropbox_sync_folder/antoniovandre_mathgame_log_tempo_erros.png"
-ARQUIVOGRAFICOTEMPOANOERROS="/home/antoniovandre/antoniovandre_dropbox_sync_folder/antoniovandre_mathgame_log_tempo_anual_erros.png"
-ARQUIVOGRAFICOTEMPOMESERROS="/home/antoniovandre/antoniovandre_dropbox_sync_folder/antoniovandre_mathgame_log_tempo_mensal_erros.png"
+ARQUIVOGNUPLOTDATA="antoniovandre_mathgame_log_gnuplot.dat"
+ARQUIVOGNUPLOTDATA2="antoniovandre_mathgame_log_gnuplot_2.dat"
+ARQUIVOGNUPLOTDATA3="antoniovandre_mathgame_log_gnuplot_3.dat"
+ARQUIVOGNUPLOTDATA4="antoniovandre_mathgame_log_gnuplot_4.dat"
+ARQUIVOGNUPLOTDATA5="antoniovandre_mathgame_log_gnuplot_5.dat"
+ARQUIVOGNUPLOTDATA6="antoniovandre_mathgame_log_gnuplot_6.dat"
+ARQUIVOGNUPLOTDATA7="antoniovandre_mathgame_log_gnuplot_7.dat"
+ARQUIVOGNUPLOTDATA8="antoniovandre_mathgame_log_gnuplot_8.dat"
+ARQUIVOGNUPLOTDATA9="antoniovandre_mathgame_log_gnuplot_9.dat"
+ARQUIVOGNUPLOTDATA10="antoniovandre_mathgame_log_gnuplot_10.dat"
+ARQUIVOGRAFICO="antoniovandre_mathgame_log.png"
+ARQUIVOGRAFICOPIZZA="antoniovandre_mathgame_log_pizza.png"
+ARQUIVOGRAFICOTEMPO="antoniovandre_mathgame_log_tempo.png"
+ARQUIVOGRAFICOTEMPOANUAL="antoniovandre_mathgame_log_tempo_anual.png"
+ARQUIVOGRAFICOTEMPOMENSAL="antoniovandre_mathgame_log_tempo_mensal.png"
+ARQUIVOGRAFICOTEMPODISTSEM="antoniovandre_mathgame_log_tempo_distribuicao_semanal.png"
+ARQUIVOGRAFICOTEMPODISTMES="antoniovandre_mathgame_log_tempo_distribuicao_mensal.png"
+ARQUIVOGRAFICOTEMPODISTHOR="antoniovandre_mathgame_log_tempo_distribuicao_horaria.png"
+ARQUIVOGRAFICOTEMPOERROS="antoniovandre_mathgame_log_tempo_erros.png"
+ARQUIVOGRAFICOTEMPOANOERROS="antoniovandre_mathgame_log_tempo_anual_erros.png"
+ARQUIVOGRAFICOTEMPOMESERROS="antoniovandre_mathgame_log_tempo_mensal_erros.png"
 IMAGEGRAPH0="/home/antoniovandre/antoniovandre_mathgame_emptygraph.png"
 AVSTATS="1"
-ARQUIVOSTATS="/home/antoniovandre/antoniovandre_dropbox_sync_folder/antoniovandre_mathgame_log_stats.txt"
+ARQUIVOSTATS="antoniovandre_mathgame_log_stats.txt"
 TIMEOUTMENSAGEM="6"
-ARQUIVOTEMP="/home/xanto/Temp/avmgvet"
-LOCKFILE="/home/xanto/Temp/avmglf"
+ARQUIVOTEMP="avmgvet"
+LOCKFILE="avmglf"
 
 case "${LINGUA}" in
   "p")
@@ -283,13 +288,9 @@ if (! ls "${ARQUIVOLOGTEMP}" &>> /dev/null) && ls "${ARQUIVOLOG}" &>> /dev/null;
 
 if ls "${ARQUIVOLOGTEMP}" &>> /dev/null && ls "${ARQUIVOLOG}" &>> /dev/null; then if [ $(cat "${ARQUIVOLOG}" | wc -l) -gt $(cat "${ARQUIVOLOGTEMP}" | wc -l) ]; then cp "${ARQUIVOLOG}" "${ARQUIVOLOGTEMP}"; fi; fi
 
-cat "/usr/local/share/Mathematical Ramblings - ascii art - 40.txt"
+cat "Mathematical Ramblings - ascii art - 40.txt"
 
 antoniovandre_echo "Projeto Mathematical Ramblings."
-
-echo ""
-
-antoniovandre_echo "mathematicalramblings.blogspot.com"
 
 echo ""
 
@@ -297,7 +298,7 @@ antoniovandre_echo "${MATHGAME}."
 
 echo ""
 
-antoniovandre_echo "${VERSION} 13-07-2021."
+antoniovandre_echo "${VERSION} 09-04-2025."
 
 echo ""
 
@@ -309,7 +310,7 @@ case "${LINGUA}" in
    *);;
  esac
 
-if [ "${1}" != "oe" ]; then echo "${INSTRUCOES}"; echo ""; fi
+if [ "${1}" != "oe" ]; then echo -e "${INSTRUCOES}"; echo ""; fi
 
 if (! ls "${ARQUIVOLOGTEMP}" &>> /dev/null) && ls "${ARQUIVOLOG}" &>> /dev/null; then cp "${ARQUIVOLOG}" "${ARQUIVOLOGTEMP}"; fi
 
@@ -391,7 +392,7 @@ while [  "${RESPOSTAUSUARIO}" != "SAIR" ] && [  "${RESPOSTAUSUARIO}" != "EXIT" ]
     PERGUNTA=$(echo "${HOWMUCH} ${QUESTAO}${QUESTAODECIMAL}?" | tr "\n" " ")
   fi
 
-  echo -ne "\b";antoniovandre_echo "${PERGUNTA}"
+  echo -ne "\b"; antoniovandre_echo "${PERGUNTA}"
 
   if [ "${AVTEMPO}" == "1" ]; then if ! read -t $LIMITETEMPO RESPOSTAUSUARIO &>> /dev/null; then echo "${TIMELIMITOF} ${LIMITETEMPO} ${SECONDSREACHED}."; FLAG="0"; continue; fi; else read RESPOSTAUSUARIO; fi
 
@@ -400,18 +401,18 @@ while [  "${RESPOSTAUSUARIO}" != "SAIR" ] && [  "${RESPOSTAUSUARIO}" != "EXIT" ]
   if ! ([ "${RESPOSTAUSUARIO}" == "+A" ] || [ "${RESPOSTAUSUARIO}" == "-A" ] || [ "${RESPOSTAUSUARIO}" == "+D" ] || [ "${RESPOSTAUSUARIO}" == "-D" ] || [ "${RESPOSTAUSUARIO}" == "+N" ] || [ "${RESPOSTAUSUARIO}" == "-N" ] || [ "${RESPOSTAUSUARIO}" == "+C" ] || [ "${RESPOSTAUSUARIO}" == "-C" ] || [ "${RESPOSTAUSUARIO}" == "T" ] || [ "${RESPOSTAUSUARIO}" == "t" ] || [ "${RESPOSTAUSUARIO}" == "+T" ] || [ "${RESPOSTAUSUARIO}" == "-T" ] || [ "${RESPOSTAUSUARIO}" == "SAIR" ] || [ "${RESPOSTAUSUARIO}" == "EXIT" ] || [ "${RESPOSTAUSUARIO}" == "sair" ] || [ "${RESPOSTAUSUARIO}" == "exit" ] || [ "${RESPOSTAUSUARIO}" == "PULAR" ] || [ "${RESPOSTAUSUARIO}" == "JUMP" ] || [ "${RESPOSTAUSUARIO}" == "pular" ] || [ "${RESPOSTAUSUARIO}" == "jump" ] || [ "${RESPOSTAUSUARIO}" == "M" ] || [ "${RESPOSTAUSUARIO}" == "AJUDA" ] || [ "${RESPOSTAUSUARIO}" == "HELP" ] || [ "${RESPOSTAUSUARIO}" == "H" ] || [ "${RESPOSTAUSUARIO}" == "ajuda" ] || [ "${RESPOSTAUSUARIO}" == "help" ] || [ "${RESPOSTAUSUARIO}" == "h" ]); then RESPOSTAUSUARIO=$(echo "${RESPOSTAUSUARIO}" | tr -d "\"" | tr -d "'" | tr -d "\`" | tr -d "\$" | tr "x" "*" | tr "X" "*" | tr -d " "); RESPOSTAUSUARIO=$(LC_NUMERIC="en_US.UTF-8" printf "%.${CASASDECIMAIS}f" "$(echo ${RESPOSTAUSUARIO} | bc -l 2>> /dev/null)"); RESPOSTAUSUARIO=$(awk "BEGIN{print ${RESPOSTAUSUARIO}}"); fi
 
   case "${RESPOSTAUSUARIO}" in
-    "+A") if [ "${NUMEROARGUMENTOS}" -lt "${NUMEROMAXIMOARGUMENTOS}" ]; then NUMEROARGUMENTOS=$(echo "${NUMEROARGUMENTOS} + 1" | bc);antoniovandre_echo "${ANOW} ${NUMEROARGUMENTOS}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; FLAG="0"; else antoniovandre_echo "${AOVERFLOW}"; FLAG="1"; fi; continue;;
-    "-A") if ! [ "${NUMEROARGUMENTOS}" == "2" ]; then NUMEROARGUMENTOS=$(echo "${NUMEROARGUMENTOS} - 1" | bc);antoniovandre_echo "${ANOW} ${NUMEROARGUMENTOS}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; FLAG="0"; else antoniovandre_echo "${ABOTTOM}"; FLAG="1"; fi; continue;;
-    "+D") if [ "${CASASDECIMAIS}" -lt "${MAXIMOCASASDECIMAIS}" ]; then CASASDECIMAIS=$(echo "${CASASDECIMAIS} + 1" | bc);antoniovandre_echo "${DNOW} ${CASASDECIMAIS}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; FLAG="0"; else antoniovandre_echo "${DOVERFLOW}"; FLAG="1"; fi; continue;;
-    "-D") if ! [ "${CASASDECIMAIS}" == "0" ]; then CASASDECIMAIS=$(echo "${CASASDECIMAIS} - 1" | bc);antoniovandre_echo "${DNOW} ${CASASDECIMAIS}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; FLAG="0"; else antoniovandre_echo "${DBOTTOM}"; FLAG="1"; fi; continue;;
-    "+N") if [ $(echo "${MAXVALUE} * 2" | bc) -lt "${MAXMAXVALUE}" ]; then MAXVALUE=$(echo "${MAXVALUE} * 2" | bc);antoniovandre_echo "${NNOW} ${MAXVALUE}."; FLAG="0"; else antoniovandre_echo "${NOVERFLOW}"; FLAG="1"; fi; continue;;
-    "-N") if [ "${MAXVALUE}" -gt "${MINMAXVALUE}" ]; then MAXVALUE=$(echo "${MAXVALUE} / 2" | bc);antoniovandre_echo "${NNOW} ${MAXVALUE}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; FLAG="0"; else antoniovandre_echo "${NBOTTOM}"; FLAG="1"; fi; continue;;
-    "+C") if [ $(echo "${CHAOS} + 1" | bc) -lt $MAXCHAOSVALUE ]; then CHAOS=$(echo "${CHAOS} + 1" | bc);antoniovandre_echo "${CHAOSNOW} ${CHAOS}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; FLAG="0"; else antoniovandre_echo "${CHAOSOVERFLOW}"; FLAG="1"; fi; continue;;
-    "-C") if [ $(echo "${CHAOS} - 1" | bc) -lt $MINCHAOSVALUE ]; then CHAOS=$(echo "${CHAOS} - 1" | bc);antoniovandre_echo "${CHAOSNOW} ${CHAOS}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; FLAG="0"; else antoniovandre_echo "${CHAOSBOTTON}"; FLAG="1"; fi; continue;;
-    "T") if [ "${AVTEMPO}" == "0" ]; then AVTEMPO="1";antoniovandre_echo "${TNOW} ${AVTEMPO}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; else antoniovandre_echo "${TIMEALREADYACTIVATED}"; fi; FLAG="1"; continue;;
-    "t") if [ "${AVTEMPO}" == "1" ]; then AVTEMPO="0";antoniovandre_echo "${TNOW} ${AVTEMPO}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; else antoniovandre_echo "${TIMEALREADYDEACTIVATED}"; fi; FLAG="1"; continue;;
-    "+T") if [ "${AVTEMPO}" == "1" ]; then if [ "${LIMITETEMPO}" -lt "${MAXTIME}" ]; then LIMITETEMPO=$(echo "${LIMITETEMPO} + 10" | bc);antoniovandre_echo "${TVNOW} ${LIMITETEMPO}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; else antoniovandre_echo "${TOVERFLOW}"; fi; else antoniovandre_echo "${TIMEDEACTIVATED}"; fi; FLAG="1"; continue;;
-    "-T") if [ "${AVTEMPO}" == "1" ]; then if [ "${LIMITETEMPO}" -gt "${MINTIME}" ]; then LIMITETEMPO=$(echo "${LIMITETEMPO} - 10" | bc);antoniovandre_echo "${TVNOW} ${LIMITETEMPO}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; else antoniovandre_echo "${TBOTTOM}"; fi; else antoniovandre_echo "${TIMEDEACTIVATED}"; fi; FLAG="1"; continue;;
+    "+A") if [ "${NUMEROARGUMENTOS}" -lt "${NUMEROMAXIMOARGUMENTOS}" ]; then NUMEROARGUMENTOS=$(echo "${NUMEROARGUMENTOS} + 1" | bc); antoniovandre_echo "${ANOW} ${NUMEROARGUMENTOS}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; FLAG="0"; else antoniovandre_echo "${AOVERFLOW}"; FLAG="1"; fi; continue;;
+    "-A") if ! [ "${NUMEROARGUMENTOS}" == "2" ]; then NUMEROARGUMENTOS=$(echo "${NUMEROARGUMENTOS} - 1" | bc); antoniovandre_echo "${ANOW} ${NUMEROARGUMENTOS}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; FLAG="0"; else antoniovandre_echo "${ABOTTOM}"; FLAG="1"; fi; continue;;
+    "+D") if [ "${CASASDECIMAIS}" -lt "${MAXIMOCASASDECIMAIS}" ]; then CASASDECIMAIS=$(echo "${CASASDECIMAIS} + 1" | bc); antoniovandre_echo "${DNOW} ${CASASDECIMAIS}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; FLAG="0"; else antoniovandre_echo "${DOVERFLOW}"; FLAG="1"; fi; continue;;
+    "-D") if ! [ "${CASASDECIMAIS}" == "0" ]; then CASASDECIMAIS=$(echo "${CASASDECIMAIS} - 1" | bc); antoniovandre_echo "${DNOW} ${CASASDECIMAIS}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; FLAG="0"; else antoniovandre_echo "${DBOTTOM}"; FLAG="1"; fi; continue;;
+    "+N") if [ $(echo "${MAXVALUE} * 2" | bc) -lt "${MAXMAXVALUE}" ]; then MAXVALUE=$(echo "${MAXVALUE} * 2" | bc); antoniovandre_echo "${NNOW} ${MAXVALUE}."; FLAG="0"; else antoniovandre_echo "${NOVERFLOW}"; FLAG="1"; fi; continue;;
+    "-N") if [ "${MAXVALUE}" -gt "${MINMAXVALUE}" ]; then MAXVALUE=$(echo "${MAXVALUE} / 2" | bc); antoniovandre_echo "${NNOW} ${MAXVALUE}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; FLAG="0"; else antoniovandre_echo "${NBOTTOM}"; FLAG="1"; fi; continue;;
+    "+C") if [ $(echo "${CHAOS} + 1" | bc) -lt $MAXCHAOSVALUE ]; then CHAOS=$(echo "${CHAOS} + 1" | bc); antoniovandre_echo "${CHAOSNOW} ${CHAOS}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; FLAG="0"; else antoniovandre_echo "${CHAOSOVERFLOW}"; FLAG="1"; fi; continue;;
+    "-C") if [ $(echo "${CHAOS} - 1" | bc) -lt $MINCHAOSVALUE ]; then CHAOS=$(echo "${CHAOS} - 1" | bc); antoniovandre_echo "${CHAOSNOW} ${CHAOS}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; FLAG="0"; else antoniovandre_echo "${CHAOSBOTTON}"; FLAG="1"; fi; continue;;
+    "T") if [ "${AVTEMPO}" == "0" ]; then AVTEMPO="1"; antoniovandre_echo "${TNOW} ${AVTEMPO}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; else antoniovandre_echo "${TIMEALREADYACTIVATED}"; fi; FLAG="1"; continue;;
+    "t") if [ "${AVTEMPO}" == "1" ]; then AVTEMPO="0"; antoniovandre_echo "${TNOW} ${AVTEMPO}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; else antoniovandre_echo "${TIMEALREADYDEACTIVATED}"; fi; FLAG="1"; continue;;
+    "+T") if [ "${AVTEMPO}" == "1" ]; then if [ "${LIMITETEMPO}" -lt "${MAXTIME}" ]; then LIMITETEMPO=$(echo "${LIMITETEMPO} + 10" | bc); antoniovandre_echo "${TVNOW} ${LIMITETEMPO}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; else antoniovandre_echo "${TOVERFLOW}"; fi; else antoniovandre_echo "${TIMEDEACTIVATED}"; fi; FLAG="1"; continue;;
+    "-T") if [ "${AVTEMPO}" == "1" ]; then if [ "${LIMITETEMPO}" -gt "${MINTIME}" ]; then LIMITETEMPO=$(echo "${LIMITETEMPO} - 10" | bc); antoniovandre_echo "${TVNOW} ${LIMITETEMPO}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; else antoniovandre_echo "${TBOTTOM}"; fi; else antoniovandre_echo "${TIMEDEACTIVATED}"; fi; FLAG="1"; continue;;
     "SAIR") break;;
     "EXIT") break;;
     "sair") break;;
@@ -420,7 +421,7 @@ while [  "${RESPOSTAUSUARIO}" != "SAIR" ] && [  "${RESPOSTAUSUARIO}" != "EXIT" ]
     "JUMP") FLAG="0"; continue;;
     "pular") FLAG="0"; continue;;
     "jump") FLAG="0"; continue;;
-    "M") echo ""; if ! wget -T $TIMEOUTMENSAGEM -qO- https://github.com/antoniovandre/antoniovandre_mathgame_bash/raw/refs/heads/main/antoniovandre_mathgame_mensagem.txt 2>> /dev/null; then echo -ne "${AV_VERMELHO}";antoniovandre_echo "${AVMENSAGEMERRO}" n; echo -e "${AV_SEMCOR}."; fi; echo ""; FLAG="1"; continue;;
+    "M") echo ""; if ! wget -T $TIMEOUTMENSAGEM -qO- https://github.com/antoniovandre/antoniovandre_mathgame_bash/raw/refs/heads/main/antoniovandre_mathgame_mensagem.txt 2>> /dev/null; then echo -ne "${AV_VERMELHO}"; antoniovandre_echo "${AVMENSAGEMERRO}" n; echo -e "${AV_SEMCOR}."; fi; echo ""; FLAG="1"; continue;;
     "AJUDA") echo ""; echo -e "${INSTRUCOES}"; echo ""; FLAG=1; continue;;
     "HELP") echo ""; echo -e "${INSTRUCOES}"; echo ""; FLAG=1; continue;;
     "H") echo ""; echo -e "${INSTRUCOES}"; echo ""; FLAG=1; continue;;
@@ -428,7 +429,7 @@ while [  "${RESPOSTAUSUARIO}" != "SAIR" ] && [  "${RESPOSTAUSUARIO}" != "EXIT" ]
     "help") echo ""; echo -e "${INSTRUCOES}"; echo ""; FLAG=1; continue;;
     "h") echo ""; echo -e "${INSTRUCOES}"; echo ""; FLAG=1; continue;;
     "${RESPOSTA}") if [ "${AVLOG}" == "1" ]; then echo "_____" >> "${ARQUIVOLOGTEMP}"; LANG=en_us_88591 date >> "${ARQUIVOLOGTEMP}"; echo "Pergunta: ${PERGUNTA}" >> "${ARQUIVOLOGTEMP}"; echo "Resposta: ${RESPOSTAUSUARIOP}" >> "${ARQUIVOLOGTEMP}"; echo "Eval: acertou." >> "${ARQUIVOLOGTEMP}"; fi; echo -e "${AV_VERDE}${CORRECT}${AV_SEMCOR}."; if [ "${AVSOUND}" == "1" ]; then play "${ARQUIVOSOMACERTO}" &>> /dev/null; fi; FLAG="0";;
-    *) if ! [[ "${RESPOSTAUSUARIO}" =~ "^[+-]?[0-9]+([.][0-9]+)?$" ]]; then antoniovandre_echo "${VALIDEXPR}."; FLAG="1"; continue; fi; if [ "${AVLOG}" == "1" ]; then echo "_____" >> "${ARQUIVOLOGTEMP}"; LANG=en_us_88591 date >> "${ARQUIVOLOGTEMP}"; echo "Pergunta: ${PERGUNTA}" >> "${ARQUIVOLOGTEMP}"; echo "Resposta: ${RESPOSTAUSUARIO}" >> "${ARQUIVOLOGTEMP}"; echo "Eval: errou." >> "${ARQUIVOLOGTEMP}"; fi; echo -e "${AV_VERMELHO}${WRONG}${AV_SEMCOR}."; if [ "${AVSOUND}" == "1" ]; then play "${ARQUIVOSOMERRO}" &>> /dev/null; fi; FLAG="0";;
+    *) if [ $(echo -n "${RESPOSTAUSUARIO}" | grep --color=never -E '^[+-]?[0-9]+([.][0-9]+)?$') == "" ]; then antoniovandre_echo "${VALIDEXPR}."; FLAG="1"; continue; fi; if [ "${AVLOG}" == "1" ]; then echo "_____" >> "${ARQUIVOLOGTEMP}"; LANG=en_us_88591 date >> "${ARQUIVOLOGTEMP}"; echo "Pergunta: ${PERGUNTA}" >> "${ARQUIVOLOGTEMP}"; echo "Resposta: ${RESPOSTAUSUARIO}" >> "${ARQUIVOLOGTEMP}"; echo "Eval: errou." >> "${ARQUIVOLOGTEMP}"; fi; echo -e "${AV_VERMELHO}${WRONG}${AV_SEMCOR}."; if [ "${AVSOUND}" == "1" ]; then play "${ARQUIVOSOMERRO}" &>> /dev/null; fi; FLAG="0";;
   esac
 
 done

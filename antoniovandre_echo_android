@@ -1,14 +1,18 @@
-# Proprietário: Antonio Vandré Pedrosa Furtunato Gomes (bit.ly/antoniovandre_legadoontologico).
+#!/bin/bash
+
+# Proprietário: Antonio Vandré Pedrosa Furtunato Gomes.
 
 # Script de escrita com delay, para Android.
 
-# Última atualização: 27-03-2020.
+# Licença: Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA).
+
+# Última atualização: 12-05-2024. Não considerando alterações em variáveis globais.
 
 SOM="0"
-ARQUIVOSOM="/storage/emulated/0/av_sounds/antoniovandre_echo_tick.mp3"
+ARQUIVOSOM="antoniovandre_echo_tick.mp3"
 DELAY="0"
 
-VAR=$1
+VAR="${1}"
 TAMANHO=${#VAR}
 CONTADOR="0"
 
@@ -16,5 +20,5 @@ if ! hash play 1>> /dev/null 2>> /dev/null; then echo "Não encontrado o softwar
 
 while [ $CONTADOR -lt $TAMANHO ]; do CHAR=${VAR:$CONTADOR:1}; if [ -z "${CHAR}" ]; then echo -n " "; else GLOBIGNORE="*" echo -n "${CHAR}"; fi; if [ $SOM == "1" ]; then play $ARQUIVOSOM &>> /dev/null; fi; sleep ${DELAY}s; CONTADOR=$(expr $CONTADOR + 1); done
 
-if [ -z $2 ]; then echo ""; else if ! [ $2 == "n" ]; then echo ""; fi; fi
+if [ -z "${2}" ]; then echo ""; else if ! [ "${2}" == "n" ]; then echo ""; fi; fi
 
