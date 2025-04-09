@@ -3,11 +3,11 @@ ____________________
 
 Versão para Linux:
 
-Execute o software com o comando "bash antoniovandre_mathgame".
+Execute o software com o comando "bash antoniovandre_mathgame_linux".
 
 Versão para Android:
 
-Execute o software com o comando "bash antoniovandre_mathgame_android".
+Execute o software com o comando "bash antoniovandre_mathgame".
 _____
 
 Se você não é usuário Linux ou Android, você pode instalar no seu sistema operacional um shell BASH.
