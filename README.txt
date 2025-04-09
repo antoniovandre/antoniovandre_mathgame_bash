@@ -1,12 +1,14 @@
 Projeto Mathematical Ramblings.
 ____________________
 
-Linux / Android version:
+Linux version:
+
+Run the software with the command "bash antoniovandre_mathgame_linux".
+
+Android version:
 
 Run the software with the command "bash antoniovandre_mathgame".
 _____
-
-If your environment is not capable of producing sounds, run with "bash antoniovandre_mathgame_nosound".
 
 If you are not a Linux or Android user, you can install a BASH shell on your operating system.
 
