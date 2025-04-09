@@ -13,6 +13,8 @@ Versão para Android:
 Execute o software com o comando "bash antoniovandre_mathgame".
 _____
 
+Se for usuário Linux, primeiramente crie uma conta Dropbox e faça o download da release do dbxcli para seu sistema em "https://github.com/dropbox/dbxcli", renomeando ou criando um link simbólico de nome "antoniovandre_dbxcli". Instale o app na sua conta Dropbox e crie um diretório na raíz chamado "antoniovandre_mathgame" para que hava o salvamento online dos logs.
+
 Se você não é usuário Linux ou Android, você pode instalar no seu sistema operacional um shell BASH.
 
 O processamento das estatísticas pode ser demorado, então você pode jogar com o comando "bash antoniovandre_mathgame ne", onde apenas o arquivo de log será salvo, e, quando não for utilizar o dispositivo, executar "bash antoniovandre_mathgame oe" para unicamente processar as estatísticas.
@@ -34,6 +36,8 @@ Android version:
 
 Run the software with the command "bash antoniovandre_mathgame".
 _____
+
+If you are a Linux user, first create a Dropbox account and download the dbxcli release for your system from "https://github.com/dropbox/dbxcli", renaming it or creating a symbolic link named "antoniovandre_dbxcli". Install the app on your Dropbox account and create a directory in the root called "antoniovandre_mathgame" so that the logs can be saved online.
 
 If you are not a Linux or Android user, you can install a BASH shell on your operating system.
 
