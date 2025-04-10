@@ -218,6 +218,8 @@ NUMEROMAXIMOARGUMENTOS="10"
 MAXIMOCASASDECIMAIS="5"
 MAXMAXVALUE="1024"
 MINMAXVALUE="8"
+MAXCHAOSVALUE="50"
+MINCHAOSVALUE="10"
 MAXTIME="60"
 MINTIME="10"
 AVSOUND="1"
@@ -415,8 +417,8 @@ while [  "${RESPOSTAUSUARIO}" != "SAIR" ] && [  "${RESPOSTAUSUARIO}" != "EXIT" ]
     "-D") if ! [ "${CASASDECIMAIS}" == "0" ]; then CASASDECIMAIS=$(echo "${CASASDECIMAIS} - 1" | bc); antoniovandre_echo "${DNOW} ${CASASDECIMAIS}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; FLAG="0"; else antoniovandre_echo "${DBOTTOM}"; FLAG="1"; fi; continue;;
     "+N") if [ $(echo "${MAXVALUE} * 2" | bc) -lt "${MAXMAXVALUE}" ]; then MAXVALUE=$(echo "${MAXVALUE} * 2" | bc); antoniovandre_echo "${NNOW} ${MAXVALUE}."; FLAG="0"; else antoniovandre_echo "${NOVERFLOW}"; FLAG="1"; fi; continue;;
     "-N") if [ "${MAXVALUE}" -gt "${MINMAXVALUE}" ]; then MAXVALUE=$(echo "${MAXVALUE} / 2" | bc); antoniovandre_echo "${NNOW} ${MAXVALUE}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; FLAG="0"; else antoniovandre_echo "${NBOTTOM}"; FLAG="1"; fi; continue;;
-    "+C") if [ $(echo "${CHAOS} + 1" | bc) -lt $MAXCHAOSVALUE ]; then CHAOS=$(echo "${CHAOS} + 1" | bc); antoniovandre_echo "${CHAOSNOW} ${CHAOS}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; FLAG="0"; else antoniovandre_echo "${CHAOSOVERFLOW}"; FLAG="1"; fi; continue;;
-    "-C") if [ $(echo "${CHAOS} - 1" | bc) -lt $MINCHAOSVALUE ]; then CHAOS=$(echo "${CHAOS} - 1" | bc); antoniovandre_echo "${CHAOSNOW} ${CHAOS}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; FLAG="0"; else antoniovandre_echo "${CHAOSBOTTON}"; FLAG="1"; fi; continue;;
+    "+C") if [ $(echo "${CHAOS} + 1" | bc) -lt "${MAXCHAOSVALUE}" ]; then CHAOS=$(echo "${CHAOS} + 1" | bc); antoniovandre_echo "${CHAOSNOW} ${CHAOS}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; FLAG="0"; else antoniovandre_echo "${CHAOSOVERFLOW}"; FLAG="1"; fi; continue;;
+    "-C") if [ $(echo "${CHAOS} - 1" | bc) -lt "${MINCHAOSVALUE}" ]; then CHAOS=$(echo "${CHAOS} - 1" | bc); antoniovandre_echo "${CHAOSNOW} ${CHAOS}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; FLAG="0"; else antoniovandre_echo "${CHAOSBOTTON}"; FLAG="1"; fi; continue;;
     "T") if [ "${AVTEMPO}" == "0" ]; then AVTEMPO="1"; antoniovandre_echo "${TNOW} ${AVTEMPO}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; else antoniovandre_echo "${TIMEALREADYACTIVATED}"; fi; FLAG="1"; continue;;
     "t") if [ "${AVTEMPO}" == "1" ]; then AVTEMPO="0"; antoniovandre_echo "${TNOW} ${AVTEMPO}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; else antoniovandre_echo "${TIMEALREADYDEACTIVATED}"; fi; FLAG="1"; continue;;
     "+T") if [ "${AVTEMPO}" == "1" ]; then if [ "${LIMITETEMPO}" -lt "${MAXTIME}" ]; then LIMITETEMPO=$(echo "${LIMITETEMPO} + 10" | bc); antoniovandre_echo "${TVNOW} ${LIMITETEMPO}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; else antoniovandre_echo "${TOVERFLOW}"; fi; else antoniovandre_echo "${TIMEDEACTIVATED}"; fi; FLAG="1"; continue;;
