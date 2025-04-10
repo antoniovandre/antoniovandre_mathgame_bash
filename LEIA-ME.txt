@@ -16,6 +16,8 @@ Se você não é usuário Linux ou Android, você pode instalar no seu sistema o
 
 O processamento das estatísticas pode ser demorado, então você pode jogar com o comando "bash antoniovandre_mathgame ne", onde apenas o arquivo de log será salvo, e, quando não for utilizar o dispositivo, executar "bash antoniovandre_mathgame oe" para unicamente processar as estatísticas.
 
+Se tiver problemas com sons no sistema, sete para "0" as variáveis "SOUND" no executável e "SOM" em "antoniovandre_echo" e "antoniovandre_echo_android".
+
 Há muitas outras opções disponíveis ao se editar os fontes.
 _____
 

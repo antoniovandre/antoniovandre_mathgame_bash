@@ -192,6 +192,8 @@ case "${LINGUA}" in
   *) ;;
 esac
 
+SOUND="1"
+
 PATH=".:${PATH}"
 
 if ! hash bash &>> /dev/null; then echo "BASH ${NOTFOUND}."; exit 1; fi
@@ -202,7 +204,7 @@ if ! hash antoniovandre_dbxcli_put &>> /dev/null; then echo "\"antoniovandre_dbx
 
 if ! hash bc &>> /dev/null; then echo "\"bc\" ${NOTFOUND}."; exit 1; fi
 
-if ! hash play &>> /dev/null; then echo "\"play\" ${NOTFOUND}."; exit 1; fi
+if [ "${SOUND}" == "1" ]; then if ! hash play &>> /dev/null; then echo "\"play\" ${NOTFOUND}."; exit 1; fi; fi
 
 if ! hash unix2dos &>> /dev/null; then echo "\"unix2dos\" ${NOTFOUND}."; exit 1; fi
 
@@ -300,7 +302,7 @@ antoniovandre_echo "${MATHGAME}."
 
 echo ""
 
-antoniovandre_echo "${VERSION} 09-04-2025."
+antoniovandre_echo "${VERSION} 10-04-2025."
 
 echo ""
 
@@ -438,8 +440,8 @@ while [  "${RESPOSTAUSUARIO}" != "SAIR" ] && [  "${RESPOSTAUSUARIO}" != "EXIT" ]
     "ajuda") echo ""; echo -e "${INSTRUCOES}"; echo ""; FLAG=1; continue;;
     "help") echo ""; echo -e "${INSTRUCOES}"; echo ""; FLAG=1; continue;;
     "h") echo ""; echo -e "${INSTRUCOES}"; echo ""; FLAG=1; continue;;
-    "${RESPOSTA}") if [ "${AVLOG}" == "1" ]; then echo "_____" >> "${ARQUIVOLOGTEMP}"; LANG=en_us_88591 date >> "${ARQUIVOLOGTEMP}"; echo "Pergunta: ${PERGUNTA}" >> "${ARQUIVOLOGTEMP}"; echo "Resposta: ${RESPOSTAUSUARIOP}" >> "${ARQUIVOLOGTEMP}"; echo "Eval: acertou." >> "${ARQUIVOLOGTEMP}"; fi; echo -e "${AV_VERDE}${CORRECT}${AV_SEMCOR}."; if [ "${AVSOUND}" == "1" ]; then play "${ARQUIVOSOMACERTO}" &>> /dev/null; fi; FLAG="0";;
-    *) if [ $(echo -n "${RESPOSTAUSUARIO}" | grep --color=never -E '^[+-]?[0-9]+([.][0-9]+)?$') == "" ]; then antoniovandre_echo "${VALIDEXPR}."; FLAG="1"; continue; fi; if [ "${AVLOG}" == "1" ]; then echo "_____" >> "${ARQUIVOLOGTEMP}"; LANG=en_us_88591 date >> "${ARQUIVOLOGTEMP}"; echo "Pergunta: ${PERGUNTA}" >> "${ARQUIVOLOGTEMP}"; echo "Resposta: ${RESPOSTAUSUARIO}" >> "${ARQUIVOLOGTEMP}"; echo "Eval: errou." >> "${ARQUIVOLOGTEMP}"; fi; echo -e "${AV_VERMELHO}${WRONG}${AV_SEMCOR}."; if [ "${AVSOUND}" == "1" ]; then play "${ARQUIVOSOMERRO}" &>> /dev/null; fi; FLAG="0";;
+    "${RESPOSTA}") if [ "${AVLOG}" == "1" ]; then echo "_____" >> "${ARQUIVOLOGTEMP}"; LANG=en_us_88591 date >> "${ARQUIVOLOGTEMP}"; echo "Pergunta: ${PERGUNTA}" >> "${ARQUIVOLOGTEMP}"; echo "Resposta: ${RESPOSTAUSUARIOP}" >> "${ARQUIVOLOGTEMP}"; echo "Eval: acertou." >> "${ARQUIVOLOGTEMP}"; fi; echo -e "${AV_VERDE}${CORRECT}${AV_SEMCOR}."; if [ "${AVSOUND}" == "1" ]; then if [ "${SOUND}" == "1" ]; then play "${ARQUIVOSOMACERTO}" &>> /dev/null; fi; fi; FLAG="0";;
+    *) if [ $(echo -n "${RESPOSTAUSUARIO}" | grep --color=never -E '^[+-]?[0-9]+([.][0-9]+)?$') == "" ]; then antoniovandre_echo "${VALIDEXPR}."; FLAG="1"; continue; fi; if [ "${AVLOG}" == "1" ]; then echo "_____" >> "${ARQUIVOLOGTEMP}"; LANG=en_us_88591 date >> "${ARQUIVOLOGTEMP}"; echo "Pergunta: ${PERGUNTA}" >> "${ARQUIVOLOGTEMP}"; echo "Resposta: ${RESPOSTAUSUARIO}" >> "${ARQUIVOLOGTEMP}"; echo "Eval: errou." >> "${ARQUIVOLOGTEMP}"; fi; echo -e "${AV_VERMELHO}${WRONG}${AV_SEMCOR}."; if [ "${AVSOUND}" == "1" ]; then if [ "${SOUND}" == "1" ]; then play "${ARQUIVOSOMERRO}" &>> /dev/null; fi; fi; FLAG="0";;
   esac
 
 done
