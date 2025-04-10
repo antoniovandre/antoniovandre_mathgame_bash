@@ -6,7 +6,7 @@
 
 # Licença: Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA).
 
-# Última atualização: 09-04-2025.
+# Última atualização: 10-04-2025.
 
 # Argumentos: "ne" para não processar estatísticas, ou "oe" para apenas processar estatísticas.
 
@@ -335,7 +335,7 @@ while [  "${RESPOSTAUSUARIO}" != "SAIR" ] && [  "${RESPOSTAUSUARIO}" != "EXIT" ]
        *);;
      esac
 
-    SEEDS=""; SEED=$(date +%s); SEEDST="${SEED}"; for I in $(seq 2 "${CHAOS}"); do case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "\b"; echo -ne "${CHARPROGRESS}"; TEMP=$(expr "${SEED}" / 2 + "${CHAOS}" - "${I}" + 2); SEEDST="${SEEDST},${TEMP}"; done; VIRGULA=""; for I in $(seq 1 "${CHAOS}"); do case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "\b"; echo -ne "${CHARPROGRESS}"; TEMP2=$(echo -n "${SEEDST}" | cut -d "," -f "${I}"); TEMP=$(echo "${TEMP2} % ${MAXVALUE}" | bc); SEEDS="${SEEDS}${VIRGULA}${TEMP}"; VIRGULA=","; done
+    SEEDS=""; SEED=$(date +%s); SEEDST="${SEED}"; for I in $(seq 2 "${CHAOS}"); do case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "\b"; echo -ne "${CHARPROGRESS}"; TEMP=$(expr "${SEED}" / "${I}" + "${I}"); SEEDST="${SEEDST},${TEMP}"; done; VIRGULA=""; for I in $(seq 1 "${CHAOS}"); do case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "\b"; echo -ne "${CHARPROGRESS}"; TEMP2=$(echo -n "${SEEDST}" | cut -d "," -f "${I}"); TEMP=$(echo "${TEMP2} % ${MAXVALUE}" | bc); SEEDS="${SEEDS}${VIRGULA}${TEMP}"; VIRGULA=","; done
 
 	  case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "\b"; echo -ne "${CHARPROGRESS}"
 
