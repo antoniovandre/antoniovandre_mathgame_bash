@@ -90,7 +90,7 @@ case "${LINGUA}" in
 
     CHAOSOVERFLOW="O valor do CHAOS já está no máximo."
 
-	CHAOSBOTTOM="O valor do CHAOS já está no mínimo."
+    CHAOSBOTTOM="O valor do CHAOS já está no mínimo."
 
     TOVERFLOW="O tempo já está no valor máximo."
 
