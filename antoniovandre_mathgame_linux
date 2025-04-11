@@ -6,7 +6,7 @@
 
 # Licença: Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA).
 
-# Última atualização: 10-04-2025.
+# Última atualização: 11-04-2025. Não considerando alterações em variáveis globais.
 
 # Argumentos: "ne" para não processar estatísticas, ou "oe" para apenas processar estatísticas.
 
@@ -229,7 +229,7 @@ ARQUIVOSOMACERTO="antoniovandre_mathgame_correct.wav"
 ARQUIVOSOMERRO="antoniovandre_mathgame_error.wav"
 AVLOG="1"
 ARQUIVOLOG="antoniovandre_mathgame_log.txt"
-ARQUIVOLOGTEMP="antoniovandre_mathgame_log.txt"
+ARQUIVOLOGTEMP="antoniovandre_mathgame_log_temp.txt"
 ARQUIVOOPCOES="antoniovandre_mathgame_options"
 DIRCLOUDSYNC="/antoniovandre_mathgame/"
 AVGRAFICOS="1"
@@ -283,7 +283,7 @@ if [ $(echo -n "${CHAOS}" | grep --color=never -E '^[0-9]+$') == "" ] || [ $(ech
 
 RESPOSTAUSUARIO=""
 
-if [ "${AVLOG}" == "1" ]; then antoniovandre_echo "${MAKINGDOWNLOAD}" n; if ! antoniovandre_dbxcli_get "${DIRCLOUDSYNC}${ARQUIVOLOG##*/}" "${ARQUIVOLOG%/*}/" &>> /dev/null; then echo -ne "${AV_VERMELHO}"; antoniovandre_echo "${ERRORDOWNLOADFILES}" n; echo -e "${AV_SEMCOR}."; exit 1; fi; echo -ne "${AV_VERDE}"; antoniovandre_echo "${SUCCESS}" n; echo -e "${AV_SEMCOR}."; fi
+if [ "${AVLOG}" == "1" ]; then antoniovandre_echo "${MAKINGDOWNLOAD}" n; if ! antoniovandre_dbxcli_get "${DIRCLOUDSYNC}${ARQUIVOLOG##*/}" "${ARQUIVOLOG%/*}" &>> /dev/null; then echo -ne "${AV_VERMELHO}"; antoniovandre_echo "${ERRORDOWNLOADFILES}" n; echo -e "${AV_SEMCOR}."; exit 1; fi; echo -ne "${AV_VERDE}"; antoniovandre_echo "${SUCCESS}" n; echo -e "${AV_SEMCOR}."; fi
 
 if (! ls "${ARQUIVOLOGTEMP}" &>> /dev/null) && ls "${ARQUIVOLOG}" &>> /dev/null; then cp "${ARQUIVOLOG}" "${ARQUIVOLOGTEMP}"; fi
 
