@@ -54,7 +54,7 @@ case "${LINGUA}" in
 
     CHAOSNOW="Agora o valor do CHAOS é"
 
-  	CHAOSOVERFLOW="O valor do CHAOS já está no máximo."
+    CHAOSOVERFLOW="O valor do CHAOS já está no máximo."
 
     CHAOSBOTTOM="O valor do CHAOS já está no mínimo."
 
@@ -141,9 +141,9 @@ case "${LINGUA}" in
 
     CHAOSNOW="Now the CHAOS value is"
 
-  	CHAOSOVERFLOW="The magnitude of CHAOS is already in the ceiling."
+    CHAOSOVERFLOW="The magnitude of CHAOS is already in the ceiling."
 
-	CHAOSBOTTOM="The magnitude of CHAOS is already in the minimum."
+    CHAOSBOTTOM="The magnitude of CHAOS is already in the minimum."
 
     TOVERFLOW="Time already in max value."
 
