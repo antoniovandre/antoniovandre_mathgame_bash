@@ -138,7 +138,7 @@ case "${LINGUA}" in
 
     CONCLUDED="Concluído"
 
-    BUILDINGGRAPHS="Construindo os gráficos. Isto pode demorar um pouco... "
+    BUILDINGGRAPHS="Construindo os gráficos... "
 
     AVMENSAGEMERRO="Mensagem de Antonio Vandré indisponível ou não há conexão com a internet"
   ;;
@@ -227,7 +227,7 @@ case "${LINGUA}" in
 
     CONCLUDED="Concluded"
 
-    BUILDINGGRAPHS="Building graphs. This may take a while... "
+    BUILDINGGRAPHS="Building graphs... "
 
     AVMENSAGEMERRO="Message from Antonio Vandré unavailable or there is no internet connection"
   ;;
@@ -311,7 +311,7 @@ bash antoniovandre_echo_android "${MATHGAME}."
 
 echo ""
 
-bash antoniovandre_echo_android "${VERSION} 10-04-2025."
+bash antoniovandre_echo_android "${VERSION} 12-04-2025."
 
 echo ""
 

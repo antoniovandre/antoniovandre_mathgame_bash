@@ -299,7 +299,7 @@ antoniovandre_echo "${MATHGAME}."
 
 echo ""
 
-antoniovandre_echo "${VERSION} 10-04-2025."
+antoniovandre_echo "${VERSION} 12-04-2025."
 
 echo ""
 
