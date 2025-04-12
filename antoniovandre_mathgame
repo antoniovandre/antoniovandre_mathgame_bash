@@ -618,181 +618,195 @@ if [ "${1}" != "ne" ] && [ "${AVLOG}" == "1" ] && [ "${AVGRAFICOS}" == "1" ] && 
 
     ERRLINHA="${LINHAR2}"; LINHAR2="${LINHAR3}"; LINHAR3="${LINHAR4}"; LINHAR4="${LINHA}";
 
-    if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ]; then CONTADORMON=$(echo "${CONTADORMON} + 1" | bc); fi
+    if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then
 
-    if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ]; then CONTADORTUE=$(echo "${CONTADORTUE} + 1" | bc); fi
+      if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ]; then CONTADORMON=$(echo "${CONTADORMON} + 1" | bc); else
 
-    if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ]; then CONTADORWED=$(echo "${CONTADORWED} + 1" | bc); fi
+      if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ]; then CONTADORTUE=$(echo "${CONTADORTUE} + 1" | bc); else
 
-    if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ]; then CONTADORTHU=$(echo "${CONTADORTHU} + 1" | bc); fi
+      if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ]; then CONTADORWED=$(echo "${CONTADORWED} + 1" | bc); else
 
-    if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ]; then CONTADORFRI=$(echo "${CONTADORFRI} + 1" | bc); fi
+      if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ]; then CONTADORTHU=$(echo "${CONTADORTHU} + 1" | bc); else
 
-    if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ]; then CONTADORSAT=$(echo "${CONTADORSAT} + 1" | bc); fi
+      if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ]; then CONTADORFRI=$(echo "${CONTADORFRI} + 1" | bc); else
 
-    if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then CONTADORSUN=$(echo "${CONTADORSUN} + 1" | bc); fi
+      if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ]; then CONTADORSAT=$(echo "${CONTADORSAT} + 1" | bc); else
 
-    if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Jan" ]; then CONTADORJAN=$(echo "${CONTADORJAN} + 1" | bc); fi; fi
+      if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then CONTADORSUN=$(echo "${CONTADORSUN} + 1" | bc); fi
 
-    if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Feb" ]; then CONTADORFEB=$(echo "${CONTADORFEB} + 1" | bc); fi; fi
+      fi; fi; fi; fi; fi; fi
 
-    if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Mar" ]; then CONTADORMAR=$(echo "${CONTADORMAR} + 1" | bc); fi; fi
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Jan" ]; then CONTADORJAN=$(echo "${CONTADORJAN} + 1" | bc); else
 
-    if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Apr" ]; then CONTADORAPR=$(echo "${CONTADORAPR} + 1" | bc); fi; fi
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Feb" ]; then CONTADORFEB=$(echo "${CONTADORFEB} + 1" | bc); else
 
-    if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "May" ]; then CONTADORMAY=$(echo "${CONTADORMAY} + 1" | bc); fi; fi
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Mar" ]; then CONTADORMAR=$(echo "${CONTADORMAR} + 1" | bc); else
 
-    if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Jun" ]; then CONTADORJUN=$(echo "${CONTADORJUN} + 1" | bc); fi; fi
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Apr" ]; then CONTADORAPR=$(echo "${CONTADORAPR} + 1" | bc); else
 
-    if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Jul" ]; then CONTADORJUL=$(echo "${CONTADORJUL} + 1" | bc); fi; fi
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "May" ]; then CONTADORMAY=$(echo "${CONTADORMAY} + 1" | bc); else
 
-    if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Aug" ]; then CONTADORAUG=$(echo "${CONTADORAUG} + 1" | bc); fi; fi
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Jun" ]; then CONTADORJUN=$(echo "${CONTADORJUN} + 1" | bc); else
 
-    if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Sep" ]; then CONTADORSEP=$(echo "${CONTADORSEP} + 1" | bc); fi; fi
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Jul" ]; then CONTADORJUL=$(echo "${CONTADORJUL} + 1" | bc); else
 
-    if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Oct" ]; then CONTADOROCT=$(echo "${CONTADOROCT} + 1" | bc); fi; fi
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Aug" ]; then CONTADORAUG=$(echo "${CONTADORAUG} + 1" | bc); else
 
-    if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Nov" ]; then CONTADORNOV=$(echo "${CONTADORNOV} + 1" | bc); fi; fi
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Sep" ]; then CONTADORSEP=$(echo "${CONTADORSEP} + 1" | bc); else
 
-    if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Dec" ]; then CONTADORDEC=$(echo "${CONTADORDEC} + 1" | bc); fi; fi
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Oct" ]; then CONTADOROCT=$(echo "${CONTADOROCT} + 1" | bc); else
 
-    if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "00" ]; then CONTADOR00=$(echo "${CONTADOR00} + 1" | bc); fi; fi
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Nov" ]; then CONTADORNOV=$(echo "${CONTADORNOV} + 1" | bc); else
 
-    if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "01" ]; then CONTADOR01=$(echo "${CONTADOR01} + 1" | bc); fi; fi
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Dec" ]; then CONTADORDEC=$(echo "${CONTADORDEC} + 1" | bc); fi
 
-    if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "02" ]; then CONTADOR02=$(echo "${CONTADOR02} + 1" | bc); fi; fi
+      fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi
 
-    if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "03" ]; then CONTADOR03=$(echo "${CONTADOR03} + 1" | bc); fi; fi
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "00" ]; then CONTADOR00=$(echo "${CONTADOR00} + 1" | bc); else
 
-    if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "04" ]; then CONTADOR04=$(echo "${CONTADOR04} + 1" | bc); fi; fi
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "01" ]; then CONTADOR01=$(echo "${CONTADOR01} + 1" | bc); else
 
-    if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "05" ]; then CONTADOR05=$(echo "${CONTADOR05} + 1" | bc); fi; fi
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "02" ]; then CONTADOR02=$(echo "${CONTADOR02} + 1" | bc); else
 
-    if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "06" ]; then CONTADOR06=$(echo "${CONTADOR06} + 1" | bc); fi; fi
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "03" ]; then CONTADOR03=$(echo "${CONTADOR03} + 1" | bc); else
 
-    if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "07" ]; then CONTADOR07=$(echo "${CONTADOR07} + 1" | bc); fi; fi
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "04" ]; then CONTADOR04=$(echo "${CONTADOR04} + 1" | bc); else
 
-    if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "08" ]; then CONTADOR08=$(echo "${CONTADOR08} + 1" | bc); fi; fi
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "05" ]; then CONTADOR05=$(echo "${CONTADOR05} + 1" | bc); else
 
-    if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "09" ]; then CONTADOR09=$(echo "${CONTADOR09} + 1" | bc); fi; fi
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "06" ]; then CONTADOR06=$(echo "${CONTADOR06} + 1" | bc); else
 
-    if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "10" ]; then CONTADOR10=$(echo "${CONTADOR10} + 1" | bc); fi; fi
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "07" ]; then CONTADOR07=$(echo "${CONTADOR07} + 1" | bc); else
 
-    if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "11" ]; then CONTADOR11=$(echo "${CONTADOR11} + 1" | bc); fi; fi
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "08" ]; then CONTADOR08=$(echo "${CONTADOR08} + 1" | bc); else
 
-    if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "12" ]; then CONTADOR12=$(echo "${CONTADOR12} + 1" | bc); fi; fi
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "09" ]; then CONTADOR09=$(echo "${CONTADOR09} + 1" | bc); else
 
-    if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "13" ]; then CONTADOR13=$(echo "${CONTADOR13} + 1" | bc); fi; fi
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "10" ]; then CONTADOR10=$(echo "${CONTADOR10} + 1" | bc); else
 
-    if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "14" ]; then CONTADOR14=$(echo "${CONTADOR14} + 1" | bc); fi; fi
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "11" ]; then CONTADOR11=$(echo "${CONTADOR11} + 1" | bc); else
 
-    if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "15" ]; then CONTADOR15=$(echo "${CONTADOR15} + 1" | bc); fi; fi
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "12" ]; then CONTADOR12=$(echo "${CONTADOR12} + 1" | bc); else
 
-    if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "16" ]; then CONTADOR16=$(echo "${CONTADOR16} + 1" | bc); fi; fi
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "13" ]; then CONTADOR13=$(echo "${CONTADOR13} + 1" | bc); else
 
-    if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "17" ]; then CONTADOR17=$(echo "${CONTADOR17} + 1" | bc); fi; fi
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "14" ]; then CONTADOR14=$(echo "${CONTADOR14} + 1" | bc); else
 
-    if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "18" ]; then CONTADOR18=$(echo "${CONTADOR18} + 1" | bc); fi; fi
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "15" ]; then CONTADOR15=$(echo "${CONTADOR15} + 1" | bc); else
 
-    if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "19" ]; then CONTADOR19=$(echo "${CONTADOR19} + 1" | bc); fi; fi
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "16" ]; then CONTADOR16=$(echo "${CONTADOR16} + 1" | bc); else
 
-    if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "20" ]; then CONTADOR20=$(echo "${CONTADOR20} + 1" | bc); fi; fi
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "17" ]; then CONTADOR17=$(echo "${CONTADOR17} + 1" | bc); else
 
-    if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "21" ]; then CONTADOR21=$(echo "${CONTADOR21} + 1" | bc); fi; fi
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "18" ]; then CONTADOR18=$(echo "${CONTADOR18} + 1" | bc); else
 
-    if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "22" ]; then CONTADOR22=$(echo "${CONTADOR22} + 1" | bc); fi; fi
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "19" ]; then CONTADOR19=$(echo "${CONTADOR19} + 1" | bc); else
 
-    if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "23" ]; then CONTADOR23=$(echo "${CONTADOR23} + 1" | bc); fi; fi
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "20" ]; then CONTADOR20=$(echo "${CONTADOR20} + 1" | bc); else
 
-    if [ "${LINHA}" == "Eval: errou." ]; then
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "21" ]; then CONTADOR21=$(echo "${CONTADOR21} + 1" | bc); else
 
-      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Mon" ]; then ERRCONTADORMON=$(echo "${ERRCONTADORMON} + 1" | bc); fi
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "22" ]; then CONTADOR22=$(echo "${CONTADOR22} + 1" | bc); else
 
-      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Tue" ]; then ERRCONTADORTUE=$(echo "${ERRCONTADORTUE} + 1" | bc); fi
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "23" ]; then CONTADOR23=$(echo "${CONTADOR23} + 1" | bc); fi
 
-      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Wed" ]; then ERRCONTADORWED=$(echo "${ERRCONTADORWED} + 1" | bc); fi
+      fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi
 
-      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Thu" ]; then ERRCONTADORTHU=$(echo "${ERRCONTADORTHU} + 1" | bc); fi
+	else if [ "${LINHA}" == "Eval: errou." ]; then
 
-      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Fri" ]; then ERRCONTADORFRI=$(echo "${ERRCONTADORFRI} + 1" | bc); fi
+      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Mon" ]; then ERRCONTADORMON=$(echo "${ERRCONTADORMON} + 1" | bc); else
 
-      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sat" ]; then ERRCONTADORSAT=$(echo "${ERRCONTADORSAT} + 1" | bc); fi
+      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Tue" ]; then ERRCONTADORTUE=$(echo "${ERRCONTADORTUE} + 1" | bc); else
+
+      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Wed" ]; then ERRCONTADORWED=$(echo "${ERRCONTADORWED} + 1" | bc); else
+
+      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Thu" ]; then ERRCONTADORTHU=$(echo "${ERRCONTADORTHU} + 1" | bc); else
+
+      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Fri" ]; then ERRCONTADORFRI=$(echo "${ERRCONTADORFRI} + 1" | bc); else
+
+      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sat" ]; then ERRCONTADORSAT=$(echo "${ERRCONTADORSAT} + 1" | bc); else
 
       if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sun" ]; then ERRCONTADORSUN=$(echo "${ERRCONTADORSUN} + 1" | bc); fi
 
-      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Jan" ]; then ERRCONTADORJAN=$(echo "${ERRCONTADORJAN} + 1" | bc); fi; fi
+      fi; fi; fi; fi; fi; fi
 
-      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Feb" ]; then ERRCONTADORFEB=$(echo "${ERRCONTADORFEB} + 1" | bc); fi; fi
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Jan" ]; then ERRCONTADORJAN=$(echo "${ERRCONTADORJAN} + 1" | bc); else
 
-      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Mar" ]; then ERRCONTADORMAR=$(echo "${ERRCONTADORMAR} + 1" | bc); fi; fi
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Feb" ]; then ERRCONTADORFEB=$(echo "${ERRCONTADORFEB} + 1" | bc); else
 
-      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Apr" ]; then ERRCONTADORAPR=$(echo "${ERRCONTADORAPR} + 1" | bc); fi; fi
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Mar" ]; then ERRCONTADORMAR=$(echo "${ERRCONTADORMAR} + 1" | bc); else
 
-      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "May" ]; then ERRCONTADORMAY=$(echo "${ERRCONTADORMAY} + 1" | bc); fi; fi
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Apr" ]; then ERRCONTADORAPR=$(echo "${ERRCONTADORAPR} + 1" | bc); else
 
-      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Jun" ]; then ERRCONTADORJUN=$(echo "${ERRCONTADORJUN} + 1" | bc); fi; fi
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "May" ]; then ERRCONTADORMAY=$(echo "${ERRCONTADORMAY} + 1" | bc); else
 
-      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Jul" ]; then ERRCONTADORJUL=$(echo "${ERRCONTADORJUL} + 1" | bc); fi; fi
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Jun" ]; then ERRCONTADORJUN=$(echo "${ERRCONTADORJUN} + 1" | bc); else
 
-      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Aug" ]; then ERRCONTADORAUG=$(echo "${ERRCONTADORAUG} + 1" | bc); fi; fi
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Jul" ]; then ERRCONTADORJUL=$(echo "${ERRCONTADORJUL} + 1" | bc); else
 
-      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Sep" ]; then ERRCONTADORSEP=$(echo "${ERRCONTADORSEP} + 1" | bc); fi; fi
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Aug" ]; then ERRCONTADORAUG=$(echo "${ERRCONTADORAUG} + 1" | bc); else
 
-      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Oct" ]; then ERRCONTADOROCT=$(echo "${ERRCONTADOROCT} + 1" | bc); fi; fi
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Sep" ]; then ERRCONTADORSEP=$(echo "${ERRCONTADORSEP} + 1" | bc); else
 
-      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Nov" ]; then ERRCONTADORNOV=$(echo "${ERRCONTADORNOV} + 1" | bc); fi; fi
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Oct" ]; then ERRCONTADOROCT=$(echo "${ERRCONTADOROCT} + 1" | bc); else
 
-      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Dec" ]; then ERRCONTADORDEC=$(echo "${ERRCONTADORDEC} + 1" | bc); fi; fi
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Nov" ]; then ERRCONTADORNOV=$(echo "${ERRCONTADORNOV} + 1" | bc); else
 
-      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "00" ]; then ERRCONTADOR00=$(echo "${ERRCONTADOR00} + 1" | bc); fi; fi
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Dec" ]; then ERRCONTADORDEC=$(echo "${ERRCONTADORDEC} + 1" | bc); fi
 
-      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "01" ]; then ERRCONTADOR01=$(echo "${ERRCONTADOR01} + 1" | bc); fi; fi
+      fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi
 
-      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "02" ]; then ERRCONTADOR2=$(echo "${ERRCONTADOR2} + 1" | bc); fi; fi
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "00" ]; then ERRCONTADOR00=$(echo "${ERRCONTADOR00} + 1" | bc); else
 
-      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "03" ]; then ERRCONTADOR03=$(echo "${ERRCONTADOR03} + 1" | bc); fi; fi
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "01" ]; then ERRCONTADOR01=$(echo "${ERRCONTADOR01} + 1" | bc); else
 
-      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "04" ]; then ERRCONTADOR04=$(echo "${ERRCONTADOR04} + 1" | bc); fi; fi
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "02" ]; then ERRCONTADOR02=$(echo "${ERRCONTADOR02} + 1" | bc); else
 
-      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "05" ]; then ERRCONTADOR05=$(echo "${ERRCONTADOR05} + 1" | bc); fi; fi
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "03" ]; then ERRCONTADOR03=$(echo "${ERRCONTADOR03} + 1" | bc); else
 
-      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "06" ]; then ERRCONTADOR06=$(echo "${ERRCONTADOR06} + 1" | bc); fi; fi
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "04" ]; then ERRCONTADOR04=$(echo "${ERRCONTADOR04} + 1" | bc); else
 
-      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "07" ]; then ERRCONTADOR07=$(echo "${ERRCONTADOR07} + 1" | bc); fi; fi
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "05" ]; then ERRCONTADOR05=$(echo "${ERRCONTADOR05} + 1" | bc); else
 
-      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "08" ]; then ERRCONTADOR08=$(echo "${ERRCONTADOR08} + 1" | bc); fi; fi
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "06" ]; then ERRCONTADOR06=$(echo "${ERRCONTADOR06} + 1" | bc); else
 
-      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "09" ]; then ERRCONTADOR09=$(echo "${ERRCONTADOR09} + 1" | bc); fi; fi
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "07" ]; then ERRCONTADOR07=$(echo "${ERRCONTADOR07} + 1" | bc); else
 
-      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "10" ]; then ERRCONTADOR10=$(echo "${ERRCONTADOR10} + 1" | bc); fi; fi
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "08" ]; then ERRCONTADOR08=$(echo "${ERRCONTADOR08} + 1" | bc); else
 
-      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "11" ]; then ERRCONTADOR11=$(echo "${ERRCONTADOR11} + 1" | bc); fi; fi
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "09" ]; then ERRCONTADOR09=$(echo "${ERRCONTADOR09} + 1" | bc); else
 
-      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "12" ]; then ERRCONTADOR12=$(echo "${ERRCONTADOR12} + 1" | bc); fi; fi
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "10" ]; then ERRCONTADOR10=$(echo "${ERRCONTADOR10} + 1" | bc); else
 
-      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "13" ]; then ERRCONTADOR13=$(echo "${ERRCONTADOR13} + 1" | bc); fi; fi
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "11" ]; then ERRCONTADOR11=$(echo "${ERRCONTADOR11} + 1" | bc); else
 
-      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "14" ]; then ERRCONTADOR14=$(echo "${ERRCONTADOR14} + 1" | bc); fi; fi
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "12" ]; then ERRCONTADOR12=$(echo "${ERRCONTADOR12} + 1" | bc); else
 
-      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "15" ]; then ERRCONTADOR15=$(echo "${ERRCONTADOR15} + 1" | bc); fi; fi
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "13" ]; then ERRCONTADOR13=$(echo "${ERRCONTADOR13} + 1" | bc); else
 
-      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "16" ]; then ERRCONTADOR16=$(echo "${ERRCONTADOR16} + 1" | bc); fi; fi
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "14" ]; then ERRCONTADOR14=$(echo "${ERRCONTADOR14} + 1" | bc); else
 
-      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "17" ]; then ERRCONTADOR17=$(echo "${ERRCONTADOR17} + 1" | bc); fi; fi
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "15" ]; then ERRCONTADOR15=$(echo "${ERRCONTADOR15} + 1" | bc); else
 
-      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "18" ]; then ERRCONTADOR18=$(echo "${ERRCONTADOR18} + 1" | bc); fi; fi
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "16" ]; then ERRCONTADOR16=$(echo "${ERRCONTADOR16} + 1" | bc); else
 
-      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "19" ]; then ERRCONTADOR19=$(echo "${ERRCONTADOR19} + 1" | bc); fi; fi
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "17" ]; then ERRCONTADOR17=$(echo "${ERRCONTADOR17} + 1" | bc); else
 
-      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "20" ]; then ERRCONTADOR20=$(echo "${ERRCONTADOR20} + 1" | bc); fi; fi
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "18" ]; then ERRCONTADOR18=$(echo "${ERRCONTADOR18} + 1" | bc); else
 
-      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "21" ]; then ERRCONTADOR21=$(echo "${ERRCONTADOR21} + 1" | bc); fi; fi
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "19" ]; then ERRCONTADOR19=$(echo "${ERRCONTADOR19} + 1" | bc); else
 
-      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "22" ]; then ERRCONTADOR22=$(echo "${ERRCONTADOR22} + 1" | bc); fi; fi
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "20" ]; then ERRCONTADOR20=$(echo "${ERRCONTADOR20} + 1" | bc); else
 
-      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sun" ]; then if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "23" ]; then ERRCONTADOR23=$(echo "${ERRCONTADOR23} + 1" | bc); fi; fi
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "21" ]; then ERRCONTADOR21=$(echo "${ERRCONTADOR21} + 1" | bc); else
 
-    fi
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "22" ]; then ERRCONTADOR22=$(echo "${ERRCONTADOR22} + 1" | bc); else
+
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "23" ]; then ERRCONTADOR23=$(echo "${ERRCONTADOR23} + 1" | bc); fi
+
+      fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi
+
+    fi; fi
 
   done < "${ARQUIVOLOGTEMP}"
 
