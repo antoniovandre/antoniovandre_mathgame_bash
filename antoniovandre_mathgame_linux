@@ -784,6 +784,8 @@ if [ "${1}" != "ne" ] && [ "${AVLOG}" == "1" ] && [ "${AVGRAFICOS}" == "1" ] && 
 
   done < "${ARQUIVOLOGTEMP}"
 
+  if [ "${ONCE2}" == "0" ]; then echo -ne "\b\b\b\b\b\b\b\b100.00 %  "; else echo -ne "\b\b\b\b\b\b\b\b\b100.00 %  "; fi
+
   echo -n "Seg" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA2}"; echo " ${CONTADORMON}" >> "${ARQUIVOGNUPLOTDATA2}"; if [ "${MAXDIASEMANA}" -lt "${CONTADORMON}" ]; then MAXDIASEMANA="${CONTADORMON}"; fi
 
   echo -n "Ter" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA2}"; echo " ${CONTADORTUE}" >> "${ARQUIVOGNUPLOTDATA2}"; if [ "${MAXDIASEMANA}" -lt "${CONTADORTUE}" ]; then MAXDIASEMANA="${CONTADORTUE}"; fi
