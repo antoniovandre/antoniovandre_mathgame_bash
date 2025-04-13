@@ -974,12 +974,17 @@ if [ "${1}" != "ne" ] && [ "${AVLOG}" == "1" ] && [ "${AVGRAFICOS}" == "1" ] && 
 
   echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
-  MAXDIASEMANA=$(echo "${MAXDIASEMANA} * 1.1" | bc | cut -d "." -f 1)
-  MAXMESANO=$(echo "${MAXMESANO} * 1.1" | bc | cut -d "." -f 1)
-  MAXHORADIA=$(echo "${MAXHORADIA} * 1.1" | bc | cut -d "." -f 1)
-  ERRMAXDIASEMANA=$(echo "${ERRMAXDIASEMANA} * 1.1" | bc | cut -d "." -f 1)
-  ERRMAXMESANO=$(echo "${ERRMAXMESANO} * 1.1" | bc | cut -d "." -f 1)
-  ERRMAXHORADIA=$(echo "${ERRMAXHORADIA} * 1.1" | bc | cut -d "." -f 1)
+  MAXDIASEMANA=$(if [ "${MAXDIASEMANA}" -lt "10" ]; then echo -n $(expr "${MAXDIASEMANA}" + 1); else echo "${MAXDIASEMANA} * 1.1" | bc | cut -d "." -f 1; fi)
+
+  MAXMESANO=$(if [ "${MAXMESANO}" -lt "10" ]; then echo -n $(expr "${MAXMESANO}" + 1); else echo "${MAXMESANO} * 1.1" | bc | cut -d "." -f 1; fi)
+
+  MAXHORADIA=$(if [ "${MAXHORADIA}" -lt "10" ]; then echo -n $(expr "${MAXHORADIA}" + 1); else echo "${MAXHORADIA} * 1.1" | bc | cut -d "." -f 1; fi)
+
+  ERRMAXDIASEMANA=$(if [ "${ERRMAXDIASEMANA}" -lt "10" ]; then echo $(expr "${ERRMAXDIASEMANA}" + 1); else echo "${ERRMAXDIASEMANA} * 1.1" | bc | cut -d "." -f 1; fi)
+
+  ERRMAXMESANO=$(if [ "${ERRMAXMESANO}" -lt "10" ]; then echo -n $(expr "${ERRMAXMESANO}" + 1); else echo "${ERRMAXMESANO} * 1.1" | bc | cut -d "." -f 1; fi)
+
+  ERRMAXHORADIA=$(if [ "${ERRMAXHORADIA}" -lt "10" ]; then echo -n $(expr "${ERRMAXHORADIA}" + 1); else echo "${ERRMAXHORADIA} * 1.1" | bc | cut -d "." -f 1; fi)
 
   if [ "${MAXDIASEMANA}" -gt "0" ]; then gnuplot -p -e "set xtics font 'Verdana,10'; set yrange [0:${MAXDIASEMANA}]; set boxwidth 0.3; set style fill solid; set terminal png size 800,600; set xtics rotate by 90 right; unset ytics; set title 'Distribuição semanal de uso do game.'; show title; set output '${ARQUIVOGRAFICOTEMPODISTSEM}'; plot '${ARQUIVOGNUPLOTDATA2}' using 2:xticlabels(1) notitle with boxes linecolor rgb \"gray\", '' using 0:2:2 notitle with labels font 'Verdana,7'"  &>> /dev/null; else cp "${IMAGEGRAPH0}" "${ARQUIVOGRAFICOTEMPODISTSEM}" &>> /dev/null; fi
 
