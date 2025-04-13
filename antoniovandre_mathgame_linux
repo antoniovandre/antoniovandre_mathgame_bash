@@ -6,7 +6,7 @@
 
 # Licença: Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA).
 
-# Última atualização: 12-04-2025. Não considerando alterações em variáveis globais.
+# Última atualização: 13-04-2025. Não considerando alterações em variáveis globais.
 
 # Argumentos: "ne" para não processar estatísticas, ou "oe" para apenas processar estatísticas.
 
@@ -299,7 +299,7 @@ antoniovandre_echo "${MATHGAME}."
 
 echo ""
 
-antoniovandre_echo "${VERSION} 12-04-2025."
+antoniovandre_echo "${VERSION} 13-04-2025."
 
 echo ""
 
@@ -974,27 +974,34 @@ if [ "${1}" != "ne" ] && [ "${AVLOG}" == "1" ] && [ "${AVGRAFICOS}" == "1" ] && 
 
   echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
-  if [ "${MAXDIASEMANA}" -gt "0" ]; then gnuplot -p -e "set xtics font 'Verdana,10'; set yrange [0:${MAXDIASEMANA}]; set boxwidth 0.3; set style fill solid; set ytics 0,${MAXDIASEMANA}; set terminal png size 800,600; set xtics rotate by 90 right; set title 'Distribuição semanal de uso do game.'; show title; set output '${ARQUIVOGRAFICOTEMPODISTSEM}'; plot '${ARQUIVOGNUPLOTDATA2}' using 2:xticlabels(1) notitle with lines lc -1" &>> /dev/null; else cp "${IMAGEGRAPH0}" "${ARQUIVOGRAFICOTEMPODISTSEM}" &>> /dev/null; fi
+  MAXDIASEMANA=$(echo "${MAXDIASEMANA} * 1.1" | bc | cut -d "." -f 1)
+  MAXMESANO=$(echo "${MAXMESANO} * 1.1" | bc | cut -d "." -f 1)
+  MAXHORADIA=$(echo "${MAXHORADIA} * 1.1" | bc | cut -d "." -f 1)
+  ERRMAXDIASEMANA=$(echo "${ERRMAXDIASEMANA} * 1.1" | bc | cut -d "." -f 1)
+  ERRMAXMESANO=$(echo "${ERRMAXMESANO} * 1.1" | bc | cut -d "." -f 1)
+  ERRMAXHORADIA=$(echo "${ERRMAXHORADIA} * 1.1" | bc | cut -d "." -f 1)
+
+  if [ "${MAXDIASEMANA}" -gt "0" ]; then gnuplot -p -e "set xtics font 'Verdana,10'; set yrange [0:${MAXDIASEMANA}]; set boxwidth 0.3; set style fill solid; set terminal png size 800,600; set xtics rotate by 90 right; unset ytics; set title 'Distribuição semanal de uso do game.'; show title; set output '${ARQUIVOGRAFICOTEMPODISTSEM}'; plot '${ARQUIVOGNUPLOTDATA2}' using 2:xticlabels(1) notitle with boxes linecolor rgb \"gray\", '' using 0:2:2 notitle with labels font 'Verdana,7'"  &>> /dev/null; else cp "${IMAGEGRAPH0}" "${ARQUIVOGRAFICOTEMPODISTSEM}" &>> /dev/null; fi
 
   echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
-  if [ "${MAXMESANO}" -gt "0" ]; then gnuplot -p -e "set xtics font 'Verdana,10'; set yrange [0:${MAXMESANO}]; set boxwidth 0.3; set style fill solid; set ytics 0,${MAXMESANO}; set terminal png size 800,600; set xtics rotate by 90 right; set title 'Distribuição mensal de uso do game.'; show title; set output '${ARQUIVOGRAFICOTEMPODISTMES}'; plot '${ARQUIVOGNUPLOTDATA3}' using 2:xticlabels(1) notitle with lines lc -1" &>> /dev/null; else cp "${IMAGEGRAPH0}" "${ARQUIVOGRAFICOTEMPODISTMES}" &>> /dev/null; fi
+  if [ "${MAXMESANO}" -gt "0" ]; then gnuplot -p -e "set xtics font 'Verdana,10'; set yrange [0:${MAXMESANO}]; set boxwidth 0.3; set style fill solid; set terminal png size 800,600; set xtics rotate by 90 right; unset ytics; set title 'Distribuição mensal de uso do game.'; show title; set output '${ARQUIVOGRAFICOTEMPODISTMES}'; plot '${ARQUIVOGNUPLOTDATA3}' using 2:xticlabels(1) notitle with boxes linecolor rgb \"gray\", '' using 0:2:2 notitle with labels font 'Verdana,7'" &>> /dev/null; else cp "${IMAGEGRAPH0}" "${ARQUIVOGRAFICOTEMPODISTMES}" &>> /dev/null; fi
 
   echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
-  if [ "${MAXHORADIA}" -gt "0" ]; then gnuplot -p -e "set xtics font 'Verdana,10'; set yrange [0:${MAXHORADIA}]; set boxwidth 0.3; set style fill solid; set ytics 0,${MAXHORADIA}; set terminal png size 800,600; set xtics rotate by 90 right; set title 'Distribuição horária de uso do game.'; show title; set output '${ARQUIVOGRAFICOTEMPODISTHOR}'; plot '${ARQUIVOGNUPLOTDATA4}' using 2:xticlabels(1) notitle with lines lc -1" &>> /dev/null; else cp "${IMAGEGRAPH0}" "${ARQUIVOGRAFICOTEMPODISTHOR}" &>> /dev/null; fi
+  if [ "${MAXHORADIA}" -gt "0" ]; then gnuplot -p -e "set xtics font 'Verdana,10'; set yrange [0:${MAXHORADIA}]; set boxwidth 0.3; set style fill solid; set terminal png size 800,600; set xtics rotate by 90 right; unset ytics; set title 'Distribuição horária de uso do game.'; show title; set output '${ARQUIVOGRAFICOTEMPODISTHOR}'; plot '${ARQUIVOGNUPLOTDATA4}' using 2:xticlabels(1) notitle with boxes linecolor rgb \"gray\", '' using 0:2:2 notitle with labels font 'Verdana,7'" &>> /dev/null; else cp "${IMAGEGRAPH0}" "${ARQUIVOGRAFICOTEMPODISTHOR}" &>> /dev/null; fi
 
   echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
-  if [ "${ERRMAXDIASEMANA}" -gt "0" ]; then gnuplot -p -e "set xtics font 'Verdana,10'; set yrange [0:${ERRMAXDIASEMANA}]; set boxwidth 0.3; set style fill solid; set ytics 0,${ERRMAXDIASEMANA}; set terminal png size 800,600; set xtics rotate by 90 right; set title 'Distribuição semanal de erros no uso do game.'; show title; set output '${ARQUIVOGRAFICOTEMPODISTSEMERR}'; plot '${ARQUIVOGNUPLOTDATA5}' using 2:xticlabels(1) notitle with lines lc -1" &>> /dev/null; else cp "${IMAGEGRAPH0}" "${ARQUIVOGRAFICOTEMPODISTSEMERR}" &>> /dev/null; fi
+  if [ "${ERRMAXDIASEMANA}" -gt "0" ]; then gnuplot -p -e "set xtics font 'Verdana,10'; set yrange [0:${ERRMAXDIASEMANA}]; set boxwidth 0.3; set style fill solid; set terminal png size 800,600; set xtics rotate by 90 right; unset ytics; set title 'Distribuição semanal de erros no uso do game.'; show title; set output '${ARQUIVOGRAFICOTEMPODISTSEMERR}'; plot '${ARQUIVOGNUPLOTDATA5}' using 2:xticlabels(1) notitle with boxes linecolor rgb \"gray\", '' using 0:2:2 notitle with labels font 'Verdana,7'" &>> /dev/null; else cp "${IMAGEGRAPH0}" "${ARQUIVOGRAFICOTEMPODISTSEMERR}" &>> /dev/null; fi
 
   echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
-  if [ "${ERRMAXMESANO}" -gt "0" ]; then gnuplot -p -e "set xtics font 'Verdana,10'; set yrange [0:${ERRMAXMESANO}]; set boxwidth 0.3; set style fill solid; set ytics 0,${ERRMAXMESANO}; set terminal png size 800,600; set xtics rotate by 90 right; set title 'Distribuição mensal de erros no uso do game.'; show title; set output '${ARQUIVOGRAFICOTEMPODISTMESERR}'; plot '${ARQUIVOGNUPLOTDATA6}' using 2:xticlabels(1) notitle with lines lc -1" &>> /dev/null; else cp "${IMAGEGRAPH0}" "${ARQUIVOGRAFICOTEMPODISTMESERR}" &>> /dev/null; fi
+  if [ "${ERRMAXMESANO}" -gt "0" ]; then gnuplot -p -e "set xtics font 'Verdana,10'; set yrange [0:${ERRMAXMESANO}]; set boxwidth 0.3; set style fill solid; set terminal png size 800,600; set xtics rotate by 90 right; unset ytics; set title 'Distribuição mensal de erros no uso do game.'; show title; set output '${ARQUIVOGRAFICOTEMPODISTMESERR}'; plot '${ARQUIVOGNUPLOTDATA6}' using 2:xticlabels(1) notitle with boxes linecolor rgb \"gray\", '' using 0:2:2 notitle with labels font 'Verdana,7'" &>> /dev/null; else cp "${IMAGEGRAPH0}" "${ARQUIVOGRAFICOTEMPODISTMESERR}" &>> /dev/null; fi
 
   echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
-  if [ "${ERRMAXHORADIA}" -gt "0" ]; then gnuplot -p -e "set xtics font 'Verdana,10'; set yrange [0:${ERRMAXHORADIA}]; set boxwidth 0.3; set style fill solid; set ytics 0,${ERRMAXHORADIA}; set terminal png size 800,600; set xtics rotate by 90 right; set title 'Distribuição horária de erros no uso do game.'; show title; set output '${ARQUIVOGRAFICOTEMPODISTHORERR}'; plot '${ARQUIVOGNUPLOTDATA7}' using 2:xticlabels(1) notitle with lines lc -1" &>> /dev/null; else cp "${IMAGEGRAPH0}" "${ARQUIVOGRAFICOTEMPODISTHORERR}" &>> /dev/null; fi
+  if [ "${ERRMAXHORADIA}" -gt "0" ]; then gnuplot -p -e "set xtics font 'Verdana,10'; set yrange [0:${ERRMAXHORADIA}]; set boxwidth 0.3; set style fill solid; set terminal png size 800,600; set xtics rotate by 90 right; unset ytics; set title 'Distribuição horária de erros no uso do game.'; show title; set output '${ARQUIVOGRAFICOTEMPODISTHORERR}'; plot '${ARQUIVOGNUPLOTDATA7}' using 2:xticlabels(1) notitle with boxes linecolor rgb \"gray\", '' using 0:2:2 notitle with labels font 'Verdana,7'" &>> /dev/null; else cp "${IMAGEGRAPH0}" "${ARQUIVOGRAFICOTEMPODISTHORERR}" &>> /dev/null; fi
 
   echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
