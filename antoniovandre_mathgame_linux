@@ -798,7 +798,7 @@ if [ "${1}" != "ne" ] && [ "${AVLOG}" == "1" ] && [ "${AVGRAFICOS}" == "1" ] && 
 
   done < "${ARQUIVOLOGTEMP}"
 
-  if [ "${ONCE2}" == "0" ]; then echo -ne "\b\b\b\b\b\b\b\b100.00 %  "; else echo -ne "\b\b\b\b\b\b\b\b\b100.00 %  "; fi
+  echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
   echo -n "Seg" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA2}"; echo " ${CONTADORMON}" >> "${ARQUIVOGNUPLOTDATA2}"; if [ "${MAXDIASEMANA}" -lt "${CONTADORMON}" ]; then MAXDIASEMANA="${CONTADORMON}"; fi
 
@@ -1035,6 +1035,8 @@ if [ "${1}" != "ne" ] && [ "${AVLOG}" == "1" ] && [ "${AVGRAFICOS}" == "1" ] && 
   echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
 
   rm "${ARQUIVOGNUPLOTDATA7}" &>> /dev/null
+
+  if [ "${ONCE2}" == "0" ]; then echo -ne "\b\b\b\b\b\b\b\b100.00 %  "; else echo -ne "\b\b\b\b\b\b\b\b\b100.00 %  "; fi
 
   echo -ne "\b"; echo -ne "${AV_VERDE}"; bash antoniovandre_echo_android "${CONCLUDED}" n; echo -ne "${AV_SEMCOR}"; echo "."
 
