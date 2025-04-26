@@ -350,7 +350,7 @@ while [  "${RESPOSTAUSUARIO}" != "SAIR" ] && [  "${RESPOSTAUSUARIO}" != "EXIT" ]
 
 	  case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "\b"; echo -ne "${CHARPROGRESS}"
 
-    ARGS=$(for I in $(seq 1 "${NUMEROARGUMENTOS}"); do TEMP=$(awk "BEGIN{print ($(echo "$(for J in $(seq 1 ${CHAOS}); do echo -n ${SEEDS} | cut -d ',' -f ${J} | tr -d '\n'; if [ ${J} -lt ${CHAOS} ]; then if [ $(expr ${J} % 4) -gt 0 ]; then echo -n '+'; else echo -n '-'; fi; fi; done) + ${I} * ($(for J in $(seq 1 ${CHAOS}); do echo -n ${SEEDS} | cut -d ',' -f ${J} | tr -d '\n'; if [ ${J} -lt ${CHAOS} ]; then if [ $(expr ${J} % 5) -gt 0 ]; then echo -n '+'; else echo -n '-'; fi; fi; done))") / ${FATOR})}"); awk "BEGIN{print ${TEMP} % ${MAXVALUE}}" | tr "\n" ","; done)
+    ARGS=$(for I in $(seq 1 "${NUMEROARGUMENTOS}"); do TEMP=$(awk "BEGIN{print ($(echo $(for J in $(seq 1 ${CHAOS}); do echo -n ${SEEDS} | cut -d ',' -f $(expr $(expr ${J} + ${I}) % $(expr ${CHAOS} + 1) + 1) | tr -d '\n'; if [ $(expr ${J} + ${I}) -lt $(expr 2 \* ${CHAOS} - 1) ]; then if [ ${J} -lt $(expr ${CHAOS} - 1) ]; then if [ $(expr $(expr ${J} + ${I}) % 2) == 0 ]; then echo -n '+'; else echo -n '*'; fi; fi; fi; done) / ${FATOR}))}"); awk "BEGIN{print ${TEMP} % ${MAXVALUE}}" | tr "\n" ","; done)
 
 	  case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "\b"; echo -ne "${CHARPROGRESS}"
 
