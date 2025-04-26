@@ -8,7 +8,7 @@
 
 # Licença: Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA).
 
-# Última atualização: 13-04-2025. Não considerando alterações em variáveis globais.
+# Última atualização: 26-04-2025. Não considerando alterações em variáveis globais.
 
 # Argumentos: "ne" para não processar estatísticas, ou "oe" para apenas processar estatísticas.
 
@@ -36,19 +36,19 @@ SOUND="1"
 
 PATH=".:${PATH}"
 
-if ! hash bash &>> /dev/null; then echo "BASH ${NOTFOUND}."; exit 1; fi
+if ! hash bash &>> /dev/null; then echo "BASH ${NOTFOUND}."; rm "${LOCKFILE}" &>> /dev/null; exit 1; fi
 
-if ! hash bc &>> /dev/null; then echo "\"bc\" ${NOTFOUND}."; exit 1; fi
+if ! hash bc &>> /dev/null; then echo "\"bc\" ${NOTFOUND}."; rm "${LOCKFILE}" &>> /dev/null; exit 1; fi
 
-if [ "${SOUND}" == "1" ]; then if ! hash play &>> /dev/null; then echo "\"play\" ${NOTFOUND}."; exit 1; fi; fi
+if [ "${SOUND}" == "1" ]; then if ! hash play &>> /dev/null; then echo "\"play\" ${NOTFOUND}."; rm "${LOCKFILE}" &>> /dev/null; exit 1; fi; fi
 
-if ! hash unix2dos &>> /dev/null; then echo "\"unix2dos\" ${NOTFOUND}."; exit 1; fi
+if ! hash unix2dos &>> /dev/null; then echo "\"unix2dos\" ${NOTFOUND}."; rm "${LOCKFILE}" &>> /dev/null; exit 1; fi
 
-if ! hash dos2unix &>> /dev/null; then echo "\"dos2unix\" ${NOTFOUND}."; exit 1; fi
+if ! hash dos2unix &>> /dev/null; then echo "\"dos2unix\" ${NOTFOUND}."; rm "${LOCKFILE}" &>> /dev/null; exit 1; fi
 
-if ! hash gnuplot &>> /dev/null; then echo "Gnuplot ${NOTFOUND}."; exit 1; fi
+if ! hash gnuplot &>> /dev/null; then echo "Gnuplot ${NOTFOUND}."; rm "${LOCKFILE}" &>> /dev/null; exit 1; fi
 
-if ! ls "antoniovandre_echo_android" &>> /dev/null; then echo "\"antoniovandre_echo_android\" ${NOTFOUND}."; exit 1; fi
+if ! ls "antoniovandre_echo_android" &>> /dev/null; then echo "\"antoniovandre_echo_android\" ${NOTFOUND}."; rm "${LOCKFILE}" &>> /dev/null; exit 1; fi
 
 if ! [ -n "$AVCORES" ]; then echo -ne "${LOADINGCOLORS}"; if ! source "antoniovandre_cores_android" &>> /dev/null; then echo -e "${ERRORLOADCOLOR}."; else echo -e "${AV_VERDE}Ok${AV_SEMCOR}.\n"; fi; fi
 
@@ -248,7 +248,7 @@ ARQUIVOSOMACERTO="antoniovandre_mathgame_correct.wav"
 ARQUIVOSOMERRO="antoniovandre_mathgame_error.wav"
 AVLOG="1"
 ARQUIVOLOG="antoniovandre_mathgame_log.txt"
-ARQUIVOLOGTEMP="antoniovandre_mathgame_log_temp.txt"
+ARQUIVOLOGTEMP="antoniovandre_mathgame_logtemp.txt"
 ARQUIVOOPCOES="antoniovandre_mathgame_options"
 AVGRAFICOS="1"
 ARQUIVOGNUPLOTDATA="antoniovandre_mathgame_log_gnuplot.dat"
@@ -311,7 +311,7 @@ bash antoniovandre_echo_android "${MATHGAME}."
 
 echo ""
 
-bash antoniovandre_echo_android "${VERSION} 13-04-2025."
+bash antoniovandre_echo_android "${VERSION} 26-04-2025."
 
 echo ""
 
@@ -457,7 +457,7 @@ done
 
 if [ "${1}" != "ne" ] && [ "${AVLOG}" == "1" ] && [ "${AVGRAFICOS}" == "1" ] && ls "${ARQUIVOLOGTEMP}" &>> /dev/null; then
 
-  bash antoniovandre_echo_android "${CONVLOGUNIX}" n; if dos2unix "${ARQUIVOLOGTEMP}" &>> /dev/null; then echo -ne "${AV_VERDE}"; bash antoniovandre_echo_android "${SUCCESS}" n; echo -ne "${AV_SEMCOR}"; echo "."; else echo -ne "${AV_VERMELHO}"; bash antoniovandre_echo_android "${FAIL}" n; echo -ne "${AV_SEMCOR}"; echo "."; exit 1; fi
+  bash antoniovandre_echo_android "${CONVLOGUNIX}" n; if dos2unix "${ARQUIVOLOGTEMP}" &>> /dev/null; then echo -ne "${AV_VERDE}"; bash antoniovandre_echo_android "${SUCCESS}" n; echo -ne "${AV_SEMCOR}"; echo "."; else echo -ne "${AV_VERMELHO}"; bash antoniovandre_echo_android "${FAIL}" n; echo -ne "${AV_SEMCOR}"; echo "."; rm "${LOCKFILE}" &>> /dev/null; exit 1; fi
 
   bash antoniovandre_echo_android "${BUILDINGGRAPHS}" n
 
