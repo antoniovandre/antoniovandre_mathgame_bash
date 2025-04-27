@@ -390,7 +390,9 @@ while [  "${RESPOSTAUSUARIO}" != "SAIR" ] && [  "${RESPOSTAUSUARIO}" != "EXIT" ]
 
 	  case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "\b"; echo -ne "${CHARPROGRESS}"
 
-    RESPOSTA=$(LC_NUMERIC="en_US.UTF-8" printf "%.${CASASDECIMAIS}f" "$(echo ${QUESTAO} | tr 'x' '*' | bc -l)")
+	QUESTAOT="(${QUESTAO}) + 1 / 10^(${MAXIMOCASASDECIMAIS} + 1)"
+
+    RESPOSTA=$(LC_NUMERIC="en_US.UTF-8" printf "%.${CASASDECIMAIS}f" "$(echo ${QUESTAOT} | tr 'x' '*' | bc -l)")
 
 	  case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "\b"; echo -ne "${CHARPROGRESS}"
 
