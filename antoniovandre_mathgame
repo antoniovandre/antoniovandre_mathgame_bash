@@ -8,7 +8,7 @@
 
 # Licença: Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA).
 
-# Última atualização: 26-04-2025. Não considerando alterações em variáveis globais.
+# Última atualização: 27-04-2025. Não considerando alterações em variáveis globais.
 
 # Argumentos: "ne" para não processar estatísticas, ou "oe" para apenas processar estatísticas.
 
@@ -126,7 +126,7 @@ case "${LINGUA}" in
 
     FAIL="Falhou"
 
-    MAKINGDOWNLOAD="Fazendo download dos arquivos necessários... "
+    MAKINGDOWNLOAD="Fazendo download dos arquivos no Dropbox... "
 
     MAKINGUPLOAD="Fazendo upload dos arquivos... "
 
@@ -215,7 +215,7 @@ case "${LINGUA}" in
 
     FAIL="Fail"
 
-    MAKINGDOWNLOAD="Making download of necessary files... "
+    MAKINGDOWNLOAD="Making download of Dropbox files... "
 
     MAKINGUPLOAD="Making files upload... "
 
@@ -299,6 +299,8 @@ NUMEROARGUMENTOS=$(cat "${ARQUIVOOPCOES}" | cut -d "%" -f 6)
 
 if [ $(echo -n "${CHAOS}" | grep --color=never -E '^[0-9]+$') == "" ] || [ $(echo -n "${AVTEMPO}" | grep --color=never -E '^[0-9]+$') == "" ] || [ $(echo -n "${LIMITETEMPO}" | grep --color=never -E '^[0-9]+$') == "" ] || [ $(echo -n "${MAXVALUE}" | grep --color=never -E '^[0-9]+$') == "" ] || [ $(echo -n "${CASASDECIMAIS}" | grep --color=never -E '^[0-9]+$') == "" ] || [ $(echo -n "${NUMEROARGUMENTOS}" | grep --color=never -E '^[0-9]+$') == "" ]; then echo "10%0%30%256%0%2" > "${ARQUIVOOPCOES}"; fi
 
+if [ "${CHAOS}" -lt "${MINCHAOSVALUE}" ] || [ "${CHAOS}" -gt "${MAXCHAOSVALUE}" ] || ([ "${AVTEMPO}" != "0" ] && [ "${AVTEMPO}" != "1" ]) || [ "${LIMITETEMPO}" -lt "${MINTIME}" ] || [ "${LIMITETEMPO}" -gt "${MAXTIME}" ] || [ "${MAXVALUE}" -lt "${MINMAXVALUE}" ] || [ "${MAXVALUE}" -gt "${MAXMAXVALUE}" ] || [ "${CASASDECIMAIS}" -gt "${MAXIMOCASASDECIMAIS}" ] || [ "${NUMEROARGUMENTOS}" -gt "${NUMEROMAXIMOARGUMENTOS}" ]; then echo "10%0%30%256%0%2" > "${ARQUIVOOPCOES}"; fi
+
 RESPOSTAUSUARIO=""
 
 cat "${MRLOGOASCIIFILE}"
@@ -311,7 +313,7 @@ bash antoniovandre_echo_android "${MATHGAME}."
 
 echo ""
 
-bash antoniovandre_echo_android "${VERSION} 26-04-2025."
+bash antoniovandre_echo_android "${VERSION} 27-04-2025."
 
 echo ""
 
