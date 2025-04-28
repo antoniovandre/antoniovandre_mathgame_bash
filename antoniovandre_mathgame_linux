@@ -10,7 +10,7 @@
 
 # Argumentos: "ne" para não processar estatísticas, ou "oe" para apenas processar estatísticas.
 
-DROPBOX="0" # "0" caso não utilizar Dropbox.
+DROPBOX="1" # "0" caso não utilizar Dropbox.
 
 while [ "${LINGUA}" != "p" ] &&  [ "${LINGUA}" != "e" ]; do echo "Entre com \"p\" para português."; echo "Enter with \"e\" for english."; read LINGUA; done
 
@@ -1145,12 +1145,6 @@ if [ "${1}" != "ne" ] && [ "${AVLOG}" == "1" ] && [ "${AVSTATS}" == "1" ] && ls 
 if [ "${AVLOG}" == "1" ] && ls "${ARQUIVOLOGTEMP}" &>> /dev/null; then bash antoniovandre_echo "${CONVLOGDOS}" n; if unix2dos "${ARQUIVOLOGTEMP}" &>> /dev/null; then echo -ne "${AV_VERDE}"; bash antoniovandre_echo "${SUCCESS}" n; echo -ne "${AV_SEMCOR}"; echo "."; else echo -ne "${AV_VERMELHO}"; bash antoniovandre_echo "${FAIL}" n; echo -ne "${AV_SEMCOR}"; echo "."; rm "${LOCKFILE}" &>> /dev/null; exit 1; fi; fi
 
 if [ "${DROPBOX}" == "1" ]; then if [ "${1}" != "ne" ]; then if [ "${AVLOG}" == "1" ]; then cp "${ARQUIVOLOGTEMP}" "${ARQUIVOLOG}" &>> /dev/null; antoniovandre_echo "${MAKINGUPLOAD}" n; if (! antoniovandre_dbxcli_put "${ARQUIVOLOG}" "${DIRCLOUDSYNC}${ARQUIVOLOG##*/}" &>> /dev/null) || (! echo -ne "1/9") || (! antoniovandre_dbxcli_put "${ARQUIVOGRAFICO}" "${DIRCLOUDSYNC}${ARQUIVOGRAFICO##*/}" &>> /dev/null) || (! echo -ne "\b\b\b2/9") || (! antoniovandre_dbxcli_put "${ARQUIVOGRAFICOPIZZA}" "${DIRCLOUDSYNC}${ARQUIVOGRAFICOPIZZA##*/}" &>> /dev/null) || (! echo -ne "\b\b\b3/9") || (! antoniovandre_dbxcli_put "${ARQUIVOGRAFICOTEMPODISTSEM}" "${DIRCLOUDSYNC}${ARQUIVOGRAFICOTEMPODISTSEM##*/}" &>> /dev/null) || (! echo -ne "\b\b\b4/9") || (! antoniovandre_dbxcli_put "${ARQUIVOGRAFICOTEMPODISTMES}" "${DIRCLOUDSYNC}${ARQUIVOGRAFICOTEMPODISTMES##*/}" &>> /dev/null) || (! echo -ne "\b\b\b5/9") || (! antoniovandre_dbxcli_put "${ARQUIVOSTATS}" "${DIRCLOUDSYNC}${ARQUIVOSTATS##*/}" &>> /dev/null) || (! echo -ne "\b\b\b6/9") || (! antoniovandre_dbxcli_put "${ARQUIVOGRAFICOTEMPODISTHOR}" "${DIRCLOUDSYNC}${ARQUIVOGRAFICOTEMPODISTHOR##*/}" &>> /dev/null) || (! echo -ne "\b\b\b7/9") || (! antoniovandre_dbxcli_put "${ARQUIVOGRAFICOTEMPODISTHORERR}" "${DIRCLOUDSYNC}${ARQUIVOGRAFICOTEMPODISTHORERR##*/}" &>> /dev/null) || (! echo -ne "\b\b\b8/9") || (! antoniovandre_dbxcli_put "${ARQUIVOGRAFICOTEMPODISTSEMERR}" "${DIRCLOUDSYNC}${ARQUIVOGRAFICOTEMPODISTSEMERR##*/}" &>> /dev/null) || (! echo -ne "\b\b\b9/9") || (! antoniovandre_dbxcli_put "${ARQUIVOGRAFICOTEMPODISTMESERR}" "${DIRCLOUDSYNC}${ARQUIVOGRAFICOTEMPODISTMESERR##*/}" &>> /dev/null) || (! echo -ne "\b\b\b\b     \b\b\b\b"); then echo -ne "${AV_VERMELHO}"; antoniovandre_echo "${ERRORUPLOADFILES}" n; echo -e "${AV_SEMCOR}."; else echo -ne "${AV_VERDE}"; antoniovandre_echo "${SUCCESS}" n; echo -e "${AV_SEMCOR}."; fi; fi; fi; fi
-
-# Início personalização de Antonio Vandré.
-
-# if [ "${1}" != "ne" ]; then if [ "${AVLOG}" == "1" ]; then antoniovandre_echo "Carregando no GitHub... " n; if ! cd GitHub; then mkdir GitHub; cd GitHub; fi; rm -fr antoniovandre2 &>> /dev/null; if git clone --depth 1 "https://github.com/antoniovandre2/antoniovandre2" &>> /dev/null && cp ../*_log.* antoniovandre2/antoniovandre_mathgame/ && cp ../*_log_* antoniovandre2/antoniovandre_mathgame/ && cd antoniovandre2 && git add antoniovandre_mathgame/* &>> /dev/null && git commit -m "Atualizando logos do AV B mathgame." &>> /dev/null && git push &>> /dev/null && cd ../../ &>> /dev/null; then echo -ne "${AV_VERDE}"; antoniovandre_echo "${SUCCESS}" n; echo -e "${AV_SEMCOR}."; else echo -ne "${AV_VERMELHO}"; bash antoniovandre_echo "${FAIL}" n; echo -ne "${AV_SEMCOR}"; echo "."; rm "${LOCKFILE}" &>> /dev/null; exit 1; fi; fi; fi
-
-# Fim personalização de Antonio Vandré.
 
 antoniovandre_echo "${THANKS}"
 
