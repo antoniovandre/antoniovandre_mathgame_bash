@@ -419,7 +419,7 @@ while [  "${RESPOSTAUSUARIO}" != "SAIR" ] && [  "${RESPOSTAUSUARIO}" != "EXIT" ]
 
   echo -ne "\b"; bash antoniovandre_echo_android "${PERGUNTA}"
 
-  if [ "${AVTEMPO}" == "1" ]; then if ! read -t $LIMITETEMPO RESPOSTAUSUARIO &>> /dev/null; then echo "${TIMELIMITOF} ${LIMITETEMPO} ${SECONDSREACHED}."; FLAG="0"; continue; fi; else read RESPOSTAUSUARIO; fi
+  if [ "${AVTEMPO}" == "1" ]; then if ! read -t $LIMITETEMPO RESPOSTAUSUARIO &>> /dev/null; then echo "${TIMELIMITOF} ${LIMITETEMPO} ${SECONDSREACHED}."; read; FLAG="0"; continue; fi; else read RESPOSTAUSUARIO; fi
 
   RESPOSTAUSUARIOP=$RESPOSTAUSUARIO
 
