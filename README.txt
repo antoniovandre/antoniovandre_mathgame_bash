@@ -18,6 +18,8 @@ The processing of the statistics can be time consuming, so you can play with the
 
 If you have problems with sounds in the system, set to "0" the variables "SOUND" in the executable and "SOM" in "antoniovandre_echo" and "antoniovandre_echo_android".
 
+If you do not want to use Dropbox, set the "DROPBOX" variable to "0".
+
 There are many other options avaliable when editing fonts.
 _____
 

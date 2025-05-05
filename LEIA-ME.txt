@@ -18,6 +18,8 @@ O processamento das estatísticas pode ser demorado, então você pode jogar com
 
 Se tiver problemas com sons no sistema, sete para "0" as variáveis "SOUND" no executável e "SOM" em "antoniovandre_echo" e "antoniovandre_echo_android".
 
+Caso não deseje utilizar o Dropbox, sete a variável "DROPBOX" para "0".
+
 Há muitas outras opções disponíveis ao se editar os fontes.
 _____
 

@@ -21,6 +21,8 @@ O processamento das estatísticas pode ser demorado, então você pode jogar com
 
 Se tiver problemas com sons no sistema, sete para "0" as variáveis "SOUND" no executável e "SOM" em "antoniovandre_echo" e "antoniovandre_echo_android".
 
+Caso não deseje utilizar o Dropbox, sete a variável "DROPBOX" para "0".
+
 Há muitas outras opções disponíveis ao se editar os fontes.
 _____
 
@@ -46,6 +48,8 @@ If you are not a Linux or Android user, you can install a BASH shell on your ope
 The processing of the statistics can be time consuming, so you can play with the command "bash antoniovandre_mathgame ne", where only the log file will be saved, and, when not using the device, execute "bash antoniovandre_mathgame oe" to only process the statistics.
 
 If you have problems with sounds in the system, set to "0" the variables "SOUND" in the executable and "SOM" in "antoniovandre_echo" and "antoniovandre_echo_android".
+
+If you do not want to use Dropbox, set the "DROPBOX" variable to "0".
 
 There are many other options avaliable when editing fonts.
 _____

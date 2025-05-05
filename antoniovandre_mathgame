@@ -8,7 +8,7 @@
 
 # Licença: Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA).
 
-# Última atualização: 28-04-2025. Não considerando alterações em variáveis globais.
+# Última atualização: 05-05-2025. Não considerando alterações em variáveis globais.
 
 # Argumentos: "ne" para não processar estatísticas, ou "oe" para apenas processar estatísticas.
 
@@ -239,8 +239,8 @@ NUMEROMAXIMOARGUMENTOS="10"
 MAXIMOCASASDECIMAIS="5"
 MAXMAXVALUE="1048576"
 MINMAXVALUE="8"
-MAXCHAOSVALUE="50"
-MINCHAOSVALUE="10"
+MAXCHAOSVALUE="18"
+MINCHAOSVALUE="6"
 MAXTIME="60"
 MINTIME="10"
 AVSOUND="1"
@@ -315,7 +315,7 @@ bash antoniovandre_echo_android "${MATHGAME}."
 
 echo ""
 
-bash antoniovandre_echo_android "${VERSION} 28-04-2025."
+bash antoniovandre_echo_android "${VERSION} 05-05-2025."
 
 echo ""
 
@@ -434,8 +434,8 @@ while [  "${RESPOSTAUSUARIO}" != "SAIR" ] && [  "${RESPOSTAUSUARIO}" != "EXIT" ]
     "-D") if ! [ "${CASASDECIMAIS}" == "0" ]; then CASASDECIMAIS=$(echo "${CASASDECIMAIS} - 1" | bc); bash antoniovandre_echo_android "${DNOW} ${CASASDECIMAIS}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; FLAG="0"; else bash antoniovandre_echo_android "${DBOTTOM}"; FLAG="1"; fi; continue;;
     "+N") if [ $(echo "${MAXVALUE} * 2" | bc) -lt "${MAXMAXVALUE}" ]; then MAXVALUE=$(echo "${MAXVALUE} * 2" | bc); bash antoniovandre_echo_android "${NNOW} ${MAXVALUE}."; FLAG="0"; else bash antoniovandre_echo_android "${NOVERFLOW}"; FLAG="1"; fi; continue;;
     "-N") if [ "${MAXVALUE}" -gt "${MINMAXVALUE}" ]; then MAXVALUE=$(echo "${MAXVALUE} / 2" | bc); bash antoniovandre_echo_android "${NNOW} ${MAXVALUE}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; FLAG="0"; else bash antoniovandre_echo_android "${NBOTTOM}"; FLAG="1"; fi; continue;;
-    "+C") if [ $(echo "${CHAOS} + 1" | bc) -lt "${MAXCHAOSVALUE}" ]; then CHAOS=$(echo "${CHAOS} + 1" | bc); bash antoniovandre_echo_android "${CHAOSNOW} ${CHAOS}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; FLAG="0"; else bash antoniovandre_echo_android "${CHAOSOVERFLOW}"; FLAG="1"; fi; continue;;
-    "-C") if [ $(echo "${CHAOS} - 1" | bc) -lt "${MINCHAOSVALUE}" ]; then CHAOS=$(echo "${CHAOS} - 1" | bc); bash antoniovandre_echo_android "${CHAOSNOW} ${CHAOS}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; FLAG="0"; else bash antoniovandre_echo_android "${CHAOSBOTTON}"; FLAG="1"; fi; continue;;
+    "+C") if [ $(echo "${CHAOS} + 1" | bc) -le "${MAXCHAOSVALUE}" ]; then CHAOS=$(echo "${CHAOS} + 1" | bc); bash antoniovandre_echo_android "${CHAOSNOW} ${CHAOS}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; FLAG="0"; else bash antoniovandre_echo_android "${CHAOSOVERFLOW}"; FLAG="1"; fi; continue;;
+    "-C") if [ $(echo "${CHAOS} - 1" | bc) -ge "${MINCHAOSVALUE}" ]; then CHAOS=$(echo "${CHAOS} - 1" | bc); bash antoniovandre_echo_android "${CHAOSNOW} ${CHAOS}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; FLAG="0"; else bash antoniovandre_echo_android "${CHAOSBOTTOM}"; FLAG="1"; fi; continue;;
     "T") if [ "${AVTEMPO}" == "0" ]; then AVTEMPO="1"; bash antoniovandre_echo_android "${TNOW} ${AVTEMPO}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; else bash antoniovandre_echo_android "${TIMEALREADYACTIVATED}"; fi; FLAG="1"; continue;;
     "t") if [ "${AVTEMPO}" == "1" ]; then AVTEMPO="0"; bash antoniovandre_echo_android "${TNOW} ${AVTEMPO}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; else bash antoniovandre_echo_android "${TIMEALREADYDEACTIVATED}"; fi; FLAG="1"; continue;;
     "+T") if [ "${AVTEMPO}" == "1" ]; then if [ "${LIMITETEMPO}" -lt "${MAXTIME}" ]; then LIMITETEMPO=$(echo "${LIMITETEMPO} + 10" | bc); bash antoniovandre_echo_android "${TVNOW} ${LIMITETEMPO}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; else bash antoniovandre_echo_android "${TOVERFLOW}"; fi; else bash antoniovandre_echo_android "${TIMEDEACTIVATED}"; fi; FLAG="1"; continue;;
