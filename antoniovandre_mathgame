@@ -8,7 +8,7 @@
 
 # Licença: Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA).
 
-# Última atualização: 05-05-2025. Não considerando alterações em variáveis globais.
+# Última atualização: 10-05-2025. Não considerando alterações em variáveis globais.
 
 # Argumentos: "ne" para não processar estatísticas, ou "oe" para apenas processar estatísticas.
 
@@ -315,7 +315,7 @@ bash antoniovandre_echo_android "${MATHGAME}."
 
 echo ""
 
-bash antoniovandre_echo_android "${VERSION} 05-05-2025."
+bash antoniovandre_echo_android "${VERSION} 10-05-2025."
 
 echo ""
 
@@ -364,11 +364,13 @@ while [  "${RESPOSTAUSUARIO}" != "SAIR" ] && [  "${RESPOSTAUSUARIO}" != "EXIT" ]
 
     PARENTESES=$(if [ "${NUMEROARGUMENTOS}" -gt "2" ]; then TEMP="0"; TEMP2="0"; for I in $(seq 1 "${NUMEROARGUMENTOS}"); do if [ "$TEMP" -lt $(echo  "${NUMEROARGUMENTOS} - ${I}" | bc) ]; then TEMP3=$(echo "($(echo -n ${SEEDS} | cut -d ',' -f 1) * $I) % 3" | bc); case $TEMP3 in 0) echo -n "("; TEMP=$(echo "${TEMP} + 1" | bc);; 1) if [ "$TEMP" -gt "0" ]; then echo -n ")"; TEMP=$(echo "${TEMP} - 1" | bc); fi;; 2) ;; *) ;; esac; else if [ "$TEMP" -gt "0" ]; then if [ $(echo "($SEED + $TEMP2) % 2" | bc) == "0" ]; then echo -n ")"; TEMP=$(echo "${TEMP} - 1" | bc); else TEMP2="1"; fi; fi; fi; if [ "${I}" -lt "${NUMEROARGUMENTOS}" ]; then echo -n ","; fi; done; fi)
 
-	  case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "\b"; echo -ne "${CHARPROGRESS}"
+	case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "\b"; echo -ne "${CHARPROGRESS}"
 
-    ARGS=$(for I in $(seq 1 "${NUMEROARGUMENTOS}"); do TEMP=$(awk "BEGIN{print ($(echo $(for J in $(seq 1 ${CHAOS}); do echo -n ${SEEDS} | cut -d ',' -f $(expr $(expr ${J} + ${I}) % $(expr ${CHAOS} + 1) + 1) | tr -d '\n'; if [ $(expr ${J} + ${I}) -lt $(expr 2 \* ${CHAOS} - 1) ]; then if [ ${J} -lt $(expr ${CHAOS} - 1) ]; then if [ $(expr $(expr ${J} + ${I}) % 2) == 0 ]; then echo -n '+'; else echo -n '*'; fi; fi; fi; done) / ${FATOR}))}"); awk "BEGIN{print ${TEMP} % ${MAXVALUE}}" | tr "\n" ","; done)
+    FLAGARGS="1"
 
-	  case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "\b"; echo -ne "${CHARPROGRESS}"
+    ARGS=$(for I in $(seq 1 "${NUMEROARGUMENTOS}"); do TEMP=$(awk "BEGIN{print ($(echo $(for J in $(seq 1 ${CHAOS}); do echo -n ${SEEDS} | cut -d ',' -f $(expr $(expr ${J} + ${I}) % $(expr ${CHAOS} + 1) + 1) | tr -d '\n'; if [ $(expr ${J} + ${I}) -lt $(expr 2 \* ${CHAOS} - 1) ]; then if [ ${J} -lt $(expr ${CHAOS} - 1) ]; then if [ ${FLAGARGS} == 1 ]; then echo -n '+'; else echo -n '*'; fi; FLAGARGS=$(expr ${FLAGARGS} \* -1); fi; fi; done) / ${FATOR}))}"); awk "BEGIN{print ${TEMP} % ${MAXVALUE}}" | tr "\n" ","; done)
+
+	case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "\b"; echo -ne "${CHARPROGRESS}"
 
     QUESTAO=$(for I in $(seq 1 "${NUMEROARGUMENTOS}"); do TEMP=$(echo -n "${PARENTESES}" | cut -d "," -f "${I}"); if [ "${TEMP}" == "(" ]; then echo -n "${TEMP}"; fi; if [ "${TEMP}" == ")" ]; then echo -n "${ARGS}" | cut -d "," -f "${I}" | tr -d "\n"; else echo -n "${ARGS}" | cut -d "," -f "${I}"; fi; if [ "${TEMP}" == ")" ]; then echo -n "${TEMP}"; fi; if [ "${I}" -lt "${NUMEROARGUMENTOS}" ]; then if [ "${TEMP}" == ")" ]; then echo -n " "; fi; echo -n "${OPS}" | cut -d "," -f "${I}"; fi; done)
 
