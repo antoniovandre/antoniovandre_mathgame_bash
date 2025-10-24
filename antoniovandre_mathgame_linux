@@ -6,7 +6,7 @@
 
 # Licença: Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA).
 
-# Última atualização: 19-10-2025. Não considerando alterações em variáveis globais e personalizações.
+# Última atualização: 24-10-2025. Não considerando alterações em variáveis globais e personalizações.
 
 # Argumentos: "ne" para não processar estatísticas, ou "oe" para apenas processar estatísticas.
 
@@ -289,7 +289,7 @@ if [ "${CHAOS}" -lt "${MINCHAOSVALUE}" ] || [ "${CHAOS}" -gt "${MAXCHAOSVALUE}" 
 
 RESPOSTAUSUARIO=""
 
-if [ "${DROPBOX}" == "1" ]; then if [ "${AVLOG}" == "1" ]; then antoniovandre_echo "${MAKINGDOWNLOAD}" n; if ! antoniovandre_dbxcli_get "${DIRCLOUDSYNC}${ARQUIVOLOG##*/}" "${ARQUIVOLOG%/*}" &>> /dev/null || ! antoniovandre_dbxcli_get "${DIRCLOUDSYNC}${ARQUIVOLOGTEMP##*/}" "${ARQUIVOLOGTEMP%/*}" &>> /dev/null || ! antoniovandre_dbxcli_get "${DIRCLOUDSYNC}${ARQUIVOCACHESTAT##*/}" "${ARQUIVOCACHESTAT%/*}" &>> /dev/null; then echo -ne "${AV_VERMELHO}"; antoniovandre_echo "${ERRORDOWNLOADFILES}" n; echo -e "${AV_SEMCOR}."; else echo -ne "${AV_VERDE}"; antoniovandre_echo "${SUCCESS}" n; echo -e "${AV_SEMCOR}."; fi; fi; fi
+if [ "${DROPBOX}" == "1" ]; then if [ "${AVLOG}" == "1" ]; then antoniovandre_echo "${MAKINGDOWNLOAD}" n; if ! antoniovandre_dbxcli_get "${DIRCLOUDSYNC}${ARQUIVOLOG##*/}" "${ARQUIVOLOG%/*}" &>> /dev/null || ! antoniovandre_dbxcli_get "${DIRCLOUDSYNC}${ARQUIVOCACHESTAT##*/}" "${ARQUIVOCACHESTAT%/*}" &>> /dev/null; then echo -ne "${AV_VERMELHO}"; antoniovandre_echo "${ERRORDOWNLOADFILES}" n; echo -e "${AV_SEMCOR}."; else echo -ne "${AV_VERDE}"; antoniovandre_echo "${SUCCESS}" n; echo -e "${AV_SEMCOR}."; fi; fi; fi
 
 if (! ls "${ARQUIVOLOGTEMP}" &>> /dev/null) && ls "${ARQUIVOLOG}" &>> /dev/null; then cp "${ARQUIVOLOG}" "${ARQUIVOLOGTEMP}"; fi
 
