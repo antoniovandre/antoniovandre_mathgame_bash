@@ -1,0 +1,1168 @@
+#!/bin/bash
+
+# Projeto Mathematical Ramblings.
+
+# Script de um simples jogo de Matemática, para Linux.
+
+# Licença: Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA).
+
+# Última atualização: 24-10-2025. Não considerando alterações em variáveis globais e personalizações.
+
+# Argumentos: "ne" para não processar estatísticas, ou "oe" para apenas processar estatísticas.
+
+DROPBOX="1" # "0" caso não utilizar Dropbox.
+
+while [ "${LINGUA}" != "p" ] &&  [ "${LINGUA}" != "e" ]; do echo "Entre com \"p\" para português."; echo "Enter with \"e\" for english."; read LINGUA; done
+
+case "${LINGUA}" in
+  "p")
+    NOTFOUND="não encontrado"
+
+    ERRORLOADCOLOR="Ocorreu um erro ao carregar o arquivo de cores"
+
+    MATHGAME="Jogo de Matemática"
+
+    VERSION="Versão"
+
+    INSTRUCOES="Digite \"SAIR\", \"EXIT\", \"sair\", ou \"exit\" para sair, \"PULAR\", \"JUMP\", \"pular\" ou \"jump\" para pular, \"+A\" para incrementar o número de argumentos, \"-A\" para diminuir o número de argumentos, \"+D\" para incrementar o número de casas decimais, \"-D\" para diminuir o número de casas decimais, \"+N\" para aumentar o limite superior dos números, \"-N\" para reduzir o limite superior dos números, \"T\" para ativar tempo, \"t\" para desativar tempo, \"+T\" para aumentar o tempo, ou \"-T\" para reduzir o tempo."
+
+    ROUNDWITH="arredondado com"
+
+    DECIMALPLACES="casas decimais"
+
+    DECIMALPLACE="casa decimal"
+
+    HOWMUCH="Quanto é"
+
+    VALIDEXPR="Entre com uma expressão válida"
+
+    AOVERFLOW="O número de argumentos já está no limite máximo."
+
+    ABOTTOM="O número de argumentos já está no limite mínimo."
+
+    ANOW="Agora o número de argumentos é"
+
+    DOVERFLOW="O número de casas decimais já está no limite máximo."
+
+    DBOTTOM="O número de casas decimais já está no limite mínimo."
+
+    DNOW="Agora o número de casas decimais é"
+
+    NOVERFLOW="A magnitude dos números já está no limite máximo."
+
+    NBOTTOM="A magnitude dos números já está no limite mínimo."
+
+    NNOW="Agora o valor máximo é"
+
+    CHAOSNOW="Agora o valor do CHAOS é"
+
+    CHAOSOVERFLOW="O valor do CHAOS já está no máximo."
+
+    CHAOSBOTTOM="O valor do CHAOS já está no mínimo."
+
+    TOVERFLOW="O tempo já está no valor máximo."
+
+    TBOTTOM="O tempo já está no valor mínimo."
+
+    TNOW="Agora o tempo está setado em"
+
+    TVNOW="Agora o limite de tempo é"
+
+    CORRECT="Acertou"
+
+    WRONG="Errou"
+
+    TIMELIMITOF="Tempo limite de"
+
+    SECONDSREACHED="segundos atingido"
+
+    TIMEALREADYACTIVATED="O tempo já está ativado."
+
+    TIMEALREADYDEACTIVATED="O tempo já está desativado."
+
+    THANKS="Muito obrigado por apreciar este game."
+
+    ERRORDOWNLOADFILES="Erro ao fazer download dos arquivos"
+
+    ERRORUPLOADFILES="Erro ao fazer upload dos arquivos"
+
+    SUCCESS="Sucesso"
+
+    FAIL="Falhou"
+
+    MAKINGDOWNLOAD="Fazendo download dos arquivos no Dropbox... "
+
+    MAKINGUPLOAD="Fazendo upload dos arquivos... "
+
+    BUILDINGSTATSFILE="Construindo arquivo de estatísticas... "
+
+    CONVLOGUNIX="Convertendo arquivo log para o formato UNIX... "
+
+    CONVLOGDOS="Convertendo arquivo log para o formato DOS... "
+
+    CONCLUDED="Concluído"
+
+    BUILDINGGRAPHS="Construindo os gráficos... "
+  ;;
+  "e")
+    NOTFOUND="not found"
+
+    ERRORLOADCOLOR="There was an error loading the color file"
+
+    MATHGAME="Game of Mathematics"
+
+    VERSION="Version"
+
+    INSTRUCOES="Type \"SAIR\", \"EXIT\", \"sair\", or \"exit\" to exit, \"PULAR\", \"JUMP\", \"pular\" or \"jump\" to jump, \"+A\" to increase the number of arguments, \"-A\" to decrease the number of arguments, \"+D\" to increase the number of decimal places, \"-D\" to decrease the number of decimal places, \"+N\" to increase the upper limit of the numbers, \"-N\" to reduce the upper limit of the numbers, \"T\" to activated time, \"t\" to deactivate time, \"+T\" to increase time, or \"-T\" to reduce time."
+
+    ROUNDWITH="rounding with"
+
+    DECIMALPLACES="decimal places"
+
+    DECIMALPLACE="decimal place"
+
+    HOWMUCH="How much is"
+
+    AOVERFLOW="The number of arguments is already in the ceiling. "
+
+    ABOTTOM="The number of arguments is already in the minimum."
+
+    ANOW="Now the number of arguments is"
+
+    DOVERFLOW="The number of decimal places is already in the ceiling."
+
+    DBOTTOM="The number of decimal places is already in the minimum."
+
+    DNOW="Now the number of decimal places is"
+
+    NOVERFLOW="The magnitude of the numbers is already in the ceiling."
+
+    NBOTTOM="The magnitude of the numbers is already in the minimum."
+
+    NNOW="Now the maximum value is"
+
+    CHAOSNOW="Now the CHAOS value is"
+
+    CHAOSOVERFLOW="The magnitude of CHAOS is already in the ceiling."
+
+    CHAOSBOTTOM="The magnitude of CHAOS is already in the minimum."
+
+    TOVERFLOW="Time already in max value."
+
+    TBOTTOM="Time already in minimun value."
+
+    TNOW="Now the time is set to"
+
+    TVNOW="Now the time limit is"
+
+    CORRECT="Correct answer"
+
+    WRONG="Wrong answer"
+
+    TIMELIMITOF="Time limit of"
+
+    SECONDSREACHED="seconds reached"
+
+    TIMEALREADYACTIVATED="Time already activated."
+
+    TIMEALREADYDEACTIVATED="Time already deactivated."
+
+    THANKS="Very thank You for appreciate this game."
+
+    ERRORDOWNLOADFILES="Error downloading files"
+
+    ERRORUPLOADFILES="Error uploading files"
+
+    SUCCESS="Success"
+
+    FAIL="Fail"
+
+    MAKINGDOWNLOAD="Making download of Dropbox files... "
+
+    MAKINGUPLOAD="Making files upload... "
+
+    BUILDINGSTATSFILE="Building stats file... "
+
+    CONVLOGUNIX="Converting log file to UNIX format... "
+
+    CONVLOGDOS="Converting log file to DOS format... "
+
+    CONCLUDED="Concluded"
+
+    BUILDINGGRAPHS="Building graphs... "
+  ;;
+  *) ;;
+esac
+
+SOUND="0"
+
+PATH=".:${PATH}"
+
+if ! hash bash &>> /dev/null; then echo "BASH ${NOTFOUND}."; rm "${LOCKFILE}" &>> /dev/null; exit 1; fi
+
+if ! hash antoniovandre_dbxcli_get &>> /dev/null; then echo "\"antoniovandre_dbxcli_get\" ${NOTFOUND}."; rm "${LOCKFILE}" &>> /dev/null; exit 1; fi
+
+if ! hash antoniovandre_dbxcli_put &>> /dev/null; then echo "\"antoniovandre_dbxcli_put\" ${NOTFOUND}."; rm "${LOCKFILE}" &>> /dev/null; exit 1; fi
+
+if ! hash bc &>> /dev/null; then echo "\"bc\" ${NOTFOUND}."; rm "${LOCKFILE}" &>> /dev/null; exit 1; fi
+
+if [ "${SOUND}" == "1" ]; then if ! hash play &>> /dev/null; then echo "\"play\" ${NOTFOUND}."; rm "${LOCKFILE}" &>> /dev/null; exit 1; fi; fi
+
+if ! hash unix2dos &>> /dev/null; then echo "\"unix2dos\" ${NOTFOUND}."; rm "${LOCKFILE}" &>> /dev/null; exit 1; fi
+
+if ! hash dos2unix &>> /dev/null; then echo "\"dos2unix\" ${NOTFOUND}."; rm "${LOCKFILE}" &>> /dev/null; exit 1; fi
+
+if ! hash gnuplot &>> /dev/null; then echo "Gnuplot ${NOTFOUND}."; rm "${LOCKFILE}" &>> /dev/null; exit 1; fi
+
+if ! hash antoniovandre_echo &>> /dev/null; then echo "\"antoniovandre_echo\" ${NOTFOUND}."; rm "${LOCKFILE}" &>> /dev/null; exit 1; fi
+
+if ! [ -n "$AVCORES" ]; then if ! source "antoniovandre_cores" &>> /dev/null; then echo "${ERRORLOADCOLOR}."; fi; fi
+
+NUMEROMAXIMOARGUMENTOS="10"
+MAXIMOCASASDECIMAIS="5"
+MAXMAXVALUE="1024"
+MINMAXVALUE="8"
+MAXCHAOSVALUE="18"
+MINCHAOSVALUE="6"
+MAXTIME="60"
+MINTIME="10"
+AVSOUND="1"
+ARQUIVOSOMACERTO="antoniovandre_mathgame_correct.wav"
+ARQUIVOSOMERRO="antoniovandre_mathgame_error.wav"
+AVLOG="1"
+ARQUIVOLOG="antoniovandre_mathgame_log.txt"
+ARQUIVOLOGTEMP="antoniovandre_mathgame_logtemp.txt"
+ARQUIVOCACHESTAT="antoniovandre_mathgame_logcachestat"
+ARQUIVOLOGTEMPCACHE="antoniovandre_mathgame_logtempcache"
+ARQUIVOOPCOES="antoniovandre_mathgame_options"
+DIRCLOUDSYNC="/antoniovandre_mathgame/"
+AVGRAFICOS="1"
+ARQUIVOGNUPLOTDATA="antoniovandre_mathgame_log_gnuplot.dat"
+ARQUIVOGNUPLOTDATA2="antoniovandre_mathgame_log_gnuplot_2.dat"
+ARQUIVOGNUPLOTDATA3="antoniovandre_mathgame_log_gnuplot_3.dat"
+ARQUIVOGNUPLOTDATA4="antoniovandre_mathgame_log_gnuplot_4.dat"
+ARQUIVOGNUPLOTDATA2="antoniovandre_mathgame_log_gnuplot_5.dat"
+ARQUIVOGNUPLOTDATA3="antoniovandre_mathgame_log_gnuplot_6.dat"
+ARQUIVOGNUPLOTDATA4="antoniovandre_mathgame_log_gnuplot_7.dat"
+ARQUIVOGNUPLOTDATA5="antoniovandre_mathgame_log_gnuplot_8.dat"
+ARQUIVOGNUPLOTDATA6="antoniovandre_mathgame_log_gnuplot_9.dat"
+ARQUIVOGNUPLOTDATA7="antoniovandre_mathgame_log_gnuplot_10.dat"
+ARQUIVOGRAFICO="antoniovandre_mathgame_log.png"
+ARQUIVOGRAFICOPIZZA="antoniovandre_mathgame_log_pizza.png"
+ARQUIVOGRAFICOTEMPODISTSEM="antoniovandre_mathgame_log_tempo_distribuicao_semanal.png"
+ARQUIVOGRAFICOTEMPODISTMES="antoniovandre_mathgame_log_tempo_distribuicao_mensal.png"
+ARQUIVOGRAFICOTEMPODISTHOR="antoniovandre_mathgame_log_tempo_distribuicao_horaria.png"
+ARQUIVOGRAFICOTEMPODISTHORERR="antoniovandre_mathgame_log_tempo_distribuicao_horaria_erros.png"
+ARQUIVOGRAFICOTEMPODISTSEMERR="antoniovandre_mathgame_log_tempo_distribuicao_semanal_erros.png"
+ARQUIVOGRAFICOTEMPODISTMESERR="antoniovandre_mathgame_log_tempo_distribuicao_mensal_erros.png"
+IMAGEGRAPH0="antoniovandre_mathgame_emptygraph.png"
+AVSTATS="1"
+ARQUIVOSTATS="antoniovandre_mathgame_log_stats.txt"
+TIMEOUTMENSAGEM="6"
+ARQUIVOTEMP="avmgvet"
+LOCKFILE="avmglf"
+
+case "${LINGUA}" in
+  "p")
+    LOCKFILEEXISTS="Jogo já em execução ou encerrado incorretamente. No segundo caso remova \"${LOCKFILE}\""
+  ;;
+  "e")
+    LOCKFILEEXISTS="Game already running or closed incorrectly. In second case remove \"${LOCKFILE}\""
+  ;;
+  *) ;;
+esac
+
+if ls "${LOCKFILE}" &>> /dev/null; then echo -ne "${AV_VERMELHO}"; antoniovandre_echo "${LOCKFILEEXISTS}" n; echo -e "${AV_SEMCOR}."; exit 1; else touch "${LOCKFILE}"; fi
+
+if ! ls "${ARQUIVOOPCOES}" &>> /dev/null; then echo "10%0%30%256%0%2" > "${ARQUIVOOPCOES}"; fi
+
+CHAOS=$(cat "${ARQUIVOOPCOES}" | cut -d "%" -f 1)
+AVTEMPO=$(cat "${ARQUIVOOPCOES}" | cut -d "%" -f 2)
+LIMITETEMPO=$(cat "${ARQUIVOOPCOES}" | cut -d "%" -f 3)
+MAXVALUE=$(cat "${ARQUIVOOPCOES}" | cut -d "%" -f 4)
+CASASDECIMAIS=$(cat "${ARQUIVOOPCOES}" | cut -d "%" -f 5)
+NUMEROARGUMENTOS=$(cat "${ARQUIVOOPCOES}" | cut -d "%" -f 6)
+
+if [ $(echo -n "${CHAOS}" | grep --color=never -E '^[0-9]+$') == "" ] || [ $(echo -n "${AVTEMPO}" | grep --color=never -E '^[0-9]+$') == "" ] || [ $(echo -n "${LIMITETEMPO}" | grep --color=never -E '^[0-9]+$') == "" ] || [ $(echo -n "${MAXVALUE}" | grep --color=never -E '^[0-9]+$') == "" ] || [ $(echo -n "${CASASDECIMAIS}" | grep --color=never -E '^[0-9]+$') == "" ] || [ $(echo -n "${NUMEROARGUMENTOS}" | grep --color=never -E '^[0-9]+$') == "" ]; then echo "10%0%30%256%0%2" > "${ARQUIVOOPCOES}"; fi
+
+if [ "${CHAOS}" -lt "${MINCHAOSVALUE}" ] || [ "${CHAOS}" -gt "${MAXCHAOSVALUE}" ] || ([ "${AVTEMPO}" != "0" ] && [ "${AVTEMPO}" != "1" ]) || [ "${LIMITETEMPO}" -lt "${MINTIME}" ] || [ "${LIMITETEMPO}" -gt "${MAXTIME}" ] || [ "${MAXVALUE}" -lt "${MINMAXVALUE}" ] || [ "${MAXVALUE}" -gt "${MAXMAXVALUE}" ] || [ "${CASASDECIMAIS}" -gt "${MAXIMOCASASDECIMAIS}" ] || [ "${NUMEROARGUMENTOS}" -gt "${NUMEROMAXIMOARGUMENTOS}" ]; then echo "10%0%30%256%0%2" > "${ARQUIVOOPCOES}"; fi
+
+RESPOSTAUSUARIO=""
+
+if [ "${DROPBOX}" == "1" ]; then if [ "${AVLOG}" == "1" ]; then antoniovandre_echo "${MAKINGDOWNLOAD}" n; if ! antoniovandre_dbxcli_get "${DIRCLOUDSYNC}${ARQUIVOLOG##*/}" "${ARQUIVOLOG%/*}" &>> /dev/null || ! antoniovandre_dbxcli_get "${DIRCLOUDSYNC}${ARQUIVOCACHESTAT##*/}" "${ARQUIVOCACHESTAT%/*}" &>> /dev/null; then echo -ne "${AV_VERMELHO}"; antoniovandre_echo "${ERRORDOWNLOADFILES}" n; echo -e "${AV_SEMCOR}."; else echo -ne "${AV_VERDE}"; antoniovandre_echo "${SUCCESS}" n; echo -e "${AV_SEMCOR}."; fi; fi; fi
+
+if (! ls "${ARQUIVOLOGTEMP}" &>> /dev/null) && ls "${ARQUIVOLOG}" &>> /dev/null; then cp "${ARQUIVOLOG}" "${ARQUIVOLOGTEMP}"; fi
+
+if ls "${ARQUIVOLOGTEMP}" &>> /dev/null && ls "${ARQUIVOLOG}" &>> /dev/null; then if [ $(cat "${ARQUIVOLOG}" | wc -l) -gt $(cat "${ARQUIVOLOGTEMP}" | wc -l) ]; then cp "${ARQUIVOLOG}" "${ARQUIVOLOGTEMP}"; fi; fi
+
+cat "Mathematical Ramblings - ascii art - 40.txt"
+
+antoniovandre_echo "Projeto Mathematical Ramblings."
+
+echo ""
+
+antoniovandre_echo "${MATHGAME}."
+
+echo ""
+
+antoniovandre_echo "${VERSION} 10-05-2025."
+
+echo ""
+
+case "${LINGUA}" in
+   "p")
+     INSTRUCOES="Digite \"${AV_AMARELO}SAIR${AV_SEMCOR}\", \"${AV_AMARELO}EXIT${AV_SEMCOR}\", \"${AV_AMARELO}sair${AV_SEMCOR}\", ou \"${AV_AMARELO}exit${AV_SEMCOR}\" para sair.\n\nDigite \"${AV_AMARELO}PULAR${AV_SEMCOR}\", \"${AV_AMARELO}JUMP${AV_SEMCOR}\", \"${AV_AMARELO}pular${AV_SEMCOR}\" ou \"${AV_AMARELO}jump${AV_SEMCOR}\" para pular.\n\nDigite \"${AV_AMARELO}+C${AV_SEMCOR}\" para incrementar o CHAOS, \"${AV_AMARELO}-C${AV_SEMCOR}\" para diminuir o CHAOS.\n\nDigite \"${AV_AMARELO}+A${AV_SEMCOR}\" para incrementar o número de argumentos, \"${AV_AMARELO}-A${AV_SEMCOR}\" para diminuir o número de argumentos.\n\nDigite \"${AV_AMARELO}+D${AV_SEMCOR}\" para incrementar o número de casas decimais, \"${AV_AMARELO}-D${AV_SEMCOR}\" para diminuir o número de casas decimais.\n\nDigite \"${AV_AMARELO}+N${AV_SEMCOR}\" para aumentar o limite superior dos números, \"${AV_AMARELO}-N${AV_SEMCOR}\" para reduzir o limite superior dos números.\n\nDigite \"${AV_AMARELO}T${AV_SEMCOR}\" para ativar tempo, \"${AV_AMARELO}t${AV_SEMCOR}\" para desativar tempo, \"${AV_AMARELO}+T${AV_SEMCOR}\" para aumentar o tempo, ou \"${AV_AMARELO}-T${AV_SEMCOR}\" para reduzir o tempo.\n\nDigite \"${AV_AMARELO}M${AV_SEMCOR}\" para mostrar a mensagem de Antonio Vandré.\n\nDigite \"${AV_AMARELO}AJUDA${AV_SEMCOR}\", \"${AV_AMARELO}HELP${AV_SEMCOR}\", \"${AV_AMARELO}H${AV_SEMCOR}\", \"${AV_AMARELO}ajuda${AV_SEMCOR}\", \"${AV_AMARELO}help${AV_SEMCOR}\" ou \"${AV_AMARELO}h${AV_SEMCOR}\" para mostrar esta mensagem.\n\nVariáveis:\n\nCHAOS=${AV_CIANOCLARO}${CHAOS}${AV_SEMCOR};\nTEMPO=${AV_CIANOCLARO}${AVTEMPO}${AV_SEMCOR};\nLIMITETEMPO=${AV_CIANOCLARO}${LIMITETEMPO}${AV_SEMCOR};\nMAXVALUE=${AV_CIANOCLARO}${MAXVALUE}${AV_SEMCOR};\nCASASDECIMAIS=${AV_CIANOCLARO}${CASASDECIMAIS}${AV_SEMCOR};\nNUMEROARGUMENTOS=${AV_CIANOCLARO}${NUMEROARGUMENTOS}${AV_SEMCOR}.";;
+   "e")
+     INSTRUCOES="Type \"${AV_AMARELO}SAIR${AV_SEMCOR}\", \"${AV_AMARELO}EXIT${AV_SEMCOR}\", \"${AV_AMARELO}sair${AV_SEMCOR}\", or \"${AV_AMARELO}exit${AV_SEMCOR}\" to exit.\n\nType \"${AV_AMARELO}PULAR${AV_SEMCOR}\", \"${AV_AMARELO}JUMP${AV_SEMCOR}\", \"${AV_AMARELO}pular${AV_SEMCOR}\" or \"${AV_AMARELO}jump${AV_SEMCOR}\" to jump.\n\nType \"${AV_AMARELO}+C${AV_SEMCOR}\" to increase the CHAOS, \"${AV_AMARELO}-C${AV_SEMCOR}\" to decrease the CHAOS.\n\nType \"${AV_AMARELO}+A${AV_SEMCOR}\" to increase the number of arguments, \"${AV_AMARELO}-A${AV_SEMCOR}\" to decrease the number of arguments.\n\nType \"${AV_AMARELO}+D${AV_SEMCOR}\" to increase the number of decimal places, \"${AV_AMARELO}-D${AV_SEMCOR}\" to decrease the number of decimal places.\n\nType \"${AV_AMARELO}+N${AV_SEMCOR}\" to increase the upper limit of the numbers, \"${AV_AMARELO}-N${AV_SEMCOR}\" to reduce the upper limit of the numbers.\n\nType \"${AV_AMARELO}T${AV_SEMCOR}\" to activated time, \"${AV_AMARELO}t${AV_SEMCOR}\" to deactivate time, \"${AV_AMARELO}+T${AV_SEMCOR}\" to increase time, or \"${AV_AMARELO}-T${AV_SEMCOR}\" to reduce time.\n\nType \"${AV_AMARELO}M${AV_SEMCOR}\" to show Antonio Vandré's message.\n\nType \"${AV_AMARELO}AJUDA${AV_SEMCOR}\", \"${AV_AMARELO}HELP${AV_SEMCOR}\", \"${AV_AMARELO}H${AV_SEMCOR}\", \"${AV_AMARELO}ajuda${AV_SEMCOR}\", \"${AV_AMARELO}help${AV_SEMCOR}\" or \"${AV_AMARELO}h${AV_SEMCOR}\" to show this message.\n\nVariables:\n\nCHAOS=${AV_CIANOCLARO}${CHAOS}${AV_SEMCOR};\nTEMPO=${AV_CIANOCLARO}${AVTEMPO}${AV_SEMCOR};\nLIMITETEMPO=${AV_CIANOCLARO}${LIMITETEMPO}${AV_SEMCOR};\nMAXVALUE=${AV_CIANOCLARO}${MAXVALUE}${AV_SEMCOR};\nCASASDECIMAIS=${AV_CIANOCLARO}${CASASDECIMAIS}${AV_SEMCOR};\nNUMEROARGUMENTOS=${AV_CIANOCLARO}${NUMEROARGUMENTOS}${AV_SEMCOR}.";;
+   *);;
+ esac
+
+if [ "${1}" != "oe" ]; then echo -e "${INSTRUCOES}"; echo ""; fi
+
+if (! ls "${ARQUIVOLOGTEMP}" &>> /dev/null) && ls "${ARQUIVOLOG}" &>> /dev/null; then cp "${ARQUIVOLOG}" "${ARQUIVOLOGTEMP}"; fi
+
+if ls "${ARQUIVOLOGTEMP}" &>> /dev/null && ls "${ARQUIVOLOG}" &>> /dev/null; then if [ $(cat "${ARQUIVOLOG}" | wc -l) -gt $(cat "${ARQUIVOLOGTEMP}" | wc -l) ]; then cp "${ARQUIVOLOG}" "${ARQUIVOLOGTEMP}"; fi; fi
+
+FLAG="0"
+FLAG2="0"
+CHARPROGRESS=""
+
+while [  "${RESPOSTAUSUARIO}" != "SAIR" ] && [  "${RESPOSTAUSUARIO}" != "EXIT" ] && [  "${RESPOSTAUSUARIO}" != "sair" ] && [  "${RESPOSTAUSUARIO}" != "exit" ] && [ "${1}" != "oe" ]; do
+
+    if [ "${FLAG}" == "0" ]; then
+	  case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; if [ "${FLAG2}" == "1" ]; then echo -ne "\b"; fi; echo -ne "${CHARPROGRESS}"
+
+    case "${LINGUA}" in
+       "p")
+	     INSTRUCOES="Digite \"${AV_AMARELO}SAIR${AV_SEMCOR}\", \"${AV_AMARELO}EXIT${AV_SEMCOR}\", \"${AV_AMARELO}sair${AV_SEMCOR}\", ou \"${AV_AMARELO}exit${AV_SEMCOR}\" para sair.\n\nDigite \"${AV_AMARELO}PULAR${AV_SEMCOR}\", \"${AV_AMARELO}JUMP${AV_SEMCOR}\", \"${AV_AMARELO}pular${AV_SEMCOR}\" ou \"${AV_AMARELO}jump${AV_SEMCOR}\" para pular.\n\nDigite \"${AV_AMARELO}+C${AV_SEMCOR}\" para incrementar o CHAOS, \"${AV_AMARELO}-C${AV_SEMCOR}\" para diminuir o CHAOS.\n\nDigite \"${AV_AMARELO}+A${AV_SEMCOR}\" para incrementar o número de argumentos, \"${AV_AMARELO}-A${AV_SEMCOR}\" para diminuir o número de argumentos.\n\nDigite \"${AV_AMARELO}+D${AV_SEMCOR}\" para incrementar o número de casas decimais, \"${AV_AMARELO}-D${AV_SEMCOR}\" para diminuir o número de casas decimais.\n\nDigite \"${AV_AMARELO}+N${AV_SEMCOR}\" para aumentar o limite superior dos números, \"${AV_AMARELO}-N${AV_SEMCOR}\" para reduzir o limite superior dos números.\n\nDigite \"${AV_AMARELO}T${AV_SEMCOR}\" para ativar tempo, \"${AV_AMARELO}t${AV_SEMCOR}\" para desativar tempo, \"${AV_AMARELO}+T${AV_SEMCOR}\" para aumentar o tempo, ou \"${AV_AMARELO}-T${AV_SEMCOR}\" para reduzir o tempo.\n\nDigite \"${AV_AMARELO}M${AV_SEMCOR}\" para mostrar a mensagem de Antonio Vandré.\n\nDigite \"${AV_AMARELO}AJUDA${AV_SEMCOR}\", \"${AV_AMARELO}HELP${AV_SEMCOR}\", \"${AV_AMARELO}H${AV_SEMCOR}\", \"${AV_AMARELO}ajuda${AV_SEMCOR}\", \"${AV_AMARELO}help${AV_SEMCOR}\" ou \"${AV_AMARELO}h${AV_SEMCOR}\" para mostrar esta mensagem.\n\nVariáveis:\n\nCHAOS=${AV_CIANOCLARO}${CHAOS}${AV_SEMCOR};\nTEMPO=${AV_CIANOCLARO}${AVTEMPO}${AV_SEMCOR};\nLIMITETEMPO=${AV_CIANOCLARO}${LIMITETEMPO}${AV_SEMCOR};\nMAXVALUE=${AV_CIANOCLARO}${MAXVALUE}${AV_SEMCOR};\nCASASDECIMAIS=${AV_CIANOCLARO}${CASASDECIMAIS}${AV_SEMCOR};\nNUMEROARGUMENTOS=${AV_CIANOCLARO}${NUMEROARGUMENTOS}${AV_SEMCOR}.";;
+       "e")
+	     INSTRUCOES="Type \"${AV_AMARELO}SAIR${AV_SEMCOR}\", \"${AV_AMARELO}EXIT${AV_SEMCOR}\", \"${AV_AMARELO}sair${AV_SEMCOR}\", or \"${AV_AMARELO}exit${AV_SEMCOR}\" to exit.\n\nType \"${AV_AMARELO}PULAR${AV_SEMCOR}\", \"${AV_AMARELO}JUMP${AV_SEMCOR}\", \"${AV_AMARELO}pular${AV_SEMCOR}\" or \"${AV_AMARELO}jump${AV_SEMCOR}\" to jump.\n\nType \"${AV_AMARELO}+C${AV_SEMCOR}\" to increase the CHAOS, \"${AV_AMARELO}-C${AV_SEMCOR}\" to decrease the CHAOS.\n\nType \"${AV_AMARELO}+A${AV_SEMCOR}\" to increase the number of arguments, \"${AV_AMARELO}-A${AV_SEMCOR}\" to decrease the number of arguments.\n\nType \"${AV_AMARELO}+D${AV_SEMCOR}\" to increase the number of decimal places, \"${AV_AMARELO}-D${AV_SEMCOR}\" to decrease the number of decimal places.\n\nType \"${AV_AMARELO}+N${AV_SEMCOR}\" to increase the upper limit of the numbers, \"${AV_AMARELO}-N${AV_SEMCOR}\" to reduce the upper limit of the numbers.\n\nType \"${AV_AMARELO}T${AV_SEMCOR}\" to activated time, \"${AV_AMARELO}t${AV_SEMCOR}\" to deactivate time, \"${AV_AMARELO}+T${AV_SEMCOR}\" to increase time, or \"${AV_AMARELO}-T${AV_SEMCOR}\" to reduce time.\n\nType \"${AV_AMARELO}M${AV_SEMCOR}\" to show Antonio Vandré's message.\n\nType \"${AV_AMARELO}AJUDA${AV_SEMCOR}\", \"${AV_AMARELO}HELP${AV_SEMCOR}\", \"${AV_AMARELO}H${AV_SEMCOR}\", \"${AV_AMARELO}ajuda${AV_SEMCOR}\", \"${AV_AMARELO}help${AV_SEMCOR}\" or \"${AV_AMARELO}h${AV_SEMCOR}\" to show this message.\n\nVariables:\n\nCHAOS=${AV_CIANOCLARO}${CHAOS}${AV_SEMCOR};\nTEMPO=${AV_CIANOCLARO}${AVTEMPO}${AV_SEMCOR};\nLIMITETEMPO=${AV_CIANOCLARO}${LIMITETEMPO}${AV_SEMCOR};\nMAXVALUE=${AV_CIANOCLARO}${MAXVALUE}${AV_SEMCOR};\nCASASDECIMAIS=${AV_CIANOCLARO}${CASASDECIMAIS}${AV_SEMCOR};\nNUMEROARGUMENTOS=${AV_CIANOCLARO}${NUMEROARGUMENTOS}${AV_SEMCOR}.";;
+       *);;
+     esac
+
+    SEEDS=""; SEED=$(date +%s); SEEDST="${SEED}"; for I in $(seq 2 "${CHAOS}"); do case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "\b"; echo -ne "${CHARPROGRESS}"; TEMP=$(expr "${SEED}" / "${I}" + "${I}"); SEEDST="${SEEDST},${TEMP}"; done; VIRGULA=""; for I in $(seq 1 "${CHAOS}"); do case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "\b"; echo -ne "${CHARPROGRESS}"; TEMP2=$(echo -n "${SEEDST}" | cut -d "," -f "${I}"); TEMP=$(echo "${TEMP2} % ${MAXVALUE}" | bc); SEEDS="${SEEDS}${VIRGULA}${TEMP}"; VIRGULA=","; done
+
+	  case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "\b"; echo -ne "${CHARPROGRESS}"
+
+    FATOR=$(echo "10 ^ ${CASASDECIMAIS}" | bc)
+
+	  case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "\b"; echo -ne "${CHARPROGRESS}"
+
+    OPS=$(for I in $(seq 2 $(echo "${NUMEROARGUMENTOS}" | bc)); do TEMP=$(echo "$(for J in $(seq 1 ${CHAOS}); do echo -n ${SEEDS} | cut -d ',' -f ${J} | tr -d '\n'; if [ ${J} -lt ${CHAOS} ]; then if [ $(expr ${J} % 2) -gt 0 ]; then echo -n '+'; else echo -n '-'; fi; fi; done) + ${I} * ($(for J in $(seq 1 ${CHAOS}); do echo -n ${SEEDS} | cut -d ',' -f ${J} | tr -d '\n'; if [ ${J} -lt ${CHAOS} ]; then if [ $(expr ${J} % 3) -gt 0 ]; then echo -n '+'; else echo -n '-'; fi; fi; done))"); case $(echo "(${TEMP}) % 4" | bc) in 0) echo -n "+";; 1) echo -n "-";; 2) echo -n "x";; 3) echo -n "/";; *) ;; esac; if [ "${I}" -lt $(echo "${NUMEROARGUMENTOS}" | bc) ]; then echo -n ","; fi; done)
+
+	  case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "\b"; echo -ne "${CHARPROGRESS}";
+
+    PARENTESES=$(if [ "${NUMEROARGUMENTOS}" -gt "2" ]; then TEMP="0"; TEMP2="0"; for I in $(seq 1 "${NUMEROARGUMENTOS}"); do if [ "$TEMP" -lt $(echo  "${NUMEROARGUMENTOS} - ${I}" | bc) ]; then TEMP3=$(echo "($(echo -n ${SEEDS} | cut -d ',' -f 1) * $I) % 3" | bc); case $TEMP3 in 0) echo -n "("; TEMP=$(echo "${TEMP} + 1" | bc);; 1) if [ "$TEMP" -gt "0" ]; then echo -n ")"; TEMP=$(echo "${TEMP} - 1" | bc); fi;; 2) ;; *) ;; esac; else if [ "$TEMP" -gt "0" ]; then if [ $(echo "($SEED + $TEMP2) % 2" | bc) == "0" ]; then echo -n ")"; TEMP=$(echo "${TEMP} - 1" | bc); else TEMP2="1"; fi; fi; fi; if [ "${I}" -lt "${NUMEROARGUMENTOS}" ]; then echo -n ","; fi; done; fi)
+
+	  case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "\b"; echo -ne "${CHARPROGRESS}"
+
+    FLAGARGS="1"
+
+    ARGS=$(for I in $(seq 1 "${NUMEROARGUMENTOS}"); do TEMP=$(awk "BEGIN{print ($(echo $(for J in $(seq 1 ${CHAOS}); do echo -n ${SEEDS} | cut -d ',' -f $(expr $(expr ${J} + ${I}) % $(expr ${CHAOS} + 1) + 1) | tr -d '\n'; if [ $(expr ${J} + ${I}) -lt $(expr 2 \* ${CHAOS} - 1) ]; then if [ $(expr ${J} + ${I}) -lt $(expr ${CHAOS} - 1) ]; then if [ ${FLAGARGS} == 1 ]; then echo -n '+'; else echo -n '*'; fi; FLAGARGS=$(expr ${FLAGARGS} \* -1); fi; fi; done) / ${FATOR}))}"); awk "BEGIN{print ${TEMP} % ${MAXVALUE}}" | tr "\n" ","; done)
+
+	  case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "\b"; echo -ne "${CHARPROGRESS}"
+
+    QUESTAO=$(for I in $(seq 1 "${NUMEROARGUMENTOS}"); do TEMP=$(echo -n "${PARENTESES}" | cut -d "," -f "${I}"); if [ "${TEMP}" == "(" ]; then echo -n "${TEMP}"; fi; if [ "${TEMP}" == ")" ]; then echo -n "${ARGS}" | cut -d "," -f "${I}" | tr -d "\n"; else echo -n "${ARGS}" | cut -d "," -f "${I}"; fi; if [ "${TEMP}" == ")" ]; then echo -n "${TEMP}"; fi; if [ "${I}" -lt "${NUMEROARGUMENTOS}" ]; then if [ "${TEMP}" == ")" ]; then echo -n " "; fi; echo -n "${OPS}" | cut -d "," -f "${I}"; fi; done)
+
+	  case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "\b"; echo -ne "${CHARPROGRESS}"
+
+    rm "$ARQUIVOTEMP" &>> /dev/null
+
+	  case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "\b"; echo -ne "${CHARPROGRESS}"
+
+    TEMP=$(echo $QUESTAO | tr "x" "*" | bc -l 2>> "${ARQUIVOTEMP}")
+
+	  case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "\b"; echo -ne "${CHARPROGRESS}"
+
+    if [ "$(wc -c ${ARQUIVOTEMP} | cut -d ' ' -f 1)" -gt "0" ]; then FLAG2="1"; sleep 1s; continue; else RESPOSTABRUTA=$TEMP; FLAG2="0"; fi
+
+	  case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "\b"; echo -ne "${CHARPROGRESS}"
+
+    TEMP=$(LC_NUMERIC="en_US.UTF-8" printf "%.${CASASDECIMAIS}f" "${RESPOSTABRUTA}")
+
+	  case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "\b"; echo -ne "${CHARPROGRESS}"
+
+    TEMP2=$(echo "${TEMP} * ${FATOR}" | bc)
+
+	  case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "\b"; echo -ne "${CHARPROGRESS}"
+
+    RESPOSTATEMP1=${TEMP2%.*}
+
+	  case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "\b"; echo -ne "${CHARPROGRESS}"
+
+    RESPOSTATEMP2=$(awk "BEGIN{print ${RESPOSTABRUTA} * ${FATOR}}")
+
+	  case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "\b"; echo -ne "${CHARPROGRESS}"
+
+    if ! [ "${RESPOSTATEMP1}" == "${RESPOSTATEMP2}" ]; then if ! [ "${CASASDECIMAIS}" == "1" ]; then QUESTAODECIMAL=", ${ROUNDWITH} ${CASASDECIMAIS} ${DECIMALPLACES}"; else QUESTAODECIMAL=", ${ROUNDWITH} 1 ${DECIMALPLACE}"; fi; else QUESTAODECIMAL=""; fi
+
+	  case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "\b"; echo -ne "${CHARPROGRESS}"
+
+	QUESTAOT="(${QUESTAO}) + 1 / 10^(${MAXIMOCASASDECIMAIS} + 1)"
+
+    RESPOSTA=$(LC_NUMERIC="en_US.UTF-8" printf "%.${CASASDECIMAIS}f" "$(echo ${QUESTAOT} | tr 'x' '*' | bc -l)")
+
+	  case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "\b"; echo -ne "${CHARPROGRESS}"
+
+    RESPOSTA=$(awk "BEGIN{print ${RESPOSTA}}")
+
+	  case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "\b"; echo -ne "${CHARPROGRESS}"
+
+    PERGUNTA=$(echo "${HOWMUCH} ${QUESTAO}${QUESTAODECIMAL}?" | tr "\n" " ")
+  fi
+
+  echo -ne "\b"; antoniovandre_echo "${PERGUNTA}"
+
+  if [ "${AVTEMPO}" == "1" ]; then if ! read -t $LIMITETEMPO RESPOSTAUSUARIO &>> /dev/null; then echo "${TIMELIMITOF} ${LIMITETEMPO} ${SECONDSREACHED}."; read; FLAG="0"; continue; fi; else read RESPOSTAUSUARIO; fi
+
+  RESPOSTAUSUARIOP=$RESPOSTAUSUARIO
+
+  if ! ([ "${RESPOSTAUSUARIO}" == "+A" ] || [ "${RESPOSTAUSUARIO}" == "-A" ] || [ "${RESPOSTAUSUARIO}" == "+D" ] || [ "${RESPOSTAUSUARIO}" == "-D" ] || [ "${RESPOSTAUSUARIO}" == "+N" ] || [ "${RESPOSTAUSUARIO}" == "-N" ] || [ "${RESPOSTAUSUARIO}" == "+C" ] || [ "${RESPOSTAUSUARIO}" == "-C" ] || [ "${RESPOSTAUSUARIO}" == "T" ] || [ "${RESPOSTAUSUARIO}" == "t" ] || [ "${RESPOSTAUSUARIO}" == "+T" ] || [ "${RESPOSTAUSUARIO}" == "-T" ] || [ "${RESPOSTAUSUARIO}" == "SAIR" ] || [ "${RESPOSTAUSUARIO}" == "EXIT" ] || [ "${RESPOSTAUSUARIO}" == "sair" ] || [ "${RESPOSTAUSUARIO}" == "exit" ] || [ "${RESPOSTAUSUARIO}" == "PULAR" ] || [ "${RESPOSTAUSUARIO}" == "JUMP" ] || [ "${RESPOSTAUSUARIO}" == "pular" ] || [ "${RESPOSTAUSUARIO}" == "jump" ] || [ "${RESPOSTAUSUARIO}" == "M" ] || [ "${RESPOSTAUSUARIO}" == "AJUDA" ] || [ "${RESPOSTAUSUARIO}" == "HELP" ] || [ "${RESPOSTAUSUARIO}" == "H" ] || [ "${RESPOSTAUSUARIO}" == "ajuda" ] || [ "${RESPOSTAUSUARIO}" == "help" ] || [ "${RESPOSTAUSUARIO}" == "h" ]); then RESPOSTAUSUARIO=$(echo "${RESPOSTAUSUARIO}" | tr -d "\"" | tr -d "'" | tr -d "\`" | tr -d "\$" | tr "x" "*" | tr "X" "*" | tr -d " "); RESPOSTAUSUARIO=$(LC_NUMERIC="en_US.UTF-8" printf "%.${CASASDECIMAIS}f" "$(echo ${RESPOSTAUSUARIO} | bc -l 2>> /dev/null)"); RESPOSTAUSUARIO=$(awk "BEGIN{print ${RESPOSTAUSUARIO}}"); fi
+
+  case "${RESPOSTAUSUARIO}" in
+    "+A") if [ "${NUMEROARGUMENTOS}" -lt "${NUMEROMAXIMOARGUMENTOS}" ]; then NUMEROARGUMENTOS=$(echo "${NUMEROARGUMENTOS} + 1" | bc); antoniovandre_echo "${ANOW} ${NUMEROARGUMENTOS}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; FLAG="0"; else antoniovandre_echo "${AOVERFLOW}"; FLAG="1"; fi; continue;;
+    "-A") if ! [ "${NUMEROARGUMENTOS}" == "2" ]; then NUMEROARGUMENTOS=$(echo "${NUMEROARGUMENTOS} - 1" | bc); antoniovandre_echo "${ANOW} ${NUMEROARGUMENTOS}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; FLAG="0"; else antoniovandre_echo "${ABOTTOM}"; FLAG="1"; fi; continue;;
+    "+D") if [ "${CASASDECIMAIS}" -lt "${MAXIMOCASASDECIMAIS}" ]; then CASASDECIMAIS=$(echo "${CASASDECIMAIS} + 1" | bc); antoniovandre_echo "${DNOW} ${CASASDECIMAIS}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; FLAG="0"; else antoniovandre_echo "${DOVERFLOW}"; FLAG="1"; fi; continue;;
+    "-D") if ! [ "${CASASDECIMAIS}" == "0" ]; then CASASDECIMAIS=$(echo "${CASASDECIMAIS} - 1" | bc); antoniovandre_echo "${DNOW} ${CASASDECIMAIS}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; FLAG="0"; else antoniovandre_echo "${DBOTTOM}"; FLAG="1"; fi; continue;;
+    "+N") if [ $(echo "${MAXVALUE} * 2" | bc) -lt "${MAXMAXVALUE}" ]; then MAXVALUE=$(echo "${MAXVALUE} * 2" | bc); antoniovandre_echo "${NNOW} ${MAXVALUE}."; FLAG="0"; else antoniovandre_echo "${NOVERFLOW}"; FLAG="1"; fi; continue;;
+    "-N") if [ "${MAXVALUE}" -gt "${MINMAXVALUE}" ]; then MAXVALUE=$(echo "${MAXVALUE} / 2" | bc); antoniovandre_echo "${NNOW} ${MAXVALUE}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; FLAG="0"; else antoniovandre_echo "${NBOTTOM}"; FLAG="1"; fi; continue;;
+    "+C") if [ $(echo "${CHAOS} + 1" | bc) -le "${MAXCHAOSVALUE}" ]; then CHAOS=$(echo "${CHAOS} + 1" | bc); antoniovandre_echo "${CHAOSNOW} ${CHAOS}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; FLAG="0"; else antoniovandre_echo "${CHAOSOVERFLOW}"; FLAG="1"; fi; continue;;
+    "-C") if [ $(echo "${CHAOS} - 1" | bc) -ge "${MINCHAOSVALUE}" ]; then CHAOS=$(echo "${CHAOS} - 1" | bc); antoniovandre_echo "${CHAOSNOW} ${CHAOS}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; FLAG="0"; else antoniovandre_echo "${CHAOSBOTTOM}"; FLAG="1"; fi; continue;;
+    "T") if [ "${AVTEMPO}" == "0" ]; then AVTEMPO="1"; antoniovandre_echo "${TNOW} ${AVTEMPO}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; else antoniovandre_echo "${TIMEALREADYACTIVATED}"; fi; FLAG="1"; continue;;
+    "t") if [ "${AVTEMPO}" == "1" ]; then AVTEMPO="0"; antoniovandre_echo "${TNOW} ${AVTEMPO}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; else antoniovandre_echo "${TIMEALREADYDEACTIVATED}"; fi; FLAG="1"; continue;;
+    "+T") if [ "${AVTEMPO}" == "1" ]; then if [ "${LIMITETEMPO}" -lt "${MAXTIME}" ]; then LIMITETEMPO=$(echo "${LIMITETEMPO} + 10" | bc); antoniovandre_echo "${TVNOW} ${LIMITETEMPO}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; else antoniovandre_echo "${TOVERFLOW}"; fi; else antoniovandre_echo "${TIMEDEACTIVATED}"; fi; FLAG="1"; continue;;
+    "-T") if [ "${AVTEMPO}" == "1" ]; then if [ "${LIMITETEMPO}" -gt "${MINTIME}" ]; then LIMITETEMPO=$(echo "${LIMITETEMPO} - 10" | bc); antoniovandre_echo "${TVNOW} ${LIMITETEMPO}."; echo "${CHAOS}%${AVTEMPO}%${LIMITETEMPO}%${MAXVALUE}%${CASASDECIMAIS}%${NUMEROARGUMENTOS}" > "${ARQUIVOOPCOES}"; else antoniovandre_echo "${TBOTTOM}"; fi; else antoniovandre_echo "${TIMEDEACTIVATED}"; fi; FLAG="1"; continue;;
+    "SAIR") break;;
+    "EXIT") break;;
+    "sair") break;;
+    "exit") break;;
+    "PULAR") FLAG="0"; continue;;
+    "JUMP") FLAG="0"; continue;;
+    "pular") FLAG="0"; continue;;
+    "jump") FLAG="0"; continue;;
+    "M") echo ""; if ! wget -T $TIMEOUTMENSAGEM -qO- https://github.com/antoniovandre/antoniovandre_mathgame_bash/raw/refs/heads/main/antoniovandre_mathgame_mensagem.txt 2>> /dev/null; then echo -ne "${AV_VERMELHO}"; antoniovandre_echo "${AVMENSAGEMERRO}" n; echo -e "${AV_SEMCOR}."; fi; echo ""; FLAG="1"; continue;;
+    "AJUDA") echo ""; echo -e "${INSTRUCOES}"; echo ""; FLAG=1; continue;;
+    "HELP") echo ""; echo -e "${INSTRUCOES}"; echo ""; FLAG=1; continue;;
+    "H") echo ""; echo -e "${INSTRUCOES}"; echo ""; FLAG=1; continue;;
+    "ajuda") echo ""; echo -e "${INSTRUCOES}"; echo ""; FLAG=1; continue;;
+    "help") echo ""; echo -e "${INSTRUCOES}"; echo ""; FLAG=1; continue;;
+    "h") echo ""; echo -e "${INSTRUCOES}"; echo ""; FLAG=1; continue;;
+    "${RESPOSTA}") if [ "${AVLOG}" == "1" ]; then echo "_____" >> "${ARQUIVOLOGTEMP}"; LANG=en_us_88591 date >> "${ARQUIVOLOGTEMP}"; echo "Pergunta: ${PERGUNTA}" >> "${ARQUIVOLOGTEMP}"; echo "Resposta: ${RESPOSTAUSUARIOP}" >> "${ARQUIVOLOGTEMP}"; echo "Eval: acertou." >> "${ARQUIVOLOGTEMP}"; fi; echo -e "${AV_VERDE}${CORRECT}${AV_SEMCOR}."; if [ "${AVSOUND}" == "1" ]; then if [ "${SOUND}" == "1" ]; then play "${ARQUIVOSOMACERTO}" &>> /dev/null; fi; fi; FLAG="0";;
+    *) if [ $(echo -n "${RESPOSTAUSUARIO}" | grep --color=never -E '^[+-]?[0-9]+([.][0-9]+)?$') == "" ]; then antoniovandre_echo "${VALIDEXPR}."; FLAG="1"; continue; fi; if [ "${AVLOG}" == "1" ]; then echo "_____" >> "${ARQUIVOLOGTEMP}"; LANG=en_us_88591 date >> "${ARQUIVOLOGTEMP}"; echo "Pergunta: ${PERGUNTA}" >> "${ARQUIVOLOGTEMP}"; echo "Resposta: ${RESPOSTAUSUARIO}" >> "${ARQUIVOLOGTEMP}"; echo "Eval: errou." >> "${ARQUIVOLOGTEMP}"; fi; echo -e "${AV_VERMELHO}${WRONG}${AV_SEMCOR}."; if [ "${AVSOUND}" == "1" ]; then if [ "${SOUND}" == "1" ]; then play "${ARQUIVOSOMERRO}" &>> /dev/null; fi; fi; FLAG="0";;
+  esac
+
+done
+
+if [ "${1}" != "ne" ] && [ "${AVLOG}" == "1" ] && [ "${AVGRAFICOS}" == "1" ] && ls "${ARQUIVOLOGTEMP}" &>> /dev/null; then
+
+  bash antoniovandre_echo "${CONVLOGUNIX}" n; if dos2unix "${ARQUIVOLOGTEMP}" &>> /dev/null; then echo -ne "${AV_VERDE}"; bash antoniovandre_echo "${SUCCESS}" n; echo -ne "${AV_SEMCOR}"; echo "."; else echo -ne "${AV_VERMELHO}"; bash antoniovandre_echo "${FAIL}" n; echo -ne "${AV_SEMCOR}"; echo "."; rm "${LOCKFILE}" &>> /dev/null; exit 1; fi
+
+  bash antoniovandre_echo "${BUILDINGGRAPHS}" n
+
+  CHARPROGRESS=""
+
+  MAXACERTOSERROS="0"
+  NUMEROACERTOS="0"
+  NUMEROERROS="0"
+  CONTADORMON="0"
+  CONTADORTUE="0"
+  CONTADORWED="0"
+  CONTADORTHU="0"
+  CONTADORFRI="0"
+  CONTADORSAT="0"
+  CONTADORSUN="0"
+  MAXDIASEMANA="0"
+  CONTADORJAN="0"
+  CONTADORFEB="0"
+  CONTADORMAR="0"
+  CONTADORAPR="0"
+  CONTADORMAY="0"
+  CONTADORJUN="0"
+  CONTADORJUL="0"
+  CONTADORAUG="0"
+  CONTADORSEP="0"
+  CONTADOROCT="0"
+  CONTADORNOV="0"
+  CONTADORDEC="0"
+  MAXMESANO="0"
+  CONTADOR00="0"
+  CONTADOR01="0"
+  CONTADOR02="0"
+  CONTADOR03="0"
+  CONTADOR04="0"
+  CONTADOR05="0"
+  CONTADOR06="0"
+  CONTADOR07="0"
+  CONTADOR08="0"
+  CONTADOR09="0"
+  CONTADOR10="0"
+  CONTADOR11="0"
+  CONTADOR12="0"
+  CONTADOR13="0"
+  CONTADOR14="0"
+  CONTADOR15="0"
+  CONTADOR16="0"
+  CONTADOR17="0"
+  CONTADOR18="0"
+  CONTADOR19="0"
+  CONTADOR20="0"
+  CONTADOR21="0"
+  CONTADOR22="0"
+  CONTADOR23="0"
+  MAXHORADIA="0"
+  ERRCONTADORMON="0"
+  ERRCONTADORTUE="0"
+  ERRCONTADORWED="0"
+  ERRCONTADORTHU="0"
+  ERRCONTADORFRI="0"
+  ERRCONTADORSAT="0"
+  ERRCONTADORSUN="0"
+  ERRMAXDIASEMANA="0"
+  ERRCONTADORJAN="0"
+  ERRCONTADORFEB="0"
+  ERRCONTADORMAR="0"
+  ERRCONTADORAPR="0"
+  ERRCONTADORMAY="0"
+  ERRCONTADORJUN="0"
+  ERRCONTADORJUL="0"
+  ERRCONTADORAUG="0"
+  ERRCONTADORSEP="0"
+  ERRCONTADOROCT="0"
+  ERRCONTADORNOV="0"
+  ERRCONTADORDEC="0"
+  ERRMAXMESANO="0"
+  ERRCONTADOR00="0"
+  ERRCONTADOR01="0"
+  ERRCONTADOR02="0"
+  ERRCONTADOR03="0"
+  ERRCONTADOR04="0"
+  ERRCONTADOR05="0"
+  ERRCONTADOR06="0"
+  ERRCONTADOR07="0"
+  ERRCONTADOR08="0"
+  ERRCONTADOR09="0"
+  ERRCONTADOR10="0"
+  ERRCONTADOR11="0"
+  ERRCONTADOR12="0"
+  ERRCONTADOR13="0"
+  ERRCONTADOR14="0"
+  ERRCONTADOR15="0"
+  ERRCONTADOR16="0"
+  ERRCONTADOR17="0"
+  ERRCONTADOR18="0"
+  ERRCONTADOR19="0"
+  ERRCONTADOR20="0"
+  ERRCONTADOR21="0"
+  ERRCONTADOR22="0"
+  ERRCONTADOR23="0"
+  ERRMAXHORADIA="0"
+  CACHELINHAS="0"
+
+  TOTALLINHAS=$(cat "${ARQUIVOLOGTEMP}" | wc -l)
+
+  if ls "${ARQUIVOCACHESTAT}" &>> /dev/null; then
+    MAXACERTOSERROS=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 1)
+    NUMEROACERTOS=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 2)
+    NUMEROERROS=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 3)
+    CONTADORMON=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 4)
+    CONTADORTUE=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 5)
+    CONTADORWED=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 6)
+    CONTADORTHU=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 7)
+    CONTADORFRI=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 8)
+    CONTADORSAT=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 9)
+    CONTADORSUN=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 10)
+    MAXDIASEMANA=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 11)
+    CONTADORJAN=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 12)
+    CONTADORFEB=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 13)
+    CONTADORMAR=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 14)
+    CONTADORAPR=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 15)
+    CONTADORMAY=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 16)
+    CONTADORJUN=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 17)
+    CONTADORJUL=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 18)
+    CONTADORAUG=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 19)
+    CONTADORSEP=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 20)
+    CONTADOROCT=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 21)
+    CONTADORNOV=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 22)
+    CONTADORDEC=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 23)
+    MAXMESANO=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 24)
+    CONTADOR00=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 25)
+    CONTADOR01=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 26)
+    CONTADOR02=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 27)
+    CONTADOR03=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 28)
+    CONTADOR04=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 29)
+    CONTADOR05=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 30)
+    CONTADOR06=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 31)
+    CONTADOR07=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 32)
+    CONTADOR08=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 33)
+    CONTADOR09=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 34)
+    CONTADOR10=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 35)
+    CONTADOR11=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 36)
+    CONTADOR12=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 37)
+    CONTADOR13=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 38)
+    CONTADOR14=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 39)
+    CONTADOR15=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 40)
+    CONTADOR16=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 41)
+    CONTADOR17=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 42)
+    CONTADOR18=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 43)
+    CONTADOR19=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 44)
+    CONTADOR20=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 45)
+    CONTADOR21=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 46)
+    CONTADOR22=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 47)
+    CONTADOR23=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 48)
+    MAXHORADIA=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 49)
+    ERRCONTADORMON=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 50)
+    ERRCONTADORTUE=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 51)
+    ERRCONTADORWED=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 52)
+    ERRCONTADORTHU=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 53)
+    ERRCONTADORFRI=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 54)
+    ERRCONTADORSAT=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 55)
+    ERRCONTADORSUN=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 56)
+    ERRMAXDIASEMANA=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 57)
+    ERRCONTADORJAN=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 58)
+    ERRCONTADORFEB=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 59)
+    ERRCONTADORMAR=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 60)
+    ERRCONTADORAPR=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 61)
+    ERRCONTADORMAY=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 62)
+    ERRCONTADORJUN=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 63)
+    ERRCONTADORJUL=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 64)
+    ERRCONTADORAUG=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 65)
+    ERRCONTADORSEP=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 66)
+    ERRCONTADOROCT=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 67)
+    ERRCONTADORNOV=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 68)
+    ERRCONTADORDEC=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 69)
+    ERRMAXMESANO=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 70)
+    ERRCONTADOR00=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 71)
+    ERRCONTADOR01=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 72)
+    ERRCONTADOR02=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 73)
+    ERRCONTADOR03=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 74)
+    ERRCONTADOR04=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 75)
+    ERRCONTADOR05=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 76)
+    ERRCONTADOR06=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 77)
+    ERRCONTADOR07=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 78)
+    ERRCONTADOR08=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 79)
+    ERRCONTADOR09=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 80)
+    ERRCONTADOR10=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 81)
+    ERRCONTADOR11=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 82)
+    ERRCONTADOR12=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 83)
+    ERRCONTADOR13=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 84)
+    ERRCONTADOR14=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 85)
+    ERRCONTADOR15=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 86)
+    ERRCONTADOR16=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 87)
+    ERRCONTADOR17=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 88)
+    ERRCONTADOR18=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 89)
+    ERRCONTADOR19=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 90)
+    ERRCONTADOR20=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 91)
+    ERRCONTADOR21=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 92)
+    ERRCONTADOR22=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 93)
+    ERRCONTADOR23=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 94)
+    ERRMAXHORADIA=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 95)
+    CACHELINHAS=$(cat "${ARQUIVOCACHESTAT}" | cut -d "%" -f 96)
+
+    cat "${ARQUIVOLOGTEMP}" | tail -n $(expr "${TOTALLINHAS}" - "${CACHELINHAS}") > "${ARQUIVOLOGTEMPCACHE}"
+  else
+
+    cp "${ARQUIVOLOGTEMP}" "${ARQUIVOLOGTEMPCACHE}"
+
+  fi
+
+  rm "${ARQUIVOGNUPLOTDATA}" &>> /dev/null
+  rm "${ARQUIVOGNUPLOTDATA2}" &>> /dev/null
+  rm "${ARQUIVOGNUPLOTDATA3}" &>> /dev/null
+  rm "${ARQUIVOGNUPLOTDATA4}" &>> /dev/null
+  rm "${ARQUIVOGNUPLOTDATA5}" &>> /dev/null
+  rm "${ARQUIVOGNUPLOTDATA6}" &>> /dev/null
+  rm "${ARQUIVOGNUPLOTDATA7}" &>> /dev/null
+
+  CONTADORLINHAS="0"; ONCE="0"; ONCE2="0"; ONCE3="0"
+
+  while read -r LINHA; do if [ "${ONCE3}" == "0" ]; then echo -n "       "; ONCE3="1"; fi; PERCENTUAL=$(echo "100 * ${CONTADORLINHAS} / $(expr ${TOTALLINHAS} - ${CACHELINHAS})" | bc -l | awk '{printf "%.2f %%", $1}'); if [ $(echo "${PERCENTUAL}" | cut -d "." -f 1 | wc -c) == "1" ]; then echo -ne "\b\b\b\b\b\b\b"; else if [ $(echo "${PERCENTUAL}" | cut -d "." -f 1 | wc -c) == "2" ]; then echo -ne "\b\b\b\b\b\b\b\b"; if [ "${ONCE}" == "0" ]; then echo -n " "; ONCE="1"; fi; else echo -ne "\b\b\b\b\b\b\b\b\b"; if [ "${ONCE2}" == "0" ]; then echo -n " "; ONCE2="1"; fi; fi; fi; echo -n "${PERCENTUAL}"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne " ${CHARPROGRESS}"
+
+    ERRLINHA="${LINHAR2}"; LINHAR2="${LINHAR3}"; LINHAR3="${LINHAR4}"; LINHAR4="${LINHA}";
+
+    if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ] || [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then
+
+      if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Mon" ]; then CONTADORMON=$(echo "${CONTADORMON} + 1" | bc); else
+
+      if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Tue" ]; then CONTADORTUE=$(echo "${CONTADORTUE} + 1" | bc); else
+
+      if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Wed" ]; then CONTADORWED=$(echo "${CONTADORWED} + 1" | bc); else
+
+      if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Thu" ]; then CONTADORTHU=$(echo "${CONTADORTHU} + 1" | bc); else
+
+      if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Fri" ]; then CONTADORFRI=$(echo "${CONTADORFRI} + 1" | bc); else
+
+      if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sat" ]; then CONTADORSAT=$(echo "${CONTADORSAT} + 1" | bc); else
+
+      if [ $(echo "${LINHA}" | cut -d " " -f 1) == "Sun" ]; then CONTADORSUN=$(echo "${CONTADORSUN} + 1" | bc); fi
+
+      fi; fi; fi; fi; fi; fi
+
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Jan" ]; then CONTADORJAN=$(echo "${CONTADORJAN} + 1" | bc); else
+
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Feb" ]; then CONTADORFEB=$(echo "${CONTADORFEB} + 1" | bc); else
+
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Mar" ]; then CONTADORMAR=$(echo "${CONTADORMAR} + 1" | bc); else
+
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Apr" ]; then CONTADORAPR=$(echo "${CONTADORAPR} + 1" | bc); else
+
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "May" ]; then CONTADORMAY=$(echo "${CONTADORMAY} + 1" | bc); else
+
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Jun" ]; then CONTADORJUN=$(echo "${CONTADORJUN} + 1" | bc); else
+
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Jul" ]; then CONTADORJUL=$(echo "${CONTADORJUL} + 1" | bc); else
+
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Aug" ]; then CONTADORAUG=$(echo "${CONTADORAUG} + 1" | bc); else
+
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Sep" ]; then CONTADORSEP=$(echo "${CONTADORSEP} + 1" | bc); else
+
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Oct" ]; then CONTADOROCT=$(echo "${CONTADOROCT} + 1" | bc); else
+
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Nov" ]; then CONTADORNOV=$(echo "${CONTADORNOV} + 1" | bc); else
+
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Dec" ]; then CONTADORDEC=$(echo "${CONTADORDEC} + 1" | bc); fi
+
+      fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi
+
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "00" ]; then CONTADOR00=$(echo "${CONTADOR00} + 1" | bc); else
+
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "01" ]; then CONTADOR01=$(echo "${CONTADOR01} + 1" | bc); else
+
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "02" ]; then CONTADOR02=$(echo "${CONTADOR02} + 1" | bc); else
+
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "03" ]; then CONTADOR03=$(echo "${CONTADOR03} + 1" | bc); else
+
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "04" ]; then CONTADOR04=$(echo "${CONTADOR04} + 1" | bc); else
+
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "05" ]; then CONTADOR05=$(echo "${CONTADOR05} + 1" | bc); else
+
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "06" ]; then CONTADOR06=$(echo "${CONTADOR06} + 1" | bc); else
+
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "07" ]; then CONTADOR07=$(echo "${CONTADOR07} + 1" | bc); else
+
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "08" ]; then CONTADOR08=$(echo "${CONTADOR08} + 1" | bc); else
+
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "09" ]; then CONTADOR09=$(echo "${CONTADOR09} + 1" | bc); else
+
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "10" ]; then CONTADOR10=$(echo "${CONTADOR10} + 1" | bc); else
+
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "11" ]; then CONTADOR11=$(echo "${CONTADOR11} + 1" | bc); else
+
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "12" ]; then CONTADOR12=$(echo "${CONTADOR12} + 1" | bc); else
+
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "13" ]; then CONTADOR13=$(echo "${CONTADOR13} + 1" | bc); else
+
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "14" ]; then CONTADOR14=$(echo "${CONTADOR14} + 1" | bc); else
+
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "15" ]; then CONTADOR15=$(echo "${CONTADOR15} + 1" | bc); else
+
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "16" ]; then CONTADOR16=$(echo "${CONTADOR16} + 1" | bc); else
+
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "17" ]; then CONTADOR17=$(echo "${CONTADOR17} + 1" | bc); else
+
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "18" ]; then CONTADOR18=$(echo "${CONTADOR18} + 1" | bc); else
+
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "19" ]; then CONTADOR19=$(echo "${CONTADOR19} + 1" | bc); else
+
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "20" ]; then CONTADOR20=$(echo "${CONTADOR20} + 1" | bc); else
+
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "21" ]; then CONTADOR21=$(echo "${CONTADOR21} + 1" | bc); else
+
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "22" ]; then CONTADOR22=$(echo "${CONTADOR22} + 1" | bc); else
+
+      if [ $(echo "${LINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "23" ]; then CONTADOR23=$(echo "${CONTADOR23} + 1" | bc); fi
+
+      fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi
+
+	else if [ "${LINHA}" == "Eval: errou." ]; then
+
+      NUMEROERROS=$(expr "${NUMEROERROS}" + 1)
+
+      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Mon" ]; then ERRCONTADORMON=$(echo "${ERRCONTADORMON} + 1" | bc); else
+
+      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Tue" ]; then ERRCONTADORTUE=$(echo "${ERRCONTADORTUE} + 1" | bc); else
+
+      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Wed" ]; then ERRCONTADORWED=$(echo "${ERRCONTADORWED} + 1" | bc); else
+
+      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Thu" ]; then ERRCONTADORTHU=$(echo "${ERRCONTADORTHU} + 1" | bc); else
+
+      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Fri" ]; then ERRCONTADORFRI=$(echo "${ERRCONTADORFRI} + 1" | bc); else
+
+      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sat" ]; then ERRCONTADORSAT=$(echo "${ERRCONTADORSAT} + 1" | bc); else
+
+      if [ $(echo "${ERRLINHA}" | cut -d " " -f 1) == "Sun" ]; then ERRCONTADORSUN=$(echo "${ERRCONTADORSUN} + 1" | bc); fi
+
+      fi; fi; fi; fi; fi; fi
+
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Jan" ]; then ERRCONTADORJAN=$(echo "${ERRCONTADORJAN} + 1" | bc); else
+
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Feb" ]; then ERRCONTADORFEB=$(echo "${ERRCONTADORFEB} + 1" | bc); else
+
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Mar" ]; then ERRCONTADORMAR=$(echo "${ERRCONTADORMAR} + 1" | bc); else
+
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Apr" ]; then ERRCONTADORAPR=$(echo "${ERRCONTADORAPR} + 1" | bc); else
+
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "May" ]; then ERRCONTADORMAY=$(echo "${ERRCONTADORMAY} + 1" | bc); else
+
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Jun" ]; then ERRCONTADORJUN=$(echo "${ERRCONTADORJUN} + 1" | bc); else
+
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Jul" ]; then ERRCONTADORJUL=$(echo "${ERRCONTADORJUL} + 1" | bc); else
+
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Aug" ]; then ERRCONTADORAUG=$(echo "${ERRCONTADORAUG} + 1" | bc); else
+
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Sep" ]; then ERRCONTADORSEP=$(echo "${ERRCONTADORSEP} + 1" | bc); else
+
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Oct" ]; then ERRCONTADOROCT=$(echo "${ERRCONTADOROCT} + 1" | bc); else
+
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Nov" ]; then ERRCONTADORNOV=$(echo "${ERRCONTADORNOV} + 1" | bc); else
+
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 2) == "Dec" ]; then ERRCONTADORDEC=$(echo "${ERRCONTADORDEC} + 1" | bc); fi
+
+      fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi
+
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "00" ]; then ERRCONTADOR00=$(echo "${ERRCONTADOR00} + 1" | bc); else
+
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "01" ]; then ERRCONTADOR01=$(echo "${ERRCONTADOR01} + 1" | bc); else
+
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "02" ]; then ERRCONTADOR02=$(echo "${ERRCONTADOR02} + 1" | bc); else
+
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "03" ]; then ERRCONTADOR03=$(echo "${ERRCONTADOR03} + 1" | bc); else
+
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "04" ]; then ERRCONTADOR04=$(echo "${ERRCONTADOR04} + 1" | bc); else
+
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "05" ]; then ERRCONTADOR05=$(echo "${ERRCONTADOR05} + 1" | bc); else
+
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "06" ]; then ERRCONTADOR06=$(echo "${ERRCONTADOR06} + 1" | bc); else
+
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "07" ]; then ERRCONTADOR07=$(echo "${ERRCONTADOR07} + 1" | bc); else
+
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "08" ]; then ERRCONTADOR08=$(echo "${ERRCONTADOR08} + 1" | bc); else
+
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "09" ]; then ERRCONTADOR09=$(echo "${ERRCONTADOR09} + 1" | bc); else
+
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "10" ]; then ERRCONTADOR10=$(echo "${ERRCONTADOR10} + 1" | bc); else
+
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "11" ]; then ERRCONTADOR11=$(echo "${ERRCONTADOR11} + 1" | bc); else
+
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "12" ]; then ERRCONTADOR12=$(echo "${ERRCONTADOR12} + 1" | bc); else
+
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "13" ]; then ERRCONTADOR13=$(echo "${ERRCONTADOR13} + 1" | bc); else
+
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "14" ]; then ERRCONTADOR14=$(echo "${ERRCONTADOR14} + 1" | bc); else
+
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "15" ]; then ERRCONTADOR15=$(echo "${ERRCONTADOR15} + 1" | bc); else
+
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "16" ]; then ERRCONTADOR16=$(echo "${ERRCONTADOR16} + 1" | bc); else
+
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "17" ]; then ERRCONTADOR17=$(echo "${ERRCONTADOR17} + 1" | bc); else
+
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "18" ]; then ERRCONTADOR18=$(echo "${ERRCONTADOR18} + 1" | bc); else
+
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "19" ]; then ERRCONTADOR19=$(echo "${ERRCONTADOR19} + 1" | bc); else
+
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "20" ]; then ERRCONTADOR20=$(echo "${ERRCONTADOR20} + 1" | bc); else
+
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "21" ]; then ERRCONTADOR21=$(echo "${ERRCONTADOR21} + 1" | bc); else
+
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "22" ]; then ERRCONTADOR22=$(echo "${ERRCONTADOR22} + 1" | bc); else
+
+      if [ $(echo "${ERRLINHA}" | sed 's/  / /g' | cut -d " " -f 4 | cut -d ":" -f 1) == "23" ]; then ERRCONTADOR23=$(echo "${ERRCONTADOR23} + 1" | bc); fi
+
+    fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi; fi
+
+    else
+
+      if [ "${LINHA}" == "Eval: acertou." ]; then NUMEROACERTOS=$(expr "${NUMEROACERTOS}" + 1); fi
+
+    fi; fi
+
+  CONTADORLINHAS=$(expr "${CONTADORLINHAS}" + 1);
+
+  done < "${ARQUIVOLOGTEMPCACHE}"
+
+  rm "${ARQUIVOLOGTEMPCACHE}" &>> /dev/null
+
+  if [ "${NUMEROACERTOS}" -gt "${NUMEROERROS}" ]; then MAXACERTOSERROS="${NUMEROACERTOS}"; else MAXACERTOSERROS="${NUMEROERROS}"; fi
+
+  TOTALRESPOSTAS=$(echo "${NUMEROACERTOS} + ${NUMEROERROS}" | bc)
+
+  PERCENTUALACERTO=$(echo "100 * ${NUMEROACERTOS} / ${TOTALRESPOSTAS}" | bc -l)
+
+  PERCENTUALERRO=$(echo "100 * ${NUMEROERROS} / ${TOTALRESPOSTAS}" | bc -l)
+
+  echo "${MAXACERTOSERROS}%${NUMEROACERTOS}%${NUMEROERROS}%${CONTADORMON}%${CONTADORTUE}%${CONTADORWED}%${CONTADORTHU}%${CONTADORFRI}%${CONTADORSAT}%${CONTADORSUN}%${MAXDIASEMANA}%${CONTADORJAN}%${CONTADORFEB}%${CONTADORMAR}%${CONTADORAPR}%${CONTADORMAY}%${CONTADORJUN}%${CONTADORJUL}%${CONTADORAUG}%${CONTADORSEP}%${CONTADOROCT}%${CONTADORNOV}%${CONTADORDEC}%${MAXMESANO}%${CONTADOR00}%${CONTADOR01}%${CONTADOR02}%${CONTADOR03}%${CONTADOR04}%${CONTADOR05}%${CONTADOR06}%${CONTADOR07}%${CONTADOR08}%${CONTADOR09}%${CONTADOR10}%${CONTADOR11}%${CONTADOR12}%${CONTADOR13}%${CONTADOR14}%${CONTADOR15}%${CONTADOR16}%${CONTADOR17}%${CONTADOR18}%${CONTADOR19}%${CONTADOR20}%${CONTADOR21}%${CONTADOR22}%${CONTADOR23}%${MAXHORADIA}%${ERRCONTADORMON}%${ERRCONTADORTUE}%${ERRCONTADORWED}%${ERRCONTADORTHU}%${ERRCONTADORFRI}%${ERRCONTADORSAT}%${ERRCONTADORSUN}%${ERRMAXDIASEMANA}%${ERRCONTADORJAN}%${ERRCONTADORFEB}%${ERRCONTADORMAR}%${ERRCONTADORAPR}%${ERRCONTADORMAY}%${ERRCONTADORJUN}%${ERRCONTADORJUL}%${ERRCONTADORAUG}%${ERRCONTADORSEP}%${ERRCONTADOROCT}%${ERRCONTADORNOV}%${ERRCONTADORDEC}%${ERRMAXMESANO}%${ERRCONTADOR00}%${ERRCONTADOR01}%${ERRCONTADOR02}%${ERRCONTADOR03}%${ERRCONTADOR04}%${ERRCONTADOR05}%${ERRCONTADOR06}%${ERRCONTADOR07}%${ERRCONTADOR08}%${ERRCONTADOR09}%${ERRCONTADOR10}%${ERRCONTADOR11}%${ERRCONTADOR12}%${ERRCONTADOR13}%${ERRCONTADOR14}%${ERRCONTADOR15}%${ERRCONTADOR16}%${ERRCONTADOR17}%${ERRCONTADOR18}%${ERRCONTADOR19}%${ERRCONTADOR20}%${ERRCONTADOR21}%${ERRCONTADOR22}%${ERRCONTADOR23}%${ERRMAXHORADIA}%$(expr ${CONTADORLINHAS} + ${CACHELINHAS})" > "${ARQUIVOCACHESTAT}"
+
+  echo "1 Acertos ${NUMEROACERTOS} 2" > "${ARQUIVOGNUPLOTDATA}"
+
+  echo "2 Erros ${NUMEROERROS} 7" >> "${ARQUIVOGNUPLOTDATA}"
+
+  if [ "${MAXACERTOSERROS}" -gt "0" ]; then gnuplot -p -e "set xtics font 'Verdana,10'; set yrange [0:]; set boxwidth 0.3; set style fill solid; set ytics 0,${MAXACERTOSERROS}; set terminal png size 800,600; set title 'Comparativo de acertos e erros - $(date).'; show title; set output '${ARQUIVOGRAFICO}'; plot '${ARQUIVOGNUPLOTDATA}' using 1:3:4:xtic(2) notitle with boxes linecolor variable, '' using 1:(3):3 notitle with labels font 'Verdana,7'" &>> /dev/null; else cp "${IMAGEGRAPH0}" "${ARQUIVOGRAFICO}" &>> /dev/null; fi
+
+  echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
+
+  if [ "${MAXACERTOSERROS}" -gt "0" ]; then gnuplot -p -e "Ai=0.0; yi=0.0; yi2=0.0; ang(x)=x*360.0/${TOTALRESPOSTAS}; set size square; set xrange [-1:1.5]; set yrange [-1.25:1.25]; set boxwidth 0.3; set style fill solid 1; unset border; unset tics; unset key; set terminal png size 800,600; set title 'Comparativo de acertos e erros - $(date).'; show title; set output '${ARQUIVOGRAFICOPIZZA}'; plot '${ARQUIVOGNUPLOTDATA}' u (0):(0):(1):(Ai):(Ai=Ai+ang(\$3)):(\$4) with circle linecolor var, '${ARQUIVOGNUPLOTDATA}' u (1.5):(yi=yi+0.5/\$3):(\$2) w labels, '${ARQUIVOGNUPLOTDATA}' u (1.3):(yi2=yi2+0.5/\$3):(\$4) w p pt 5 ps 2 linecolor var" &>> /dev/null; else cp "${IMAGEGRAPH0}" "${ARQUIVOGRAFICOPIZZA}" &>> /dev/null; fi
+
+  echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
+
+  echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
+
+  echo -n "Seg" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA2}"; echo " ${CONTADORMON}" >> "${ARQUIVOGNUPLOTDATA2}"; if [ "${MAXDIASEMANA}" -lt "${CONTADORMON}" ]; then MAXDIASEMANA="${CONTADORMON}"; fi
+
+  echo -n "Ter" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA2}"; echo " ${CONTADORTUE}" >> "${ARQUIVOGNUPLOTDATA2}"; if [ "${MAXDIASEMANA}" -lt "${CONTADORTUE}" ]; then MAXDIASEMANA="${CONTADORTUE}"; fi
+
+  echo -n "Qua" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA2}"; echo " ${CONTADORWED}" >> "${ARQUIVOGNUPLOTDATA2}"; if [ "${MAXDIASEMANA}" -lt "${CONTADORWED}" ]; then MAXDIASEMANA="${CONTADORWED}"; fi
+
+  echo -n "Qui" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA2}"; echo " ${CONTADORTHU}" >> "${ARQUIVOGNUPLOTDATA2}"; if [ "${MAXDIASEMANA}" -lt "${CONTADORTHU}" ]; then MAXDIASEMANA="${CONTADORTHU}"; fi
+
+  echo -n "Sex" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA2}"; echo " ${CONTADORFRI}" >> "${ARQUIVOGNUPLOTDATA2}"; if [ "${MAXDIASEMANA}" -lt "${CONTADORFRI}" ]; then MAXDIASEMANA="${CONTADORFRI}"; fi
+
+  echo -n "Sab" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA2}"; echo " ${CONTADORSAT}" >> "${ARQUIVOGNUPLOTDATA2}"; if [ "${MAXDIASEMANA}" -lt "${CONTADORSAT}" ]; then MAXDIASEMANA="${CONTADORSAT}"; fi
+
+  echo -n "Dom" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA2}"; echo " ${CONTADORSUN}" >> "${ARQUIVOGNUPLOTDATA2}"; if [ "${MAXDIASEMANA}" -lt "${CONTADORSUN}" ]; then MAXDIASEMANA="${CONTADORSUN}"; fi
+
+  echo -n "Jan" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA3}"; echo " ${CONTADORJAN}" >> "${ARQUIVOGNUPLOTDATA3}"; if [ "${MAXMESANO}" -lt "${CONTADORJAN}" ]; then MAXMESANO="${CONTADORJAN}"; fi
+
+  echo -n "Fev" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA3}"; echo " ${CONTADORFEB}" >> "${ARQUIVOGNUPLOTDATA3}"; if [ "${MAXMESANO}" -lt "${CONTADORFEB}" ]; then MAXMESANO="${CONTADORFEB}"; fi
+
+  echo -n "Mar" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA3}"; echo " ${CONTADORMAR}" >> "${ARQUIVOGNUPLOTDATA3}"; if [ "${MAXMESANO}" -lt "${CONTADORMAR}" ]; then MAXMESANO="${CONTADORMAR}"; fi
+
+  echo -n "Abr" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA3}"; echo " ${CONTADORAPR}" >> "${ARQUIVOGNUPLOTDATA3}"; if [ "${MAXMESANO}" -lt "${CONTADORAPR}" ]; then MAXMESANO="${CONTADORAPR}"; fi
+
+  echo -n "Mai" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA3}"; echo " ${CONTADORMAY}" >> "${ARQUIVOGNUPLOTDATA3}"; if [ "${MAXMESANO}" -lt "${CONTADORMAY}" ]; then MAXMESANO="${CONTADORMAY}"; fi
+
+  echo -n "Jun" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA3}"; echo " ${CONTADORJUN}" >> "${ARQUIVOGNUPLOTDATA3}"; if [ "${MAXMESANO}" -lt "${CONTADORJUN}" ]; then MAXMESANO="${CONTADORJUN}"; fi
+
+  echo -n "Jul" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA3}"; echo " ${CONTADORJUL}" >> "${ARQUIVOGNUPLOTDATA3}"; if [ "${MAXMESANO}" -lt "${CONTADORJUL}" ]; then MAXMESANO="${CONTADORJUL}"; fi
+
+  echo -n "Ago" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA3}"; echo " ${CONTADORAUG}" >> "${ARQUIVOGNUPLOTDATA3}"; if [ "${MAXMESANO}" -lt "${CONTADORAUG}" ]; then MAXMESANO="${CONTADORAUG}"; fi
+
+  echo -n "Set" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA3}"; echo " ${CONTADORSEP}" >> "${ARQUIVOGNUPLOTDATA3}"; if [ "${MAXMESANO}" -lt "${CONTADORSEP}" ]; then MAXMESANO="${CONTADORSEP}"; fi
+
+  echo -n "Out" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA3}"; echo " ${CONTADOROCT}" >> "${ARQUIVOGNUPLOTDATA3}"; if [ "${MAXMESANO}" -lt "${CONTADOROCT}" ]; then MAXMESANO="${CONTADOROCT}"; fi
+
+  echo -n "Nov" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA3}"; echo " ${CONTADORNOV}" >> "${ARQUIVOGNUPLOTDATA3}"; if [ "${MAXMESANO}" -lt "${CONTADORNOV}" ]; then MAXMESANO="${CONTADORNOV}"; fi
+
+  echo -n "Dec" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA3}"; echo " ${CONTADORDEC}" >> "${ARQUIVOGNUPLOTDATA3}"; if [ "${MAXMESANO}" -lt "${CONTADORDEC}" ]; then MAXMESANO="${CONTADORDEC}"; fi
+
+  echo -n "00h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA4}"; echo " ${CONTADOR00}" >> "${ARQUIVOGNUPLOTDATA4}"; if [ "${MAXHORADIA}" -lt "${CONTADOR00}" ]; then MAXHORADIA="${CONTADOR00}"; fi
+
+  echo -n "01h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA4}"; echo " ${CONTADOR01}" >> "${ARQUIVOGNUPLOTDATA4}"; if [ "${MAXHORADIA}" -lt "${CONTADOR01}" ]; then MAXHORADIA="${CONTADOR01}"; fi
+
+  echo -n "02h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA4}"; echo " ${CONTADOR02}" >> "${ARQUIVOGNUPLOTDATA4}"; if [ "${MAXHORADIA}" -lt "${CONTADOR02}" ]; then MAXHORADIA="${CONTADOR02}"; fi
+
+  echo -n "03h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA4}"; echo " ${CONTADOR03}" >> "${ARQUIVOGNUPLOTDATA4}"; if [ "${MAXHORADIA}" -lt "${CONTADOR03}" ]; then MAXHORADIA="${CONTADOR03}"; fi
+
+  echo -n "04h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA4}"; echo " ${CONTADOR04}" >> "${ARQUIVOGNUPLOTDATA4}"; if [ "${MAXHORADIA}" -lt "${CONTADOR04}" ]; then MAXHORADIA="${CONTADOR04}"; fi
+
+  echo -n "05h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA4}"; echo " ${CONTADOR05}" >> "${ARQUIVOGNUPLOTDATA4}"; if [ "${MAXHORADIA}" -lt "${CONTADOR05}" ]; then MAXHORADIA="${CONTADOR05}"; fi
+
+  echo -n "06h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA4}"; echo " ${CONTADOR06}" >> "${ARQUIVOGNUPLOTDATA4}"; if [ "${MAXHORADIA}" -lt "${CONTADOR06}" ]; then MAXHORADIA="${CONTADOR06}"; fi
+
+  echo -n "07h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA4}"; echo " ${CONTADOR07}" >> "${ARQUIVOGNUPLOTDATA4}"; if [ "${MAXHORADIA}" -lt "${CONTADOR07}" ]; then MAXHORADIA="${CONTADOR07}"; fi
+
+  echo -n "08h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA4}"; echo " ${CONTADOR08}" >> "${ARQUIVOGNUPLOTDATA4}"; if [ "${MAXHORADIA}" -lt "${CONTADOR08}" ]; then MAXHORADIA="${CONTADOR08}"; fi
+
+  echo -n "09h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA4}"; echo " ${CONTADOR09}" >> "${ARQUIVOGNUPLOTDATA4}"; if [ "${MAXHORADIA}" -lt "${CONTADOR09}" ]; then MAXHORADIA="${CONTADOR09}"; fi
+
+  echo -n "10h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA4}"; echo " ${CONTADOR10}" >> "${ARQUIVOGNUPLOTDATA4}"; if [ "${MAXHORADIA}" -lt "${CONTADOR10}" ]; then MAXHORADIA="${CONTADOR10}"; fi
+
+  echo -n "11h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA4}"; echo " ${CONTADOR11}" >> "${ARQUIVOGNUPLOTDATA4}"; if [ "${MAXHORADIA}" -lt "${CONTADOR11}" ]; then MAXHORADIA="${CONTADOR11}"; fi
+
+  echo -n "12h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA4}"; echo " ${CONTADOR12}" >> "${ARQUIVOGNUPLOTDATA4}"; if [ "${MAXHORADIA}" -lt "${CONTADOR12}" ]; then MAXHORADIA="${CONTADOR12}"; fi
+
+  echo -n "13h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA4}"; echo " ${CONTADOR13}" >> "${ARQUIVOGNUPLOTDATA4}"; if [ "${MAXHORADIA}" -lt "${CONTADOR13}" ]; then MAXHORADIA="${CONTADOR13}"; fi
+
+  echo -n "14h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA4}"; echo " ${CONTADOR14}" >> "${ARQUIVOGNUPLOTDATA4}"; if [ "${MAXHORADIA}" -lt "${CONTADOR14}" ]; then MAXHORADIA="${CONTADOR14}"; fi
+
+  echo -n "15h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA4}"; echo " ${CONTADOR15}" >> "${ARQUIVOGNUPLOTDATA4}"; if [ "${MAXHORADIA}" -lt "${CONTADOR15}" ]; then MAXHORADIA="${CONTADOR15}"; fi
+
+  echo -n "16h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA4}"; echo " ${CONTADOR16}" >> "${ARQUIVOGNUPLOTDATA4}"; if [ "${MAXHORADIA}" -lt "${CONTADOR16}" ]; then MAXHORADIA="${CONTADOR16}"; fi
+
+  echo -n "17h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA4}"; echo " ${CONTADOR17}" >> "${ARQUIVOGNUPLOTDATA4}"; if [ "${MAXHORADIA}" -lt "${CONTADOR17}" ]; then MAXHORADIA="${CONTADOR17}"; fi
+
+  echo -n "18h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA4}"; echo " ${CONTADOR18}" >> "${ARQUIVOGNUPLOTDATA4}"; if [ "${MAXHORADIA}" -lt "${CONTADOR18}" ]; then MAXHORADIA="${CONTADOR18}"; fi
+
+  echo -n "19h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA4}"; echo " ${CONTADOR19}" >> "${ARQUIVOGNUPLOTDATA4}"; if [ "${MAXHORADIA}" -lt "${CONTADOR19}" ]; then MAXHORADIA="${CONTADOR19}"; fi
+
+  echo -n "20h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA4}"; echo " ${CONTADOR20}" >> "${ARQUIVOGNUPLOTDATA4}"; if [ "${MAXHORADIA}" -lt "${CONTADOR20}" ]; then MAXHORADIA="${CONTADOR20}"; fi
+
+  echo -n "21h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA4}"; echo " ${CONTADOR21}" >> "${ARQUIVOGNUPLOTDATA4}"; if [ "${MAXHORADIA}" -lt "${CONTADOR21}" ]; then MAXHORADIA="${CONTADOR21}"; fi
+
+  echo -n "22h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA4}"; echo " ${CONTADOR22}" >> "${ARQUIVOGNUPLOTDATA4}"; if [ "${MAXHORADIA}" -lt "${CONTADOR22}" ]; then MAXHORADIA="${CONTADOR22}"; fi
+
+  echo -n "23h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA4}"; echo " ${CONTADOR23}" >> "${ARQUIVOGNUPLOTDATA4}"; if [ "${MAXHORADIA}" -lt "${CONTADOR23}" ]; then MAXHORADIA="${CONTADOR23}"; fi
+
+  echo -n "Seg" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA5}"; echo " ${ERRCONTADORMON}" >> "${ARQUIVOGNUPLOTDATA5}"; if [ "${ERRMAXDIASEMANA}" -lt "${ERRCONTADORMON}" ]; then ERRMAXDIASEMANA="${ERRCONTADORMON}"; fi
+
+  echo -n "Ter" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA5}"; echo " ${ERRCONTADORTUE}" >> "${ARQUIVOGNUPLOTDATA5}"; if [ "${ERRMAXDIASEMANA}" -lt "${ERRCONTADORTUE}" ]; then ERRMAXDIASEMANA="${ERRCONTADORTUE}"; fi
+
+  echo -n "Qua" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA5}"; echo " ${ERRCONTADORWED}" >> "${ARQUIVOGNUPLOTDATA5}"; if [ "${ERRMAXDIASEMANA}" -lt "${ERRCONTADORWED}" ]; then ERRMAXDIASEMANA="${ERRCONTADORWED}"; fi
+
+  echo -n "Qui" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA5}"; echo " ${ERRCONTADORTHU}" >> "${ARQUIVOGNUPLOTDATA5}"; if [ "${ERRMAXDIASEMANA}" -lt "${ERRCONTADORTHU}" ]; then ERRMAXDIASEMANA="${ERRCONTADORTHU}"; fi
+
+  echo -n "Sex" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA5}"; echo " ${ERRCONTADORFRI}" >> "${ARQUIVOGNUPLOTDATA5}"; if [ "${ERRMAXDIASEMANA}" -lt "${ERRCONTADORFRI}" ]; then ERRMAXDIASEMANA="${ERRCONTADORFRI}"; fi
+
+  echo -n "Sab" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA5}"; echo " ${ERRCONTADORSAT}" >> "${ARQUIVOGNUPLOTDATA5}"; if [ "${ERRMAXDIASEMANA}" -lt "${ERRCONTADORSAT}" ]; then ERRMAXDIASEMANA="${ERRCONTADORSAT}"; fi
+
+  echo -n "Dom" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA5}"; echo " ${ERRCONTADORSUN}" >> "${ARQUIVOGNUPLOTDATA5}"; if [ "${ERRMAXDIASEMANA}" -lt "${ERRCONTADORSUN}" ]; then ERRMAXDIASEMANA="${ERRCONTADORSUN}"; fi
+
+  echo -n "Jan" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA6}"; echo " ${ERRCONTADORJAN}" >> "${ARQUIVOGNUPLOTDATA6}"; if [ "${ERRMAXMESANO}" -lt "${ERRCONTADORJAN}" ]; then ERRMAXMESANO="${ERRCONTADORJAN}"; fi
+
+  echo -n "Fev" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA6}"; echo " ${ERRCONTADORFEB}" >> "${ARQUIVOGNUPLOTDATA6}"; if [ "${ERRMAXMESANO}" -lt "${ERRCONTADORFEB}" ]; then ERRMAXMESANO="${ERRCONTADORFEB}"; fi
+
+  echo -n "Mar" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA6}"; echo " ${ERRCONTADORMAR}" >> "${ARQUIVOGNUPLOTDATA6}"; if [ "${ERRMAXMESANO}" -lt "${ERRCONTADORMAR}" ]; then ERRMAXMESANO="${ERRCONTADORMAR}"; fi
+
+  echo -n "Abr" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA6}"; echo " ${ERRCONTADORAPR}" >> "${ARQUIVOGNUPLOTDATA6}"; if [ "${ERRMAXMESANO}" -lt "${ERRCONTADORAPR}" ]; then ERRMAXMESANO="${ERRCONTADORAPR}"; fi
+
+  echo -n "Mai" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA6}"; echo " ${ERRCONTADORMAY}" >> "${ARQUIVOGNUPLOTDATA6}"; if [ "${ERRMAXMESANO}" -lt "${ERRCONTADORMAY}" ]; then ERRMAXMESANO="${ERRCONTADORMAY}"; fi
+
+  echo -n "Jun" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA6}"; echo " ${ERRCONTADORJUN}" >> "${ARQUIVOGNUPLOTDATA6}"; if [ "${ERRMAXMESANO}" -lt "${ERRCONTADORJUN}" ]; then ERRMAXMESANO="${ERRCONTADORJUN}"; fi
+
+  echo -n "Jul" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA6}"; echo " ${ERRCONTADORJUL}" >> "${ARQUIVOGNUPLOTDATA6}"; if [ "${ERRMAXMESANO}" -lt "${ERRCONTADORJUL}" ]; then ERRMAXMESANO="${ERRCONTADORJUL}"; fi
+
+  echo -n "Ago" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA6}"; echo " ${ERRCONTADORAUG}" >> "${ARQUIVOGNUPLOTDATA6}"; if [ "${ERRMAXMESANO}" -lt "${ERRCONTADORAUG}" ]; then ERRMAXMESANO="${ERRCONTADORAUG}"; fi
+
+  echo -n "Set" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA6}"; echo " ${ERRCONTADORSEP}" >> "${ARQUIVOGNUPLOTDATA6}"; if [ "${ERRMAXMESANO}" -lt "${ERRCONTADORSEP}" ]; then ERRMAXMESANO="${ERRCONTADORSEP}"; fi
+
+  echo -n "Out" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA6}"; echo " ${ERRCONTADOROCT}" >> "${ARQUIVOGNUPLOTDATA6}"; if [ "${ERRMAXMESANO}" -lt "${ERRCONTADOROCT}" ]; then ERRMAXMESANO="${ERRCONTADOROCT}"; fi
+
+  echo -n "Nov" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA6}"; echo " ${ERRCONTADORNOV}" >> "${ARQUIVOGNUPLOTDATA6}"; if [ "${ERRMAXMESANO}" -lt "${ERRCONTADORNOV}" ]; then ERRMAXMESANO="${ERRCONTADORNOV}"; fi
+
+  echo -n "Dec" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA6}"; echo " ${ERRCONTADORDEC}" >> "${ARQUIVOGNUPLOTDATA6}"; if [ "${ERRMAXMESANO}" -lt "${ERRCONTADORDEC}" ]; then ERRMAXMESANO="${ERRCONTADORDEC}"; fi
+
+  echo -n "00h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA7}"; echo " ${ERRCONTADOR00}" >> "${ARQUIVOGNUPLOTDATA7}"; if [ "${ERRMAXHORADIA}" -lt "${ERRCONTADOR00}" ]; then ERRMAXHORADIA="${ERRCONTADOR00}"; fi
+
+  echo -n "01h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA7}"; echo " ${ERRCONTADOR01}" >> "${ARQUIVOGNUPLOTDATA7}"; if [ "${ERRMAXHORADIA}" -lt "${ERRCONTADOR01}" ]; then ERRMAXHORADIA="${ERRCONTADOR01}"; fi
+
+  echo -n "02h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA7}"; echo " ${ERRCONTADOR02}" >> "${ARQUIVOGNUPLOTDATA7}"; if [ "${ERRMAXHORADIA}" -lt "${ERRCONTADOR02}" ]; then ERRMAXHORADIA="${ERRCONTADOR02}"; fi
+
+  echo -n "03h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA7}"; echo " ${ERRCONTADOR03}" >> "${ARQUIVOGNUPLOTDATA7}"; if [ "${ERRMAXHORADIA}" -lt "${ERRCONTADOR03}" ]; then ERRMAXHORADIA="${ERRCONTADOR03}"; fi
+
+  echo -n "04h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA7}"; echo " ${ERRCONTADOR04}" >> "${ARQUIVOGNUPLOTDATA7}"; if [ "${ERRMAXHORADIA}" -lt "${ERRCONTADOR04}" ]; then ERRMAXHORADIA="${ERRCONTADOR04}"; fi
+
+  echo -n "05h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA7}"; echo " ${ERRCONTADOR05}" >> "${ARQUIVOGNUPLOTDATA7}"; if [ "${ERRMAXHORADIA}" -lt "${ERRCONTADOR05}" ]; then ERRMAXHORADIA="${ERRCONTADOR05}"; fi
+
+  echo -n "06h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA7}"; echo " ${ERRCONTADOR06}" >> "${ARQUIVOGNUPLOTDATA7}"; if [ "${ERRMAXHORADIA}" -lt "${ERRCONTADOR06}" ]; then ERRMAXHORADIA="${ERRCONTADOR06}"; fi
+
+  echo -n "07h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA7}"; echo " ${ERRCONTADOR07}" >> "${ARQUIVOGNUPLOTDATA7}"; if [ "${ERRMAXHORADIA}" -lt "${ERRCONTADOR07}" ]; then ERRMAXHORADIA="${ERRCONTADOR07}"; fi
+
+  echo -n "08h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA7}"; echo " ${ERRCONTADOR08}" >> "${ARQUIVOGNUPLOTDATA7}"; if [ "${ERRMAXHORADIA}" -lt "${ERRCONTADOR08}" ]; then ERRMAXHORADIA="${ERRCONTADOR08}"; fi
+
+  echo -n "09h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA7}"; echo " ${ERRCONTADOR09}" >> "${ARQUIVOGNUPLOTDATA7}"; if [ "${ERRMAXHORADIA}" -lt "${ERRCONTADOR09}" ]; then ERRMAXHORADIA="${ERRCONTADOR09}"; fi
+
+  echo -n "10h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA7}"; echo " ${ERRCONTADOR10}" >> "${ARQUIVOGNUPLOTDATA7}"; if [ "${ERRMAXHORADIA}" -lt "${ERRCONTADOR10}" ]; then ERRMAXHORADIA="${ERRCONTADOR10}"; fi
+
+  echo -n "11h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA7}"; echo " ${ERRCONTADOR11}" >> "${ARQUIVOGNUPLOTDATA7}"; if [ "${ERRMAXHORADIA}" -lt "${ERRCONTADOR11}" ]; then ERRMAXHORADIA="${ERRCONTADOR11}"; fi
+
+  echo -n "12h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA7}"; echo " ${ERRCONTADOR12}" >> "${ARQUIVOGNUPLOTDATA7}"; if [ "${ERRMAXHORADIA}" -lt "${ERRCONTADOR12}" ]; then ERRMAXHORADIA="${ERRCONTADOR12}"; fi
+
+  echo -n "13h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA7}"; echo " ${ERRCONTADOR13}" >> "${ARQUIVOGNUPLOTDATA7}"; if [ "${ERRMAXHORADIA}" -lt "${ERRCONTADOR13}" ]; then ERRMAXHORADIA="${ERRCONTADOR13}"; fi
+
+  echo -n "14h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA7}"; echo " ${ERRCONTADOR14}" >> "${ARQUIVOGNUPLOTDATA7}"; if [ "${ERRMAXHORADIA}" -lt "${ERRCONTADOR14}" ]; then ERRMAXHORADIA="${ERRCONTADOR14}"; fi
+
+  echo -n "15h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA7}"; echo " ${ERRCONTADOR15}" >> "${ARQUIVOGNUPLOTDATA7}"; if [ "${ERRMAXHORADIA}" -lt "${ERRCONTADOR15}" ]; then ERRMAXHORADIA="${ERRCONTADOR15}"; fi
+
+  echo -n "16h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA7}"; echo " ${ERRCONTADOR16}" >> "${ARQUIVOGNUPLOTDATA7}"; if [ "${ERRMAXHORADIA}" -lt "${ERRCONTADOR16}" ]; then ERRMAXHORADIA="${ERRCONTADOR16}"; fi
+
+  echo -n "17h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA7}"; echo " ${ERRCONTADOR17}" >> "${ARQUIVOGNUPLOTDATA7}"; if [ "${ERRMAXHORADIA}" -lt "${ERRCONTADOR17}" ]; then ERRMAXHORADIA="${ERRCONTADOR17}"; fi
+
+  echo -n "18h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA7}"; echo " ${ERRCONTADOR18}" >> "${ARQUIVOGNUPLOTDATA7}"; if [ "${ERRMAXHORADIA}" -lt "${ERRCONTADOR18}" ]; then ERRMAXHORADIA="${ERRCONTADOR18}"; fi
+
+  echo -n "19h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA7}"; echo " ${ERRCONTADOR19}" >> "${ARQUIVOGNUPLOTDATA7}"; if [ "${ERRMAXHORADIA}" -lt "${ERRCONTADOR19}" ]; then ERRMAXHORADIA="${ERRCONTADOR19}"; fi
+
+  echo -n "20h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA7}"; echo " ${ERRCONTADOR20}" >> "${ARQUIVOGNUPLOTDATA7}"; if [ "${ERRMAXHORADIA}" -lt "${ERRCONTADOR20}" ]; then ERRMAXHORADIA="${ERRCONTADOR20}"; fi
+
+  echo -n "21h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA7}"; echo " ${ERRCONTADOR21}" >> "${ARQUIVOGNUPLOTDATA7}"; if [ "${ERRMAXHORADIA}" -lt "${ERRCONTADOR21}" ]; then ERRMAXHORADIA="${ERRCONTADOR21}"; fi
+
+  echo -n "22h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA7}"; echo " ${ERRCONTADOR22}" >> "${ARQUIVOGNUPLOTDATA7}"; if [ "${ERRMAXHORADIA}" -lt "${ERRCONTADOR22}" ]; then ERRMAXHORADIA="${ERRCONTADOR22}"; fi
+
+  echo -n "23h" | tr -d "\n" >> "${ARQUIVOGNUPLOTDATA7}"; echo " ${ERRCONTADOR23}" >> "${ARQUIVOGNUPLOTDATA7}"; if [ "${ERRMAXHORADIA}" -lt "${ERRCONTADOR23}" ]; then ERRMAXHORADIA="${ERRCONTADOR23}"; fi
+
+  echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
+
+  MAXDIASEMANA=$(if [ "${MAXDIASEMANA}" -lt "10" ]; then echo -n $(expr "${MAXDIASEMANA}" + 1); else echo "${MAXDIASEMANA} * 1.1" | bc | cut -d "." -f 1; fi)
+
+  MAXMESANO=$(if [ "${MAXMESANO}" -lt "10" ]; then echo -n $(expr "${MAXMESANO}" + 1); else echo "${MAXMESANO} * 1.1" | bc | cut -d "." -f 1; fi)
+
+  MAXHORADIA=$(if [ "${MAXHORADIA}" -lt "10" ]; then echo -n $(expr "${MAXHORADIA}" + 1); else echo "${MAXHORADIA} * 1.1" | bc | cut -d "." -f 1; fi)
+
+  ERRMAXDIASEMANA=$(if [ "${ERRMAXDIASEMANA}" -lt "10" ]; then echo $(expr "${ERRMAXDIASEMANA}" + 1); else echo "${ERRMAXDIASEMANA} * 1.1" | bc | cut -d "." -f 1; fi)
+
+  ERRMAXMESANO=$(if [ "${ERRMAXMESANO}" -lt "10" ]; then echo -n $(expr "${ERRMAXMESANO}" + 1); else echo "${ERRMAXMESANO} * 1.1" | bc | cut -d "." -f 1; fi)
+
+  ERRMAXHORADIA=$(if [ "${ERRMAXHORADIA}" -lt "10" ]; then echo -n $(expr "${ERRMAXHORADIA}" + 1); else echo "${ERRMAXHORADIA} * 1.1" | bc | cut -d "." -f 1; fi)
+
+  if [ "${MAXDIASEMANA}" -gt "0" ]; then gnuplot -p -e "set xtics font 'Verdana,10'; set yrange [0:${MAXDIASEMANA}]; set boxwidth 0.3; set style fill solid; set terminal png size 800,600; set xtics rotate by 90 right; unset ytics; set title 'Distribuição semanal de uso do game - $(date)'; show title; set output '${ARQUIVOGRAFICOTEMPODISTSEM}'; plot '${ARQUIVOGNUPLOTDATA2}' using 2:xticlabels(1) notitle with boxes linecolor rgb \"gray\", '' using 0:2:2 notitle with labels font 'Verdana,7'"  &>> /dev/null; else cp "${IMAGEGRAPH0}" "${ARQUIVOGRAFICOTEMPODISTSEM}" &>> /dev/null; fi
+
+  echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
+
+  if [ "${MAXMESANO}" -gt "0" ]; then gnuplot -p -e "set xtics font 'Verdana,10'; set yrange [0:${MAXMESANO}]; set boxwidth 0.3; set style fill solid; set terminal png size 800,600; set xtics rotate by 90 right; unset ytics; set title 'Distribuição mensal de uso do game - $(date)'; show title; set output '${ARQUIVOGRAFICOTEMPODISTMES}'; plot '${ARQUIVOGNUPLOTDATA3}' using 2:xticlabels(1) notitle with boxes linecolor rgb \"gray\", '' using 0:2:2 notitle with labels font 'Verdana,7'" &>> /dev/null; else cp "${IMAGEGRAPH0}" "${ARQUIVOGRAFICOTEMPODISTMES}" &>> /dev/null; fi
+
+  echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
+
+  if [ "${MAXHORADIA}" -gt "0" ]; then gnuplot -p -e "set xtics font 'Verdana,10'; set yrange [0:${MAXHORADIA}]; set boxwidth 0.3; set style fill solid; set terminal png size 800,600; set xtics rotate by 90 right; unset ytics; set title 'Distribuição horária de uso do game - $(date)'; show title; set output '${ARQUIVOGRAFICOTEMPODISTHOR}'; plot '${ARQUIVOGNUPLOTDATA4}' using 2:xticlabels(1) notitle with boxes linecolor rgb \"gray\", '' using 0:2:2 notitle with labels font 'Verdana,7'" &>> /dev/null; else cp "${IMAGEGRAPH0}" "${ARQUIVOGRAFICOTEMPODISTHOR}" &>> /dev/null; fi
+
+  echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
+
+  if [ "${ERRMAXDIASEMANA}" -gt "0" ]; then gnuplot -p -e "set xtics font 'Verdana,10'; set yrange [0:${ERRMAXDIASEMANA}]; set boxwidth 0.3; set style fill solid; set terminal png size 800,600; set xtics rotate by 90 right; unset ytics; set title 'Distribuição semanal de erros no uso do game - $(date)'; show title; set output '${ARQUIVOGRAFICOTEMPODISTSEMERR}'; plot '${ARQUIVOGNUPLOTDATA5}' using 2:xticlabels(1) notitle with boxes linecolor rgb \"gray\", '' using 0:2:2 notitle with labels font 'Verdana,7'" &>> /dev/null; else cp "${IMAGEGRAPH0}" "${ARQUIVOGRAFICOTEMPODISTSEMERR}" &>> /dev/null; fi
+
+  echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
+
+  if [ "${ERRMAXMESANO}" -gt "0" ]; then gnuplot -p -e "set xtics font 'Verdana,10'; set yrange [0:${ERRMAXMESANO}]; set boxwidth 0.3; set style fill solid; set terminal png size 800,600; set xtics rotate by 90 right; unset ytics; set title 'Distribuição mensal de erros no uso do game - $(date)'; show title; set output '${ARQUIVOGRAFICOTEMPODISTMESERR}'; plot '${ARQUIVOGNUPLOTDATA6}' using 2:xticlabels(1) notitle with boxes linecolor rgb \"gray\", '' using 0:2:2 notitle with labels font 'Verdana,7'" &>> /dev/null; else cp "${IMAGEGRAPH0}" "${ARQUIVOGRAFICOTEMPODISTMESERR}" &>> /dev/null; fi
+
+  echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
+
+  if [ "${ERRMAXHORADIA}" -gt "0" ]; then gnuplot -p -e "set xtics font 'Verdana,10'; set yrange [0:${ERRMAXHORADIA}]; set boxwidth 0.3; set style fill solid; set terminal png size 800,600; set xtics rotate by 90 right; unset ytics; set title 'Distribuição horária de erros no uso do game - $(date)'; show title; set output '${ARQUIVOGRAFICOTEMPODISTHORERR}'; plot '${ARQUIVOGNUPLOTDATA7}' using 2:xticlabels(1) notitle with boxes linecolor rgb \"gray\", '' using 0:2:2 notitle with labels font 'Verdana,7'" &>> /dev/null; else cp "${IMAGEGRAPH0}" "${ARQUIVOGRAFICOTEMPODISTHORERR}" &>> /dev/null; fi
+
+  echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
+
+  rm "${ARQUIVOGNUPLOTDATA}" &>> /dev/null
+
+  echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
+
+  rm "${ARQUIVOGNUPLOTDATA2}" &>> /dev/null
+
+  echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
+
+  rm "${ARQUIVOGNUPLOTDATA3}" &>> /dev/null
+
+  echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
+
+  rm "${ARQUIVOGNUPLOTDATA4}" &>> /dev/null
+
+  echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
+
+  rm "${ARQUIVOGNUPLOTDATA5}" &>> /dev/null
+
+  echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
+
+  rm "${ARQUIVOGNUPLOTDATA6}" &>> /dev/null
+
+  echo -ne "\b"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne "${CHARPROGRESS}"
+
+  rm "${ARQUIVOGNUPLOTDATA7}" &>> /dev/null
+
+  if [ "${ONCE3}" == "0" ]; then echo -ne "\b         "; fi;
+
+  if [ "${ONCE2}" == "0" ]; then echo -ne "\b\b\b\b\b\b\b\b100.00 %  "; else echo -ne "\b\b\b\b\b\b\b\b\b100.00 %  "; fi
+
+  echo -ne "\b"; echo -ne "${AV_VERDE}"; bash antoniovandre_echo_android "${CONCLUDED}" n; echo -ne "${AV_SEMCOR}"; echo "."
+
+fi
+
+if [ "${1}" != "ne" ] && [ "${AVLOG}" == "1" ] && [ "${AVSTATS}" == "1" ] && ls "${ARQUIVOLOGTEMP}" &>> /dev/null; then MAXACERTOSERROS="0"; NUMEROACERTOS="0"; NUMEROERROS="0"; NUMEROACERTOS=$(cat "${ARQUIVOLOGTEMP}" | grep "Eval: acertou." | wc -l); NUMEROERROS=$(cat "${ARQUIVOLOGTEMP}" | grep "Eval: errou." | wc -l); TOTALRESPOSTAS=$(echo "${NUMEROACERTOS} + ${NUMEROERROS}" | bc); PERCENTUALACERTO=$(echo "100 * ${NUMEROACERTOS} / ${TOTALRESPOSTAS}" | bc -l); PERCENTUALERRO=$(echo "100 * ${NUMEROERROS} / ${TOTALRESPOSTAS}" | bc -l); bash antoniovandre_echo "${BUILDINGSTATSFILE}" n; echo "Arquivo de estatísticas do jogo." > "${ARQUIVOSTATS}"; echo "_____" >> "${ARQUIVOSTATS}"; echo "Total de respostas: ${TOTALRESPOSTAS}." >> "${ARQUIVOSTATS}"; echo "Total de acertos: ${NUMEROACERTOS}." >> "${ARQUIVOSTATS}"; echo "Total de erros: ${NUMEROERROS}." >> "${ARQUIVOSTATS}"; echo "Percentual de acerto: ${PERCENTUALACERTO} %." >> "${ARQUIVOSTATS}"; echo "Percentual de erro: ${PERCENTUALERRO} %." >> "${ARQUIVOSTATS}"; echo -ne "${AV_VERDE}"; bash antoniovandre_echo "${CONCLUDED}" n; echo -ne "${AV_SEMCOR}"; echo "."; fi
+
+if [ "${AVLOG}" == "1" ] && ls "${ARQUIVOLOGTEMP}" &>> /dev/null; then bash antoniovandre_echo "${CONVLOGDOS}" n; if unix2dos "${ARQUIVOLOGTEMP}" &>> /dev/null; then echo -ne "${AV_VERDE}"; bash antoniovandre_echo "${SUCCESS}" n; echo -ne "${AV_SEMCOR}"; echo "."; else echo -ne "${AV_VERMELHO}"; bash antoniovandre_echo "${FAIL}" n; echo -ne "${AV_SEMCOR}"; echo "."; rm "${LOCKFILE}" &>> /dev/null; exit 1; fi; fi
+
+if [ "${DROPBOX}" == "1" ]; then if [ "${1}" != "ne" ]; then if [ "${AVLOG}" == "1" ]; then cp "${ARQUIVOLOGTEMP}" "${ARQUIVOLOG}" &>> /dev/null; antoniovandre_echo "${MAKINGUPLOAD}" n; if (! antoniovandre_dbxcli_put "${ARQUIVOLOG}" "${DIRCLOUDSYNC}${ARQUIVOLOG##*/}" &>> /dev/null) || (! echo -ne "1/11") || (! antoniovandre_dbxcli_put "${ARQUIVOGRAFICO}" "${DIRCLOUDSYNC}${ARQUIVOGRAFICO##*/}" &>> /dev/null) || (! echo -ne "\b\b\b\b2/11") || (! antoniovandre_dbxcli_put "${ARQUIVOGRAFICOPIZZA}" "${DIRCLOUDSYNC}${ARQUIVOGRAFICOPIZZA##*/}" &>> /dev/null) || (! echo -ne "\b\b\b\b3/11") || (! antoniovandre_dbxcli_put "${ARQUIVOGRAFICOTEMPODISTSEM}" "${DIRCLOUDSYNC}${ARQUIVOGRAFICOTEMPODISTSEM##*/}" &>> /dev/null) || (! echo -ne "\b\b\b\b4/11") || (! antoniovandre_dbxcli_put "${ARQUIVOGRAFICOTEMPODISTMES}" "${DIRCLOUDSYNC}${ARQUIVOGRAFICOTEMPODISTMES##*/}" &>> /dev/null) || (! echo -ne "\b\b\b\b5/11") || (! antoniovandre_dbxcli_put "${ARQUIVOSTATS}" "${DIRCLOUDSYNC}${ARQUIVOSTATS##*/}" &>> /dev/null) || (! echo -ne "\b\b\b\b6/11") || (! antoniovandre_dbxcli_put "${ARQUIVOGRAFICOTEMPODISTHOR}" "${DIRCLOUDSYNC}${ARQUIVOGRAFICOTEMPODISTHOR##*/}" &>> /dev/null) || (! echo -ne "\b\b\b\b7/11") || (! antoniovandre_dbxcli_put "${ARQUIVOGRAFICOTEMPODISTHORERR}" "${DIRCLOUDSYNC}${ARQUIVOGRAFICOTEMPODISTHORERR##*/}" &>> /dev/null) || (! echo -ne "\b\b\b\b8/11") || (! antoniovandre_dbxcli_put "${ARQUIVOGRAFICOTEMPODISTSEMERR}" "${DIRCLOUDSYNC}${ARQUIVOGRAFICOTEMPODISTSEMERR##*/}" &>> /dev/null) || (! echo -ne "\b\b\b\b9/11") || (! antoniovandre_dbxcli_put "${ARQUIVOGRAFICOTEMPODISTMESERR}" "${DIRCLOUDSYNC}${ARQUIVOGRAFICOTEMPODISTMESERR##*/}" &>> /dev/null) || (! echo -ne "\b\b\b\b10/11") || (! antoniovandre_dbxcli_put "${ARQUIVOLOGTEMP}" "${DIRCLOUDSYNC}${ARQUIVOLOGTEMP##*/}" &>> /dev/null) || (! echo -ne "\b\b\b\b\b11/11") || (! antoniovandre_dbxcli_put "${ARQUIVOCACHESTAT}" "${DIRCLOUDSYNC}${ARQUIVOCACHESTAT##*/}" &>> /dev/null) || (! echo -ne "\b\b\b\b\b\b     \b\b\b\b"); then echo -ne "${AV_VERMELHO}"; antoniovandre_echo "${ERRORUPLOADFILES}" n; echo -e "${AV_SEMCOR}."; else echo -ne "${AV_VERDE}"; antoniovandre_echo "${SUCCESS}" n; echo -e "${AV_SEMCOR}."; fi; fi; fi; fi
+
+# Início personalização de Antonio Vandré.
+
+if [ "${1}" != "ne" ]; then if [ "${AVLOG}" == "1" ]; then antoniovandre_echo "Carregando no GitHub... " n; if ! cd GitHub; then mkdir GitHub; cd GitHub; fi; rm -fr antoniovandre2 &>> /dev/null; if git clone --depth 1 "https://github.com/antoniovandre2/antoniovandre2" &>> /dev/null && cp ../*_log.* antoniovandre2/antoniovandre_mathgame/ && cp ../*_log_* antoniovandre2/antoniovandre_mathgame/ && cp "../${ARQUIVOLOGTEMP}" antoniovandre2/antoniovandre_mathgame/ && cp "../${ARQUIVOCACHESTAT}" antoniovandre2/antoniovandre_mathgame/ && cd antoniovandre2 && git add antoniovandre_mathgame/* &>> /dev/null && git commit -m "Atualizando logs do AV B mathgame." &>> /dev/null && git push &>> /dev/null && cd ../../ &>> /dev/null; then echo -ne "${AV_VERDE}"; antoniovandre_echo "${SUCCESS}" n; echo -e "${AV_SEMCOR}."; else echo -ne "${AV_VERMELHO}"; bash antoniovandre_echo "${FAIL}" n; echo -ne "${AV_SEMCOR}"; echo "."; rm "${LOCKFILE}" &>> /dev/null; exit 1; fi; fi; fi
+
+# Fim personalização de Antonio Vandré.
+
+antoniovandre_echo "${THANKS}"
+
+rm "${LOCKFILE}" &>> /dev/null
+
+exit 0
