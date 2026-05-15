@@ -6,7 +6,7 @@
 
 # Licença: Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA).
 
-# Última atualização: 09-05-2026. Não considerando alterações em variáveis globais e personalizações.
+# Última atualização: 15-05-2026. Não considerando alterações em variáveis globais e personalizações.
 
 # Argumentos: "ne" para não processar estatísticas, ou "oe" para apenas processar estatísticas.
 
@@ -267,10 +267,10 @@ if [ "${FLAGSUSS}" == "1" ] ; then
 
 	case "${LINGUA}" in
 	"p")
-		LOCKFILEEXISTS="Jogo já em execução ou encerrado incorretamente. No segundo caso remova \"${LOCKFILE}\""
+		LOCKFILEEXISTS="Jogo já em execução ou encerrado incorretamente."
 	;;
 	"e")
-		LOCKFILEEXISTS="Game already running or closed incorrectly. In second case remove \"${LOCKFILE}\""
+		LOCKFILEEXISTS="Game already running or closed incorrectly."
 	;;
 	*) ;;
 	esac
@@ -310,7 +310,7 @@ if [ "${FLAGSUSS}" == "1" ] ; then
 
 		echo ""
 
-		antoniovandre_echo "${VERSION} 10-05-2025."
+		antoniovandre_echo "${VERSION} 15-05-2026."
 
 		echo ""
 
@@ -680,9 +680,9 @@ if [ "${FLAGSUSS}" == "1" ] ; then
 				rm "${ARQUIVOGNUPLOTDATA6}" &>> /dev/null
 				rm "${ARQUIVOGNUPLOTDATA7}" &>> /dev/null
 
-				CONTADORLINHAS="0"; ONCE="0"; ONCE2="0"; ONCE3="0"
+				CONTADORLINHAS="0"; ONCE="0"
 
-				while read -r LINHA; do if [ "${ONCE3}" == "0" ]; then echo -n " "; ONCE3="1"; fi; PERCENTUAL=$(echo "100 * ${CONTADORLINHAS} / $(expr ${TOTALLINHAS} - ${CACHELINHAS})" | bc -l | awk '{printf "%.2f %%", $1}'); if [ $(echo "${PERCENTUAL}" | cut -d "." -f 1 | wc -c) == "1" ]; then echo -ne "\b\b\b\b\b\b\b"; else if [ $(echo "${PERCENTUAL}" | cut -d "." -f 1 | wc -c) == "2" ]; then echo -ne "\b\b\b\b\b\b\b\b"; if [ "${ONCE}" == "0" ]; then echo -n " "; ONCE="1"; fi; else echo -ne "\b\b\b\b\b\b\b\b\b"; if [ "${ONCE2}" == "0" ]; then echo -n " "; ONCE2="1"; fi; fi; fi; echo -n "${PERCENTUAL}"; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne " ${CHARPROGRESS}"
+				while read -r LINHA; do PERCENTUAL=$(echo "100 * ${CONTADORLINHAS} / $(expr ${TOTALLINHAS} - ${CACHELINHAS})" | bc -l | awk '{printf "%.2f %%", $1}'); if [ "${ONCE}" == "0" ]; then echo -ne " ${PERCENTUAL}"; ONCE="1"; else echo -ne " \b\b\b\b\b\b\b\b\b\b${PERCENTUAL}"; fi; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne " ${CHARPROGRESS}"
 
 					ERRLINHA="${LINHAR2}"; LINHAR2="${LINHAR3}"; LINHAR3="${LINHAR4}"; LINHAR4="${LINHA}";
 
@@ -1148,11 +1148,9 @@ if [ "${FLAGSUSS}" == "1" ] ; then
 
 				rm "${ARQUIVOGNUPLOTDATA7}" &>> /dev/null
 
-				if [ "${ONCE3}" == "0" ]; then echo -ne "\b "; fi;
+				if [ "${ONCE}" == "0" ]; then echo -ne "\b 100.00 %"; ONCE="1"; else echo -ne "\b\b\b\b\b\b\b\b\b\b 100.00 %"; fi;
 
-				if [ "${ONCE2}" == "0" ]; then echo -ne "\b 100.00 % "; else echo -ne "\b\b 100.00 % "; fi
-
-				echo -ne "${AV_VERDE}"; bash antoniovandre_echo "${CONCLUDED}" n; echo -ne "${AV_SEMCOR}"; echo "."
+				echo -ne "${AV_VERDE}"; bash antoniovandre_echo " ${CONCLUDED}" n; echo -ne "${AV_SEMCOR}"; echo "."
 
 			fi
 
