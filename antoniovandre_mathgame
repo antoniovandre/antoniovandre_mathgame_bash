@@ -682,7 +682,7 @@ if [ "${FLAGSUSS}" == "1" ] ; then
 
 				CONTADORLINHAS="0"; ONCE="0"
 
-				while read -r LINHA; do PERCENTUAL=$(echo "100 * ${CONTADORLINHAS} / $(expr ${TOTALLINHAS} - ${CACHELINHAS})" | bc -l | awk '{printf "%.2f %%", $1}'); if [ "${ONCE}" == "0" ]; then echo -ne " ${PERCENTUAL}"; ONCE="1"; else echo -ne " \b\b\b\b\b\b\b\b\b\b${PERCENTUAL}"; fi; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne " ${CHARPROGRESS}"
+				while read -r LINHA; do PERCENTUAL=$(echo "100 * ${CONTADORLINHAS} / $(expr ${TOTALLINHAS} - ${CACHELINHAS})" | bc -l | awk '{printf "%.2f %%", $1}'); if [ "${ONCE}" == "0" ]; then echo -ne " ${PERCENTUAL}"; ONCE="1"; else echo -ne "\b\b\b\b\b\b\b\b\b\b ${PERCENTUAL}"; fi; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne " ${CHARPROGRESS}"
 
 					ERRLINHA="${LINHAR2}"; LINHAR2="${LINHAR3}"; LINHAR3="${LINHAR4}"; LINHAR4="${LINHA}";
 
