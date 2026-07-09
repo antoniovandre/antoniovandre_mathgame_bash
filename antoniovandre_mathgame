@@ -6,7 +6,7 @@
 
 # Licença: Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA).
 
-# Última atualização: 15-05-2026. Não considerando alterações em variáveis globais e personalizações.
+# Última atualização: 09-07-2026. Não considerando alterações em variáveis globais e personalizações.
 
 # Argumentos: "ne" para não processar estatísticas, ou "oe" para apenas processar estatísticas.
 
@@ -310,7 +310,7 @@ if [ "${FLAGSUSS}" == "1" ] ; then
 
 		echo ""
 
-		antoniovandre_echo "${VERSION} 15-05-2026."
+		antoniovandre_echo "${VERSION} 09-07-2026."
 
 		echo ""
 
@@ -682,7 +682,7 @@ if [ "${FLAGSUSS}" == "1" ] ; then
 
 				CONTADORLINHAS="0"; ONCE="0"
 
-				while read -r LINHA; do PERCENTUAL=$(echo "100 * ${CONTADORLINHAS} / $(expr ${TOTALLINHAS} - ${CACHELINHAS})" | bc -l | awk '{printf "%.2f %%", $1}'); if [ "${ONCE}" == "0" ]; then echo -ne " ${PERCENTUAL}"; ONCE="1"; else echo -ne "\b\b\b\b\b\b\b\b\b\b ${PERCENTUAL}"; fi; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne " ${CHARPROGRESS}"
+				while read -r LINHA; do PERCENTUAL=$(echo "100 * ${CONTADORLINHAS} / $(expr ${TOTALLINHAS} - ${CACHELINHAS})" | bc -l | awk '{printf "%.2f %%", $1}'); if [ "${ONCE}" == "0" ]; then echo -ne " ${PERCENTUAL}"; ONCE="1"; else if [ $(echo -n "${PERCENTUAL}" | wc -c) == "7" ]; then echo -ne "\b"; fi; echo -ne "\b\b\b\b\b\b\b\b\b ${PERCENTUAL}"; fi; case "${CHARPROGRESS}" in "") CHARPROGRESS="-";; "-") CHARPROGRESS="\\";; "\\") CHARPROGRESS="|";; "|") CHARPROGRESS="/";; "/") CHARPROGRESS="-";; *) ;; esac; echo -ne " ${CHARPROGRESS}"
 
 					ERRLINHA="${LINHAR2}"; LINHAR2="${LINHAR3}"; LINHAR3="${LINHAR4}"; LINHAR4="${LINHA}";
 
