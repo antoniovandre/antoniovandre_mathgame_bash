@@ -6,7 +6,7 @@
 
 # Licença: Atribuição-NãoComercial-CompartilhaIgual (CC BY-NC-SA).
 
-# Última atualização: 21-07-2026. Não considerando alterações em variáveis globais e personalizações.
+# Última atualização: 21-10-2026. Não considerando alterações em variáveis globais e personalizações.
 
 # Argumentos: "ne" para não processar estatísticas, ou "oe" para apenas processar estatísticas.
 
@@ -302,9 +302,9 @@ if [ "${FLAGSUSS}" == "1" ] ; then
 
 		RESPOSTAUSUARIO=""
 
-		if [ "${DROPBOX}" == "1" ]; then if [ "${AVLOG}" == "1" ]; then antoniovandre_echo "${MAKINGDOWNLOADTEMP}" n; if ! antoniovandre_dbxcli_get "${DIRCLOUDSYNC}${ARQUIVOLOGTEMP##*/}" "${ARQUIVOLOGTEMP}" &>> /dev/null; then echo -ne " ${AV_VERMELHO}"; antoniovandre_echo "${ERRORDOWNLOADFILES}" n; echo -e "${AV_SEMCOR}."; else echo -ne " ${AV_VERDE}"; antoniovandre_echo "${SUCCESS}" n; echo -e "${AV_SEMCOR}."; fi; fi; fi
+		if [ "${DROPBOX}" == "1" ]; then if [ "${AVLOG}" == "1" ]; then antoniovandre_echo "${MAKINGDOWNLOADTEMP}" n; if ! antoniovandre_dbxcli_get "${DIRCLOUDSYNC}${ARQUIVOLOGTEMP##*/}" "${ARQUIVOLOGTEMP}" &>> /dev/null; then echo -ne " ${AV_VERMELHO}"; antoniovandre_echo "${ERRORDOWNLOADFILES}" n; echo -e "${AV_SEMCOR}."; rm "${LOCKFILE}"; exit 1; else echo -ne " ${AV_VERDE}"; antoniovandre_echo "${SUCCESS}" n; echo -e "${AV_SEMCOR}."; fi; fi; fi
 
-		if [ "${DROPBOX}" == "1" ]; then if [ "${AVLOG}" == "1" ]; then antoniovandre_echo "${MAKINGDOWNLOAD}" n; if ! antoniovandre_dbxcli_get "${DIRCLOUDSYNC}${ARQUIVOLOG##*/}" "${ARQUIVOLOG%/*}" &>> /dev/null || ! antoniovandre_dbxcli_get "${DIRCLOUDSYNC}${ARQUIVOCACHESTAT##*/}" "${ARQUIVOCACHESTAT%/*}" &>> /dev/null; then echo -ne "${AV_VERMELHO}"; antoniovandre_echo "${ERRORDOWNLOADFILES}" n; echo -e "${AV_SEMCOR}."; else echo -ne "${AV_VERDE}"; antoniovandre_echo "${SUCCESS}" n; echo -e "${AV_SEMCOR}."; fi; fi; fi
+		if [ "${DROPBOX}" == "1" ]; then if [ "${AVLOG}" == "1" ]; then antoniovandre_echo "${MAKINGDOWNLOAD}" n; if ! antoniovandre_dbxcli_get "${DIRCLOUDSYNC}${ARQUIVOLOG##*/}" "${ARQUIVOLOG%/*}" &>> /dev/null || ! antoniovandre_dbxcli_get "${DIRCLOUDSYNC}${ARQUIVOCACHESTAT##*/}" "${ARQUIVOCACHESTAT%/*}" &>> /dev/null; then echo -ne "${AV_VERMELHO}"; antoniovandre_echo "${ERRORDOWNLOADFILES}" n; echo -e "${AV_SEMCOR}."; rm "${LOCKFILE}"; exit 1; else echo -ne "${AV_VERDE}"; antoniovandre_echo "${SUCCESS}" n; echo -e "${AV_SEMCOR}."; fi; fi; fi
 
 		if (! ls "${ARQUIVOLOGTEMP}" &>> /dev/null) && ls "${ARQUIVOLOG}" &>> /dev/null; then cp "${ARQUIVOLOG}" "${ARQUIVOLOGTEMP}"; fi
 
@@ -320,7 +320,7 @@ if [ "${FLAGSUSS}" == "1" ] ; then
 
 		echo ""
 
-		antoniovandre_echo "${VERSION} 21-07-2026."
+		antoniovandre_echo "${VERSION} 21-10-2026."
 
 		echo ""
 
